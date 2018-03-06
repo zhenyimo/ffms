@@ -28,6 +28,7 @@ import net.sf.json.JSONObject;
  *
  */
 @Controller
+//@RequestMapping("RoleController")
 public class RoleController {
 	
 	@Resource

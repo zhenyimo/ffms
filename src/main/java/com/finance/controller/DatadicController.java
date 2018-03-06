@@ -28,6 +28,8 @@ import net.sf.json.JSONObject;
  *
  */
 @Controller
+//@RequestMapping("DatadicController")
+
 public class DatadicController {
 	
 	@Resource

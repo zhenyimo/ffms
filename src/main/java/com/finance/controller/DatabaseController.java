@@ -40,6 +40,8 @@ import net.sf.json.JSONObject;
  *
  */
 @Controller
+//@RequestMapping("DatabaseController")
+
 public class DatabaseController {
 	@Resource
 	private DatabaseService databaseService;
@@ -52,8 +54,10 @@ public class DatabaseController {
 		try {
 			InputStream is = CurrentConn.class.getResourceAsStream("/db.properties");
 			prop.load(is);
-			username = DESUtils.getDecryptString(prop.getProperty("username"));
-			password = DESUtils.getDecryptString(prop.getProperty("password"));
+//			username = DESUtils.getDecryptString(prop.getProperty("username"));
+//			password = DESUtils.getDecryptString(prop.getProperty("password"));
+			username = prop.getProperty("username");
+			password = prop.getProperty("password");
 			is.close();
 		} catch (Exception ex) {
 			ex.printStackTrace();

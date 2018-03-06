@@ -4,16 +4,16 @@ import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
 
 public class EncryptPropertyPlaceholderConfigurer extends
 		PropertyPlaceholderConfigurer {
-	private String[] encryptPropNames = { "username", "password" };
+	private String[] encryptPropNames = {  };
 
 	@Override
 	protected String convertProperty(String propertyName, String propertyValue) {
-		if (isEncryptProp(propertyName)) {
-			String decryptValue = DESUtils.getDecryptString(propertyValue);
-			return decryptValue;
-		} else {
+//		if (isEncryptProp(propertyName)) {
+//			String decryptValue = DESUtils.getDecryptString(propertyValue);
+//			return decryptValue;
+//		} else {
 			return propertyValue;
-		}
+//		}
 	}
 
 	/**

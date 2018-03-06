@@ -5,7 +5,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>家庭理财管理系统登录</title>
+	<title>心理测试后台管理平台</title>
 	<link rel="stylesheet" type="text/css" href="${basePath}bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="${basePath}bootstrap/css/bootstrap-reset.css">
 	<link rel="stylesheet" type="text/css" href="${basePath}bootstrap/css/jquery-ui-1.10.3.css">
@@ -17,7 +17,7 @@
 		<form class="form-signin">
 		    <div class="form-signin-heading text-center">
 		        <h1 class="sign-title">登录</h1>
-		        <h2 style="color:#008CBA;">家庭理财管理系统</h2>
+		        <h2 style="color:#008CBA;">心理测试后台管理平台</h2>
 		    </div>
 		    <div class="login-wrap">
 		        <input type="text" name="username" id="inputUsername" class="form-control" placeholder="请输入用户名" autofocus>

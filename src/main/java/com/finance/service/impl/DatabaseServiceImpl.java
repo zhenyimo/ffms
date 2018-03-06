@@ -23,32 +23,32 @@ public class DatabaseServiceImpl implements DatabaseService{
 	@Resource
 	private DatabaseDao databaseDao;
 	
-	@Override
+	
 	public List<Database> findDataBack(Map<String, Object> map) {
 		return databaseDao.findDataBack(map);
 	}
 	
-	@Override
+	
 	public Long getDataBackTotal(Map<String, Object> map) {
 		return databaseDao.getDataBackTotal(map);
 	}
 
-	@Override
+	
 	public int addDatabase(Database database) {
 		return databaseDao.addDatabase(database);
 	}
 	
-	@Override
+	
 	public int deleteDatabase(Integer id) {
 		return databaseDao.deleteDatabase(id);
 	}
 	
-	@Override
+	
 	public int truncateTable(@Param("tablename") String tablename){
 		return databaseDao.truncateTable(tablename);
 	}
 	
-	@Override
+	
 	public int deleteOrderdata(@Param("tablename") String tablename,@Param("startid") Integer startid,@Param("endid") Integer endid){
 		return databaseDao.deleteOrderdata(tablename,startid,endid);
 	}

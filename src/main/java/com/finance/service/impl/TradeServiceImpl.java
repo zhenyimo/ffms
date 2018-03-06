@@ -23,20 +23,20 @@ public class TradeServiceImpl implements TradeService{
 	@Resource
 	private TradeDao tradeDao;
 	
-	@Override
+	
 	public List<Trade> findTrade(Map<String, Object> map) {
 		// TODO Auto-generated method stub
 		return tradeDao.findTrade(map);
 	}
 
-	@Override
+	
 	public Long getTotalTrade(Map<String, Object> map) {
 		// TODO Auto-generated method stub
 		return tradeDao.getTotalTrade(map);
 	}
 
 	
-	@Override
+	
 	public int addTrade(Trade trade) {
 		// TODO Auto-generated method stub
 		trade.setMoney(trade.getPrice()*trade.getNumber());
@@ -44,7 +44,7 @@ public class TradeServiceImpl implements TradeService{
 		return tradeDao.addTrade(trade);
 	}
 
-	@Override
+	
 	public int updateTrade(Trade trade) {
 		// TODO Auto-generated method stub
 		trade.setMoney(trade.getPrice()*trade.getNumber());
@@ -52,7 +52,7 @@ public class TradeServiceImpl implements TradeService{
 		return tradeDao.updateTrade(trade);
 	}
 
-	@Override
+	
 	public int deleteTrade(Integer id) {
 		// TODO Auto-generated method stub
 		return tradeDao.deleteTrade(id);

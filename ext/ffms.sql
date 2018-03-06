@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2018-03-05 21:54:04
+Date: 2018-03-07 02:04:49
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -328,9 +328,9 @@ CREATE TABLE `xl_comment` (
   `good_understandability` varchar(5) DEFAULT '' COMMENT '题目易懂性',
   `good_accuracy` varchar(5) DEFAULT '' COMMENT '准确性',
   `good_practical` varchar(5) DEFAULT NULL COMMENT '实用性',
-  `content` char(200) DEFAULT NULL,
+  `content` varchar(200) DEFAULT NULL,
   `comment_time` datetime DEFAULT NULL,
-  `anonymous` char(2) DEFAULT '0' COMMENT '(0：匿名评论；1：不匿名)默认是0',
+  `anonymous` int(2) DEFAULT '0' COMMENT '(0：匿名评论；1：不匿名)默认是0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=gb2312;
 
@@ -455,19 +455,18 @@ CREATE TABLE `xl_order` (
   `order_no` varchar(20) DEFAULT NULL COMMENT '订单编号(都是数字）',
   `time` datetime DEFAULT NULL COMMENT '订单生成时间（支付成功才生成订单）',
   `flag` varchar(11) DEFAULT '0' COMMENT '是否支付',
-  `money` float(20,1) DEFAULT NULL COMMENT '金额',
+  `money` double(20,1) DEFAULT NULL COMMENT '金额',
   `vipId` int(20) DEFAULT NULL COMMENT '会员id',
   `goodId` int(20) DEFAULT NULL COMMENT '题目id',
   `commentId` int(20) DEFAULT NULL COMMENT '评价id',
-  `question_type` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=gb2312;
 
 -- ----------------------------
 -- Records of xl_order
 -- ----------------------------
-INSERT INTO `xl_order` VALUES ('23', null, '2017-01-08 19:58:44', '1', '422.0', '2', null, null, null);
-INSERT INTO `xl_order` VALUES ('24', null, '2017-01-08 20:41:18', '1', '213.0', '4', null, null, null);
+INSERT INTO `xl_order` VALUES ('23', null, '2017-01-08 19:58:44', '1', '422.0', '2', null, null);
+INSERT INTO `xl_order` VALUES ('24', null, '2017-01-08 20:41:18', '1', '213.0', '4', null, null);
 
 -- ----------------------------
 -- Table structure for xl_order_send
@@ -478,7 +477,7 @@ CREATE TABLE `xl_order_send` (
   `order_no` varchar(50) DEFAULT NULL COMMENT '订单编号',
   `time` datetime DEFAULT NULL,
   `money` double(20,1) DEFAULT NULL,
-  `gvId` int(11) DEFAULT NULL,
+  `goodId` int(11) DEFAULT NULL,
   `order_num` int(20) DEFAULT NULL COMMENT '数量',
   `from_user` int(11) DEFAULT NULL,
   `to_user` int(11) DEFAULT NULL,
@@ -498,7 +497,6 @@ CREATE TABLE `xl_question` (
   `goodId` int(11) DEFAULT NULL,
   `question_num` int(33) DEFAULT NULL COMMENT '第几题',
   `question_content` blob COMMENT '题目内容',
-  `qustion_type` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=gbk;
 
@@ -536,13 +534,21 @@ INSERT INTO `xl_type` VALUES ('15', '金融类', '1');
 -- ----------------------------
 DROP TABLE IF EXISTS `xl_vip`;
 CREATE TABLE `xl_vip` (
-  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '会员表（当游客支付成功之后才会成为会员）',
-  `vip_username` varchar(50) DEFAULT NULL COMMENT '会员账号',
-  `vip_name` varchar(20) DEFAULT NULL COMMENT '会员名称',
-  `vip_sex` varchar(20) DEFAULT NULL COMMENT '性别',
-  `vip_age` varchar(20) DEFAULT NULL COMMENT '年龄',
-  `openid` varchar(11) DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `openId` varchar(255) CHARACTER SET utf8 DEFAULT NULL COMMENT '用户标示',
   `vip_flag` varchar(2) DEFAULT NULL COMMENT '是否vip(1:就是vip)',
+  `subscribeTime` datetime DEFAULT NULL,
+  `unsubscribeTime` datetime DEFAULT NULL,
+  `nickName` varchar(255) CHARACTER SET utf8 DEFAULT NULL COMMENT '昵称',
+  `unionid` varchar(255) CHARACTER SET utf8 DEFAULT NULL COMMENT '只有在用户将公众号绑定到微信开放平台帐号后，才会出现该字段',
+  `privilege` varchar(255) CHARACTER SET utf8 DEFAULT NULL COMMENT '用户特权信息，json 数组，如微信沃卡用户为（chinaunicom）',
+  `headimgurl` varchar(255) CHARACTER SET utf8 DEFAULT NULL COMMENT '图像',
+  `country` varchar(10) CHARACTER SET utf8 DEFAULT NULL COMMENT '国家',
+  `city` varchar(10) CHARACTER SET utf8 DEFAULT NULL COMMENT '城市',
+  `province` varchar(10) CHARACTER SET utf8 DEFAULT NULL,
+  `sex` int(1) DEFAULT NULL COMMENT '用户的性别，值为1时是男性，值为2时是女性，值为0时是未知',
+  `updateTime` datetime NOT NULL COMMENT '更新时间',
+  `remark` text CHARACTER SET utf8 COMMENT '备注',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=gbk;
 
@@ -563,7 +569,6 @@ CREATE TABLE `xl_voucher` (
   `validate` datetime(6) DEFAULT NULL COMMENT '有效期',
   `vo_num` int(50) DEFAULT NULL COMMENT '数量',
   `goodId` int(11) DEFAULT NULL COMMENT '如果type为2，则指定的goodId',
-  `gvid` int(11) DEFAULT NULL,
   `stipulate_price` double(10,2) DEFAULT NULL COMMENT '到达多少钱才能使用',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=gbk;

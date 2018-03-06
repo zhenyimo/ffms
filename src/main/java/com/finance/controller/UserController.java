@@ -39,6 +39,8 @@ import net.sf.json.JSONObject;
  *
  */
 @Controller
+//@RequestMapping("UserController")
+
 public class UserController {
 	@Resource
 	private UserService userService;
@@ -195,7 +197,7 @@ public class UserController {
 	@RequestMapping("/logout.do")
 	public String logout(HttpSession session) throws Exception {
 		session.removeAttribute(Constants.currentUserSessionKey);
-		return "redirect:/index.do";
+		return "redirect:/UserController/index.do";
 	}
 
 	/**
