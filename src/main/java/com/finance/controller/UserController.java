@@ -61,7 +61,7 @@ public class UserController {
 	public String index(ModelMap map) {
 		List<Role> list = roleService.getRoles();
 		map.addAttribute("roles", list);
-		return "login";
+		return "admin/login";
 	}
 
 	/**
@@ -153,7 +153,7 @@ public class UserController {
 		User usermessage = userService.getUserById(usersession.getId());
 		usermessage.setPassword(Base64Util.decodeStr(usermessage.getPassword(),"UTF-8"));
 		map.addAttribute("usermessage", usermessage);
-		return "main";
+		return "admin/main";
 	}
 
 	/**
@@ -163,7 +163,7 @@ public class UserController {
 	public String userManage(ModelMap map) {
 		List<Role> list = roleService.getRoles();
 		map.addAttribute("roles", list);
-		return "userManage";
+		return "admin/userManage";
 	}
 
 	/**
@@ -197,7 +197,7 @@ public class UserController {
 	@RequestMapping("/logout.do")
 	public String logout(HttpSession session) throws Exception {
 		session.removeAttribute(Constants.currentUserSessionKey);
-		return "redirect:/UserController/index.do";
+		return "redirect:/index.do";
 	}
 
 	/**

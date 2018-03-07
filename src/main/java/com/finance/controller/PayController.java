@@ -73,7 +73,7 @@ public class PayController {
 		userMap.put("roleid", curuser.getRoleid());
 		List<User> userlist = userService.getAllUser(userMap);
 		map.addAttribute("allUsers", userlist);
-		return "payManage";
+		return "admin/payManage";
 	}
 
 	/**

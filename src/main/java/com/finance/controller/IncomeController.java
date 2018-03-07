@@ -72,7 +72,7 @@ public class IncomeController {
 		userMap.put("roleid", curuser.getRoleid());
 		List<User> userlist = userService.getAllUser(userMap);
 		map.addAttribute("allUsers", userlist);
-		return "incomeManage";
+		return "admin/incomeManage";
 	}
 
 	/**

@@ -42,7 +42,7 @@ public class DatadicController {
 	public String datadicManage(ModelMap map) {
 		List<Datadic> list = datadicService.getDatadicname();
 		map.addAttribute("datadicnames", list);
-		return "datadicManage";
+		return "admin/datadicManage";
 	}
 	
 	/**

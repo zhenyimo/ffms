@@ -78,7 +78,7 @@ public class TradeController {
 		map.addAttribute("allUsers", userlist);
 		List<Shares> shareslist = sharesService.getSharesName();
 		map.addAttribute("allShares", shareslist);
-		return "tradeManage";
+		return "admin/tradeManage";
 	}
 
 	/**

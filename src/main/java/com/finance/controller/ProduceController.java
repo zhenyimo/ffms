@@ -51,7 +51,7 @@ public class ProduceController {
 	 */
 	@RequestMapping("/incomeTimeManage.do")
 	public String incomeTimeManage() {
-		return "incomeTimeManage";
+		return "admin/incomeTimeManage";
 	}
 	
 	/**
@@ -105,7 +105,7 @@ public class ProduceController {
 	 */
 	@RequestMapping("/payTimeManage.do")
 	public String payTimeManage() {
-		return "payTimeManage";
+		return "admin/payTimeManage";
 	}
 	
 	/**
@@ -196,7 +196,7 @@ public class ProduceController {
 	 */
 	@RequestMapping("/typePieManage.do")
 	public String typePieManage() {
-		return "typePieManage";
+		return "admin/typePieManage";
 	}
 	
 	/**

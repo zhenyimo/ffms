@@ -61,7 +61,7 @@ public class EntryController {
 	public String index(ModelMap map) {
 		List<Role> list = roleService.getRoles();
 		map.addAttribute("roles", list);
-		return "web/index";
+		return "front/index";
 	}
 
 	/**

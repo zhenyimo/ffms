@@ -67,7 +67,7 @@ public class SharesController {
 		userMap.put("roleid", curuser.getRoleid());
 		List<User> userlist = userService.getAllUser(userMap);
 		map.addAttribute("allUsers", userlist);
-		return "sharesManage";
+		return "admin/sharesManage";
 	}
 
 	/**

@@ -69,7 +69,7 @@ public class DatabaseController {
 	 */
 	@RequestMapping("/databackManage.do")
 	public String databackManage() {
-		return "databackManage";
+		return "admin/databackManage";
 	}
 	
 	/**
@@ -77,7 +77,7 @@ public class DatabaseController {
 	 */
 	@RequestMapping("/datarecoverManage.do")
 	public String datarecoverManage() {
-		return "datarecoverManage";
+		return "admin/datarecoverManage";
 	}
 	
 	/**
@@ -85,7 +85,7 @@ public class DatabaseController {
 	 */
 	@RequestMapping("/dataorderManage.do")
 	public String dataorderManage() {
-		return "dataorderManage";
+		return "admin/dataorderManage";
 	}
 	
 	/**
@@ -93,7 +93,7 @@ public class DatabaseController {
 	 */
 	@RequestMapping("/datainitManage.do")
 	public String datainitManage() {
-		return "datainitManage";
+		return "admin/datainitManage";
 	}
 	
 	/**
