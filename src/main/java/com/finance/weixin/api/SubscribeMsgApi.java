@@ -1,9 +1,11 @@
+package com.finance.weixin.api;
+
 /**
  * Copyright (c) 2011-2017, Javen Zhou (javendev@126.com).
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  */
-package com.javen.weixin.api;
+
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;

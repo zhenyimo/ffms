@@ -12,19 +12,18 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.finance.model.AjaxResult;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 import com.javen.entity.PayAttach;
 import com.javen.kit.ZxingKit;
 import com.javen.model.Order;
 import com.javen.utils.StringUtils;
-import com.javen.vo.AjaxResult;
 import com.jfinal.kit.HttpKit;
 import com.jfinal.kit.JsonKit;
 import com.jfinal.kit.PathKit;
 import com.jfinal.kit.PropKit;
 import com.jfinal.kit.StrKit;
-import com.jfinal.log.Log;
 import com.jfinal.weixin.sdk.api.ApiConfig;
 import com.jfinal.weixin.sdk.api.PaymentApi;
 import com.jfinal.weixin.sdk.api.PaymentApi.TradeType;
@@ -41,7 +40,6 @@ import com.jfinal.weixin.sdk.utils.JsonUtils;
 public class WeixinPayController extends ApiController {
 	
 	
-	static Log log=Log.getLog(WeixinApiController.class);
 	private AjaxResult ajax = new AjaxResult();
 	//商户相关资料
 	String appid = PropKit.get("appId");

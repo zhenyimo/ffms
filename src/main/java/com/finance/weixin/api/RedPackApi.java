@@ -1,4 +1,5 @@
-package com.javen.weixin.api;
+package com.finance.weixin.api;
+
 
 import com.jfinal.weixin.sdk.kit.PaymentKit;
 import com.jfinal.weixin.sdk.utils.HttpUtils;

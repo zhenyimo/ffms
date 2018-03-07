@@ -30,7 +30,24 @@
 	<!-- 视图解析器 -->
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"></property>
-		<property name="prefix" value="/WEB-INF/pages/"></property>
+		<property name="prefix" value="/pages/"></property>
 		<property name="suffix" value=".jsp"></property>
+		 <!-- 定义模板顺序 -->  
+        <property name="order" value="1"></property>  
 	</bean>
+	
+	
+	<bean  
+    class="org.springframework.web.servlet.view.InternalResourceViewResolver">  
+      
+    <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"></property>  
+    <property name="prefix" value="/pages/web/"></property>  
+    <!-- 如果想返回html页面怎么办 -->  
+    <property name="suffix" value=".html"></property>  
+    <property name="viewNames" value="html*"></property>  
+    <!-- 定义模板顺序 -->  
+    <property name="order" value="2"></property>  
+</bean>
+	
+	
 </beans>  
