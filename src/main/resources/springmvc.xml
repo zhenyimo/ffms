@@ -20,12 +20,15 @@
         http://www.springframework.org/schema/aop
        http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
 ">
-    
+    <!-- 引入wx资源文件 -->
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
+		p:location="classpath:wx.properties" p:fileEncoding="UTF-8" />
     <!-- 开启注解驱动 -->
     <mvc:annotation-driven ignore-default-model-on-redirect="false" /> 
     
 	<!-- 使用注解的包，包括子集 -->
 	<context:component-scan base-package="com.finance.controller"></context:component-scan>
+	<context:component-scan base-package="com.finance.config"></context:component-scan>
 
 	<!-- 视图解析器 -->
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
