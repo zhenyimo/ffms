@@ -4,7 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>商城首页</title>
+<title>心理测试首页</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
@@ -26,7 +26,7 @@
       </div>
       <label class="weui-search-bar__label" id="searchText" style="transform-origin: 0px 0px 0px; opacity: 1; transform: scale(1, 1);">
         <i class="weui-icon-search"></i>
-        <span>搜索您想要的商品</span>
+        <span>搜索您想要的心理测试题</span>
       </label>
     </form>
     <a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
@@ -45,12 +45,12 @@
     <div class="swiper-pagination"></div>
   </div>
   <!--图标分类-->
-  <div class="weui-flex wy-iconlist-box">
+  <!-- <div class="weui-flex wy-iconlist-box">
     <div class="weui-flex__item"><a href="pro_list.html" class="wy-links-iconlist"><div class="img"><img src="../pages/front/images/icon-link1.png"></div><p>精选推荐</p></a></div>
     <div class="weui-flex__item"><a href="pro_list.html" class="wy-links-iconlist"><div class="img"><img src="../pages/front/images/icon-link2.png"></div><p>酒水专场</p></a></div>
     <div class="weui-flex__item"><a href="all_orders.html" class="wy-links-iconlist"><div class="img"><img src="../pages/front/images/icon-link3.png"></div><p>订单管理</p></a></div>
     <div class="weui-flex__item"><a href="Settled_in.html" class="wy-links-iconlist"><div class="img"><img src="../pages/front/images/icon-link4.png"></div><p>商家入驻</p></a></div>
-  </div>
+  </div> -->
   <!--新闻切换-->
   <div class="wy-ind-news">
     <i class="news-icon-laba"></i>
@@ -65,7 +65,7 @@
   </div>
   <!--精选推荐-->
   <div class="wy-Module">
-    <div class="wy-Module-tit"><span>精选推荐</span></div>
+    <div class="wy-Module-tit"><span>爆款推荐</span></div>
     <div class="wy-Module-con">
       <div class="swiper-container swiper-jingxuan" style="padding-top:34px;">
         <div class="swiper-wrapper">
@@ -81,23 +81,17 @@
     </div>
   </div>
   <!--酒水专场-->
-  <div class="wy-Module">
-    <div class="wy-Module-tit"><span>酒水推荐</span></div>
+ <div class="wy-Module">
+    <div class="wy-Module-tit"><span>新品发布</span></div>
     <div class="wy-Module-con">
-      <div class="swiper-container swiper-jiushui" style="padding-top:34px;">
+      <div class="swiper-container swiper-jingxuan" style="padding-top:34px;">
         <div class="swiper-wrapper">
-          <div class="swiper-slide"><a href="pro_info.html"><img src="upload/jingxuan1.jpg" /></a></div>
-          <div class="swiper-slide"><a href="pro_info.html"><img src="upload/jingxuan2.jpg" /></a></div>
-          <div class="swiper-slide"><a href="pro_info.html"><img src="upload/jingxuan3.jpg" /></a></div>
-          <div class="swiper-slide"><a href="pro_info.html"><img src="upload/jingxuan4.jpg" /></a></div>
-          <div class="swiper-slide"><a href="pro_info.html"><img src="upload/jingxuan5.jpg" /></a></div>
-          <div class="swiper-slide"><a href="pro_info.html"><img src="upload/jingxuan1.jpg" /></a></div>
-          <div class="swiper-slide"><a href="pro_info.html"><img src="upload/jingxuan1.jpg" /></a></div>
-          <div class="swiper-slide"><a href="pro_info.html"><img src="upload/jingxuan2.jpg" /></a></div>
-          <div class="swiper-slide"><a href="pro_info.html"><img src="upload/jingxuan3.jpg" /></a></div>
-          <div class="swiper-slide"><a href="pro_info.html"><img src="upload/jingxuan4.jpg" /></a></div>
-          <div class="swiper-slide"><a href="pro_info.html"><img src="upload/jingxuan5.jpg" /></a></div>
-          <div class="swiper-slide"><a href="pro_info.html"><img src="upload/jingxuan1.jpg" /></a></div>
+          <div class="swiper-slide"><a href="pro_info.html"><img src="../pages/front/upload/jingxuan1.jpg" /></a></div>
+          <div class="swiper-slide"><a href="pro_info.html"><img src="../pages/front/upload/jingxuan2.jpg" /></a></div>
+          <div class="swiper-slide"><a href="pro_info.html"><img src="../pages/front/upload/jingxuan3.jpg" /></a></div>
+          <div class="swiper-slide"><a href="pro_info.html"><img src="../pages/front/upload/jingxuan4.jpg" /></a></div>
+          <div class="swiper-slide"><a href="pro_info.html"><img src="../pages/front/upload/jingxuan5.jpg" /></a></div>
+          <div class="swiper-slide"><a href="pro_info.html"><img src="../pages/front/upload/jingxuan1.jpg" /></a></div>
         </div>
         <div class="swiper-pagination jingxuan-pagination"></div>
       </div>
@@ -105,64 +99,37 @@
   </div>
   <!--猜你喜欢-->
   <div class="wy-Module">
-    <div class="wy-Module-tit-line"><span>猜你喜欢</span></div>
+    <div class="wy-Module-tit-line"><span>精选评测</span></div>
     <div class="wy-Module-con">
-      <ul class="wy-pro-list clear">
-        <li>
-          <a href="pro_info.html">
-            <div class="proimg"><img src="upload/pro1.jpg"></div>
-            <div class="protxt">
-              <div class="name">洋河蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食白酒2瓶装包邮</div>
-              <div class="wy-pro-pri">¥<span>296.00</span></div>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href="pro_info.html">
-            <div class="proimg"><img src="upload/pro2.jpg"></div>
-            <div class="protxt">
-              <div class="name">洋河蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食白酒2瓶装包邮</div>
-              <div class="wy-pro-pri">¥<span>296.00</span></div>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href="pro_info.html">
-            <div class="proimg"><img src="upload/pro3.jpg"></div>
-            <div class="protxt">
-              <div class="name">洋河蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食白酒2瓶装包邮</div>
-              <div class="wy-pro-pri">¥<span>296.00</span></div>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href="pro_info.html">
-            <div class="proimg"><img src="upload/pro4.jpg"></div>
-            <div class="protxt">
-              <div class="name">洋河蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食白酒2瓶装包邮</div>
-              <div class="wy-pro-pri">¥<span>296.00</span></div>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href="pro_info.html">
-            <div class="proimg"><img src="upload/pro5.jpg"></div>
-            <div class="protxt">
-              <div class="name">洋河蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食白酒2瓶装包邮</div>
-              <div class="wy-pro-pri">¥<span>296.00</span></div>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href="pro_info.html">
-            <div class="proimg"><img src="upload/pro1.jpg"></div>
-            <div class="protxt">
-              <div class="name">洋河蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食白酒2瓶装包邮</div>
-              <div class="wy-pro-pri">¥<span>296.00</span></div>
-            </div>
-          </a>
-        </li>
-      </ul>
+     <div class="weui-panel weui-panel_access">
+    <div class="weui-panel__hd"><span>精彩评测</span></div>
+    
+    <div class="weui-panel__bd">
+      <div class="weui-media-box_appmsg pd-10">
+
+        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__bd">
+          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
+         
+        </div>
+      </div>
+    </div>
+    
+    <div class="weui-panel__bd">
+      <div class="weui-media-box_appmsg pd-10">
+
+        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__bd">
+          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
       <div class="morelinks"><a href="pro_list.html">查看更多 >></a></div>
     </div>
   </div>
@@ -182,7 +149,7 @@
   <a href="shopcart.html" class="weui-tabbar__item">
     <span class="weui-badge" style="position: absolute;top: -.4em;right: 1em;">8</span>
     <div class="weui-tabbar__icon foot-menu-cart"></div>
-    <p class="weui-tabbar__label">购物车</p>
+    <p class="weui-tabbar__label">赠送管理</p>
   </a>
   <a href="mine.html" class="weui-tabbar__item">
     <div class="weui-tabbar__icon foot-menu-member"></div>
