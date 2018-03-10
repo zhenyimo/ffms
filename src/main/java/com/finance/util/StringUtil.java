@@ -55,6 +55,16 @@ public class StringUtil {
 		}
 	}
 	
+	
+	/**
+	 * 若为空，则返回默认的值，若不为空则返回原来的字符串
+	 */
+	public static String getValue(String str,String defaultStr){
+		if(isEmpty(str)){
+			return defaultStr;
+		}else return str;
+	}
+	
 	/**
 	 * 判断是否是空
 	 * @param str

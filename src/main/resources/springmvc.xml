@@ -22,7 +22,14 @@
 ">
     <!-- 引入wx资源文件 -->
 	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
-		p:location="classpath:wx.properties" p:fileEncoding="UTF-8" />
+		 p:fileEncoding="UTF-8" >
+		 <property name="locations">
+		 	<list>
+		 			<value>classpath:wx.properties</value>
+		 			<value>classpath:front.properties</value>
+		 	</list>
+		 </property>
+    </bean>
     <!-- 开启注解驱动 -->
     <mvc:annotation-driven ignore-default-model-on-redirect="false" /> 
     

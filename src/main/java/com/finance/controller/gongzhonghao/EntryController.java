@@ -11,17 +11,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.finance.dao.AdGoodDao;
 import com.finance.entity.PageBean;
 import com.finance.entity.Role;
 import com.finance.entity.User;
+import com.finance.entity.XlAds;
+import com.finance.entity.XlGood;
+import com.finance.service.AdGoodService;
 import com.finance.service.RoleService;
 import com.finance.service.UserService;
 import com.finance.util.Base64Util;
@@ -42,10 +48,17 @@ import net.sf.json.JSONObject;
 @RequestMapping("EntryController")
 
 public class EntryController {
+	
 	@Resource
 	private UserService userService;
 	@Resource
 	private RoleService roleService;
+	@Resource
+	private AdGoodService adGoodService;
+	@Value("${ad.good.lunbo.times}")
+	private String adLimitTimes;
+	@Value("${ad.good.pic.parent.path}")
+	private String adPicParentPath;
 	
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
@@ -58,11 +71,33 @@ public class EntryController {
 	 * 用户登录页面
 	 */
 	@RequestMapping("/gongzhonghaoIndex.do")
-	public String index(ModelMap map) {
-		List<Role> list = roleService.getRoles();
+	public String router(Model model,@RequestParam(value="tabName",required=false)String tabName) {
+		/*List<Role> list = roleService.getRoles();
 		map.addAttribute("roles", list);
-		return "front/index";
+		return "front/index";*/
+		model.addAttribute("tabName",tabName);
+		if(tabName!=null&&tabName.equals("classify")){
+			return "";
+		}else if(tabName!=null&&tabName.equals("userAdmin")){
+			return "";
+		}else {
+			index(model);
+			return "front/index";
+		}
 	}
+	
+	private void index(Model model){
+		Map<String,Object> paramsMap=new HashMap<String,Object>();
+		paramsMap.put(AdGoodDao.FINDBYLIMIT_LIMITSTART_PARAM,0);
+		paramsMap.put(AdGoodDao.FINDBYLIMIT_LIMIT_LENGTH,Integer.parseInt(adLimitTimes));
+		List<XlAds> ads=null;
+		ads=adGoodService.findByLimit(paramsMap);
+		model.addAttribute("ads", ads);
+		model.addAttribute("adPicParentPath", adPicParentPath);
+		
+	}
+	
+	
 
 	/**
 	 * 用户登录
