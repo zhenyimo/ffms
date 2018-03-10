@@ -1,0 +1,1 @@
+alter xl_ads add adPictureUrl varchar(50)
