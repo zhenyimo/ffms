@@ -27,10 +27,13 @@
 <link rel="stylesheet" href="${basePath}/pages/front/lib/weui.min.css">
 <link rel="stylesheet" href="${basePath}/pages/front/css/jquery-weui.css">
 <link rel="stylesheet" href="${basePath}/pages/front/css/style.css">
+<link rel="stylesheet" href="${basePath}/pages/front/css/front.css">
+
 <script src="${basePath}/pages/front/lib/jquery-2.1.4.js"></script> 
 <script src="${basePath}/pages/front/lib/fastclick.js"></script> 
 <script src="${basePath}/pages/front/js/jquery-weui.js"></script>
 <script src="${basePath}/pages/front/js/swiper.js"></script>
+
 <%
 	String[] scripts=request.getParameterValues("jsPath");
 	if(scripts!=null&&scripts.length>0){

@@ -75,16 +75,17 @@ public class EntryController {
 		/*List<Role> list = roleService.getRoles();
 		map.addAttribute("roles", list);
 		return "front/index";*/
-		model.addAttribute("tabName",tabName);
-		if(tabName!=null&&tabName.equals("classify")){
-			return "";
-		}else if(tabName!=null&&tabName.equals("userAdmin")){
-			return "";
-		}else {
+//		model.addAttribute("tabName",tabName);
+//		if(tabName!=null&&tabName.equals("classify")){
+//			return "";
+//		}else if(tabName!=null&&tabName.equals("userAdmin")){
+//			return "";
+//		}else {
+		model.addAttribute("tab",tabName);
 			index(model);
 			return "front/index";
 		}
-	}
+//	}
 	
 	private void index(Model model){
 		Map<String,Object> paramsMap=new HashMap<String,Object>();

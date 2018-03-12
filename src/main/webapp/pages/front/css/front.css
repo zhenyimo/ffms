@@ -1,0 +1,12 @@
+.foot-menu-home1{
+background:url(../images/footer001.png) no-repeat; background-size:22px;
+}
+.foot-menu-home2{
+background:url(../images/footer01.png) no-repeat; background-size:22px;
+}
+.weui-tabbar__item .foot-menu-list1{background:url(../images/footer002.png) no-repeat; background-size:22px;}
+.weui-tabbar__item .foot-menu-cart1{background:url(../images/footer003.png) no-repeat; background-size:22px;}
+.pictureStyle{
+	width:40px;
+	hight:40px;
+}
