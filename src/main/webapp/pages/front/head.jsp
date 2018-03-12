@@ -12,7 +12,7 @@
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html style="font-size: 48.7px">
 <head>
 <title>心理测试首页</title>
 <meta charset="utf-8">

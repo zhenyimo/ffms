@@ -18,7 +18,7 @@
 </header>
 <!--主体-->
 <div class='weui-content'>
-  <!--顶部轮播-->
+  <!--广告连播-->
   <div class="swiper-container swiper-banner">
     <div class="swiper-wrapper">
      <c:forEach var="adGood" items="${ads}">
@@ -27,70 +27,96 @@
     </div>
     <div class="swiper-pagination"></div>
   </div>
-  <!--精选推荐-->
-  <div class="wy-Module">
-    <div class="wy-Module-tit"><span>爆款推荐</span></div>
-    <div class="wy-Module-con">
-      <div class="swiper-container swiper-jingxuan" style="padding-top:34px;">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide"><a href="pro_info.html"><img src="../pages/front/upload/jingxuan1.jpg" /></a></div>
-          <div class="swiper-slide"><a href="pro_info.html"><img src="../pages/front/upload/jingxuan2.jpg" /></a></div>
-          <div class="swiper-slide"><a href="pro_info.html"><img src="../pages/front/upload/jingxuan3.jpg" /></a></div>
-          <div class="swiper-slide"><a href="pro_info.html"><img src="../pages/front/upload/jingxuan4.jpg" /></a></div>
-          <div class="swiper-slide"><a href="pro_info.html"><img src="../pages/front/upload/jingxuan5.jpg" /></a></div>
-          <div class="swiper-slide"><a href="pro_info.html"><img src="../pages/front/upload/jingxuan1.jpg" /></a></div>
-        </div>
-        <div class="swiper-pagination jingxuan-pagination"></div>
-      </div>
-    </div>
-  </div>
-  <!--酒水专场-->
- <div class="wy-Module">
-    <div class="wy-Module-tit"><span>新品发布</span></div>
-    <div class="wy-Module-con">
-      <div class="swiper-container swiper-jingxuan" style="padding-top:34px;">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide"><a href="pro_info.html"><img src="../pages/front/upload/jingxuan1.jpg" /></a></div>
-          <div class="swiper-slide"><a href="pro_info.html"><img src="../pages/front/upload/jingxuan2.jpg" /></a></div>
-          <div class="swiper-slide"><a href="pro_info.html"><img src="../pages/front/upload/jingxuan3.jpg" /></a></div>
-          <div class="swiper-slide"><a href="pro_info.html"><img src="../pages/front/upload/jingxuan4.jpg" /></a></div>
-          <div class="swiper-slide"><a href="pro_info.html"><img src="../pages/front/upload/jingxuan5.jpg" /></a></div>
-          <div class="swiper-slide"><a href="pro_info.html"><img src="../pages/front/upload/jingxuan1.jpg" /></a></div>
-        </div>
-        <div class="swiper-pagination jingxuan-pagination"></div>
-      </div>
-    </div>
-  </div>
+   
+   <!-- 热评测试 -->
+   <div class="indexList hot">
+   		<div class="container">
+   			<div class="weui-panel weui-panel_access">
+	   			<div class="weui-panel__hd">
+					   <div class="saleTitle hot"></div>
+					   <div class="sceTitle hot">不容错过的精彩测评</div>
+				</div>
+   			</div>
+   			<div class="weui-panel__bd">
+   				<div class="swiper-container swiper-container-horizontal">
+	    			<div class="swiper-wrapper">
+	        			<div class="swiper-slide">
+	        					<div class="swiperCont">
+	        						<div class="imgCnt">
+	        							<img src="${basePath}/resource/images/test1.jpg">
+	        							<div class="imgMask"></div>
+	        							<p class="imgDesc">4w人已测评</p>
+	        						</div>
+	        						<div class="itmDesc">气质类型测评</div>
+	        						<div class="itmInfo">
+	        							<span class="prices">￥ 9.9</span>
+	        						</div>
+	        					</div>	
+	        			</div>
+	        			<div class="swiper-slide">
+	        					<div class="swiperCont">
+	        						<div class="imgCnt">
+	        							<img src="${basePath}/resource/images/test1.jpg">
+	        							<div class="imgMask"></div>
+	        							<p class="imgDesc">4w人已测评</p>
+	        						</div>
+	        						<div class="itmDesc">气质类型测评</div>
+	        						<div class="itmInfo">
+	        							<span class="prices">￥ 9.9</span>
+	        						</div>
+	        					</div>	
+	        			</div>
+	        			<div class="swiper-slide">
+	        					<div class="swiperCont">
+	        						<div class="imgCnt">
+	        							<img src="${basePath}/resource/images/test1.jpg">
+	        							<div class="imgMask"></div>
+	        							<p class="imgDesc">4w人已测评</p>
+	        						</div>
+	        						<div class="itmDesc">气质类型测评</div>
+	        						<div class="itmInfo">
+	        							<span class="prices">￥ 9.9</span>
+	        						</div>
+	        					</div>	
+	        			</div>
+	    			</div>	
+   			</div>
+   		</div>
+   		
+   </div>  
+   
   <!--猜你喜欢-->
   <div class="wy-Module">
-    <div class="wy-Module-tit-line"><span>精选评测</span></div>
+    <div class="wy-Module-tit-line">
+    	<span>精选评测</span>
+    </div>
     <div class="wy-Module-con">
-     <div class="weui-panel weui-panel_access">
-    <div class="weui-panel__hd"><span>精彩评测</span></div>
+     	<div class="weui-panel weui-panel_access">
+    	<div class="weui-panel__hd">
+    		<span>精彩评测</span>
+    	</div>
     
-    <div class="weui-panel__bd">
-      <div class="weui-media-box_appmsg pd-10">
-
-        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
-        <div class="weui-media-box__bd">
-          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
-          <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
-         
-        </div>
-      </div>
-    </div>
-    
-    <div class="weui-panel__bd">
-      <div class="weui-media-box_appmsg pd-10">
-
-        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
-        <div class="weui-media-box__bd">
-          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
-          <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
-         
-        </div>
-      </div>
-    </div>
+    	<div class="weui-panel__bd">
+      		<div class="weui-media-box_appmsg pd-10 chosenItemBox">
+				<div class="weui-media-box__hd">
+					<a href="pro_info.html">
+						<span class="weui-media-box__itms_testType">健康</span>
+						<img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt="">
+					</a>
+				</div>
+	        	<div class="weui-media-box__bd">
+	         		<h1 class="weui-media-box__desc">
+	         			<a href="pro_info.html" class="ord-pro-link">为什么你总是闷闷不乐？</a>
+	         		</h1>
+	          		<p class="weui-media-box__desc chosenDesc">
+	          			抑郁思维模式评估
+	          		</p>
+	          		<p class="weui-media-box__desc chosenDesc">
+	          			1.7w人已测试
+	          		</p>
+	        	</div>
+     	 	</div>
+    	</div>
   </div>
       <div class="morelinks"><a href="pro_list.html">查看更多 >></a></div>
     </div>

@@ -10,8 +10,9 @@
 	}
 	pageContext.setAttribute("basePath", basePath);
 %>
-<jsp:include page="/pages/front/head.jsp"/>
-
+<jsp:include page="/pages/front/head.jsp">
+<jsp:param value="/resource/css/subIndex.css" name="cssPath"/>
+</jsp:include>
 
 <c:choose>
     <c:when test="${tab!=null&&tab.equals('index')}">
