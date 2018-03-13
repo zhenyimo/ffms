@@ -249,6 +249,17 @@ function logout() {
 				<a href="javascript:openPasswordModifyDialog()" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-modifyPassword'" style="width: 150px;">修改密码</a> 
 				<a href="javascript:logout()" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-exit'" style="width: 150px;">安全退出</a>
 			</div>
+	        <div title="测评编辑" data-options="iconCls:'icon-item'" style="padding: 10px">
+				<c:if test="${currentUser.roleid==1 }">
+					<a href="javascript:openTab('添加测评','addTest.do','icon-sjzdgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-sjzdgl'" style="width: 150px;">添加测评</a>
+					<a href="javascript:openTab('修改测评','modifyTest.do','icon-sjzdgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-sjzdgl'" style="width: 150px;">修改测评</a>
+					<a href="javascript:openTab('删除测评','deleteTest.do','icon-sjzdgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-sjzdgl'" style="width: 150px;">删除测评</a>
+					<a href="javascript:openTab('查询测评','queryTest.do','icon-sjzdgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-sjzdgl'" style="width: 150px;">查询测评</a>
+				</c:if>
+				<a href="javascript:openMessageModifyDialog()" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khxxgl'" style="width: 150px;">修改用户信息</a> 
+				<a href="javascript:openPasswordModifyDialog()" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-modifyPassword'" style="width: 150px;">修改密码</a> 
+				<a href="javascript:logout()" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-exit'" style="width: 150px;">安全退出</a>
+			</div>
 		</div>
 	</div>
 
