@@ -5,12 +5,12 @@
     <form class="weui-search-bar__form">
       <div class="weui-search-bar__box">
         <i class="weui-icon-search"></i>
-        <input type="search" class="weui-search-bar__input" id="searchInput" placeholder="搜索您想要的商品" required>
+        <input type="search" class="weui-search-bar__input" id="searchInput" placeholder="搜索您想要的心理测评" required>
         <a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
       </div>
       <label class="weui-search-bar__label" id="searchText" style="transform-origin: 0px 0px 0px; opacity: 1; transform: scale(1, 1);">
         <i class="weui-icon-search"></i>
-        <span>搜索您想要的心理测试题</span>
+        <span>搜索您想要的心理测评</span>
       </label>
     </form>
     <a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
@@ -117,8 +117,14 @@
 	        	</div>
      	 	</div>
     	</div>
-  </div>
-      <div class="morelinks"><a href="pro_list.html">查看更多 >></a></div>
+  </div>        
+        <div class="weui-panel__ft">
+        <a href="../EntryController/gongzhonghaoIndex.do?tabName=classify" class="weui-cell weui-cell_access weui-cell_link">
+      <div class="weui-cell__bd">查看更多</div>
+      <span class="weui-cell__ft"></span>
+    </a>    
+     </div>
+        
     </div>
   </div>
 </div>
