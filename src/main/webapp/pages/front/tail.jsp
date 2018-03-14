@@ -36,7 +36,11 @@
      $("#gift").find("div").toggleClass("foot-menu-cart1");
      $("#gift").find("p").css("color","#e21323");
      homeStyleChange();
-    }
+    }else if(tab=='mine'){
+        $("#mine").find("div").toggleClass("foot-menu-member1");
+        $("#mine").find("p").css("color","#e21323");
+        homeStyleChange();
+       }
   });
   
   function homeStyleChange(){
@@ -44,11 +48,7 @@
      $("#index").find("p").css("color","#666");
      }
   
-  function change(obj){
-  alert("8");
-  $(obj).removeClass("foot-menu-home").addClass("foot-menu-home1");
- 
-  }
+
 
 </script> 
 </body>

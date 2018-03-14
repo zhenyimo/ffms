@@ -117,8 +117,14 @@
 	        	</div>
      	 	</div>
     	</div>
-  </div>
-      <div class="morelinks"><a href="../EntryController/gongzhonghaoIndex.do?tabName=classify">查看更多 >></a></div>
+  </div>        
+        <div class="weui-panel__ft">
+        <a href="../EntryController/gongzhonghaoIndex.do?tabName=classify" class="weui-cell weui-cell_access weui-cell_link">
+      <div class="weui-cell__bd">查看更多</div>
+      <span class="weui-cell__ft"></span>
+    </a>    
+     </div>
+        
     </div>
   </div>
 </div>

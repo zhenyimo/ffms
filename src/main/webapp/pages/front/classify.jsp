@@ -20,16 +20,17 @@
     <a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
   </div>
 </header>
+
   </div>
   <aside>
     <div class="menu-left scrollbar-none" id="sidebar">
       <ul>
-        <li class="active">酒水食品</li>
-        <li>家用电器</li>
-        <li>电脑办公</li>
-        <li>家具家居</li>
-        <li>服装服饰</li>
-        <li>个化护装</li>
+        <li class="active">全部</li>
+        <li>情感</li>
+        <li>亲子</li>
+        <li>智商</li>
+        <li>职场</li>
+        <li>爱情</li>
         <li>衣帽鞋包</li>
         <li>运动户外</li>
         <li>汽车用品</li>
@@ -38,21 +39,11 @@
         <li>图书音像</li>
         <li>旅游生活</li>
       </ul>
+      
     </div>
   </aside>
   <section class="menu-right padding-all j-content">
-    <h5>酒水食品</h5>
-    <ul>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-    </ul>
+    
     <h5>酒水食品</h5>
     <ul>
       <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>

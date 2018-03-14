@@ -4,175 +4,151 @@
   <div class="wy-center-top">
     <div class="weui-media-box weui-media-box_appmsg">
       <div class="weui-media-box__hd"><img class="weui-media-box__thumb radius" src="upload/headimg.jpg" alt=""></div>
+       <img class="img-circle " src="${basePath}/resource/images/test1.jpg" style="float:left;width:60px;hight:60px" alt="头像"/>
       <div class="weui-media-box__bd">
-        <h4 class="weui-media-box__title user-name">飞翔的小土豆</h4>
-        <p class="user-grade">等级：普通会员</p>
-        <p class="user-integral">待返还金额：<em class="num">500.0</em>元</p>
+       <h5 class="weui-media-box__title user-name">飞翔的小土豆</h5>
+       
+        <p class="user-grade">欢迎回来！</p>
+        <!-- <p class="user-integral">待返还金额：<em class="num">500.0</em>元</p> -->
       </div>
     </div>
-<!--    <div class="xx-menu weui-flex">
-      <div class="weui-flex__item"><div class="xx-menu-list"><em>987</em><p>账户余额</p></div></div>
-      <div class="weui-flex__item"><div class="xx-menu-list"><em>459</em><p>我的蓝豆</p></div></div>
-      <div class="weui-flex__item"><div class="xx-menu-list"><em>4</em><p>收藏商品</p></div></div>
-    </div>-->
   </div>
   <div class="weui-panel weui-panel_access">
     <div class="weui-panel__hd">
-      <a href="all_orders.html" class="weui-cell weui-cell_access center-alloder">
+      <a href="../EntryController/gongzhonghaoIndex.do?tabName=gift" class="weui-cell weui-cell_access center-alloder">
         <div class="weui-cell__bd wy-cell">
-          <div class="weui-cell__hd"><img src="images/center-icon-order-all.png" alt="" class="center-list-icon"></div>
-          <div class="weui-cell__bd weui-cell_primary"><p class="center-list-txt">全部订单</p></div>
+          <div ><i class="fa fa-gift fa-2x" aria-hidden="true" style="color:#0ea9d8"></i><span class="weui-media-box__title">&nbsp;赠礼管理</span> </div>
         </div>
         <span class="weui-cell__ft"></span>
       </a>   
     </div>
-    <div class="weui-panel__bd">
-      <div class="weui-flex">
-        <div class="weui-flex__item">
-          <a href="all_orders.html" class="center-ordersModule">
-            <span class="weui-badge" style="position: absolute;top:5px;right:10px; font-size:10px;">2</span>
-            <div class="imgicon"><img src="images/center-icon-order-dfk.png" /></div>
-            <div class="name">待付款</div>
-          </a>
-        </div>
-        <div class="weui-flex__item">
-          <a href="all_orders.html" class="center-ordersModule">
-            <span class="weui-badge" style="position: absolute;top:5px;right:10px; font-size:10px;">1</span>
-            <div class="imgicon"><img src="images/center-icon-order-dfh.png" /></div>
-            <div class="name">待发货</div>
-          </a>
-        </div>
-        <div class="weui-flex__item">
-          <a href="all_orders.html" class="center-ordersModule">
-            <div class="imgicon"><img src="images/center-icon-order-dsh.png" /></div>
-            <div class="name">待收货</div>
-          </a>
-        </div>
-        <div class="weui-flex__item">
-          <a href="orders.html" class="center-ordersModule">
-            <span class="weui-badge" style="position: absolute;top:5px;right:10px; font-size:10px;">2</span>
-            <div class="imgicon"><img src="images/center-icon-order-dpj.png" /></div>
-            <div class="name">待评价</div>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <div class="weui-panel weui-panel_access">
-    <div class="weui-panel__hd">
-      <a href="myburse.html" class="weui-cell weui-cell_access center-alloder">
-        <div class="weui-cell__bd wy-cell">
-          <div class="weui-cell__hd"><img src="images/center-icon-jk.png" alt="" class="center-list-icon"></div>
-          <div class="weui-cell__bd weui-cell_primary"><p class="center-list-txt">我的小金库</p></div>
-        </div>
-        <span class="weui-cell__ft"></span>
-      </a>   
-    </div>
-    <div class="weui-panel__bd">
-      <div class="weui-flex">
-        <div class="weui-flex__item">
-          <a href="myburse.html" class="center-ordersModule">
-            <div class="center-money"><em>800.0</em></div>
-            <div class="name">账户总额</div>
-          </a>
-        </div>
-        <div class="weui-flex__item">
-          <a href="myburse.html" class="center-ordersModule">
-            <div class="center-money"><em>50.0</em></div>
-            <div class="name">返现金额</div>
-          </a>
-        </div>
-        <div class="weui-flex__item">
-          <a href="myburse.html" class="center-ordersModule">
-            <div class="center-money"><em>550.0</em></div>
-            <div class="name">待返还</div>
-          </a>
-        </div>
-        <div class="weui-flex__item">
-          <a href="myburse.html" class="center-ordersModule">
-            <div class="center-money"><em>165</em></div>
-            <div class="name">蓝豆</div>
-          </a>
-        </div>
-      </div>
-    </div>
   </div>
   
   
-  <div class="weui-panel">
-        <div class="weui-panel__bd">
-          <div class="weui-media-box weui-media-box_small-appmsg">
-            <div class="weui-cells">
-              <a class="weui-cell weui-cell_access" href="record.html">
-                <div class="weui-cell__hd"><img src="images/center-icon-jyjl.png" alt="" class="center-list-icon"></div>
-                <div class="weui-cell__bd weui-cell_primary">
-                  <p class="center-list-txt">交易记录</p>
-                </div>
-                <span class="weui-cell__ft"></span>
-              </a>
-              <a class="weui-cell weui-cell_access" href="shoucang.html">
-                <div class="weui-cell__hd"><img src="images/center-icon-sc.png" alt="" class="center-list-icon"></div>
-                <div class="weui-cell__bd weui-cell_primary">
-                  <p class="center-list-txt">我的收藏</p>
-                </div>
-                <span class="weui-cell__ft"></span>
-              </a>
-              <a class="weui-cell weui-cell_access" href="address_list.html">
-                <div class="weui-cell__hd"><img src="images/center-icon-dz.png" alt="" class="center-list-icon"></div>
-                <div class="weui-cell__bd weui-cell_primary">
-                  <p class="center-list-txt">地址管理</p>
-                </div>
-                <span class="weui-cell__ft"></span>
-              </a>
-              <a class="weui-cell weui-cell_access" href="card.html">
-                <div class="weui-cell__hd"><img src="images/center-icon-yhk.png" alt="" class="center-list-icon"></div>
-                <div class="weui-cell__bd weui-cell_primary">
-                  <p class="center-list-txt">我的银行卡</p>
-                </div>
-                <span class="weui-cell__ft"></span>
-              </a>
-              <a class="weui-cell weui-cell_access" href="password.html">
-                <div class="weui-cell__hd"><img src="images/center-icon-dlmm.png" alt="" class="center-list-icon"></div>
-                <div class="weui-cell__bd weui-cell_primary">
-                  <p class="center-list-txt">密码修改</p>
-                </div>
-                <span class="weui-cell__ft"></span>
-              </a>
-              <a class="weui-cell weui-cell_access" href="login.html">
-                <div class="weui-cell__hd"><img src="images/center-icon-out.png" alt="" class="center-list-icon"></div>
-                <div class="weui-cell__bd weui-cell_primary">
-                  <p class="center-list-txt">退出账号</p>
-                </div>
-                <span class="weui-cell__ft"></span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-  
-  
-  
-</div>
+   <div class="weui-tab">
+    <div class="weui-navbar" style="position:relative; top:5px; left:0; right:0; height:44px; background:#fff;">
+      <a class="weui-navbar__item proinfo-tab-tit font-14 weui-bar__item--on" href="#tab1">未完成</a>
+      <a class="weui-navbar__item proinfo-tab-tit font-14" href="#tab2">已完成</a>
+      <a class="weui-navbar__item proinfo-tab-tit font-14" href="#tab3">全部测评</a>
+    </div>
 
-<!--底部导航-->
-<div class="foot-black"></div>
-<div class="weui-tabbar wy-foot-menu">
-  <a href="index.html" class="weui-tabbar__item">
-    <div class="weui-tabbar__icon foot-menu-home"></div>
-    <p class="weui-tabbar__label">首页</p>
-  </a>
-  <a href="classify.html" class="weui-tabbar__item">
-    <div class="weui-tabbar__icon foot-menu-list"></div>
-    <p class="weui-tabbar__label">分类</p>
-  </a>
-  <a href="shopcart.html" class="weui-tabbar__item">
-    <span class="weui-badge" style="position: absolute;top: -.4em;right: 1em;">8</span>
-    <div class="weui-tabbar__icon foot-menu-cart"></div>
-    <p class="weui-tabbar__label">购物车</p>
-  </a>
-  <a href="mine.html" class="weui-tabbar__item weui-bar__item--on">
-    <div class="weui-tabbar__icon foot-menu-member"></div>
-    <p class="weui-tabbar__label">我的</p>
-  </a>
-</div>
+    <div class="weui-tab__bd proinfo-tab-con" style="padding-top:0%">
+    <div id="tab1" class="weui-tab__bd-item weui-tab__bd-item--active">
+    
+    <div class="weui-panel weui-panel_access">
+    <div class="weui-media-box__bd  pd-10">
+    <div class="weui-media-box_appmsg ord-pro-list">
+    <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="${basePath}/resource/images/test1.jpg" alt=""></a></div>
+    <div class="weui-media-box__bd">
+    <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典</a></h1>
+    <p class="weui-media-box__desc">类型：<span>情感</span>，<span>23</span></p>
+    </div>
+    </div>
+    </div>
+    <div class="weui-panel__ft">
+    <div class="weui-cell weui-cell_access weui-cell_link oder-opt-btnbox">
+    <a href="comment.html" class="ords-btn-com">继续测试</a>
+    </div>
+    </div>
+    </div>
+
+      <div class="weui-panel weui-panel_access">
+    <div class="weui-media-box__bd  pd-10">
+    <div class="weui-media-box_appmsg ord-pro-list">
+    <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="${basePath}/resource/images/test1.jpg" alt=""></a></div>
+    <div class="weui-media-box__bd">
+    <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典</a></h1>
+    <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
+    </div>
+    </div>
+    </div>
+    <div class="weui-panel__ft">
+    <div class="weui-cell weui-cell_access weui-cell_link oder-opt-btnbox">
+    <a href="comment.html" class="ords-btn-com">继续测试</a>
+    </div>
+    </div>
+    </div>
+
+      <div class="weui-panel weui-panel_access">
+    <div class="weui-media-box__bd  pd-10">
+    <div class="weui-media-box_appmsg ord-pro-list">
+    <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="${basePath}/resource/images/test1.jpg" alt=""></a></div>
+    <div class="weui-media-box__bd">
+    <h1 class="weui-media-box__desc"><a href="javascript:void(0)" class="ord-pro-link">蓝之蓝蓝色瓶装经典</a></h1>
+    <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
+    </div>
+    </div>
+    </div>
+    <div class="weui-panel__ft">
+    <div class="weui-cell weui-cell_access weui-cell_link oder-opt-btnbox">
+    <a href="comment.html" class="ords-btn-com">继续测试</a>
+    </div>
+    </div>
+    </div>
+
+
+
+
+    </div>
+    <div id="tab2" class="weui-tab__bd-item">
+    
+    <div class="weui-panel weui-panel_access">
+    <div class="weui-panel__hd"><span>单号：2132165457654545</span></div>
+    <div class="weui-media-box__bd  pd-10">
+    <div class="weui-media-box_appmsg ord-pro-list">
+    <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="${basePath}/resource/images/test1.jpg" alt=""></a></div>
+    <div class="weui-media-box__bd">
+    <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装</a></h1>
+    <p class="weui-media-box__desc">类型：<span>职场</span>，<span>23</span></p>
+    <div class="clear mg-t-10">
+   <!--  <div class="wy-pro-pri fl">¥<em class="num font-15">296.00</em></div>
+    <div class="pro-amount fr"><span class="font-13">数量×<em class="name">1</em></span></div> 
+    </div>-->
+    </div>
+    </div>
+    </div>
+    <div class="ord-statistics">
+    <span class="wy-pro-pri">金额：¥<em class="num font-15">12.00</em></span> 
+   </div>
+    <div class="weui-panel__ft">
+    <div class="weui-cell weui-cell_access weui-cell_link oder-opt-btnbox">
+    <a href="javascript:;" class="ords-btn-dele">评价</a><a href="order_info2.html" class="ords-btn-com">查看报告</a>
+    </div>
+    </div>
+    </div>
+    </div>
+    
+    <div id="tab3" class="weui-tab__bd-item">
+    <div class="weui-panel weui-panel_access">
+    <div class="weui-panel__hd"><span>单号：2132165457654545</span><span class="ord-status-txt-ts fr">待发货</span></div>
+    <div class="weui-media-box__bd  pd-10">
+    <div class="weui-media-box_appmsg ord-pro-list">
+    <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="upload/pro3.jpg" alt=""></a></div>
+    <div class="weui-media-box__bd">
+    <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+    <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
+    <div class="clear mg-t-10">
+    <div class="wy-pro-pri fl">¥<em class="num font-15">296.00</em></div>
+    <div class="pro-amount fr"><span class="font-13">数量×<em class="name">1</em></span></div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="ord-statistics">
+    <span>共<em class="num">1</em>件商品，</span>
+    <span class="wy-pro-pri">总金额：¥<em class="num font-15">296.00</em></span>
+    <span>(含运费<b>￥0.00</b>)</span>
+    </div>
+    <div class="weui-panel__ft">
+    <div class="weui-cell weui-cell_access weui-cell_link oder-opt-btnbox">
+    商品正在打包中，请您耐心等待....
+    </div>
+    </div>
+    </div>
+    </div>
+
+
+    </div>
+  </div> 
+ </div>
+</div>    
