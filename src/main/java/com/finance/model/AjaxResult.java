@@ -12,6 +12,10 @@ import com.jfinal.kit.JsonKit;
 public class AjaxResult {
 
 	// 标记成功失败，默认0：成功，1：失败、用于alert，2：失败、用于confirm
+	public static final int SUCCESS=0;
+	public static final int FAIL_ALERT=1;
+	public static final int FAIL_CONFIRM=2;
+	public static final String DEFAULT_SUCCESS_TIP="操作成功";
 	private int code = 0;
 
 	// 返回的中文消息
@@ -20,6 +24,13 @@ public class AjaxResult {
 	// 成功时携带的数据
 	private Object data;
 	
+	public AjaxResult(int code, String message, Object data) {
+		super();
+		this.code = code;
+		this.message = message;
+		this.data = data;
+	}
+
 	public int getCode() {
 		return code;
 	}

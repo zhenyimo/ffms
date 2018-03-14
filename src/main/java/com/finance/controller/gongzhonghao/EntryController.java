@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
@@ -22,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.finance.dao.AdGoodDao;
+import com.finance.dao.SqlParmCon;
 import com.finance.entity.PageBean;
 import com.finance.entity.Role;
 import com.finance.entity.User;
@@ -48,7 +51,7 @@ import net.sf.json.JSONObject;
 @RequestMapping("EntryController")
 
 public class EntryController {
-	
+	private Logger logger=LoggerFactory.getLogger(EntryController.class);
 	@Resource
 	private UserService userService;
 	@Resource
@@ -76,20 +79,21 @@ public class EntryController {
 		map.addAttribute("roles", list);
 		return "front/index";*/
 		model.addAttribute("tabName",tabName);
-		if(tabName!=null&&tabName.equals("classify")){
-			return "";
-		}else if(tabName!=null&&tabName.equals("userAdmin")){
-			return "";
-		}else {
+		if(tabName==null){
+			index(model);	
+		}else if(tabName.equals("classifyIndex")){
+		}else if(tabName.equals("userMngIndex")){
+		}else if(tabName.equals("giftIndex")){
+		}else{
 			index(model);
-			return "front/index";
 		}
+		return "front/index";
 	}
 	
 	private void index(Model model){
 		Map<String,Object> paramsMap=new HashMap<String,Object>();
-		paramsMap.put(AdGoodDao.FINDBYLIMIT_LIMITSTART_PARAM,0);
-		paramsMap.put(AdGoodDao.FINDBYLIMIT_LIMIT_LENGTH,Integer.parseInt(adLimitTimes));
+		paramsMap.put(SqlParmCon.LIMITSTART_PARAM,0);
+		paramsMap.put(SqlParmCon.LIMIT_LENGTH,Integer.parseInt(adLimitTimes));
 		List<XlAds> ads=null;
 		ads=adGoodService.findByLimit(paramsMap);
 		model.addAttribute("ads", ads);

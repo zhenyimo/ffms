@@ -7,9 +7,6 @@ import com.finance.entity.XlAds;
 
 
 
-public interface AdGoodDao {
-	//查询
-	public static final String FINDBYLIMIT_LIMITSTART_PARAM="limitStart";
-	public static final String FINDBYLIMIT_LIMIT_LENGTH="limitLength";
+public interface AdGoodDao{
 	public List<XlAds> findByLimit(Map<String,Object> map);
 }

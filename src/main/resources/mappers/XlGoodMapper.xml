@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.finance.dao.GoodDao">
+	<resultMap type="XlGood" id="goodMap">
+		<result property="id" column="id" />
+		<result property="tittle" column="tittle" />
+		<result property="subtittle" column="subtittle" />
+		<result property="typeId" column="typeId" />
+		<result property="typeName" column="type_name" />
+		<result property="price" column="price" />
+		<result property="originalPrice" column="original_price" />
+		<result property="pictureName" column="picture_name" />
+		<result property="answerTime" column="answer_time" />
+		<result property="description" column="description" />
+		<result property="paysuccessNumber" column="pay_success_Number" />
+		<result property="flag" column="flag" />
+		<result property="createUser" column="create_User" />
+		<result property="createUsername" column="create_Username" />
+		<result property="createTime" column="create_time" />
+		<result property="updateUser" column="update_user" />
+		<result property="updateUsername" column="update_username" />
+		<result property="updateTime" column="update_time" />
+		
+	</resultMap>
+	<select id="findByLimit" parameterType="Map" resultMap="goodMap">
+		select * from xl_good 
+		<where>
+				1=1
+		        <if test="typeId!=null and typeId!=''">
+					and typeId=#{typeId}
+				</if>
+		</where> 
+		  
+		 <if test="sortName!=null and sortName!='' and sortName=='0' ">
+				order by create_time desc
+		 </if>
+		 <if test="sortName!=null and sortName!='' and sortName=='1' ">
+				order by pay_success_number desc
+		 </if>
+		 <if test="sortName!=null and sortName!='' and sortName=='2' ">
+				order by price desc
+		 </if>
+		  limit #{limitStart},#{limitLength}
+	</select>
+</mapper>
