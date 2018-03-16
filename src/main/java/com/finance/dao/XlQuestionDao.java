@@ -43,17 +43,17 @@ public interface XlQuestionDao {
 	
 	/**
 	 * 更新题目
-	 * @param xlquestion
+	 * @param xlQuestion
 	 * @return
 	 */
-	public int updateXlQuestion(XlQuestion xlquestion);
+	public int updateXlQuestion(XlQuestion xlQuestion);
 	
 	/**
 	 * 添加题目
-	 * @param title
+	 * @param xlQuestion
 	 * @return
 	 */
-	public int addXlQuestion(XlQuestion question);
+	public int addXlQuestion(XlQuestion xlQuestion);
 	
 	/**
 	 * 删除题目

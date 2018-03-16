@@ -27,6 +27,7 @@ import com.finance.service.XlQuestionService;
  */
 //@Service("datadicService")
 //@Service("titleService")
+@Service("xlQuestionService")
 //public class TitleServiceImpl implements TitleService{
 public class XlQuestionServiceImpl implements XlQuestionService{
 	@Resource
