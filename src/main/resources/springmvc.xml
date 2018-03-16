@@ -7,6 +7,7 @@
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:aop="http://www.springframework.org/schema/aop"
+	 xmlns:cache="http://www.springframework.org/schema/cache"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
        http://www.springframework.org/schema/context 
@@ -19,7 +20,8 @@
        http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
         http://www.springframework.org/schema/aop
        http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
-">
+       http://www.springframework.org/schema/cache
+        http://www.springframework.org/schema/cache/spring-cache-3.2.xsd">
     <!-- 引入wx资源文件 -->
 	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
 		 p:fileEncoding="UTF-8" >
@@ -59,5 +61,15 @@
     <property name="order" value="2"></property>  
 </bean>
 	
+  <!-- 启用缓存注解开关 -->
+  <cache:annotation-driven cache-manager="cacheManager"/>
+
+  <bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
+    <property name="cacheManager" ref="ehcache"/>
+  </bean>
+  
+  <bean id="ehcache" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+    <property name="configLocation" value="classpath:ehcache.xml"/>
+  </bean>
 	
 </beans>  

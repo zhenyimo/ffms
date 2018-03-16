@@ -1,6 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <!--顶部搜索-->
-<!--顶部搜索-->
 <!--主体-->
 <div class="wy-content">
   <div class="category-top">
@@ -24,6 +23,8 @@
   </div>
   <aside>
     <div class="menu-left scrollbar-none" id="sidebar">
+  
+    
       <ul>
         <li class="active">全部</li>
         <li>情感</li>
@@ -39,62 +40,406 @@
         <li>图书音像</li>
         <li>旅游生活</li>
       </ul>
-      
-    </div>
+    
+    
+    
+    
   </aside>
+ <div>
   <section class="menu-right padding-all j-content">
     
     <h5>酒水食品</h5>
     <ul>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
+     
+     
+       <div class="weui-panel weui-panel_access">
+<!--     <div class="weui-panel__hd"><span>精彩评测</span></div>
+ -->    
+    <div class="weui-panel__bd">
+      <div class="weui-media-box_appmsg pd-10">
+
+        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__bd">
+          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
+         
+        </div>
+      </div>
+    </div>
+    
+    <div class="weui-panel__bd">
+      <div class="weui-media-box_appmsg pd-10">
+
+        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__bd">
+          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
+         
+        </div>
+      </div>
+    </div>
+    
+     <div class="weui-panel__bd">
+      <div class="weui-media-box_appmsg pd-10">
+
+        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__bd">
+          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
+         
+        </div>
+      </div>
+    </div>
+    
+     <div class="weui-panel__bd">
+      <div class="weui-media-box_appmsg pd-10">
+
+        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__bd">
+          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
+         
+        </div>
+      </div>
+    </div>
+    
+     <div class="weui-panel__bd">
+      <div class="weui-media-box_appmsg pd-10">
+        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__bd">
+          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
+        </div>
+      </div>
+    </div>
+    
+     <div class="weui-panel__bd">
+      <div class="weui-media-box_appmsg pd-10">
+        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__bd">
+          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
+        </div>
+      </div>
+    </div>
+    
+     <div class="weui-panel__bd">
+      <div class="weui-media-box_appmsg pd-10">
+        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__bd">
+          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
+        </div>
+      </div>
+    </div>
+    
+     <div class="weui-panel__bd">
+      <div class="weui-media-box_appmsg pd-10">
+        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__bd">
+          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
+        </div>
+      </div>
+    </div>
+    
+    
+  </div>
+     
+     
+     
+     
     </ul>
   </section>
   <section class="menu-right padding-all j-content" style="display:none">
-    <h5>家用电器</h5>
     <ul>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
+      <div class="weui-panel weui-panel_access">
+<!--     <div class="weui-panel__hd"><span>精彩评测</span></div>
+ -->    
+    <div class="weui-panel__bd">
+      <div class="weui-media-box_appmsg pd-10">
+
+        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__bd">
+          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
+         
+        </div>
+      </div>
+    </div>
+    
+    <div class="weui-panel__bd">
+      <div class="weui-media-box_appmsg pd-10">
+
+        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__bd">
+          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
+         
+        </div>
+      </div>
+    </div>
+    
+     <div class="weui-panel__bd">
+      <div class="weui-media-box_appmsg pd-10">
+
+        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__bd">
+          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
+         
+        </div>
+      </div>
+    </div>
+    
+     <div class="weui-panel__bd">
+      <div class="weui-media-box_appmsg pd-10">
+
+        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__bd">
+          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
+         
+        </div>
+      </div>
+    </div>
+    
+     <div class="weui-panel__bd">
+      <div class="weui-media-box_appmsg pd-10">
+        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__bd">
+          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
+        </div>
+      </div>
+    </div>
+    
+     <div class="weui-panel__bd">
+      <div class="weui-media-box_appmsg pd-10">
+        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__bd">
+          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
+        </div>
+      </div>
+    </div>
+    
+     <div class="weui-panel__bd">
+      <div class="weui-media-box_appmsg pd-10">
+        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__bd">
+          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
+        </div>
+      </div>
+    </div>
+    
+     <div class="weui-panel__bd">
+      <div class="weui-media-box_appmsg pd-10">
+        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__bd">
+          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
+        </div>
+      </div>
+    </div>
+    
+    
+  </div>
     </ul>
     <h5>家用电器</h5>
     <ul>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
+      <div class="weui-panel weui-panel_access">
+<!--     <div class="weui-panel__hd"><span>精彩评测</span></div>
+ -->    
+    <div class="weui-panel__bd">
+      <div class="weui-media-box_appmsg pd-10">
+
+        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__bd">
+          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
+         
+        </div>
+      </div>
+    </div>
+    
+    <div class="weui-panel__bd">
+      <div class="weui-media-box_appmsg pd-10">
+
+        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__bd">
+          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
+         
+        </div>
+      </div>
+    </div>
+    
+     <div class="weui-panel__bd">
+      <div class="weui-media-box_appmsg pd-10">
+
+        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__bd">
+          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
+         
+        </div>
+      </div>
+    </div>
+    
+     <div class="weui-panel__bd">
+      <div class="weui-media-box_appmsg pd-10">
+
+        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__bd">
+          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
+         
+        </div>
+      </div>
+    </div>
+    
+     <div class="weui-panel__bd">
+      <div class="weui-media-box_appmsg pd-10">
+        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__bd">
+          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
+        </div>
+      </div>
+    </div>
+    
+     <div class="weui-panel__bd">
+      <div class="weui-media-box_appmsg pd-10">
+        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__bd">
+          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
+        </div>
+      </div>
+    </div>
+    
+     <div class="weui-panel__bd">
+      <div class="weui-media-box_appmsg pd-10">
+        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__bd">
+          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
+        </div>
+      </div>
+    </div>
+    
+     <div class="weui-panel__bd">
+      <div class="weui-media-box_appmsg pd-10">
+        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__bd">
+          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
+        </div>
+      </div>
+    </div>
+    
+    
+  </div>
     </ul>
   </section>
   <section class="menu-right padding-all j-content" style="display:none">
     <h5>电脑办公</h5>
     <ul>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
+      <div class="weui-panel weui-panel_access">
+<!--     <div class="weui-panel__hd"><span>精彩评测</span></div>
+ -->    
+    <div class="weui-panel__bd">
+      <div class="weui-media-box_appmsg pd-10">
+
+        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__bd">
+          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
+         
+        </div>
+      </div>
+    </div>
+    
+    <div class="weui-panel__bd">
+      <div class="weui-media-box_appmsg pd-10">
+
+        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__bd">
+          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
+         
+        </div>
+      </div>
+    </div>
+    
+     <div class="weui-panel__bd">
+      <div class="weui-media-box_appmsg pd-10">
+
+        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__bd">
+          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
+         
+        </div>
+      </div>
+    </div>
+    
+     <div class="weui-panel__bd">
+      <div class="weui-media-box_appmsg pd-10">
+
+        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__bd">
+          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
+         
+        </div>
+      </div>
+    </div>
+    
+     <div class="weui-panel__bd">
+      <div class="weui-media-box_appmsg pd-10">
+        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__bd">
+          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
+        </div>
+      </div>
+    </div>
+    
+     <div class="weui-panel__bd">
+      <div class="weui-media-box_appmsg pd-10">
+        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__bd">
+          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
+        </div>
+      </div>
+    </div>
+    
+     <div class="weui-panel__bd">
+      <div class="weui-media-box_appmsg pd-10">
+        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__bd">
+          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
+        </div>
+      </div>
+    </div>
+    
+     <div class="weui-panel__bd">
+      <div class="weui-media-box_appmsg pd-10">
+        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__bd">
+          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
+        </div>
+      </div>
+    </div>
+    
+    
+  </div>
     </ul>
     <h5>电脑办公</h5>
     <ul>
@@ -370,9 +715,33 @@
       <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
     </ul>
   </section>
+  </div>
+  
 </div>
 
 
+ 
+ 
+<div class="content" id="sort">
+    <div class="select">
+        <p>排序</p>
+        <ul>
+            <li data-value="按热度" class="selected">按热度</li>
+            <li data-value="按时间倒序">按时间倒序</li>
+            <li data-value="按时间正序">按时间正序</li>
+            <li data-value="jQuery">jQuery</li>
+            <li data-value="javascript">javascript</li>
+        </ul>
+    </div>
+</div>
+
+ 
+    </div>
+    
+<!--     <div class="left">左边的内容</div>
+<div class="right">
+    <div class="right_content">右边的内容</div>
+</div>	 -->
 
 <script type="text/javascript">
 	$(function($){
@@ -381,5 +750,8 @@
 			var index = $(this).index();
 			$('.j-content').eq(index).show().siblings('.j-content').hide();
 		});
+		
 	});
 </script>
+
+<script src="${basePath}/pages/front/js/front.js"></script>

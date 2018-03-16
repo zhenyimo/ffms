@@ -1,7 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <!--底部导航-->
 <div class="foot-black"></div>
-<div class="weui-tabbar wy-foot-menu">
+<div class="weui-tabbar wy-foot-menu" style="margin-bottom:-2%;">
   <a href="../EntryController/gongzhonghaoIndex.do"  id="index" class="weui-tabbar__item weui-bar__item--on" >
     <div class="weui-tabbar__icon foot-menu-home"></div>
     <p class="weui-tabbar__label">首页</p>
@@ -20,6 +20,7 @@
     <p class="weui-tabbar__label">我的测评</p>
   </a>
 </div>
+
 <input type="hidden" id="tabName" value="${tab}">
 <script>
   $(function() {
