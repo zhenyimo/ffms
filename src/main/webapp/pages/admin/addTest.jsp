@@ -17,19 +17,23 @@
 
 	var url;
 	
-	function searchDatadic(){
+	function searchTitle(){
 		$("#dg").datagrid('load',{
-			"datadicname":$("#s_datadicname").combobox("getValue"),
-			"datadicvalue":$("#s_datadicvalue").val()
+			//"datadicname":$("#s_datadicname").combobox("getValue"),
+			"titlename":$("#s_titlename").combobox("getValue"),
+			//"datadicvalue":$("#s_datadicvalue").val()
+			"answer":$("#s_answer").val()
 		});
 	}
 	
 	function resetSearch(){
-		$("#s_datadicname").combobox("setValue","");
-		$("#s_datadicvalue").val("");
+		//$("#s_datadicname").combobox("setValue","");
+		$("#s_titlename").combobox("setValue","");
+		//$("#s_datadicvalue").val("");
+		$("#s_answer").val("");
 	}
 	
-	function deleteDatadic(){
+	function deleteTitle(){
 		var selectedRows=$("#dg").datagrid('getSelections');
 		if(selectedRows.length==0){
 			$.messager.alert("系统提示","请选择要删除的数据！");
@@ -42,7 +46,7 @@
 		var ids=strIds.join(",");
 		$.messager.confirm("系统提示","您确认要删除这<font color=red>"+selectedRows.length+"</font>条数据吗？",function(r){
 			if(r){
-				$.post("${basePath}datadicdelete.do",{ids:ids},function(result){
+				$.post("${basePath}titledelete.do",{ids:ids},function(result){
 					if(result.errres){
 						$.messager.alert("系统提示",result.errmsg);
 						$("#dg").datagrid("reload");
@@ -55,12 +59,12 @@
 	}
 	
 	
-	function openDatadicAddDialog(){
+	function openTitleAddDialog(){
 		$("#dlg").dialog("open").dialog("setTitle","添加题目");
-		url="${basePath}datadicsave.do";
+		url="${basePath}titlesave.do";
 	}
 	
-	function openDatadicModifyDialog(){
+	function openTitleModifyDialog(){
 		var selectedRows=$("#dg").datagrid('getSelections');
 		if(selectedRows.length!=1){
 			$.messager.alert("系统提示","请选择一条要编辑的数据！");
@@ -69,14 +73,14 @@
 		var row=selectedRows[0];
 		$("#dlg").dialog("open").dialog("setTitle","编辑题目");
 		$('#fm').form('load',row);
-		url="${basePath}datadicsave.do?id="+row.id;
+		url="${basePath}titlesave.do?id="+row.id;
 	}
 	
-	function saveDatadic(){
+	function saveTitle(){
 		$("#fm").form("submit",{
 			url:url,
 			onSubmit:function(){
-				if($("#datadicname").combobox("getValue")==""||$("#datadicname").combobox("getValue")==null){
+				if($("#titlename").combobox("getValue")==""||$("#titlename").combobox("getValue")==null){
 					$.messager.alert("系统提示","请选择题目名称！");
 					return false;
 				}
@@ -98,28 +102,30 @@
 	}
 	
 	function resetValue(){
-		$("#datadicname").combobox("setValue","");
-		$("#datadicvalue").val("");
+		//$("#datadicname").combobox("setValue","");
+		$("#titlename").combobox("setValue","");
+		//$("#datadicvalue").val("");
+		$("#answer").val("");
 	}
 	
-	function closeDatadicDialog(){
+	function closeTitleDialog(){
 		$("#dlg").dialog("close");
 		resetValue();
 	}
 </script>
 </head>
 <body style="margin:1px;">
-	<table id="dg" title="题目管理" class="easyui-datagrid"
+	<table id="dg" title="添加测评" class="easyui-datagrid"
 	 fitColumns="true" pagination="true" rownumbers="true"
-	 url="${basePath}datadiclist.do" fit="true" toolbar="#tb" remoteSort="false" multiSort="true">
+	 url="${basePath}titlelist.do" fit="true" toolbar="#tb" remoteSort="false" multiSort="true">
  
 	 <thead>
-	 	<tr>
-	 		<th field="cb" checkbox="true" align="center"></th>
-	 		<th field="id" width="50" align="center" sortable="true">编号</th>
-	 		<th field="datadicname" width="100" align="center" sortable="true">题目名称</th>
-	 		<th field="datadicvalue" width="100" align="center" sortable="true">选项值</th>
-	 	</tr>
+	    <tr>
+	       <th field="cb" checkbox="true" align="center"></th>
+	 	   <th field="id" width="50" align="center" sortable="true">编号</th>
+	 	   <th field="titlename" width="100" align="center" sortable="true">题目名称</th>
+	 	   <th field="answer" width="100" align="center" sortable="true">答案</th>	    
+	    </tr>
 	 	<!--  
 	 	<tr>
 	 	    <td>1</td>
@@ -150,20 +156,31 @@
 
 	</table>
 	<div id="tb">
-		<div>
-			<a href="javascript:openDatadicAddDialog()" class="easyui-linkbutton" iconCls="icon-add" plain="true">添加</a>
-			<a href="javascript:openDatadicModifyDialog()" class="easyui-linkbutton" iconCls="icon-edit" plain="true">修改</a>
-			<a href="javascript:deleteDatadic()" class="easyui-linkbutton" iconCls="icon-remove" plain="true">删除</a>
+	    <div>
+			&nbsp;<input type="text" id="s_headline" size="70" value="心理性取向的测试">
+		</div>
+	    <div>
+			&nbsp;<input type="text" id="s_headline" size="35" value="不测测，你怎么知道你是喜欢他还是她？">&nbsp;题目类型：&nbsp;<select class="easyui-combobox" id="s_titletype"  editable="false" style="width:175px;">
+				<option value="">请选择类型...</option>
+	 				<c:forEach items="${titlenames }" var="titlename">
+						<option value="${titlename.titlename }">${titlename.titlename }</option>
+					</c:forEach>
+			</select>&nbsp;
 		</div>
 		<div>
-			&nbsp;题目名称：&nbsp;<select class="easyui-combobox" id="s_datadicname"  editable="false" style="width:175px;">
+			<a href="javascript:openTitleAddDialog()" class="easyui-linkbutton" iconCls="icon-add" plain="true">添加</a>
+			<a href="javascript:openTitleModifyDialog()" class="easyui-linkbutton" iconCls="icon-edit" plain="true">修改</a>
+			<a href="javascript:deleteTitle()" class="easyui-linkbutton" iconCls="icon-remove" plain="true">删除</a>
+		</div>
+		<div>
+			&nbsp;题目名称：&nbsp;<select class="easyui-combobox" id="s_titlename"  editable="false" style="width:175px;">
 					<option value="">请选择名称...</option>
-	 				<c:forEach items="${datadicnames }" var="datadicname">
-						<option value="${datadicname.datadicname }">${datadicname.datadicname }</option>
+	 				<c:forEach items="${titlenames }" var="titlename">
+						<option value="${titlename.titlename }">${titlename.titlename }</option>
 					</c:forEach>
 				</select>&nbsp;
-			&nbsp;选项值：&nbsp;<input type="text" id="s_datadicvalue" size="20" onkeydown="if(event.keyCode==13) searchDatadic()"/>
-			<a href="javascript:searchDatadic()" class="easyui-linkbutton" iconCls="icon-search" plain="true">搜索</a>
+			&nbsp;答案：&nbsp;<input type="text" id="s_answer" size="20" onkeydown="if(event.keyCode==13) searchTitle()"/>
+			<a href="javascript:searchTitle()" class="easyui-linkbutton" iconCls="icon-search" plain="true">搜索</a>
 			<a href="javascript:resetSearch()" class="easyui-linkbutton" iconCls="icon-reset" plain="true">清空</a>
 		</div>
 	</div>
@@ -174,25 +191,25 @@
 	 			<tr>
 	 				<td>题目名称：</td>
 	 				<td>
-	 					<select class="easyui-combobox" id="datadicname" name="datadicname" editable="false" style="width:140px;">
+	 					<select class="easyui-combobox" id="titlename" name="titlename" editable="false" style="width:140px;">
 	 						<option value="">请选择名称...</option>
-	 						<c:forEach items="${datadicnames }" var="datadicname">
-								<option value="${datadicname.datadicname }">${datadicname.datadicname }</option>
+	 						<c:forEach items="${titlenames }" var="titlename">
+								<option value="${titlename.titlename }">${titlename.titlename }</option>
 							</c:forEach>
 	 					</select>&nbsp;<font color="red">*</font>
 	 				</td>
 	 			</tr>
 	 			<tr>
-	 				<td>选项值：</td>
-	 				<td><input type="text" id="datadicvalue" name="datadicvalue" class="easyui-validatebox easyui-textbox" size="20" required="true"/>&nbsp;<font color="red">*</font></td>
+	 				<td>答案：</td>
+	 				<td><input type="text" id="answer" name="answer" class="easyui-validatebox easyui-textbox" size="20" required="true"/>&nbsp;<font color="red">*</font></td>
 	 			</tr>
   
 	 		</table>	
 	 	</form>
 	</div>
 	<div id="dlg-buttons">
-		<a href="javascript:saveDatadic()" class="easyui-linkbutton" iconCls="icon-ok">保存</a>
-		<a href="javascript:closeDatadicDialog()" class="easyui-linkbutton" iconCls="icon-cancel">关闭</a>
+		<a href="javascript:saveTitle()" class="easyui-linkbutton" iconCls="icon-ok">保存</a>
+		<a href="javascript:closeTitleDialog()" class="easyui-linkbutton" iconCls="icon-cancel">关闭</a>
 	</div>
 </body>
 </html>

@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 //import com.finance.entity.Datadic;
 import com.finance.entity.PageBean;
-import com.finance.entity.Title;
+//import com.finance.entity.Title;
 //import com.finance.service.DatadicService;
-import com.finance.service.TitleService;
+//import com.finance.service.TitleService;
 import com.finance.util.ResponseUtil;
 import com.finance.util.StringUtil;
 
@@ -32,10 +32,10 @@ import net.sf.json.JSONObject;
 @Controller
 //@RequestMapping("DatadicController")
 
-public class TitleController {
+public class XlQuestionController {
 	
 	@Resource
-	private TitleService titleService;
+	//private TitleService titleService;
 	
 	/**
 	 * 题目信息页面
@@ -64,7 +64,8 @@ public class TitleController {
 		PageBean pageBean = new PageBean(Integer.parseInt(page), Integer.parseInt(rows));
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("titlename", s_title.getTitlename());
-		map.put("optionvalue", StringUtil.formatLike(s_title.getOptionvalue()));
+		//map.put("optionvalue", StringUtil.formatLike(s_title.getOptionvalue()));
+		map.put("optionvalue", StringUtil.formatLike(s_title.getAnswer()));
 		map.put("start", pageBean.getStart());
 		map.put("size", pageBean.getPageSize());
 		List<Title> titleList = titleService.findTitle(map);

@@ -7,52 +7,74 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.finance.dao.XlQuestionDao;
+import com.finance.entity.XlQuestion;
+import com.finance.service.XlQuestionService;
+
 
 
 //import com.finance.dao.DatadicDao;
-import com.finance.dao.TitleDao;
+//import com.finance.dao.QuestionDao;
 //import com.finance.entity.Datadic;
-import com.finance.entity.Title;
+//import com.finance.entity.Title;
 //import com.finance.entity.Datadic;
 //import com.finance.service.DatadicService;
-import com.finance.service.TitleService;
+//import com.finance.service.TitleService;
 /**
  * 题目Service接口实现类
  * @author zhongzh
  *
  */
 //@Service("datadicService")
-@Service("titleService")
-public class TitleServiceImpl implements TitleService{
+//@Service("titleService")
+//public class TitleServiceImpl implements TitleService{
+public class XlQuestionServiceImpl implements XlQuestionService{
 	@Resource
 	//private  DatadicDao datadicDao;
-    private TitleDao titleDao;
-
-	public List<Title> findTitle(Map<String, Object> map) {
+    //private QuestionDao titleDao;
+	private XlQuestionDao xlQuestionDao;
+/*	public List<Title> findTitle(Map<String, Object> map) {
 		// TODO Auto-generated method stub
 		return titleDao.findTitle(map);
+	}*/
+	public List<XlQuestion> findXlQuestion(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return xlQuestionDao.findXlQuestion(map);
 	}
-
-	public Long getTotalTitle(Map<String, Object> map) {
+/*	public Long getTotalTitle(Map<String, Object> map) {
 		// TODO Auto-generated method stub
 		return titleDao.getTotalTitle(map);
+	}*/
+	public Long getTotalXlQuestion(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return xlQuestionDao.getTotalXlQuestion(map);
 	}
 
-	public int updateTitle(Title title) {
+/*	public int updateTitle(Title title) {
 		// TODO Auto-generated method stub
 		return titleDao.updateTitle(title);
+	}*/
+	public int updateXlQuestion(XlQuestion xlQuestion) {
+		// TODO Auto-generated method stub
+		return xlQuestionDao.updateXlQuestion(xlQuestion);
 	}
 
-	public int addTitle(Title title) {
+/*	public int addTitle(Title title) {
 		// TODO Auto-generated method stub
 		return titleDao.addTitle(title);
+	}*/
+	public int addXlQuestion(XlQuestion xlQuestion) {
+		// TODO Auto-generated method stub
+		return xlQuestionDao.addXlQuestion(xlQuestion);
 	}
-
-	public int deleteTitle(Integer id) {
+/*	public int deleteTitle(Integer id) {
 		// TODO Auto-generated method stub
 		return titleDao.deleteTitle(id);
+	}*/
+	public int deleteXlQuestion(Integer id) {
+		// TODO Auto-generated method stub
+		return xlQuestionDao.deleteXlQuestion(id);
 	}
-
 
 	
 /*	public List<Datadic> getDatadicIncome() {
@@ -112,10 +134,12 @@ public class TitleServiceImpl implements TitleService{
 		return titleDao.getDatadicTrade();
 	}
 	*/
-	public List<Title> getTitlename() {
+/*	public List<Title> getTitlename() {
 		// TODO Auto-generated method stub
 		return titleDao.getTitlename();
+	}*/
+	public List<XlQuestion> getXlQuestion() {
+		// TODO Auto-generated method stub
+		return xlQuestionDao.getXlQuestion();
 	}
-
-	
 }

@@ -81,9 +81,12 @@ public class EntryController {
 		model.addAttribute("tabName",tabName);
 		if(tabName==null){
 			index(model);	
-		}else if(tabName.equals("classifyIndex")){
-		}else if(tabName.equals("userMngIndex")){
-		}else if(tabName.equals("giftIndex")){
+		}else if(tabName.equals("classify")){
+			model.addAttribute("tab","classify");
+		}else if(tabName.equals("mine")){
+			model.addAttribute("tab","mine");
+		}else if(tabName.equals("gift")){
+			model.addAttribute("tab","gift");
 		}else{
 			index(model);
 		}

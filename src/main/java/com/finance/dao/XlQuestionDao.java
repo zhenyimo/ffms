@@ -3,15 +3,20 @@ package com.finance.dao;
 import java.util.List;
 import java.util.Map;
 
+import com.finance.entity.XlQuestion;
+
+//import com.finance.entity.Question;
+
 //import com.finance.entity.Datadic;
-import com.finance.entity.Title;
+//import com.finance.entity.Title;
+
 
 /**
  * 题目dao层接口
  * @author zhongzh
  *
  */
-public interface TitleDao {
+public interface XlQuestionDao {
 /*	public List<Datadic> getDatadicIncome();
 	
 	public List<Datadic> getDatadicPay();
@@ -20,41 +25,41 @@ public interface TitleDao {
 	
 	public List<Datadic> getDatadicTrade();
 	*/
-	public List<Title> getTitlename();
-	
+	//public List<Question> getTitlename();
+	public List<XlQuestion> getXlQuestion();
 	/**
 	 * 查询题目
 	 * @param map
 	 * @return
 	 */
-	public List<Title> findTitle(Map<String,Object> map);
+	public List<XlQuestion> findXlQuestion(Map<String,Object> map);
 	
 	/**
 	 * 获取题目数
 	 * @param map
 	 * @return
 	 */
-	public Long getTotalTitle(Map<String,Object> map);
+	public Long getTotalXlQuestion(Map<String,Object> map);
 	
 	/**
 	 * 更新题目
-	 * @param title
+	 * @param xlquestion
 	 * @return
 	 */
-	public int updateTitle(Title title);
+	public int updateXlQuestion(XlQuestion xlquestion);
 	
 	/**
 	 * 添加题目
 	 * @param title
 	 * @return
 	 */
-	public int addTitle(Title title);
+	public int addXlQuestion(XlQuestion question);
 	
 	/**
 	 * 删除题目
 	 * @param id
 	 * @return
 	 */
-	public int deleteTitle(Integer id);
+	public int deleteXlQuestion(Integer id);
 
 }
