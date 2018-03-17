@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ffms.mappers.XlAnswerMapper">
+	<resultMap type="com.finance.entity.XlAnswer" id="answerQuestionList">
+		<id property="id" column="id" javaType="java.lang.Integer"/>
+		<result property="answer_num" column="answer_num" javaType="java.lang.String"/>
+		<result property="answer_content" column="answer_content" javaType="java.lang.String"/>
+		<result property="answer_score" column="answer_score" javaType="java.lang.String"/>
+		<result property="questionId" column="questionId" javaType="java.lang.Integer"/>
+		<result property="next_questionId" column="next_questionId" javaType="java.lang.Integer"/>
+		<!-- property是XlAnswer实体类中XlQuestion类属性的名字
+                        多个XlAnswer对应1个XlQuestion-->
+		<association property="xlQuestion" javaType="com.finance.entity.XlQuestion">
+		    <id  property="id" column="id" javaType="java.lang.Integer"></id>
+		    <result property="questionId" column="questionId" javaType="java.lang.Integer"></result>
+		    <result property="next_questionId" column="next_questionId" javaType="java.lang.Integer"></result>
+		
+		</association>
+
+		
+	</resultMap>
+	<!--  
+	<select id="findByLimit" parameterType="Map" resultMap="goodMap">
+	-->
+		select * from xl_answer 
+		<!--  
+		<where>
+				1=1
+		        <if test="typeId!=null and typeId!=''">
+					and typeId=#{typeId}
+				</if>
+		</where> 
+		  
+		 <if test="sortName!=null and sortName!='' and sortName=='0' ">
+				order by create_time desc
+		 </if>
+		 <if test="sortName!=null and sortName!='' and sortName=='1' ">
+				order by pay_success_number desc
+		 </if>
+		 <if test="sortName!=null and sortName!='' and sortName=='2' ">
+				order by price desc
+		 </if>
+		  limit #{limitStart},#{limitLength}
+		  -->
+	</select>
+</mapper>
