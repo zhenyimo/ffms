@@ -20,9 +20,12 @@ public class TestController {
      * 
      * 
      * */
-    @RequestMapping("/addTest.do")
-	public String addTitle() {
-		return "admin/addTest";
+    //@RequestMapping("/addTest.do") 
+    @RequestMapping("/addXlQuestion.do")
+	//public String addTitle() {
+    public String addXlQuestion() {
+		//return "admin/addTest";
+    	return "admin/addXlQuestion";
 	}
 	
 }
