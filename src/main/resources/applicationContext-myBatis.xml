@@ -18,8 +18,7 @@
        http://www.springframework.org/schema/tx
        http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
        http://www.springframework.org/schema/aop
-       http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
-">
+       http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
 	<!-- 引入数据的db资源文件 -->
 	<bean class="com.finance.core.des.EncryptPropertyPlaceholderConfigurer"
 		p:location="classpath:db.properties" p:fileEncoding="UTF-8" />

@@ -21,8 +21,8 @@
   <!--广告连播-->
   <div class="swiper-container swiper-banner">
     <div class="swiper-wrapper">
-     <c:forEach var="adGood" items="${ads}">
-         <div class="swiper-slide"><a href="#"><img src="${basePath}/${adPicParentPath}${adGood.adPictureUrl}" /></a></div>
+     <c:forEach var="adtabName=good" items="${ads}">
+         <div class="swiper-slide"><a href="#"><img src="${basePath}/${adPicParentPath}${adtabName=good.adPictureUrl}" /></a></div>
 	 </c:forEach> 
     </div>
     <div class="swiper-pagination"></div>
@@ -38,33 +38,85 @@
  
  <!--精选推荐-->
   <div class="wy-Module">
-    <div class="wy-Module-tit"><span>精选推荐</span></div>
+    <div class="wy-Module-tit"><span style="color:#d80909">精选推荐</span></div>
     <div class="wy-Module-con">
       <div class="swiper-container swiper-jingxuan" style="padding-top:34px;">
         <div class="swiper-wrapper">
-          <div class="swiper-slide"><a href="pro_info.html"><img src="../pages/front/upload/jingxuan1.jpg" /></a></div>
-          <div class="swiper-slide"><a href="pro_info.html"><img src="../pages/front/upload/jingxuan2.jpg" /></a></div>
-          <div class="swiper-slide"><a href="pro_info.html"><img src="../pages/front/upload/jingxuan3.jpg" /></a></div>
-          <div class="swiper-slide"><a href="pro_info.html"><img src="../pages/front/upload/jingxuan4.jpg" /></a></div>
-          <div class="swiper-slide"><a href="pro_info.html"><img src="../pages/front/upload/jingxuan5.jpg" /></a></div>
-          <div class="swiper-slide"><a href="pro_info.html"><img src="../pages/front/upload/jingxuan1.jpg" /></a></div>
+        
+          <div class="swiper-slide"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img src="../pages/front/images/test1.jpg" />
+                            <h6 class="testNumber">4.5w人已测</h6>
+                            <h5 class="testName">焦虑类型测评</h5>
+           </a></div>
+           
+            <div class="swiper-slide"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img src="../pages/front/images/test1.jpg" />
+                            <h6 class="testNumber">4.5w人已测</h6>
+                            <h5 class="testName">焦虑类型测评</h5>
+           </a></div>
+           
+            <div class="swiper-slide"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img src="../pages/front/images/test1.jpg" />
+                            <h6 class="testNumber">4.5w人已测</h6>
+                            <h5 class="testName">焦虑类型测评</h5>
+           </a></div>
+           
+            <div class="swiper-slide"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img src="../pages/front/images/test1.jpg" />
+                            <h6 class="testNumber">4.5w人已测</h6>
+                            <h5 class="testName">焦虑类型测评</h5>
+           </a></div>
+           
+            <div class="swiper-slide"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img src="../pages/front/images/test1.jpg" />
+                            <h6 class="testNumber">4.5w人已测</h6>
+                            <h5 class="testName">焦虑类型测评</h5>
+           </a></div>
+           
+            <div class="swiper-slide"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img src="../pages/front/images/test1.jpg" />
+                            <h6 class="testNumber">4.5w人已测</h6>
+                            <h5 class="testName">焦虑类型测评</h5>
+           </a></div>
+           
+       
         </div>
         <div class="swiper-pagination jingxuan-pagination"></div>
       </div>
     </div>
   </div>
   <!--酒水专场-->
- <div class="wy-Module">
-    <div class="wy-Module-tit"><span>新品发布</span></div>
+ <div class="wy-Module" style="margin-top:-0.5rem">
+    <div class="wy-Module-tit"><span style="color:#d80909">新品发布</span></div>
     <div class="wy-Module-con">
       <div class="swiper-container swiper-jingxuan" style="padding-top:34px;">
         <div class="swiper-wrapper">
-          <div class="swiper-slide"><a href="pro_info.html"><img src="../pages/front/upload/jingxuan1.jpg" /></a></div>
-          <div class="swiper-slide"><a href="pro_info.html"><img src="../pages/front/upload/jingxuan2.jpg" /></a></div>
-          <div class="swiper-slide"><a href="pro_info.html"><img src="../pages/front/upload/jingxuan3.jpg" /></a></div>
-          <div class="swiper-slide"><a href="pro_info.html"><img src="../pages/front/upload/jingxuan4.jpg" /></a></div>
-          <div class="swiper-slide"><a href="pro_info.html"><img src="../pages/front/upload/jingxuan5.jpg" /></a></div>
-          <div class="swiper-slide"><a href="pro_info.html"><img src="../pages/front/upload/jingxuan1.jpg" /></a></div>
+          
+           <div class="swiper-slide"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good?tabName=good"><img src="../pages/front/images/test1.jpg" />
+                            <h6 class="testNumber">4.5w人已测</h6>
+                            <h5 class="testName">焦虑类型测评</h5>
+           </a></div>
+           
+            <div class="swiper-slide"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good?tabName=good"><img src="../pages/front/images/test1.jpg" />
+                            <h6 class="testNumber">4.5w人已测</h6>
+                            <h5 class="testName">焦虑类型测评</h5>
+           </a></div>
+           
+            <div class="swiper-slide"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good?tabName=good"><img src="../pages/front/images/test1.jpg" />
+                            <h6 class="testNumber">4.5w人已测</h6>
+                            <h5 class="testName">焦虑类型测评</h5>
+           </a></div>
+           
+            <div class="swiper-slide"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good?tabName=good"><img src="../pages/front/images/test1.jpg" />
+                            <h6 class="testNumber">4.5w人已测</h6>
+                            <h5 class="testName">焦虑类型测评</h5>
+           </a></div>
+           
+            <div class="swiper-slide"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good?tabName=good"><img src="../pages/front/images/test1.jpg" />
+                            <h6 class="testNumber">4.5w人已测</h6>
+                            <h5 class="testName">焦虑类型测评</h5>
+           </a></div>
+           
+            <div class="swiper-slide"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good?tabName=good"><img src="../pages/front/images/test1.jpg" />
+                            <h6 class="testNumber">4.5w人已测</h6>
+                            <h5 class="testName">焦虑类型测评</h5>
+           </a></div>
+          
+          
         </div>
         <div class="swiper-pagination jingxuan-pagination"></div>
       </div>
@@ -72,7 +124,7 @@
   </div>
   <!--猜你喜欢-->
   <div class="wy-Module">
-    <div class="wy-Module-tit-line"><span>精选评测</span></div>
+    <div class="wy-Module-tit-line"><span style="color:#d80909">精选评测</span></div>
     <div class="wy-Module-con">
      <div class="weui-panel weui-panel_access">
     <div class="weui-panel__hd"><span>精彩评测</span></div>
@@ -80,9 +132,9 @@
     <div class="weui-panel__bd">
       <div class="weui-media-box_appmsg pd-10">
 
-        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__hd"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
         <div class="weui-media-box__bd">
-          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <h1 class="weui-media-box__desc"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
           <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
          
         </div>
@@ -92,9 +144,9 @@
     <div class="weui-panel__bd">
       <div class="weui-media-box_appmsg pd-10">
 
-        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__hd"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
         <div class="weui-media-box__bd">
-          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <h1 class="weui-media-box__desc"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
           <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
          
         </div>
@@ -104,9 +156,9 @@
        <div class="weui-panel__bd">
       <div class="weui-media-box_appmsg pd-10">
 
-        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__hd"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
         <div class="weui-media-box__bd">
-          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <h1 class="weui-media-box__desc"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
           <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
          
         </div>
@@ -135,6 +187,9 @@
  -->
 
 <script>
+$(function(){
+	
+})
 	$(".swiper-banner").swiper({
         loop: true,
         autoplay: 3000

@@ -102,3 +102,19 @@ background:url(../images/footer01.png) no-repeat; background-size:22px;
     75%{transform: scale(1,1.05);}
     100%{transform: scale(1,1);}
 }
+
+
+
+.swiper-slide .testNumber {
+   color:#ebf56a;
+   position:relative;
+   top:-35px;
+   font-size:2px
+}
+
+.swiper-slide .testName {
+  color:#170707;
+  position:relative;
+  top:-25px;
+  font-weight: bold
+}

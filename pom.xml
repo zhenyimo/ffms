@@ -225,6 +225,11 @@
 			<version>3.2</version>
 		</dependency>
 
-		
+		 <!-- ehcache jar package -->
+     <dependency>
+       <groupId>net.sf.ehcache</groupId>
+       <artifactId>ehcache</artifactId>
+       <version>2.10.2</version>
+   </dependency>
   </dependencies>
 </project>

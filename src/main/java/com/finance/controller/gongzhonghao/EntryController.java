@@ -87,6 +87,8 @@ public class EntryController {
 			model.addAttribute("tab","mine");
 		}else if(tabName.equals("gift")){
 			model.addAttribute("tab","gift");
+		}else if(tabName.equals("good")){
+			model.addAttribute("tab","good");
 		}else{
 			index(model);
 		}
@@ -103,6 +105,8 @@ public class EntryController {
 		model.addAttribute("adPicParentPath", adPicParentPath);
 		
 	}
+	
+
 	
 	
 

@@ -26,6 +26,10 @@
     		<!--我的测评-->
     		<%@ include file="/pages/front/mine.jsp" %>
     </c:when>
+      <c:when test="${tab!=null&&tab.equals('good')}">
+    		<!--测评-->
+    		<%@ include file="/pages/front/good.jsp" %>
+    </c:when>
     <c:otherwise>
     		<!--默认是主页的子页面-->
       		<%@ include file="/pages/front/subIndex.jsp" %>
