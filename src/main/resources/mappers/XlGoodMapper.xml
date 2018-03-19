@@ -44,4 +44,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		 </if>
 		  limit #{limitStart},#{limitLength}
 	</select>
+	
+	<select id="findByGoodId" parameterType="Map" resultMap="goodMap">
+		select * from xl_good
+		<where>
+			id=#{goodId}
+		</where>
+	</select>
 </mapper>

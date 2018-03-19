@@ -32,17 +32,27 @@ import com.jfinal.json.Jackson;
 
 @Controller
 @RequestMapping("/classify")
-public class IndexController extends JsonSerialSupport{
+public class IndexController extends SerialSupport{
 	private Logger logger=LoggerFactory.getLogger(IndexController.class);
 	@Resource
 	XlGoodService xlGoodService;
+	
+	/**
+	 * 
+	 * 
+	 * @param type 商品类型
+	 * @param curPage 当前页
+	 * @param sortType 根据哪个类型排序
+	 * @return
+	 */
 	@RequestMapping("/goodList.do")
 	@ResponseBody
-	public AjaxResult getGoodList(@RequestParam("type")int type,@RequestParam(value="curPage",defaultValue="0")int curPage,@RequestParam("sortType")String sortType) {
+	public AjaxResult getGoodList(@RequestParam(value="type",required=false)String type,@RequestParam(value="curPage",defaultValue="0")int curPage,@RequestParam("sortType")String sortType) {
 		try{
-			String actSort=StringUtil.getValue(sortType,SortEnum.TIME_SORT.getLevel());
+			String actSort=StringUtil.getValue(sortType,SortEnum.TIME_SORT_DESC.getLevel());
 			Map<String,Object> map=new HashMap<String,Object>();
-			map.put(GoodDao.PARAM_TYPE_ID, type);
+			if(StringUtil.isNotEmpty(type))
+				map.put(GoodDao.PARAM_TYPE_ID, type);
 			map.put(SqlParmCon.LIMITSTART_PARAM,curPage*SqlParmCon.LIMIT_DEFAULT_SIZE);
 			map.put(SqlParmCon.LIMIT_LENGTH,SqlParmCon.LIMIT_DEFAULT_SIZE);
 			map.put(SqlParmCon.ORDER_BY_SORT_NAME, actSort);
@@ -50,9 +60,10 @@ public class IndexController extends JsonSerialSupport{
 			return new AjaxResult(AjaxResult.SUCCESS,AjaxResult.DEFAULT_SUCCESS_TIP,jsonSerial.serial(list));
 		}catch (Exception ex){
 			logger.error("---异常操作----",ex);
-			throw new BusinessException(ErrorCode.UNKNOWN_ERROR, ex);
+			return new AjaxResult(AjaxResult.FAIL_ALERT,AjaxResult.DEFAULT_FAIL_TIP,jsonSerial.serial(ErrorCode.UNKNOWN_ERROR));
 		}
 		
 		
 	}
+	
 }

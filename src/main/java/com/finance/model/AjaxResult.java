@@ -16,6 +16,7 @@ public class AjaxResult {
 	public static final int FAIL_ALERT=1;
 	public static final int FAIL_CONFIRM=2;
 	public static final String DEFAULT_SUCCESS_TIP="操作成功";
+	public static final String DEFAULT_FAIL_TIP="操作失败";
 	private int code = 0;
 
 	// 返回的中文消息

@@ -21,5 +21,10 @@ public class XlGoodServiceImpl implements XlGoodService{
 		
 		return goodDao.findByLimit(map);
 	}
+	@Override
+	public XlGood findByGoodId(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return goodDao.findByGoodId(map);
+	}
 	
 }
