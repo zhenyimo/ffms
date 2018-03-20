@@ -58,9 +58,9 @@
     <div class="weui-panel__bd">
       <div class="weui-media-box_appmsg pd-10">
 
-        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__hd"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img class="weui-media-box__thumb" src="../pages/front/images/test1.jpg" alt=""></a></div>
         <div class="weui-media-box__bd">
-          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <h1 class="weui-media-box__desc"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
           <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
          
         </div>
@@ -70,9 +70,9 @@
     <div class="weui-panel__bd">
       <div class="weui-media-box_appmsg pd-10">
 
-        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__hd"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img class="weui-media-box__thumb" src="../pages/front/images/test1.jpg" alt=""></a></div>
         <div class="weui-media-box__bd">
-          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <h1 class="weui-media-box__desc"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
           <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
          
         </div>
@@ -82,9 +82,9 @@
      <div class="weui-panel__bd">
       <div class="weui-media-box_appmsg pd-10">
 
-        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__hd"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img class="weui-media-box__thumb" src="../pages/front/images/test1.jpg" alt=""></a></div>
         <div class="weui-media-box__bd">
-          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <h1 class="weui-media-box__desc"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
           <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
          
         </div>
@@ -94,9 +94,9 @@
      <div class="weui-panel__bd">
       <div class="weui-media-box_appmsg pd-10">
 
-        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__hd"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img class="weui-media-box__thumb" src="../pages/front/images/test1.jpg" alt=""></a></div>
         <div class="weui-media-box__bd">
-          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <h1 class="weui-media-box__desc"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
           <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
          
         </div>
@@ -105,9 +105,9 @@
     
      <div class="weui-panel__bd">
       <div class="weui-media-box_appmsg pd-10">
-        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__hd"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img class="weui-media-box__thumb" src="../pages/front/images/test1.jpg" alt=""></a></div>
         <div class="weui-media-box__bd">
-          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <h1 class="weui-media-box__desc"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
           <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
         </div>
       </div>
@@ -115,9 +115,9 @@
     
      <div class="weui-panel__bd">
       <div class="weui-media-box_appmsg pd-10">
-        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__hd"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img class="weui-media-box__thumb" src="../pages/front/images/test1.jpg" alt=""></a></div>
         <div class="weui-media-box__bd">
-          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <h1 class="weui-media-box__desc"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
           <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
         </div>
       </div>
@@ -125,9 +125,9 @@
     
      <div class="weui-panel__bd">
       <div class="weui-media-box_appmsg pd-10">
-        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__hd"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img class="weui-media-box__thumb" src="../pages/front/images/test1.jpg" alt=""></a></div>
         <div class="weui-media-box__bd">
-          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <h1 class="weui-media-box__desc"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
           <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
         </div>
       </div>
@@ -135,9 +135,9 @@
     
      <div class="weui-panel__bd">
       <div class="weui-media-box_appmsg pd-10">
-        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__hd"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img class="weui-media-box__thumb" src="../pages/front/images/test1.jpg" alt=""></a></div>
         <div class="weui-media-box__bd">
-          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <h1 class="weui-media-box__desc"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
           <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
         </div>
       </div>
@@ -159,9 +159,9 @@
     <div class="weui-panel__bd">
       <div class="weui-media-box_appmsg pd-10">
 
-        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__hd"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img class="weui-media-box__thumb" src="../pages/front/images/test1.jpg" alt=""></a></div>
         <div class="weui-media-box__bd">
-          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <h1 class="weui-media-box__desc"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
           <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
          
         </div>
@@ -171,9 +171,9 @@
     <div class="weui-panel__bd">
       <div class="weui-media-box_appmsg pd-10">
 
-        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__hd"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img class="weui-media-box__thumb" src="../pages/front/images/test1.jpg" alt=""></a></div>
         <div class="weui-media-box__bd">
-          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <h1 class="weui-media-box__desc"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
           <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
          
         </div>
@@ -183,9 +183,9 @@
      <div class="weui-panel__bd">
       <div class="weui-media-box_appmsg pd-10">
 
-        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__hd"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img class="weui-media-box__thumb" src="../pages/front/images/test1.jpg" alt=""></a></div>
         <div class="weui-media-box__bd">
-          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <h1 class="weui-media-box__desc"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
           <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
          
         </div>
@@ -195,9 +195,9 @@
      <div class="weui-panel__bd">
       <div class="weui-media-box_appmsg pd-10">
 
-        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__hd"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img class="weui-media-box__thumb" src="../pages/front/images/test1.jpg" alt=""></a></div>
         <div class="weui-media-box__bd">
-          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <h1 class="weui-media-box__desc"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
           <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
          
         </div>
@@ -206,9 +206,9 @@
     
      <div class="weui-panel__bd">
       <div class="weui-media-box_appmsg pd-10">
-        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__hd"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img class="weui-media-box__thumb" src="../pages/front/images/test1.jpg" alt=""></a></div>
         <div class="weui-media-box__bd">
-          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <h1 class="weui-media-box__desc"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
           <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
         </div>
       </div>
@@ -216,9 +216,9 @@
     
      <div class="weui-panel__bd">
       <div class="weui-media-box_appmsg pd-10">
-        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__hd"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img class="weui-media-box__thumb" src="../pages/front/images/test1.jpg" alt=""></a></div>
         <div class="weui-media-box__bd">
-          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <h1 class="weui-media-box__desc"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
           <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
         </div>
       </div>
@@ -226,9 +226,9 @@
     
      <div class="weui-panel__bd">
       <div class="weui-media-box_appmsg pd-10">
-        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__hd"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img class="weui-media-box__thumb" src="../pages/front/images/test1.jpg" alt=""></a></div>
         <div class="weui-media-box__bd">
-          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <h1 class="weui-media-box__desc"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
           <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
         </div>
       </div>
@@ -236,9 +236,9 @@
     
      <div class="weui-panel__bd">
       <div class="weui-media-box_appmsg pd-10">
-        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__hd"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img class="weui-media-box__thumb" src="../pages/front/images/test1.jpg" alt=""></a></div>
         <div class="weui-media-box__bd">
-          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <h1 class="weui-media-box__desc"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
           <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
         </div>
       </div>
@@ -255,9 +255,9 @@
     <div class="weui-panel__bd">
       <div class="weui-media-box_appmsg pd-10">
 
-        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__hd"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img class="weui-media-box__thumb" src="../pages/front/images/test1.jpg" alt=""></a></div>
         <div class="weui-media-box__bd">
-          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <h1 class="weui-media-box__desc"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
           <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
          
         </div>
@@ -267,9 +267,9 @@
     <div class="weui-panel__bd">
       <div class="weui-media-box_appmsg pd-10">
 
-        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__hd"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img class="weui-media-box__thumb" src="../pages/front/images/test1.jpg" alt=""></a></div>
         <div class="weui-media-box__bd">
-          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <h1 class="weui-media-box__desc"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
           <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
          
         </div>
@@ -279,9 +279,9 @@
      <div class="weui-panel__bd">
       <div class="weui-media-box_appmsg pd-10">
 
-        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__hd"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img class="weui-media-box__thumb" src="../pages/front/images/test1.jpg" alt=""></a></div>
         <div class="weui-media-box__bd">
-          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <h1 class="weui-media-box__desc"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
           <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
          
         </div>
@@ -291,9 +291,9 @@
      <div class="weui-panel__bd">
       <div class="weui-media-box_appmsg pd-10">
 
-        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__hd"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img class="weui-media-box__thumb" src="../pages/front/images/test1.jpg" alt=""></a></div>
         <div class="weui-media-box__bd">
-          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <h1 class="weui-media-box__desc"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
           <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
          
         </div>
@@ -302,9 +302,9 @@
     
      <div class="weui-panel__bd">
       <div class="weui-media-box_appmsg pd-10">
-        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__hd"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img class="weui-media-box__thumb" src="../pages/front/images/test1.jpg" alt=""></a></div>
         <div class="weui-media-box__bd">
-          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <h1 class="weui-media-box__desc"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
           <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
         </div>
       </div>
@@ -312,9 +312,9 @@
     
      <div class="weui-panel__bd">
       <div class="weui-media-box_appmsg pd-10">
-        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__hd"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img class="weui-media-box__thumb" src="../pages/front/images/test1.jpg" alt=""></a></div>
         <div class="weui-media-box__bd">
-          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <h1 class="weui-media-box__desc"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
           <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
         </div>
       </div>
@@ -322,9 +322,9 @@
     
      <div class="weui-panel__bd">
       <div class="weui-media-box_appmsg pd-10">
-        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__hd"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img class="weui-media-box__thumb" src="../pages/front/images/test1.jpg" alt=""></a></div>
         <div class="weui-media-box__bd">
-          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <h1 class="weui-media-box__desc"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
           <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
         </div>
       </div>
@@ -332,9 +332,9 @@
     
      <div class="weui-panel__bd">
       <div class="weui-media-box_appmsg pd-10">
-        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__hd"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img class="weui-media-box__thumb" src="../pages/front/images/test1.jpg" alt=""></a></div>
         <div class="weui-media-box__bd">
-          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <h1 class="weui-media-box__desc"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
           <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
         </div>
       </div>
@@ -353,9 +353,9 @@
     <div class="weui-panel__bd">
       <div class="weui-media-box_appmsg pd-10">
 
-        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__hd"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img class="weui-media-box__thumb" src="../pages/front/images/test1.jpg" alt=""></a></div>
         <div class="weui-media-box__bd">
-          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <h1 class="weui-media-box__desc"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
           <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
          
         </div>
@@ -365,9 +365,9 @@
     <div class="weui-panel__bd">
       <div class="weui-media-box_appmsg pd-10">
 
-        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__hd"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img class="weui-media-box__thumb" src="../pages/front/images/test1.jpg" alt=""></a></div>
         <div class="weui-media-box__bd">
-          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <h1 class="weui-media-box__desc"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
           <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
          
         </div>
@@ -377,9 +377,9 @@
      <div class="weui-panel__bd">
       <div class="weui-media-box_appmsg pd-10">
 
-        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__hd"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img class="weui-media-box__thumb" src="../pages/front/images/test1.jpg" alt=""></a></div>
         <div class="weui-media-box__bd">
-          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <h1 class="weui-media-box__desc"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
           <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
          
         </div>
@@ -389,9 +389,9 @@
      <div class="weui-panel__bd">
       <div class="weui-media-box_appmsg pd-10">
 
-        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__hd"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img class="weui-media-box__thumb" src="../pages/front/images/test1.jpg" alt=""></a></div>
         <div class="weui-media-box__bd">
-          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <h1 class="weui-media-box__desc"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
           <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
          
         </div>
@@ -400,9 +400,9 @@
     
      <div class="weui-panel__bd">
       <div class="weui-media-box_appmsg pd-10">
-        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__hd"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img class="weui-media-box__thumb" src="../pages/front/images/test1.jpg" alt=""></a></div>
         <div class="weui-media-box__bd">
-          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <h1 class="weui-media-box__desc"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
           <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
         </div>
       </div>
@@ -410,9 +410,9 @@
     
      <div class="weui-panel__bd">
       <div class="weui-media-box_appmsg pd-10">
-        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__hd"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img class="weui-media-box__thumb" src="../pages/front/images/test1.jpg" alt=""></a></div>
         <div class="weui-media-box__bd">
-          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <h1 class="weui-media-box__desc"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
           <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
         </div>
       </div>
@@ -420,9 +420,9 @@
     
      <div class="weui-panel__bd">
       <div class="weui-media-box_appmsg pd-10">
-        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__hd"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img class="weui-media-box__thumb" src="../pages/front/images/test1.jpg" alt=""></a></div>
         <div class="weui-media-box__bd">
-          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <h1 class="weui-media-box__desc"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
           <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
         </div>
       </div>
@@ -430,9 +430,9 @@
     
      <div class="weui-panel__bd">
       <div class="weui-media-box_appmsg pd-10">
-        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__hd"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img class="weui-media-box__thumb" src="../pages/front/images/test1.jpg" alt=""></a></div>
         <div class="weui-media-box__bd">
-          <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
+          <h1 class="weui-media-box__desc"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
           <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
         </div>
       </div>

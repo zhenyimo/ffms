@@ -118,3 +118,19 @@ background:url(../images/footer01.png) no-repeat; background-size:22px;
   top:-25px;
   font-weight: bold
 }
+
+
+/* 单选题样式 */
+.radio {
+    padding-left: 20px;
+}
+.radio, .checkbox {
+    position: relative;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.radio + .radio, .checkbox + .checkbox {
+    margin-top: -5px;
+}

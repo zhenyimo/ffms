@@ -1,154 +1,91 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<!--顶部搜索-->
+<header class='weui-header'>
+  <div class="weui-search-bar" id="searchBar">
+    <form class="weui-search-bar__form">
+      <div class="weui-search-bar__box">
+        <i class="weui-icon-search"></i>
+        <input type="search" class="weui-search-bar__input" id="searchInput" placeholder="搜索您想要的心理测评" required>
+        <a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
+      </div>
+      <label class="weui-search-bar__label" id="searchText" style="transform-origin: 0px 0px 0px; opacity: 1; transform: scale(1, 1);">
+        <i class="weui-icon-search"></i>
+        <span>搜索您想要的心理测评</span>
+      </label>
+    </form>
+    <a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
+  </div>
+</header>
 <!--主体-->
 <div class='weui-content'>
-  <div class="wy-center-top">
-    <div class="weui-media-box weui-media-box_appmsg">
-      <div class="weui-media-box__hd"><img class="weui-media-box__thumb radius" src="upload/headimg.jpg" alt=""></div>
-       <img class="img-circle " src="${basePath}/resource/images/test1.jpg" style="float:left;width:60px;hight:60px" alt="头像"/>
-      <div class="weui-media-box__bd">
-       <h5 class="weui-media-box__title user-name">飞翔的小土豆</h5>
-       
-        <p class="user-grade">欢迎回来！</p>
-        <!-- <p class="user-integral">待返还金额：<em class="num">500.0</em>元</p> -->
-      </div>
-    </div>
+ <div class="weui-panel weui-panel_access">
+  <div class="weui-panel__bd">
+  <img src="../pages/front/images/test2.jpg"  style="width:100%;height:250px"/>
   </div>
-  <div class="weui-panel weui-panel_access">
-    <div class="weui-panel__hd">
-      <a href="../EntryController/gongzhonghaoIndex.do?tabName=gift" class="weui-cell weui-cell_access center-alloder">
-        <div class="weui-cell__bd wy-cell">
-          <div ><i class="fa fa-gift fa-2x" aria-hidden="true" style="color:#0ea9d8"></i><span class="weui-media-box__title">&nbsp;赠礼管理</span> </div>
-        </div>
-        <span class="weui-cell__ft"></span>
-      </a>   
-    </div>
+</div>
   </div>
   
   
-   <div class="weui-tab">
-    <div class="weui-navbar" style="position:relative; top:5px; left:0; right:0; height:44px; background:#fff;">
-      <a class="weui-navbar__item proinfo-tab-tit font-14 weui-bar__item--on" href="#tab1">未完成</a>
-      <a class="weui-navbar__item proinfo-tab-tit font-14" href="#tab2">已完成</a>
-      <a class="weui-navbar__item proinfo-tab-tit font-14" href="#tab3">全部测评</a>
-    </div>
-
-    <div class="weui-tab__bd proinfo-tab-con" style="padding-top:0%">
-    <div id="tab1" class="weui-tab__bd-item weui-tab__bd-item--active">
-    
-    <div class="weui-panel weui-panel_access">
-    <div class="weui-media-box__bd  pd-10">
-    <div class="weui-media-box_appmsg ord-pro-list">
-    <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="${basePath}/resource/images/test1.jpg" alt=""></a></div>
-    <div class="weui-media-box__bd">
-    <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典</a></h1>
-    <p class="weui-media-box__desc">类型：<span>情感</span>，<span>23</span></p>
+  
+  
+  <div class="weui-panel weui-panel_access" style="text-align:center;">
+  <div class="weui-panel__bd">      
+      <div class="weui-media-box__bd" >
+        <h4 class="weui-media-box__title" style="font-weight:bold;font-size:1.7em" >爱情基因检测</h4>
+        <p class="weui-media-box__desc">你的爱情基因是什么属性？</p><br>
+        <a href="../EntryController/gongzhonghaoIndex.do?tabName=question"  class="weui-btn weui-btn_primary" style="width:50%">开始测试</a>
+        
+        <div class="weui-form-preview__bd">
+    <div class="weui-form-preview__item" >
+      <label class="weui-form-preview__label" style="float:left">●50个精选题目</label>
+       <label class="weui-form-preview__label" style="position: absolute;left:35%">●6页专业报告</label>
+     <label class="weui-form-preview__label" style="float:right">●56599人测试过</label>
     </div>
     </div>
     </div>
-    <div class="weui-panel__ft">
-    <div class="weui-cell weui-cell_access weui-cell_link oder-opt-btnbox">
-    <a href="comment.html" class="ords-btn-com">继续测试</a>
-    </div>
-    </div>
-    </div>
-
-      <div class="weui-panel weui-panel_access">
-    <div class="weui-media-box__bd  pd-10">
-    <div class="weui-media-box_appmsg ord-pro-list">
-    <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="${basePath}/resource/images/test1.jpg" alt=""></a></div>
-    <div class="weui-media-box__bd">
-    <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典</a></h1>
-    <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
-    </div>
-    </div>
-    </div>
-    <div class="weui-panel__ft">
-    <div class="weui-cell weui-cell_access weui-cell_link oder-opt-btnbox">
-    <a href="comment.html" class="ords-btn-com">继续测试</a>
-    </div>
-    </div>
-    </div>
-
-      <div class="weui-panel weui-panel_access">
-    <div class="weui-media-box__bd  pd-10">
-    <div class="weui-media-box_appmsg ord-pro-list">
-    <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="${basePath}/resource/images/test1.jpg" alt=""></a></div>
-    <div class="weui-media-box__bd">
-    <h1 class="weui-media-box__desc"><a href="javascript:void(0)" class="ord-pro-link">蓝之蓝蓝色瓶装经典</a></h1>
-    <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
-    </div>
-    </div>
-    </div>
-    <div class="weui-panel__ft">
-    <div class="weui-cell weui-cell_access weui-cell_link oder-opt-btnbox">
-    <a href="comment.html" class="ords-btn-com">继续测试</a>
-    </div>
-    </div>
-    </div>
+  </div>
+</div>
 
 
-
-
-    </div>
-    <div id="tab2" class="weui-tab__bd-item">
-    
-    <div class="weui-panel weui-panel_access">
-    <div class="weui-panel__hd"><span>单号：2132165457654545</span></div>
-    <div class="weui-media-box__bd  pd-10">
-    <div class="weui-media-box_appmsg ord-pro-list">
-    <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="${basePath}/resource/images/test1.jpg" alt=""></a></div>
-    <div class="weui-media-box__bd">
-    <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装</a></h1>
-    <p class="weui-media-box__desc">类型：<span>职场</span>，<span>23</span></p>
-    <div class="clear mg-t-10">
-   <!--  <div class="wy-pro-pri fl">¥<em class="num font-15">296.00</em></div>
-    <div class="pro-amount fr"><span class="font-13">数量×<em class="name">1</em></span></div> 
-    </div>-->
-    </div>
-    </div>
-    </div>
-    <div class="ord-statistics">
-    <span class="wy-pro-pri">金额：¥<em class="num font-15">12.00</em></span> 
-   </div>
-    <div class="weui-panel__ft">
-    <div class="weui-cell weui-cell_access weui-cell_link oder-opt-btnbox">
-    <a href="javascript:;" class="ords-btn-dele">评价</a><a href="order_info2.html" class="ords-btn-com">查看报告</a>
-    </div>
-    </div>
-    </div>
+<div class="weui-panel weui-panel_access" >
+  <div class="weui-panel__bd">      
+      <div class="weui-media-box__bd" >
+        <h4 class="weui-media-box__title" style="font-weight:bold;font-size:1.4em;text-align:center;" >测评介绍</h4>
+        <p style="text-indent:2em;">
+绝对没有。每一种配对都有利有弊。比如，两个“探险者”结合。他们不会争论怎么炒鸡肉，却容易沉迷不拔、鲁莽轻率或玩弄感情。其实我们每个人都是这4种人格类型的混合体，往往是次人格决定我们是谁，我们怎么去爱。对于大多数“探险者”来说，道德是可以变通的，但“探险者-建设者”很可能有更固定的道德观，并且寻找跟他们有着相同责任感的人为伴侣。
+       </p>  
     </div>
     
-    <div id="tab3" class="weui-tab__bd-item">
-    <div class="weui-panel weui-panel_access">
-    <div class="weui-panel__hd"><span>单号：2132165457654545</span><span class="ord-status-txt-ts fr">待发货</span></div>
-    <div class="weui-media-box__bd  pd-10">
-    <div class="weui-media-box_appmsg ord-pro-list">
-    <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="upload/pro3.jpg" alt=""></a></div>
-    <div class="weui-media-box__bd">
-    <h1 class="weui-media-box__desc"><a href="pro_info.html" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
-    <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
-    <div class="clear mg-t-10">
-    <div class="wy-pro-pri fl">¥<em class="num font-15">296.00</em></div>
-    <div class="pro-amount fr"><span class="font-13">数量×<em class="name">1</em></span></div>
+       <div class="weui-media-box__bd"  >
+        <h4 class="weui-media-box__title" style="font-weight:bold;font-size:1.4em;text-align:center;" >测评须知</h4>
+        <p style="text-indent:2em;">
+        1:绝对没有。每一种配对都有利有弊。比如，两个“探险者”结合。他们不会争论怎么炒鸡肉，却容易沉迷不拔、鲁莽轻率或玩弄感
+       </p>
+       <p style="text-indent:2em;">
+        2:绝对没有。每一种配对都有利有弊。比如，两个“探险者”结合。他们不会争论怎么炒鸡肉，却容易沉迷不拔、鲁莽轻率或玩弄感
+       </p>  
+       <p style="text-indent:2em;">
+        3:绝对没有。每一种配对都有利有弊。比如，两个“探险者”结合。他们不会争论怎么炒鸡肉，却容易沉迷不拔、鲁莽轻率或玩弄感
+       </p>
     </div>
-    </div>
-    </div>
-    </div>
-    <div class="ord-statistics">
-    <span>共<em class="num">1</em>件商品，</span>
-    <span class="wy-pro-pri">总金额：¥<em class="num font-15">296.00</em></span>
-    <span>(含运费<b>￥0.00</b>)</span>
-    </div>
-    <div class="weui-panel__ft">
-    <div class="weui-cell weui-cell_access weui-cell_link oder-opt-btnbox">
-    商品正在打包中，请您耐心等待....
-    </div>
-    </div>
-    </div>
-    </div>
-
-
-    </div>
-  </div> 
- </div>
-</div>    
+    
+  </div>
+</div>
+  
+  
+    <div class="weui-footer">
+  <p class="weui-footer__links">
+  <a href="javascript:void(0);" class="weui-footer__link">底部链接</a>
+  </p>
+  <p class="weui-footer__text">Copyright © 2008-2016 weui.io</p>
+  </div>
+  
+  
+  
+  
+  
+  
+ 
+  
+  
+ 

@@ -4,11 +4,7 @@
  */
 
 $(function() {
-  
-	
-    
-    
-    
+
     //点击P标签切换下拉框
     $('.select > p').on('click', function(event) {
         $('.select').toggleClass('open');
@@ -21,11 +17,11 @@ $(function() {
         $('.select').toggleClass('open');
         _this.addClass('selected').siblings().removeClass('selected');
         event.stopPropagation();
-    })
+    });
     //点击除下拉框的其它地方，收起下拉框
     $(document).on('click',function(){
         $('.select').removeClass('open');
-    })
+    });
     
     
     
@@ -36,3 +32,26 @@ $(function() {
     $("#sort").css("top",Number($(".weui-header").height()));
 	
 });
+
+
+
+
+/**
+ * 倒计时函数
+ */
+var maxtime = 30 * 60; //一个小时，按秒计算，自己调整! 
+function CountDown() {
+	
+    if (maxtime >= 0) {
+        minutes = Math.floor(maxtime / 60);
+       seconds = Math.floor(maxtime % 60);
+       msg =  minutes + "分" + seconds + "秒";
+       document.all["timer"].innerHTML = msg;
+       if (maxtime == 5 * 60)alert("还剩5分钟");
+           --maxtime;
+   } else{
+       clearInterval(timer);
+       alert("时间到，结束!");
+   }
+}
+timer = setInterval("CountDown()", 1000); 

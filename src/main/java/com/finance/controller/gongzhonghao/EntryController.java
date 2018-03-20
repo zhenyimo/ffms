@@ -92,9 +92,6 @@ public class EntryController {
 	 */
 	@RequestMapping("/gongzhonghaoIndex.do")
 	public String router(Model model,@RequestParam(value="tabName",required=false)String tabName) {
-		/*List<Role> list = roleService.getRoles();
-		map.addAttribute("roles", list);
-		return "front/index";*/
 		model.addAttribute("tabName",tabName);
 		if(tabName==null){
 			index(model);	
@@ -110,7 +107,8 @@ public class EntryController {
 			
 		}else if(tabName.equals("good")){
 			model.addAttribute("tab","good");
-			
+		}else if(tabName.equals("question")){
+			model.addAttribute("tab","question");
 		}else{
 			index(model);
 		}

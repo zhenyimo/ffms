@@ -41,6 +41,8 @@
         $("#mine").find("div").toggleClass("foot-menu-member1");
         $("#mine").find("p").css("color","#e21323");
         homeStyleChange();
+       }else{
+    	   homeStyleChange();  
        }
   });
   

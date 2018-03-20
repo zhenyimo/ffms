@@ -38,7 +38,7 @@
  
  <!--精选推荐-->
   <div class="wy-Module">
-    <div class="wy-Module-tit"><span style="color:#d80909">精选推荐</span></div>
+    <div class="wy-Module-tit"><span style="color:#d80909">热卖爆款</span></div>
     <div class="wy-Module-con">
       <div class="swiper-container swiper-jingxuan" style="padding-top:34px;">
         <div class="swiper-wrapper">
@@ -86,32 +86,32 @@
       <div class="swiper-container swiper-jingxuan" style="padding-top:34px;">
         <div class="swiper-wrapper">
           
-           <div class="swiper-slide"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good?tabName=good"><img src="../pages/front/images/test1.jpg" />
+           <div class="swiper-slide"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img src="../pages/front/images/test1.jpg" />
                             <h6 class="testNumber">4.5w人已测</h6>
                             <h5 class="testName">焦虑类型测评</h5>
            </a></div>
            
-            <div class="swiper-slide"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good?tabName=good"><img src="../pages/front/images/test1.jpg" />
+            <div class="swiper-slide"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img src="../pages/front/images/test1.jpg" />
                             <h6 class="testNumber">4.5w人已测</h6>
                             <h5 class="testName">焦虑类型测评</h5>
            </a></div>
            
-            <div class="swiper-slide"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good?tabName=good"><img src="../pages/front/images/test1.jpg" />
+            <div class="swiper-slide"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img src="../pages/front/images/test1.jpg" />
                             <h6 class="testNumber">4.5w人已测</h6>
                             <h5 class="testName">焦虑类型测评</h5>
            </a></div>
            
-            <div class="swiper-slide"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good?tabName=good"><img src="../pages/front/images/test1.jpg" />
+            <div class="swiper-slide"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img src="../pages/front/images/test1.jpg" />
                             <h6 class="testNumber">4.5w人已测</h6>
                             <h5 class="testName">焦虑类型测评</h5>
            </a></div>
            
-            <div class="swiper-slide"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good?tabName=good"><img src="../pages/front/images/test1.jpg" />
+            <div class="swiper-slide"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img src="../pages/front/images/test1.jpg" />
                             <h6 class="testNumber">4.5w人已测</h6>
                             <h5 class="testName">焦虑类型测评</h5>
            </a></div>
            
-            <div class="swiper-slide"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good?tabName=good"><img src="../pages/front/images/test1.jpg" />
+            <div class="swiper-slide"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img src="../pages/front/images/test1.jpg" />
                             <h6 class="testNumber">4.5w人已测</h6>
                             <h5 class="testName">焦虑类型测评</h5>
            </a></div>
@@ -132,7 +132,7 @@
     <div class="weui-panel__bd">
       <div class="weui-media-box_appmsg pd-10">
 
-        <div class="weui-media-box__hd"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__hd"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img class="weui-media-box__thumb" src="../pages/front/images/test1.jpg" alt=""></a></div>
         <div class="weui-media-box__bd">
           <h1 class="weui-media-box__desc"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
           <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
@@ -144,7 +144,7 @@
     <div class="weui-panel__bd">
       <div class="weui-media-box_appmsg pd-10">
 
-        <div class="weui-media-box__hd"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__hd"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img class="weui-media-box__thumb" src="../pages/front/images/test1.jpg" alt=""></a></div>
         <div class="weui-media-box__bd">
           <h1 class="weui-media-box__desc"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
           <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>
@@ -156,7 +156,7 @@
        <div class="weui-panel__bd">
       <div class="weui-media-box_appmsg pd-10">
 
-        <div class="weui-media-box__hd"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img class="weui-media-box__thumb" src="../pages/front/upload/pro3.jpg" alt=""></a></div>
+        <div class="weui-media-box__hd"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img class="weui-media-box__thumb" src="../pages/front/images/test1.jpg" alt=""></a></div>
         <div class="weui-media-box__bd">
           <h1 class="weui-media-box__desc"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good" class="ord-pro-link">蓝之蓝蓝色瓶装经典Q7浓香型白酒500ml52度高端纯粮食酒2瓶装包邮</a></h1>
           <p class="weui-media-box__desc">规格：<span>红色</span>，<span>23</span></p>

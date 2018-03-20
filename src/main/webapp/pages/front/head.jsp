@@ -36,6 +36,7 @@
 <script src="${basePath}/pages/front/js/jquery-weui.js"></script>
 <script src="${basePath}/pages/front/js/swiper.js"></script>
 <script src="${basePath}/bootstrap/js/bootstrap.min.js"></script>
+<script src="${basePath}/pages/front/js/front.js"></script>
 
 
 <%
