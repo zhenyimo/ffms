@@ -17,10 +17,11 @@
 
 	var url;
 	
-	function searchTitle(){
+	function searchXlQuestion(){
 		$("#dg").datagrid('load',{
 			//"datadicname":$("#s_datadicname").combobox("getValue"),
-			"titlename":$("#s_titlename").combobox("getValue"),
+			//"titlename":$("#s_titlename").combobox("getValue"),
+			"question_content":$("#question_content").combobox("getValue"),
 			//"datadicvalue":$("#s_datadicvalue").val()
 			"answer":$("#s_answer").val()
 		});
@@ -28,12 +29,12 @@
 	
 	function resetSearch(){
 		//$("#s_datadicname").combobox("setValue","");
-		$("#s_titlename").combobox("setValue","");
+		$("#question_content").combobox("setValue","");
 		//$("#s_datadicvalue").val("");
 		$("#s_answer").val("");
 	}
 	
-	function deleteTitle(){
+	function deleteXlQuestion(){
 		var selectedRows=$("#dg").datagrid('getSelections');
 		if(selectedRows.length==0){
 			$.messager.alert("系统提示","请选择要删除的数据！");
@@ -46,7 +47,7 @@
 		var ids=strIds.join(",");
 		$.messager.confirm("系统提示","您确认要删除这<font color=red>"+selectedRows.length+"</font>条数据吗？",function(r){
 			if(r){
-				$.post("${basePath}titledelete.do",{ids:ids},function(result){
+				$.post("${basePath}xlQuestiondelete.do",{ids:ids},function(result){
 					if(result.errres){
 						$.messager.alert("系统提示",result.errmsg);
 						$("#dg").datagrid("reload");
@@ -59,28 +60,28 @@
 	}
 	
 	
-	function openTitleAddDialog(){
-		$("#dlg").dialog("open").dialog("setTitle","添加题目");
-		url="${basePath}titlesave.do";
+	function openXlQuestionAddDialog(){
+		$("#dlg").dialog("open").dialog("setXlQuestion","添加题目");
+		url="${basePath}xlQuestionsave.do";
 	}
 	
-	function openTitleModifyDialog(){
+	function openXlQuestionModifyDialog(){
 		var selectedRows=$("#dg").datagrid('getSelections');
 		if(selectedRows.length!=1){
 			$.messager.alert("系统提示","请选择一条要编辑的数据！");
 			return;
 		}
 		var row=selectedRows[0];
-		$("#dlg").dialog("open").dialog("setTitle","编辑题目");
+		$("#dlg").dialog("open").dialog("setXlQuestion","编辑题目");
 		$('#fm').form('load',row);
-		url="${basePath}titlesave.do?id="+row.id;
+		url="${basePath}xlQuestionsave.do?id="+row.id;
 	}
 	
-	function saveTitle(){
+	function saveXlQuestion(){
 		$("#fm").form("submit",{
 			url:url,
 			onSubmit:function(){
-				if($("#titlename").combobox("getValue")==""||$("#titlename").combobox("getValue")==null){
+				if($("#question_content").combobox("getValue")==""||$("#question_content").combobox("getValue")==null){
 					$.messager.alert("系统提示","请选择题目名称！");
 					return false;
 				}
@@ -103,7 +104,8 @@
 	
 	function resetValue(){
 		//$("#datadicname").combobox("setValue","");
-		$("#titlename").combobox("setValue","");
+		//$("#titlename").combobox("setValue","");
+		$("#question_content").combobox("setValue","");
 		//$("#datadicvalue").val("");
 		$("#answer").val("");
 	}
@@ -117,13 +119,13 @@
 <body style="margin:1px;">
 	<table id="dg" title="添加测评" class="easyui-datagrid"
 	 fitColumns="true" pagination="true" rownumbers="true"
-	 url="${basePath}titlelist.do" fit="true" toolbar="#tb" remoteSort="false" multiSort="true">
+	 url="${basePath}xlquestionlist.do" fit="true" toolbar="#tb" remoteSort="false" multiSort="true">
  
 	 <thead>
 	    <tr>
 	       <th field="cb" checkbox="true" align="center"></th>
 	 	   <th field="id" width="50" align="center" sortable="true">编号</th>
-	 	   <th field="titlename" width="100" align="center" sortable="true">题目名称</th>
+	 	   <th field="question_content" width="100" align="center" sortable="true">题目名称</th>
 	 	   <th field="answer" width="100" align="center" sortable="true">答案</th>	    
 	    </tr>
 	 	<!--  

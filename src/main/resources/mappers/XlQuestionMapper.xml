@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--  
+<mapper namespace="com.finance.dao.XlQuestionDao">
+-->
+<mapper namespace="ffms.mappers.XlQuestionMapper">
+ 	<!-- get XlQuestion list only-->
+    <resultMap type="com.finance.entity.XlQuestion" id="XlQuestionResult">
+		<id property="id" column="id" javaType="java.lang.Integer"/>
+		<result property="question_num" column="question_num" javaType="java.lang.Integer"/>
+		<result property="questionContent" column="question_content" javaType="java.lang.String"/>
+	</resultMap>
+	<!--  
+    <select id="getDatadicIncome" resultType="Datadic">
+ 		select * from t_datadic where datadicname="收入类型"
+ 	</select>
+ 	<select id="getDatadicPay" resultType="Datadic">
+ 		select * from t_datadic where datadicname="支出类型"
+ 	</select>
+ 	
+ 	<select id="getDatadicSecurity" resultType="Datadic">
+ 		select * from t_datadic where datadicname="证券类型"
+ 	</select>
+ 	<select id="getDatadicTrade" resultType="Datadic">
+ 		select * from t_datadic where datadicname="证券流水账类型"
+ 	</select>
+ 	
+ 	<select id="getDatadicname" resultType="Datadic">
+ 		select distinct(datadicname) from t_datadic
+ 	</select>
+ 	-->
+
+ 	
+ 	<!-- get XlQuestion list with XlAnswer-->
+ 	<resultMap type="com.finance.entity.XlQuestion" id="XlQuestionXlAnswerResult" extends="XlQuestionResult">
+      <!-- collection中不是javaType而是ofType,通过property也知道是list，即多个。
+        extends属性，即在父resultMap的基础上再加上子resultMap的结果，在这里即再加上答案的信息。 -->
+        <collection property="XlAnswers" ofType="com.finance.entity.XlAnswer" >
+             <id property="id" column="id" javaType="java.lang.Integer"></id>
+             <result property="answer_num" column="answer_num" javaType="java.lang.Integer"></result>
+             <result property="answer_content" column="answer_content" javaType="java.lang.String"></result>
+             <result property="answer_score" column="answer_score"  javaType="java.lang.Integer"></result>
+        </collection> 
+	</resultMap>
+ 	<!-- 单表查询，查询所有题目 -->
+ 	<select id="findXlQuestion" parameterType="Map" resultMap="XlQuestionResult">
+		select * from xl_question
+		<!--  
+		<where>
+		    <if test="question_content!=null and question_content!='' ">
+				question_content=#{question_content}
+			</if>
+			<if test="answer!=null and answer!='' ">
+				and answer like #{answer}
+			</if>
+		</where>
+		<if test="start!=null and size!=null">
+			limit #{start},#{size}
+		</if>
+		-->
+		
+	</select>
+	<!-- 一对多查询，查询所有题目与答案 -->
+	 	<select id="findXlQuestionAndXlAnswer" parameterType="Map" resultMap="XlQuestionXlAnswerResult">
+		select * from xl_question left join 
+		<!--  
+		<where>
+		    <if test="question_content!=null and question_content!='' ">
+				question_content=#{question_content}
+			</if>
+			<if test="answer!=null and answer!='' ">
+				and answer like #{answer}
+			</if>
+		</where>
+		<if test="start!=null and size!=null">
+			limit #{start},#{size}
+		</if>
+	</select>
+    <select id="getTotalXlQuestion" parameterType="Map" resultType="Long">
+		select count(*) from xl_question
+		<where>
+		    <if test="question_content!=null and question_content!='' ">
+				question_content=#{question_content}
+			</if>
+			<if test="optionvalue!=null and optoinvalue!='' ">
+				and optionvalue like #{optionvalue}
+			</if>
+		</where>
+	</select>
+	
+    <insert id="addXlQuestion" parameterType="XlQuestion">
+		insert into xl_question values(null,#{titlename},#{optionvalue});
+	</insert>
+	
+    <update id="updateXlQuestion" parameterType="XlQuestion" >
+		update t_title
+		<set>
+			<if test="titlename!=null and titlename!='' ">
+				titlename=#{titlename},
+			</if>
+			<if test="datadicvalue!=null and datadicvalue!='' ">
+				optionvalue=#{optionvalue}
+			</if>
+		</set>
+		where id=#{id}
+	</update>
+	
+    <delete id="deleteXlQuestion" parameterType="Integer">
+	    delete from xl_question where id=#{id};
+	</delete>
+
+</mapper> 	
