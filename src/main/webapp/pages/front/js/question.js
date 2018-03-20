@@ -32,6 +32,7 @@ function speedOfProgress(operate){
 				 $("#progress").append(Number(molecule+1)+"/"+denominator);	 	 
 				 $("#nextBtn").attr("style","display:none");
 			 }
+			 $("#speed").attr("style","width:"+(Number(molecule+1)/denominator)*100+"%");
 			 $("#prevBtn").attr("style","display:block");
 		 }else if(operate=="prev"){
 			  if(molecule==2){
@@ -41,6 +42,7 @@ function speedOfProgress(operate){
 			 $("#progress").append(Number(molecule-1)+"/"+denominator); 
 			 }
 			 $("#nextBtn").attr("style","display:block");
+			 $("#speed").attr("style","width:"+(Number(molecule-1)/denominator)*100+"%");
 		 }else{
 			 $("#progress").append(1+"/"+denominator);
 		 }

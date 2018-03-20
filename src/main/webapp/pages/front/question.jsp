@@ -5,7 +5,7 @@
 <div class="weui-progress" >
 <span id="progress"></span>&nbsp;
   <div class="weui-progress__bar" >
-    <div class="weui-progress__inner-bar js_progress" style="width: 60%;"></div>
+    <div id="speed" class="weui-progress__inner-bar js_progress" style="width: 60%;"></div>
   </div><br><br>
   <a href="javascript:;" class="weui-progress__opr">
   </a>
