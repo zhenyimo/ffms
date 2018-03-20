@@ -25,11 +25,11 @@ import com.jfinal.weixin.sdk.api.PaymentApi.TradeType;
 import com.jfinal.weixin.sdk.kit.PaymentKit;
 
 public class WxUtil {
-	private static ThreadLocal<String> currentRequestUrl=new ThreadLocal<>();
+	private static ThreadLocal<String> currentRequestUrl=new ThreadLocal<String>();
 	public static Map<String,String> jssdkSignMap(JsTicket ticket,String appId,String url) throws NoSuchAlgorithmException{
 		   String timeStamp= createTimestamp();
 		   String nonceStr=createNonceStr();
-		   Map<String,String> parms=new HashMap<>();
+		   Map<String,String> parms=new HashMap<String, String>();
 		   parms.put("appId", appId);
 		   parms.put("jsapi_ticket",ticket.getTicket());
 		   parms.put("noncestr",nonceStr );
