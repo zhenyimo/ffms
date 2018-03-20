@@ -443,276 +443,108 @@
     </ul>
     <h5>电脑办公</h5>
     <ul>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
+     
     </ul>
   </section>
   <section class="menu-right padding-all j-content" style="display:none">
     <h5>家具家居</h5>
     <ul>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
+    
     </ul>
     <h5>家具家居</h5>
     <ul>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
+
     </ul>
   </section>
   <section class="menu-right padding-all j-content" style="display:none">
     <h5>服装服饰</h5>
     <ul>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
+    
     </ul>
     <h5>服装服饰</h5>
     <ul>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
+     
     </ul>
   </section>
   <section class="menu-right padding-all j-content" style="display:none">
     <h5>服装服饰</h5>
     <ul>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
+    
     </ul>
     <h5>服装服饰</h5>
     <ul>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
+   
     </ul>
   </section>
   <section class="menu-right padding-all j-content" style="display:none">
     <h5>服装服饰</h5>
     <ul>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
+      
     </ul>
 
     <h5>服装服饰</h5>
     <ul>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
+   
     </ul>
   </section>
   <section class="menu-right padding-all j-content" style="display:none">
     <h5>服装服饰</h5>
     <ul>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
+     
     </ul>
     <h5>服装服饰</h5>
     <ul>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
+    
     </ul>
   </section>
   <section class="menu-right padding-all j-content" style="display:none">
     <h5>服装服饰</h5>
     <ul>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
+      
     </ul>
     <h5>服装服饰</h5>
     <ul>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
+      
     </ul>
   </section>
   <section class="menu-right padding-all j-content" style="display:none">
     <h5>服装服饰</h5>
     <ul>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
+     
     </ul>
     <h5>服装服饰</h5>
     <ul>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
+    
     </ul>
   </section>
   <section class="menu-right padding-all j-content" style="display:none">
     <h5>服装服饰</h5>
     <ul>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
+    
     </ul>
     <h5>服装服饰</h5>
     <ul>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
+      
     </ul>
   </section>
   <section class="menu-right padding-all j-content" style="display:none">
     <h5>服装服饰</h5>
     <ul>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
+      
     </ul>
     <h5>服装服饰</h5>
     <ul>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
+      
     </ul>
   </section>
   <section class="menu-right padding-all j-content" style="display:none">
     <h5>旅游生活</h5>
     <ul>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
+     
     </ul>
     <h5>旅游生活</h5>
     <ul>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
-      <li class="w-3"><a href="pro_list.html"></a> <img src="upload/pro3.jpg"><span>酒水食品</span></li>
+     
     </ul>
   </section>
   </div>
@@ -736,14 +568,13 @@
 </div>
 
  
-    </div>
     
 <!--     <div class="left">左边的内容</div>
 <div class="right">
     <div class="right_content">右边的内容</div>
 </div>	 -->
 
-<script type="text/javascript">
+<script>
 	$(function($){
 		$('#sidebar ul li').click(function(){
 			$(this).addClass('active').siblings('li').removeClass('active');
@@ -754,4 +585,3 @@
 	});
 </script>
 
-<script src="${basePath}/pages/front/js/front.js"></script>
