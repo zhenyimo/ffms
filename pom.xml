@@ -8,7 +8,7 @@
   <artifactId>ffms</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
-  <name>FamilyFinancialManagementSystem</name>
+  <name>ffms</name>
   <dependencies>
   	<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 	<dependency>
