@@ -4,6 +4,7 @@
  */
 
 $(function() {
+	 $("#prevBtn").attr("style","display:none");
 	var denominator=$("#myCarousel").find("ol").find("li").length;
 	$("#progress").append(1+"/"+denominator);
        $("#myCarousel").carousel('pause');
