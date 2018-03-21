@@ -20,7 +20,7 @@
 <div class='weui-content'>
  <div class="weui-panel weui-panel_access">
   <div class="weui-panel__bd">
-  <img src="../pages/front/images/test2.jpg"  style="width:100%;height:250px"/>
+  <img src="${basePath}/pages/front/images/${good.pictureName}"  style="width:100%;height:250px"/>
   </div>
 </div>
   </div>
@@ -31,15 +31,14 @@
   <div class="weui-panel weui-panel_access" style="text-align:center;">
   <div class="weui-panel__bd">      
       <div class="weui-media-box__bd" >
-        <h4 class="weui-media-box__title" style="font-weight:bold;font-size:1.7em" >爱情基因检测</h4>
-        <p class="weui-media-box__desc">你的爱情基因是什么属性？</p><br>
-        <a href="../EntryController/gongzhonghaoIndex.do?tabName=question"  class="weui-btn weui-btn_primary" style="width:50%">开始测试</a>
-        
+        <h4 class="weui-media-box__title" style="font-weight:bold;font-size:1.7em" >${good.tittle}</h4>
+        <p class="weui-media-box__desc">${good.description}</p><br>
+        <a href="../EntryController/gongzhonghaoIndex.do?tabName=question"  class="weui-btn weui-btn_primary" style="width:50%">开始测试</a>    
         <div class="weui-form-preview__bd">
     <div class="weui-form-preview__item" >
       <label class="weui-form-preview__label" style="float:left">●50个精选题目</label>
        <label class="weui-form-preview__label" style="position: absolute;left:35%">●6页专业报告</label>
-     <label class="weui-form-preview__label" style="float:right">●56599人测试过</label>
+     <label class="weui-form-preview__label" style="float:right">●${good.paysuccessNumber}人测试过</label>
     </div>
     </div>
     </div>

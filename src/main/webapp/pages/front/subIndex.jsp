@@ -21,8 +21,8 @@
   <!--广告连播-->
   <div class="swiper-container swiper-banner">
     <div class="swiper-wrapper">
-     <c:forEach var="adtabName=good" items="${ads}">
-         <div class="swiper-slide"><a href="#"><img src="${basePath}/${adPicParentPath}${adtabName=good.adPictureUrl}" /></a></div>
+     <c:forEach var="adGood" items="${ads}">
+         <div class="swiper-slide"><a href="#"><img src="${basePath}${adPicParentPath}${adGood.adPictureUrl}" /></a></div>
 	 </c:forEach> 
     </div>
     <div class="swiper-pagination"></div>
@@ -36,14 +36,24 @@
     <div class="weui-flex__item"><a href="Settled_in.html" class="wy-links-iconlist"><div class="img"><img src="../pages/front/images/icon-link4.png"></div><p>商家入驻</p></a></div>
   </div> -->
  
- <!--精选推荐-->
+ <!--热卖爆款-->
   <div class="wy-Module">
     <div class="wy-Module-tit"><span style="color:#d80909">热卖爆款</span></div>
     <div class="wy-Module-con">
       <div class="swiper-container swiper-jingxuan" style="padding-top:34px;">
         <div class="swiper-wrapper">
-        
-          <div class="swiper-slide"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img src="../pages/front/images/test1.jpg" />
+        	<c:forEach var="hotGood" items="${hotgoods}">
+        		 <div class="swiper-slide">
+        		 	<a href="${basePath}/good/detail/${hotGood.id}.do">
+        		 			<img src="${basePath}/pages/front/images/${hotGood.pictureName}" />
+                            <h6 class="testNumber">${hotGood.paysuccessNumber}人已测</h6>
+                            <h5 class="testName">${hotGood.typeName}类型测评</h5>
+           			</a>
+           		</div>
+        	</c:forEach>
+         
+           
+            <!-- <div class="swiper-slide"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img src="../pages/front/images/test1.jpg" />
                             <h6 class="testNumber">4.5w人已测</h6>
                             <h5 class="testName">焦虑类型测评</h5>
            </a></div>
@@ -66,12 +76,7 @@
             <div class="swiper-slide"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img src="../pages/front/images/test1.jpg" />
                             <h6 class="testNumber">4.5w人已测</h6>
                             <h5 class="testName">焦虑类型测评</h5>
-           </a></div>
-           
-            <div class="swiper-slide"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img src="../pages/front/images/test1.jpg" />
-                            <h6 class="testNumber">4.5w人已测</h6>
-                            <h5 class="testName">焦虑类型测评</h5>
-           </a></div>
+           </a></div> -->
            
        
         </div>
@@ -79,19 +84,29 @@
       </div>
     </div>
   </div>
-  <!--酒水专场-->
+  <!--新品发布-->
  <div class="wy-Module" style="margin-top:-0.5rem">
     <div class="wy-Module-tit"><span style="color:#d80909">新品发布</span></div>
     <div class="wy-Module-con">
       <div class="swiper-container swiper-jingxuan" style="padding-top:34px;">
         <div class="swiper-wrapper">
           
+           <c:forEach var="newGood" items="${newGoods}">
+        		 <div class="swiper-slide">
+        		 	<a href="${basePath}/good/detail/${newGood.id}.do">
+        		 			<img src="${basePath}/pages/front/images/${newGood.pictureName}" />
+                            <h6 class="testNumber">${newGood.paysuccessNumber}人已测</h6>
+                            <h5 class="testName">${newGood.typeName}类型测评</h5>
+           			</a>
+           		</div>
+        	</c:forEach>
+           <!--
            <div class="swiper-slide"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img src="../pages/front/images/test1.jpg" />
                             <h6 class="testNumber">4.5w人已测</h6>
                             <h5 class="testName">焦虑类型测评</h5>
            </a></div>
            
-            <div class="swiper-slide"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img src="../pages/front/images/test1.jpg" />
+             <div class="swiper-slide"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img src="../pages/front/images/test1.jpg" />
                             <h6 class="testNumber">4.5w人已测</h6>
                             <h5 class="testName">焦虑类型测评</h5>
            </a></div>
@@ -114,7 +129,7 @@
             <div class="swiper-slide"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img src="../pages/front/images/test1.jpg" />
                             <h6 class="testNumber">4.5w人已测</h6>
                             <h5 class="testName">焦虑类型测评</h5>
-           </a></div>
+           </a></div> -->
           
           
         </div>
@@ -122,14 +137,34 @@
       </div>
     </div>
   </div>
-  <!--猜你喜欢-->
+  <!--精选评测-->
   <div class="wy-Module">
     <div class="wy-Module-tit-line"><span style="color:#d80909">精选评测</span></div>
     <div class="wy-Module-con">
      <div class="weui-panel weui-panel_access">
     <div class="weui-panel__hd"><span>精彩评测</span></div>
+    <c:forEach var="handpickedGood" items="${handpickedGoods}">
+	    <div class="weui-panel__bd">
+	      	<div class="weui-media-box_appmsg pd-10">
+	        	<div class="weui-media-box__hd">
+	        		<a href="${basePath}/good/detail/${handpickedGood.id}.do">
+	        			<img class="weui-media-box__thumb" src="${basePath}/pages/front/images/${newGood.pictureName}" alt="">
+	        		</a>
+	        	</div>
+	        	<div class="weui-media-box__bd">
+	          		<h1 class="weui-media-box__desc">
+	          			<a href="${basePath}/good/detail/${handpickedGood.id}.do" class="ord-pro-link">${handpickedGood.tittle}</a>
+	          		</h1>
+	          		<p class="weui-media-box__desc">
+	          			<span>${handpickedGood.subtittle}</span>
+	          		</p>
+	        	</div>
+	     </div>
+	</c:forEach>   
     
-    <div class="weui-panel__bd">
+    
+    
+    <!-- <div class="weui-panel__bd">
       <div class="weui-media-box_appmsg pd-10">
 
         <div class="weui-media-box__hd"><a href="../EntryController/gongzhonghaoIndex.do?tabName=good"><img class="weui-media-box__thumb" src="../pages/front/images/test1.jpg" alt=""></a></div>
@@ -163,7 +198,7 @@
          
         </div>
       </div>
-    </div>
+    </div> -->
     
     
     
@@ -172,7 +207,7 @@
   </div>
   
   
-      <div class="morelinks"><a href="../EntryController/gongzhonghaoIndex.do?tabName=classify">查看更多 >></a></div>
+      <div class="morelinks"><a href="${basePath}/EntryController/gongzhonghaoIndex.do?tabName=classify">查看更多 >></a></div>
     </div>
   </div>
 </div>

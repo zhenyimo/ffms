@@ -119,12 +119,11 @@ public class EntryController {
 	
 	private void classify(Model model) {
 		//查询数据字典的测试题所有类型
-		/*List<XlType> typeList=typeService.findAll();
-		model.addAttribute("typeList", typeList);*/
+		List<XlType> typeList=typeService.findAll();
+		model.addAttribute("typeList", typeList);
 		
 		//排序类型，时间，热度，价格
-		model.addAttribute("sortEnum", SortEnum.class);
-		
+		model.addAttribute("sortEnums",SortEnum.values());
 		//默认按时间排序,测试题类型为全部
 		Map<String,Object> map=new HashMap<String,Object>();
 		map.put(SqlParmCon.LIMITSTART_PARAM,0);
@@ -132,6 +131,7 @@ public class EntryController {
 		map.put(SqlParmCon.ORDER_BY_SORT_NAME,SortEnum.TIME_SORT_DESC.getLevel());
 		List<XlGood> goods=xlGoodService.findByLimit(map);
 		model.addAttribute("classifyGoods", goods);
+		model.addAttribute("currPage","0");
 	}
 	
 	private void index(Model model){

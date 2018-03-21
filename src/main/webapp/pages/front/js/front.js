@@ -30,10 +30,21 @@ $(function() {
 //    alert(sidebarWidth+"-----"+mainWidth+"----");
 	$(".select").width(Number(mainWidth-sidebarWidth));
     $("#sort").css("top",Number($(".weui-header").height()));
-	
+    //initScollLoad();
 });
 
-
+function initScollLoad(){
+	var loading = false;  //状态标记
+	//下拉到100px时候自动请求加载
+	$(".classify_scroll_load").infinite().on("infinite", function() {
+	  if(loading) return;
+	  loading = true;
+	  setTimeout(function() {
+	    $("#list").append("<p> 我是新加载的内容 </p>");
+	    loading = false;
+	  }, 1500);   //模拟延迟
+	});
+}
 
 
 /**
