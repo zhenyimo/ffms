@@ -24,7 +24,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!--  
 	<select id="findByLimit" parameterType="Map" resultMap="goodMap">
 	-->
-		select * from xl_answer 
+		<!--  select * from xl_answer -->
 		<!--  
 		<where>
 				1=1
@@ -43,6 +43,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				order by price desc
 		 </if>
 		  limit #{limitStart},#{limitLength}
-		  -->
-	</select>
+		  
+	</select>-->
 </mapper>
