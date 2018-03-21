@@ -110,5 +110,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <delete id="deleteXlQuestion" parameterType="Integer">
 	    delete from xl_question where id=#{id};
 	</delete>
+-->
 
+</select>
 </mapper> 	
