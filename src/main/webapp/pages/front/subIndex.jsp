@@ -38,7 +38,7 @@
  
  <!--热卖爆款-->
   <div class="wy-Module">
-    <div class="wy-Module-tit"><span style="color:#d80909">热卖爆款</span></div>
+    <div class="wy-Module-tit"><span class="txtwav bounce" style="color:#d80909">热卖爆款</span></div>
     <div class="wy-Module-con">
       <div class="swiper-container swiper-jingxuan" style="padding-top:34px;">
         <div class="swiper-wrapper">
@@ -86,7 +86,7 @@
   </div>
   <!--新品发布-->
  <div class="wy-Module" style="margin-top:-0.5rem">
-    <div class="wy-Module-tit"><span style="color:#d80909">新品发布</span></div>
+    <div class="wy-Module-tit"><span class="txtwav flip" style="color:#d80909">新品发布</span></div>
     <div class="wy-Module-con">
       <div class="swiper-container swiper-jingxuan" style="padding-top:34px;">
         <div class="swiper-wrapper">

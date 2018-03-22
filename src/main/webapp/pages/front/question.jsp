@@ -27,8 +27,8 @@
 	</ol>    
 	<!-- 轮播（Carousel）项目 -->
 	<div class="carousel-inner" >
-		<div class="item active" style="padding-right:1%">
-			               <p style="font-size:1.5em;font-weight:bold">1.你有怎样的恋爱态度</p>
+		<div class="item active" >
+			               <p style="padding-left:3%;font-size:1.3em;">1.你有怎样的恋爱态度</p>
 		                     <div class="panel-body">
 		                    <span style="font-size:1.2em;color:#333"> A.每次失恋了也恢复得很快。</span>
 		                        <input type="radio" id="singleRadio1" style="float:right;" value="option1" name="radioSingle1" aria-label="Single radio One">
@@ -45,8 +45,8 @@
 		                        <hr style="margin:5px;height:1px;color:#D5D5D5;"/>
 		                    </div>
 		</div>
-		<div class="item" style="padding-right:1%">
-			               <p style="font-size:1.5em;font-weight:bold">2.假如给你一个自由的花园，你会在里面种上怎样的植物？</p>
+		<div class="item">
+			               <p style="padding-left:3%;font-size:1.3em;">2.假如给你一个自由的花园，你会在里面种上怎样的植物？</p>
 		                     <div class="panel-body">
 		                    <span style="font-size:1.2em;color:#333"> 　A、茂盛的树木。</span>
 		                        <input type="radio" id="singleRadio1" style="float:right;" value="option1" name="radioSingle1" aria-label="Single radio One">
@@ -68,8 +68,8 @@
 		                        <hr style="margin:5px;height:1px;color:#D5D5D5;"/>
 		                    </div>
 		</div>
-		<div class="item" style="padding-right:1%">
-			               <p style="font-size:1.5em;font-weight:bold">3.你有怎样的恋爱态度</p>
+		<div class="item" >
+			               <p style="padding-left:3%;font-size:1.3em;">3.你有怎样的恋爱态度</p>
 		                     <div class="panel-body">
 		                    <span style="font-size:1.2em;color:#333"> A.每次失恋了也恢复得很快。</span>
 		                        <input type="radio" id="singleRadio1" style="float:right;" value="option1" name="radioSingle1" aria-label="Single radio One">
@@ -88,8 +88,8 @@
 		</div>
 		
 		
-		<div class="item" style="padding-right:1%">
-			               <p style="font-size:1.5em;font-weight:bold">4.假如给你一个自由的花园，你会在里面种上怎样的植物？</p>
+		<div class="item" >
+			               <p style="padding-left:5%;font-size:1.3em;">4.假如给你一个自由的花园，你会在里面种上怎样的植物？</p>
 		                     <div class="panel-body">
 		                    <span style="font-size:1.2em;color:#333"> 　A、茂盛的树木。</span>
 		                        <input type="radio" id="singleRadio1" style="float:right;" value="option1" name="radioSingle1" aria-label="Single radio One">

@@ -1,4 +1,12 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<style type="text/css">
+*{margin:0;padding:0;list-style-type:none;}
+a,img{border:0;}
+body{font:12px/180% Arial, Helvetica, sans-serif, "宋体";}
+/* suspend */
+.suspend{width:60px;height:60px;position:fixed;top:65%;right:0;overflow:hidden;z-index:9999;}
+.suspend dl{width:60px;height:35px;border-radius:15px 0px 0px 15px;background:#e2d212;position:absolute;top:0;left:0;cursor:pointer;}
+</style>
 <!--顶部搜索-->
 <header class='weui-header'>
   <div class="weui-search-bar" id="searchBar">
@@ -72,6 +80,63 @@
 </div>
   
   
+ <div class="suspend">
+	<dl>
+		<dt class="IE6PNG" style="color:red;padding-top:16%;padding-left:10%">赠送他人</dt>
+		<dd class="suspendTel"><a href="javascript:void(0);" onclick="hideGift()" class="weui-tabbar__item  open-popup" data-target="#selcet_sku" ></a></dd>
+	</dl>
+<!-- 	<a href="javascript:void(0);"  class="weui-tabbar__item  open-popup" >赠送他人</a>
+ -->	
+       </div>
+
+<div id="selcet_sku" class='weui-popup__container popup-bottom' style="z-index:600;">
+  <div class="weui-popup__overlay" style="opacity:1;"></div>
+  <div class="weui-popup__modal" >
+    <div class="toolbar">
+      <div class="toolbar-inner" >
+<!--         <a href="javascript:;" class=" close-popup">关闭</a>-->   
+    <h4 >赠送数量</h4> 
+      </div>
+    </div>
+    <div class="modal-content">
+      <div class="weui-msg" style="padding-top:0;">
+        <div class="wy-media-box2 weui-media-box_text" style="margin:0;">
+          <div class="weui-media-box_appmsg">
+            <div class="weui-media-box__hd proinfo-txt-l"><span class="promotion-label-tit"></span></div>
+            <div class="weui-media-box__bd">
+              <div class="promotion-sku clear">
+                <ul>
+                  <li><a href="javascript:;">1</a></li>
+                  <li><a href="javascript:;">2</a></li>
+                  <li><a href="javascript:;">3</a></li>
+                  <li><a href="javascript:;">5</a></li>
+                  <li><a href="javascript:;">10</a></li>
+                  <li><a href="javascript:;">15</a></li>
+                  <li><a href="javascript:;">20</a></li>
+                  <li><a href="javascript:;">30</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="weui-media-box_appmsg">
+            <div class="weui-media-box__hd proinfo-txt-l"><span class="promotion-label-tit"></span></div>
+           
+          </div>
+        </div>
+        <div class="weui-msg__opr-area">
+          <p class="weui-btn-area">
+            <a href="order_info.html" onclick="initTimer()" class="weui-btn weui-btn_primary">立即购买</a>
+            <a href="javascript:;" onclick="initTimer()" class="weui-btn weui-btn_default close-popup">不，我再看看</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  
     <div class="weui-footer">
   <p class="weui-footer__links">
   <a href="javascript:void(0);" class="weui-footer__link">底部链接</a>
@@ -81,10 +146,56 @@
   
   
   
+
+
+
+
+
+  <script type="text/javascript">       
+
+$(document).ready(function(){
+	initTimer();	 
+	
+});
+
+//初始化定时器
+function initTimer(){
+	$(".suspend").animate({width: 30}, 400);
+	   timer1=setInterval( " giftOut() " , 3000 );
+	   timer2=setInterval( " giftIn() " , 6000 );
+}
+function giftOut(){
+$(".suspend").stop();
+ $(".suspend").animate({width: 60}, 200);  
+}
+
+function giftIn(){
+$(".suspend").stop();
+$(".suspend").animate({width: 30}, 400);
+}
+//隐藏礼物控件
+function hideGift(){
+	$(".suspend").stop();
+	$(".suspend").animate({width: 0}, 400);
+	window.clearInterval(timer1);
+	window.clearInterval(timer2);
+}
+</script>
   
   
-  
- 
+
+
+
+<script>
+$(function(){
+	$(".promotion-sku li").click(function(){
+		$(this).addClass("active").siblings("li").removeClass("active");
+		});
+	});
+</script>
+
+
+
   
   
  
