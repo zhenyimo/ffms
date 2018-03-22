@@ -47,7 +47,7 @@
     </div>
     <div class="weui-panel__ft">
     <div class="weui-cell weui-cell_access weui-cell_link oder-opt-btnbox">
-    <a href="comment.html" class="ords-btn-com">继续测试</a>
+    <a href="../good/qustion.do?goodId=1" class="ords-btn-com">继续测试</a>
     </div>
     </div>
     </div>
@@ -64,7 +64,7 @@
     </div>
     <div class="weui-panel__ft">
     <div class="weui-cell weui-cell_access weui-cell_link oder-opt-btnbox">
-    <a href="comment.html" class="ords-btn-com">继续测试</a>
+    <a href="../good/qustion.do?goodId=1" class="ords-btn-com">继续测试</a>
     </div>
     </div>
     </div>
@@ -81,7 +81,7 @@
     </div>
     <div class="weui-panel__ft">
     <div class="weui-cell weui-cell_access weui-cell_link oder-opt-btnbox">
-    <a href="comment.html" class="ords-btn-com">继续测试</a>
+    <a href="../good/question.do?goodId=1" class="ords-btn-com">继续测试</a>
     </div>
     </div>
     </div>
