@@ -22,7 +22,7 @@ public class GoodController {
 	
 	@Resource
 	XlGoodService xlGoodService;
-	@RequestMapping("/detail.do/{goodId}")
+	@RequestMapping("/detail.do")
 	public String goodDetail(Model model,@PathParam("goodId")String goodId){
 		Map<String,Object> params=new HashMap<String,Object>();
 		params.put(GoodDao.PARAM_GOOD_ID,goodId);
@@ -32,7 +32,7 @@ public class GoodController {
 		return "front/goodIndex";	
 	}
 	
-	@RequestMapping("question.do/{goodId}")
+	@RequestMapping("/question.do")
 	public String question(Model model,@PathParam("goodId")String goodId){
 		Map<String,Object> params=new HashMap<String,Object>();
 		params.put(GoodDao.PARAM_GOOD_ID,goodId);

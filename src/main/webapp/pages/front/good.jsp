@@ -28,7 +28,7 @@ body{font:12px/180% Arial, Helvetica, sans-serif, "宋体";}
 <div class='weui-content'>
  <div class="weui-panel weui-panel_access">
   <div class="weui-panel__bd">
-  <img src="${basePath}/pages/front/images/${good.pictureName}"  style="width:100%;height:250px"/>
+  <img style="height:250px;width:100%" src="${basePath}/pages/front/images/${good.pictureName}"  style="width:100%;height:250px"/>
   </div>
 </div>
   </div>
