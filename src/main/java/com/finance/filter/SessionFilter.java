@@ -20,7 +20,8 @@ public class SessionFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
         // 不过滤的uri
-        String[] notFilter = new String[] { "/sign.do","/index.do","/gosign.do","/login.do","/gongzhonghaoIndex.do","/wx/","goodList.do","/EntryController"};
+        String[] notFilter = new String[] { "/sign.do","/index.do","/gosign.do","/login.do",
+        		"/classify","/EntryController","/wx/","/good"};
         // 请求的uri
         String uri = request.getRequestURI();
         

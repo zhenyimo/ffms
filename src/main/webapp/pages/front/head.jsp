@@ -28,6 +28,7 @@
 <link rel="stylesheet" href="${basePath}/pages/front/css/jquery-weui.css">
 <link rel="stylesheet" href="${basePath}/pages/front/css/style.css">
 <link rel="stylesheet" href="${basePath}/pages/front/css/front.css">
+<link rel="stylesheet" href="${basePath}/pages/front/css/txt.wav.css">
 <link rel="stylesheet" href="${basePath}/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="${basePath}/bootstrap/css/font-awesome.css">
 
@@ -36,6 +37,8 @@
 <script src="${basePath}/pages/front/js/jquery-weui.js"></script>
 <script src="${basePath}/pages/front/js/swiper.js"></script>
 <script src="${basePath}/bootstrap/js/bootstrap.min.js"></script>
+<script src="${basePath}/pages/front/js/front.js"></script>
+<script src="${basePath}/pages/front/js/txt.wav.min.js"></script>
 
 
 <%
