@@ -27,6 +27,7 @@
 <link rel="stylesheet" href="${basePath}/pages/front/lib/weui.min.css">
 <link rel="stylesheet" href="${basePath}/pages/front/css/jquery-weui.css">
 <link rel="stylesheet" href="${basePath}/pages/front/css/style.css">
+<link rel="stylesheet" href="${basePath}/pages/front/css/common.css">
 <link rel="stylesheet" href="${basePath}/pages/front/css/front.css">
 <link rel="stylesheet" href="${basePath}/pages/front/css/txt.wav.css">
 <link rel="stylesheet" href="${basePath}/bootstrap/css/bootstrap.min.css">

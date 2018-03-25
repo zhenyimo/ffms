@@ -136,5 +136,5 @@
 
 
  </div>
- 
+<link rel="stylesheet" href="../pages/front/css/common.css"> 
 <script src="../pages/front/js/question.js"></script>
