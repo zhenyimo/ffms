@@ -110,7 +110,7 @@
 		$("#answer").val("");
 	}
 	
-	function closeTitleDialog(){
+	function closeXlQuestionDialog(){
 		$("#dlg").dialog("close");
 		resetValue();
 	}
@@ -126,7 +126,7 @@
 	       <th field="cb" checkbox="true" align="center"></th>
 	 	   <th field="id" width="50" align="center" sortable="true">编号</th>
 	 	   <th field="question_content" width="100" align="center" sortable="true">题目名称</th>
-	 	   <th field="answer" width="100" align="center" sortable="true">答案</th>	    
+	 	   <th field="answer_content" width="100" align="center" sortable="true">答案</th>	    
 	    </tr>
 	 	<!--  
 	 	<tr>
@@ -162,27 +162,27 @@
 			&nbsp;<input type="text" id="s_headline" size="70" value="心理性取向的测试">
 		</div>
 	    <div>
-			&nbsp;<input type="text" id="s_headline" size="35" value="不测测，你怎么知道你是喜欢他还是她？">&nbsp;题目类型：&nbsp;<select class="easyui-combobox" id="s_titletype"  editable="false" style="width:175px;">
+			&nbsp;<input type="text" id="s_headline" size="35" value="不测测，你怎么知道你是喜欢他还是她？">&nbsp;题目类型：&nbsp;<select class="easyui-combobox" id="type_name"  editable="false" style="width:175px;">
 				<option value="">请选择类型...</option>
-	 				<c:forEach items="${titlenames }" var="titlename">
-						<option value="${titlename.titlename }">${titlename.titlename }</option>
+	 				<c:forEach items="${type_names }" var="type_name">
+						<option value="${type_name.type_name }">${type_name.type_name }</option>
 					</c:forEach>
 			</select>&nbsp;
 		</div>
 		<div>
-			<a href="javascript:openTitleAddDialog()" class="easyui-linkbutton" iconCls="icon-add" plain="true">添加</a>
-			<a href="javascript:openTitleModifyDialog()" class="easyui-linkbutton" iconCls="icon-edit" plain="true">修改</a>
-			<a href="javascript:deleteTitle()" class="easyui-linkbutton" iconCls="icon-remove" plain="true">删除</a>
+			<a href="javascript:openQuestionAddDialog()" class="easyui-linkbutton" iconCls="icon-add" plain="true">添加</a>
+			<a href="javascript:openQuestionModifyDialog()" class="easyui-linkbutton" iconCls="icon-edit" plain="true">修改</a>
+			<a href="javascript:deleteQuestion()" class="easyui-linkbutton" iconCls="icon-remove" plain="true">删除</a>
 		</div>
 		<div>
-			&nbsp;题目名称：&nbsp;<select class="easyui-combobox" id="s_titlename"  editable="false" style="width:175px;">
+			&nbsp;题目名称：&nbsp;<select class="easyui-combobox" id="s_question_content"  editable="false" style="width:175px;">
 					<option value="">请选择名称...</option>
-	 				<c:forEach items="${titlenames }" var="titlename">
-						<option value="${titlename.titlename }">${titlename.titlename }</option>
+	 				<c:forEach items="${question_contents }" var="question_content">
+						<option value="${question_content.question_content }">${question_content.question_content }</option>
 					</c:forEach>
 				</select>&nbsp;
-			&nbsp;答案：&nbsp;<input type="text" id="s_answer" size="20" onkeydown="if(event.keyCode==13) searchTitle()"/>
-			<a href="javascript:searchTitle()" class="easyui-linkbutton" iconCls="icon-search" plain="true">搜索</a>
+			&nbsp;答案：&nbsp;<input type="text" id="s_answer" size="20" onkeydown="if(event.keyCode==13) searchQuestion()"/>
+			<a href="javascript:searchQuestion()" class="easyui-linkbutton" iconCls="icon-search" plain="true">搜索</a>
 			<a href="javascript:resetSearch()" class="easyui-linkbutton" iconCls="icon-reset" plain="true">清空</a>
 		</div>
 	</div>
@@ -193,10 +193,10 @@
 	 			<tr>
 	 				<td>题目名称：</td>
 	 				<td>
-	 					<select class="easyui-combobox" id="titlename" name="titlename" editable="false" style="width:140px;">
+	 					<select class="easyui-combobox" id="question_content" name="question_content" editable="false" style="width:140px;">
 	 						<option value="">请选择名称...</option>
-	 						<c:forEach items="${titlenames }" var="titlename">
-								<option value="${titlename.titlename }">${titlename.titlename }</option>
+	 						<c:forEach items="${question_contents }" var="question_content">
+								<option value="${question_content.question_content }">${question_content.question_content }</option>
 							</c:forEach>
 	 					</select>&nbsp;<font color="red">*</font>
 	 				</td>
@@ -210,8 +210,8 @@
 	 	</form>
 	</div>
 	<div id="dlg-buttons">
-		<a href="javascript:saveTitle()" class="easyui-linkbutton" iconCls="icon-ok">保存</a>
-		<a href="javascript:closeTitleDialog()" class="easyui-linkbutton" iconCls="icon-cancel">关闭</a>
+		<a href="javascript:saveQuestion()" class="easyui-linkbutton" iconCls="icon-ok">保存</a>
+		<a href="javascript:closeQuestionDialog()" class="easyui-linkbutton" iconCls="icon-cancel">关闭</a>
 	</div>
 </body>
 </html>
