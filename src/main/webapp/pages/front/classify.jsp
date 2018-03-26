@@ -1,6 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <!--顶部搜索-->
 <!--主体-->
+<script src="${basePath}/require/js/require.js" data-config="${basePath}/resource/js/requireConfig.js" data-main="${basePath}/resource/js/classify.js"></script>
 <div class="wy-content">
 	<div class="category-top">
 		<header class='weui-header'>
@@ -24,7 +25,6 @@
 
 	</div>
 	<aside>
-		<input id="currPage" type="hidden" value="${currPage}" />
 		<div class="menu-left scrollbar-none" id="sidebar">
 			<ul>
 				<li class="active" typeVal="-1">全部</li>
@@ -34,31 +34,27 @@
 			</ul>
 	</aside>
 	<div>
-		<section class="menu-right padding-all j-content">
+		<section style="overflow:hidden" class="menu-right padding-all j-content">
 			<h5>酒水食品</h5>
-			<ul>
+			<input id="currPage" type="hidden" value="${currPage}" />
+			<ul id="weui-ul-scroll-load" style="height: 500px;overflow-y:auto;">		
 				<div class="weui-panel weui-panel_access classify_scroll_load">
-					<c:forEach var="classifyGood" items="${classifyGoods}">
-						<div class="weui-panel__bd">
-							<div class="weui-media-box_appmsg pd-10">
-								<div class="weui-media-box__hd">
-									<a href="${basePath}/good/detail/${classifyGood.id}.do"><img
-										class="weui-media-box__thumb"
-										src="${basePath}/pages/front/images/${classifyGood.pictureName}" alt=""></a>
-								</div>
-								<div class="weui-media-box__bd">
-									<h1 class="weui-media-box__desc">
-										<a href="${basePath}/good/detail/${classifyGood.id}.do"
-											class="ord-pro-link">${classifyGood.tittle}</a>
-									</h1>
-									<p class="weui-media-box__desc">
-										${handpickedGood.subtittle}
-									</p>
-								</div>
-							</div>
-						</div>
-					</c:forEach>
+					<jsp:include page="/pages/front/classifyGoodModel.jsp">
+						<jsp:param value="${classifyGoods}" name="classifyGoods"/>
+					</jsp:include>
+					
 				</div>
+				 <!-- 滚动加载 -->
+					<div class="weui-loadmore weui-loadingmore" style="display:None">
+				  		<i class="weui-loading"></i>
+				  		<span class="weui-loadmore__tips">正在加载</span>
+					</div>
+					<div class="weui-loadmore weui-loadmore_line weui-loadmore_nodata" style="display:None">
+	  					<span class="weui-loadmore__tips">暂无数据</span>
+					</div>
+					<div class="weui-loadmore weui-loadmore_line weui-loadmore_dot" style="display:None">
+	  					<span class="weui-loadmore__tips"></span>
+					</div> 
 			</ul>
 		</section>
 	</div>
@@ -77,23 +73,18 @@
         </ul>
     </div>
 </div>
-    </div>
-<!-- 滚动加载 -->
-<div class="weui-loadmore">
-  <i class="weui-loading"></i>
-  <span class="weui-loadmore__tips">正在加载</span>
-</div>
 
-<script type="text/javascript">
+
+<%-- <script type="text/javascript">
 	$(function($){
 		$('#sidebar ul li').click(function(){
 			$(this).addClass('active').siblings('li').removeClass('active');
 			var index = $(this).index();
 			$('.j-content').eq(index).show().siblings('.j-content').hide();
-			
+			changeClassify(this);
 		});
 		
 	});
 </script>
 
-<script src="${basePath}/pages/front/js/front.js"></script>
+<script src="${basePath}/pages/front/js/front.js"></script> --%>

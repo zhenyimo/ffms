@@ -1,11 +1,3 @@
-require.config({
-    paths: {
-        "jquery": "/pages/front/lib/jquery-2.1.4.js",
-        "wx": "/wx/js/jweixin-1.2.0.js",
-        "constants":"/resource/js/constants.js"
-    }
-});
-
 require(['jquery','wx','constants'],function($,wx,constants){
 	var debug=true;
 	function resultHandler(data,successBack,failCallBack){
@@ -28,7 +20,7 @@ require(['jquery','wx','constants'],function($,wx,constants){
 			dataType:"json",
 			success:function(data){
 				if(debug)
-					console.log("jssdkPlaceOrder response : "data);
+					console.log("jssdkPlaceOrder response : "+data);
 				resultHandler(data,function(result){
 					var orderMessage=JSON.parse(result.data);
 					wx.chooseWXPay({
@@ -53,7 +45,7 @@ require(['jquery','wx','constants'],function($,wx,constants){
 		dataType:"json",
 		success:function(data){
 			if(debug)
-				console.log("JsSdkTicket response : "data);
+				console.log("JsSdkTicket response : "+data);
 			resultHandler(data,function(result){
 				jssdkConfig=JSON.parse(result.data);
 				//jssdk配置接口 
@@ -63,8 +55,27 @@ require(['jquery','wx','constants'],function($,wx,constants){
 				    timestamp: jssdkConfig.timestamp, // 必填，生成签名的时间戳
 				    nonceStr: jssdkConfig.noncestr, // 必填，生成签名的随机串
 				    signature: jssdkConfig.sign,// 必填，签名
-				    jsApiList: ['chooseWXPay'] // 必填，需要使用的JS接口列表，发起支付
+				    jsApiList: ['chooseWXPay','onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，发起支付
 				});
+				
+				
+				//分享给朋友：
+				wx.onMenuShareAppMessage({
+					title: '测试分享', // 分享标题
+					desc: '测试分享', // 分享描述
+					link: pathContext+"/wx/hello.do", // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+					imgUrl: pathContext+"/pages/front/images/test.jpg", // 分享图标
+					type: 'link', // 分享类型,music、video或link，不填默认为link
+					dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+					success: function () {
+					// 用户确认分享后执行的回调函数
+						alert("分享成功");
+					},
+					cancel: function () {
+					// 用户取消分享后执行的回调函数
+						alert("分享失败");
+					}
+					});
 				
 			})
 		}

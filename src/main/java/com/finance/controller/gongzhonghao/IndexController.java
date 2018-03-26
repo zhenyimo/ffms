@@ -10,6 +10,7 @@ import javax.annotation.Resource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -36,7 +37,10 @@ public class IndexController extends SerialSupport{
 	private Logger logger=LoggerFactory.getLogger(IndexController.class);
 	@Resource
 	XlGoodService xlGoodService;
-	
+	//全部加载完毕
+	private static final int LOAD_END=1;
+	//加载出错
+	private static final int LOAD_ERROR=2;
 	/**
 	 * 
 	 * 
@@ -45,15 +49,15 @@ public class IndexController extends SerialSupport{
 	 * @param sortType 根据哪个类型排序
 	 * @return
 	 */
-	@RequestMapping("/goodList.do")
+	@RequestMapping("/goodListJson.do")
 	@ResponseBody
-	public AjaxResult getGoodList(@RequestParam(value="type",required=false)String type,@RequestParam(value="curPage",defaultValue="0")int curPage,@RequestParam("sortType")String sortType) {
+	public AjaxResult getGoodListReturnJson(@RequestParam(value="type",required=false)String type,@RequestParam(value="nextPage",defaultValue="0")int nextPage,@RequestParam("sortType")String sortType) {
 		try{
 			String actSort=StringUtil.getValue(sortType,SortEnum.TIME_SORT_DESC.getLevel());
 			Map<String,Object> map=new HashMap<String,Object>();
 			if(StringUtil.isNotEmpty(type))
 				map.put(GoodDao.PARAM_TYPE_ID, type);
-			map.put(SqlParmCon.LIMITSTART_PARAM,curPage*SqlParmCon.LIMIT_DEFAULT_SIZE);
+			map.put(SqlParmCon.LIMITSTART_PARAM,nextPage*SqlParmCon.LIMIT_DEFAULT_SIZE);
 			map.put(SqlParmCon.LIMIT_LENGTH,SqlParmCon.LIMIT_DEFAULT_SIZE);
 			map.put(SqlParmCon.ORDER_BY_SORT_NAME, actSort);
 			List<XlGood> list=xlGoodService.findByLimit(map);
@@ -65,5 +69,42 @@ public class IndexController extends SerialSupport{
 		
 		
 	}
+	
+	
+	/**
+	 * 
+	 * 
+	 * @param type 商品类型
+	 * @param curPage 当前页
+	 * @param sortType 根据哪个类型排序
+	 * @return
+	 */
+	@SuppressWarnings("finally")
+	@RequestMapping("/goodListHtml.do")
+	public String getGoodListReturnHtml(Model model,@RequestParam(value="type",required=false)String type,@RequestParam(value="nextPage",defaultValue="0")int nextPage,@RequestParam("sortType")String sortType) {
+		try{
+			String actSort=StringUtil.getValue(sortType,SortEnum.TIME_SORT_DESC.getLevel());
+			Map<String,Object> map=new HashMap<String,Object>();
+			//-1表示商品类型为全部
+			if(StringUtil.isNotEmpty(type)&&!type.equals("-1"))
+				map.put(GoodDao.PARAM_TYPE_ID, type);
+			map.put(SqlParmCon.LIMITSTART_PARAM,nextPage*SqlParmCon.LIMIT_DEFAULT_SIZE);
+			map.put(SqlParmCon.LIMIT_LENGTH,SqlParmCon.LIMIT_DEFAULT_SIZE);
+			map.put(SqlParmCon.ORDER_BY_SORT_NAME, actSort);
+			List<XlGood> list=xlGoodService.findByLimit(map);
+			if(list==null||list.size()<SqlParmCon.LIMIT_DEFAULT_SIZE)
+				model.addAttribute("loadStatus",LOAD_END);
+			model.addAttribute("classifyGoods", list);
+		}catch (Exception ex){
+			model.addAttribute("loadStatus",LOAD_ERROR);
+			logger.error("---异常操作----",ex);
+		}finally{
+			return "front/classifyGoodModel";
+		}
+		
+		
+	}
+	
+	
 	
 }

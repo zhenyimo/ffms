@@ -134,3 +134,8 @@ background:url(../images/footer01.png) no-repeat; background-size:22px;
 .radio + .radio, .checkbox + .checkbox {
     margin-top: -5px;
 }
+
+.classify_scroll_load{
+	/* height:640px;
+	overflow:auto; */
+}
