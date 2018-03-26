@@ -1,8 +1,8 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 
-<div>
 
-<div class="weui-progress" >
+
+<div class="weui-progress"  >
 <span id="progress"></span>&nbsp;
   <div class="weui-progress__bar" >
     <div id="speed" class="weui-progress__inner-bar js_progress" style="width: 60%;"></div>
@@ -15,7 +15,7 @@
 </div>
 
 
-<div class="weui-panel weui-panel_access">
+<div class="weui-panel weui-panel_access" style="padding-left:5%;padding-right:5%;width:100%">
 <div class="weui-panel__bd">
 <div id="myCarousel" class="carousel slide" style="height:90%;width:100%">
 	<!-- 轮播（Carousel）指标 -->
@@ -26,6 +26,7 @@
 		<li data-target="#myCarousel" data-slide-to="3"></li>
 	</ol>    
 	<!-- 轮播（Carousel）项目 -->
+
 	<div class="carousel-inner" >
 		<div class="item active" >
 			               <p style="padding-left:3%;font-size:1.3em;">1.你有怎样的恋爱态度</p>
@@ -48,7 +49,7 @@
 		<div class="item">
 			               <p style="padding-left:3%;font-size:1.3em;">2.假如给你一个自由的花园，你会在里面种上怎样的植物？</p>
 		                     <div class="panel-body">
-		                    <span style="font-size:1.2em;color:#333"> 　A、茂盛的树木。</span>
+		                    <span style="font-size:1.2em;color:#333">A、茂盛的树木。</span>
 		                        <input type="radio" id="singleRadio1" style="float:right;" value="option1" name="radioSingle1" aria-label="Single radio One">
 		                        <hr style="margin:5px;height:1px;color:#D5D5D5;"/>
 		                    </div>
@@ -58,12 +59,12 @@
 		                       <hr style="margin:5px;height:1px;color:#D5D5D5;"/>	                       
 		                    </div>
 		                       <div class="panel-body">
-		                      <span  style="font-size:1.2em;color:#333">　C、青嫩的小草。</span>
+		                      <span  style="font-size:1.2em;color:#333">C、青嫩的小草。</span>
 		                        <input type="radio" id="singleRadio3" style="float:right" value="option3" name="radioSingle1" checked aria-label="Single radio Three">
 		                        <hr style="margin:5px;height:1px;color:#D5D5D5;"/>
 		                    </div>
 		                    <div class="panel-body">
-		                      <span  style="font-size:1.2em;color:#333">　D、芳香的花朵</span>
+		                      <span  style="font-size:1.2em;color:#333">D、芳香的花朵</span>
 		                        <input type="radio" id="singleRadio3" style="float:right" value="option3" name="radioSingle1" checked aria-label="Single radio Three">
 		                        <hr style="margin:5px;height:1px;color:#D5D5D5;"/>
 		                    </div>
@@ -91,7 +92,7 @@
 		<div class="item" >
 			               <p style="padding-left:5%;font-size:1.3em;">4.假如给你一个自由的花园，你会在里面种上怎样的植物？</p>
 		                     <div class="panel-body">
-		                    <span style="font-size:1.2em;color:#333"> 　A、茂盛的树木。</span>
+		                    <span style="font-size:1.2em;color:#333">A、茂盛的树木。</span>
 		                        <input type="radio" id="singleRadio1" style="float:right;" value="option1" name="radioSingle1" aria-label="Single radio One">
 		                        <hr style="margin:5px;height:1px;color:#D5D5D5;"/>
 		                    </div>
@@ -101,12 +102,12 @@
 		                       <hr style="margin:5px;height:1px;color:#D5D5D5;"/>	                       
 		                    </div>
 		                       <div class="panel-body">
-		                      <span  style="font-size:1.2em;color:#333">　C、青嫩的小草。</span>
+		                      <span  style="font-size:1.2em;color:#333">C、青嫩的小草。</span>
 		                        <input type="radio" id="singleRadio3" style="float:right" value="option3" name="radioSingle1" checked aria-label="Single radio Three">
 		                        <hr style="margin:5px;height:1px;color:#D5D5D5;"/>
 		                    </div>
 		                    <div class="panel-body">
-		                      <span  style="font-size:1.2em;color:#333">　D、芳香的花朵</span>
+		                      <span  style="font-size:1.2em;color:#333">D、芳香的花朵</span>
 		                        <input type="radio" id="singleRadio3" style="float:right" value="option3" name="radioSingle1" checked aria-label="Single radio Three">
 		                        <hr style="margin:5px;height:1px;color:#D5D5D5;"/>
 		                    </div>
@@ -122,6 +123,7 @@
 </div> 
 </div>
 </div>
+
 
 <!-- <div class="weui-flex">
   <div class="weui-flex__item"><a  href="#myCarousel" data-slide="prev" class="weui-btn weui-btn_primary" >上一题</a></div>

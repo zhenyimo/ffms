@@ -23,7 +23,7 @@
   <div class="swiper-container swiper-banner">
     <div class="swiper-wrapper">
      <c:forEach var="adGood" items="${ads}">
-         <div class="swiper-slide"><a href="#"><img src="${basePath}${adPicParentPath}${adGood.adPictureUrl}" /></a></div>
+         <div class="swiper-slide"><a href="#"><img style="width:100%; height:300px;"  src="${basePath}${adPicParentPath}${adGood.adPictureUrl}" /></a></div>
 	 </c:forEach> 
     </div>
     <div class="swiper-pagination"></div>
@@ -45,8 +45,8 @@
         <div class="swiper-wrapper">
         	<c:forEach var="hotGood" items="${hotgoods}">
         		 <div class="swiper-slide">
-        		 	<a href="${basePath}/good/detail/${hotGood.id}.do">
-        		 			<img src="${basePath}/pages/front/images/${hotGood.pictureName}" />
+        		 	<a href="${basePath}/good/detail.do?goodId=${hotGood.id}">
+        		 			<img  src="${basePath}/pages/front/images/${hotGood.pictureName}" />
                             <h6 class="testNumber">${hotGood.paysuccessNumber}人已测</h6>
                             <h5 class="testName">${hotGood.typeName}类型测评</h5>
            			</a>
@@ -214,13 +214,13 @@
 </div>
 
  <!--底部导航-->
-<!--  <div class="weui-footer">
+ <div class="weui-footer">
   <p class="weui-footer__links">
   <a href="javascript:void(0);" class="weui-footer__link">底部链接</a>
   </p>
   <p class="weui-footer__text">Copyright © 2008-2016 weui.io</p>
   </div>
- -->
+
 
 <!-- <script>
 $(function(){

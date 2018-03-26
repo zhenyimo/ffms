@@ -14,9 +14,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 
+
+
+
+
 //import com.finance.entity.Datadic;
 import com.finance.entity.PageBean;
+import com.finance.entity.XlAnswer;
 import com.finance.entity.XlQuestion;
+//import com.finance.service.RoleService;
+import com.finance.service.XlAnswerService;
+//import com.finance.service.XlGoodService;
 import com.finance.service.XlQuestionService;
 //import com.finance.entity.Title;
 //import com.finance.service.DatadicService;
@@ -41,6 +49,10 @@ public class XlQuestionController {
 	@Resource
 	//private TitleService titleService;
 	private XlQuestionService xlQuestionService;
+	
+	@Resource
+	private XlAnswerService xlAnswerService;
+	
 	/**
 	 * 题目信息页面
 	 */
@@ -50,9 +62,11 @@ public class XlQuestionController {
     public String xlQuestionManage(ModelMap map) {
 		//List<Title> list = titleService.getTitlename();
 		//List<XlQuestion> list = titleService.getTitlename();
-		List<XlQuestion> list = xlQuestionService.getXlQuestion();
+		//List<XlQuestion> list = xlQuestionService.getXlQuestion();
 		//map.addAttribute("titlenames", list);
-		map.addAttribute("question_contents", list);
+		List<XlAnswer> list = xlAnswerService.getXlAnswers();
+		//map.addAttribute("question_contents", list);
+		map.addAttribute("answer_contents", list);
 		//return "admin/titleManage";
 		return "admin/xlQuestionManage";
 	}
@@ -77,10 +91,11 @@ public class XlQuestionController {
 		PageBean pageBean = new PageBean(Integer.parseInt(page), Integer.parseInt(rows));
 		Map<String, Object> map = new HashMap<String, Object>();
 		//map.put("titlename", s_title.getTitlename());
-		map.put("question_content", xl_Question.getQuestionContent());
+		map.put("question_content", StringUtil.formatLike(xl_Question.getQuestionContent()));//格式化模糊查询
+		map.put("answer_content", StringUtil.formatLike(xl_Question.getAnswername()));
+		map.put("answer_num", xl_Question.getAnswerid());
 		//map.put("optionvalue", StringUtil.formatLike(s_title.getOptionvalue()));
 		//map.put("optionvalue", StringUtil.formatLike(s_title.getAnswer()));
-		
 		map.put("start", pageBean.getStart());
 		map.put("size", pageBean.getPageSize());
 		//List<Title> titleList = titleService.findTitle(map);
