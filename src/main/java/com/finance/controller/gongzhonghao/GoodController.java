@@ -22,7 +22,14 @@ public class GoodController {
 	
 	@Resource
 	XlGoodService xlGoodService;
-	@RequestMapping("/detail.do/{goodId}")
+	
+	/**
+	 * 跳转到商品详情页（也就是测评的详情页）
+	 * @param model
+	 * @param goodId
+	 * @return
+	 */
+	@RequestMapping("/detail.do")
 	public String goodDetail(Model model,@PathParam("goodId")String goodId){
 		Map<String,Object> params=new HashMap<String,Object>();
 		params.put(GoodDao.PARAM_GOOD_ID,goodId);
@@ -32,8 +39,30 @@ public class GoodController {
 		return "front/goodIndex";	
 	}
 	
-	@RequestMapping("question.do/{goodId}")
+	/**
+	 * 跳转到做题页面
+	 * @param model
+	 * @param goodId
+	 * @return
+	 */
+	@RequestMapping("/question.do")
 	public String question(Model model,@PathParam("goodId")String goodId){
+		Map<String,Object> params=new HashMap<String,Object>();
+		params.put(GoodDao.PARAM_GOOD_ID,goodId);
+		XlGood good=xlGoodService.findByGoodId(params);
+		
+		model.addAttribute("good",good);
+		return "front/questionIndex";	
+	}
+	
+	/**
+	 * 跳转到做题页面
+	 * @param model
+	 * @param goodId
+	 * @return
+	 */
+	@RequestMapping("/answer.do")
+	public String answer(Model model,@PathParam("goodId")String goodId){
 		Map<String,Object> params=new HashMap<String,Object>();
 		params.put(GoodDao.PARAM_GOOD_ID,goodId);
 		XlGood good=xlGoodService.findByGoodId(params);

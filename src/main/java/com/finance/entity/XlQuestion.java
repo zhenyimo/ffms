@@ -3,7 +3,7 @@ package com.finance.entity;
 import java.io.Serializable;
 import java.util.List;
 
-import com.mysql.jdbc.Blob;
+//import com.mysql.jdbc.Blob;
 
 public class XlQuestion implements Serializable{
 	/**
@@ -22,6 +22,12 @@ public class XlQuestion implements Serializable{
 	//private String versionCode;
 	//一对多，1条题目可能有多个答案。
 	private List<XlAnswer> xlanswerList;  //一条题目对应的答案列表
+	//private String type;
+
+	private Integer answerid; // 答案ID
+	private String answername; // 答案名称
+	private String roleIDs=""; // 对应的角色列表id
+	private String roleNames=""; // 对应的角色列表名称
 	public Integer getId() {
 		return id;
 	}
@@ -72,6 +78,19 @@ public class XlQuestion implements Serializable{
 	public void setAnswerList(List<XlAnswer> xlanswerList) {
 		this.xlanswerList = xlanswerList;
 	}
+	
+	public List<XlAnswer> getXlanswerList() {
+		return xlanswerList;
+	}
+	public void setXlanswerList(List<XlAnswer> xlanswerList) {
+		this.xlanswerList = xlanswerList;
+	}
+/*	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}*/
 	@Override
 	public String toString() {
 		return "XlQuestion [id=" + id + ", xlGood=" + xlGood

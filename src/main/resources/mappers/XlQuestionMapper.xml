@@ -45,8 +45,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         </collection> 
 	</resultMap>
  	<!-- 单表查询，查询所有题目 -->
- 	<select id="findXlQuestion" parameterType="Map" resultMap="XlQuestionResult">
-		select * from xl_question
+ 	<select id="findXlQuestion" resultMap="XlQuestionResult">
+		select * from xl_question;
 		<!--  
 		<where>
 		    <if test="question_content!=null and question_content!='' ">
@@ -63,8 +63,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		
 	</select>
 	<!-- 一对多查询，查询所有题目与答案 -->
-	 	<select id="findXlQuestionAndXlAnswer" parameterType="Map" resultMap="XlQuestionXlAnswerResult">
-		select * from xl_question left join 
+	 	<select id="findXlQuestionAndXlAnswer" parameterType="int" resultMap="XlQuestionXlAnswerResult">
+		select q.*,a.* from xl_question q,xl_answer a where q.questionId=a.questionId; 
 		<!--  
 		<where>
 		    <if test="question_content!=null and question_content!='' ">

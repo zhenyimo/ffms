@@ -28,7 +28,7 @@ body{font:12px/180% Arial, Helvetica, sans-serif, "宋体";}
 <div class='weui-content'>
  <div class="weui-panel weui-panel_access">
   <div class="weui-panel__bd">
-  <img src="${basePath}/pages/front/images/${good.pictureName}"  style="width:100%;height:250px"/>
+  <img style="height:250px;width:100%" src="${basePath}/pages/front/images/${good.pictureName}"  style="width:100%;height:250px"/>
   </div>
 </div>
   </div>
@@ -41,7 +41,7 @@ body{font:12px/180% Arial, Helvetica, sans-serif, "宋体";}
       <div class="weui-media-box__bd" >
         <h4 class="weui-media-box__title" style="font-weight:bold;font-size:1.7em" >${good.tittle}</h4>
         <p class="weui-media-box__desc">${good.description}</p><br>
-        <a href="../EntryController/gongzhonghaoIndex.do?tabName=question"  class="weui-btn weui-btn_primary" style="width:50%">开始测试</a>    
+        <a href="${basePath}/good/question.do?goodId=${good.id}"  class="weui-btn weui-btn_primary" style="width:50%">开始测试</a>    
         <div class="weui-form-preview__bd">
     <div class="weui-form-preview__item" >
       <label class="weui-form-preview__label" style="float:left">●50个精选题目</label>
