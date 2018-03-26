@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<script src="${basePath}/require/js/require.js" data-config="${basePath}/resource/js/requireConfig.js" data-main="${basePath}/resource/js/index.js"></script>
 <!--顶部搜索-->
 <header class='weui-header'>
   <div class="weui-search-bar" id="searchBar">
@@ -221,7 +222,7 @@
   </div>
 
 
-<script>
+<!-- <script>
 $(function(){
 	
 })
@@ -246,4 +247,4 @@ $(function(){
         paginationClickable: true,
         spaceBetween:2
       });
-</script>
+</script> -->

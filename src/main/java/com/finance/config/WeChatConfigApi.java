@@ -1,5 +1,6 @@
 package com.finance.config;
 
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -8,7 +9,7 @@ import com.jfinal.weixin.sdk.api.ApiConfigKit;
 
 
 @Component
-public class WeChatConfigApi {
+public class WeChatConfigApi implements InitializingBean{
 	@Value("${wxgz.token}")
 	private String token;
 	@Value("${wxgz.appID}")
@@ -59,15 +60,7 @@ public class WeChatConfigApi {
 		
 	}
 	
-	public ApiConfig getApiConfig() {  
-		if(ApiConfigKit.getApiConfig(appID)==null){
-			  ApiConfig ac = new ApiConfig();         
-		        // 配置微信 API 相关常量  
-		        ac.setToken(token);  
-		        ac.setAppId(appID);  
-		        ac.setAppSecret(appSecret);  
-		        ApiConfigKit.putApiConfig(ac);
-		}        
+	public ApiConfig getApiConfig() {      
         /** 
          *  是否对消息进行加密，对应于微信平台的消息加解密方式： 
          *  1：true进行加密且必须配置 encodingAesKey 
@@ -75,11 +68,32 @@ public class WeChatConfigApi {
          */  
        /* ac.setEncryptMessage(PropKit.getBoolean("encryptMessage", false));  
         ac.setEncodingAesKey(PropKit.get("encodingAesKey", "setting it in config file"));  */
-		ApiConfigKit.setThreadLocalAppId(appID);
-        return ApiConfigKit.getApiConfig(appID);  
+		try{
+			ApiConfigKit.setThreadLocalAppId(appID);
+	        return ApiConfigKit.getApiConfig(appID);  
+		}catch(Exception ex){
+			ApiConfig ac = new ApiConfig();         
+		    // 配置微信 API 相关常量  
+	        ac.setToken(token);  
+	        ac.setAppId(appID);  
+	        ac.setAppSecret(appSecret);  
+	        ApiConfigKit.putApiConfig(ac);
+	        return ac;
+		}	
     }  
 	
 	public WeChatPayConfig getWeChatPayConfig(){
 		return new WeChatPayConfig(appID,mchId,paternerKey,noticeUrl);
+	}
+
+	@Override
+	public void afterPropertiesSet() throws Exception {
+		// TODO Auto-generated method stub
+		ApiConfig ac = new ApiConfig();         
+	    // 配置微信 API 相关常量  
+        ac.setToken(token);  
+        ac.setAppId(appID);  
+        ac.setAppSecret(appSecret);  
+        ApiConfigKit.putApiConfig(ac);
 	}
 }

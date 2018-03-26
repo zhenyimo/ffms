@@ -22,7 +22,7 @@
 </div>
 
 <input type="hidden" id="tabName" value="${tab}">
-<script>
+<!-- <script>
   $(function() {
     FastClick.attach(document.body);
     var tab=$("#tabName").val();
@@ -53,6 +53,6 @@
   
 
 
-</script> 
+</script>  -->
 </body>
 </html>
