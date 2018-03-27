@@ -33,6 +33,7 @@
 <link rel="stylesheet" href="${basePath}/pages/front/css/txt.wav.css">
 <link rel="stylesheet" href="${basePath}/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="${basePath}/bootstrap/css/font-awesome.css">
+<link rel="stylesheet" href="${basePath}/resource/css/jquery.mloading.css">
 
 <%-- <script src="${basePath}/pages/front/lib/jquery-2.1.4.js"></script> 
 <script src="${basePath}/pages/front/lib/fastclick.js"></script> 

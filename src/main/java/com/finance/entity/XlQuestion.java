@@ -1,7 +1,9 @@
 package com.finance.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 //import com.mysql.jdbc.Blob;
 
@@ -23,18 +25,63 @@ public class XlQuestion implements Serializable{
 	//一对多，1条题目可能有多个答案。
 	private List<XlAnswer> xlanswerList;  //一条题目对应的答案列表
 	//private String type;
-
 	private Integer answerid; // 答案ID
 	private String answername; // 答案名称
-	private String roleIDs=""; // 对应的角色列表id
-	private String roleNames=""; // 对应的角色列表名称
+	private List<Map<Object,Object>> answerIDsList=new ArrayList<Map<Object,Object>>(); // 对应的答案列表id
+	private String answerIDs=""; // 对应的答案列表id
+	private String answerNames=""; // 对应的答案列表名称
 	public Integer getId() {
 		return id;
 	}
 	public void setId(Integer id) {
 		this.id = id;
 	}
-/*	public Integer getGoodId() {
+	
+public Integer getAnswerid() {
+		return answerid;
+	}
+	public void setAnswerid(Integer answerid) {
+		this.answerid = answerid;
+	}
+	public String getAnswername() {
+		return answername;
+	}
+	public void setAnswername(String answername) {
+		this.answername = answername;
+	}
+	public List<Map<Object, Object>> getAnswerIDsList() {
+		return answerIDsList;
+	}
+	public void setAnswerIDsList(List<Map<Object, Object>> answerIDsList) {
+		this.answerIDsList = answerIDsList;
+		if(null!=answerIDsList && answerIDsList.size()>0){
+			int size=answerIDsList.size();
+			for(int i=0;i<size;i++){
+				answerIDs+=answerIDsList.get(i).get("answerid");
+				answerNames+=answerIDsList.get(i).get("answername");
+				if(i!=(size-1)){
+					answerIDs+=",";
+					answerNames+=",";
+				}
+			}
+		}
+	}
+	public String getAnswerIDs() {
+		return answerIDs;
+	}
+	public void setAnswerIDs(String answerIDs) {
+		this.answerIDs = answerIDs;
+	}
+	public String getAnswerNames() {
+		return answerNames;
+	}
+	public void setAnswerNames(String answerNames) {
+		this.answerNames = answerNames;
+	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	/*	public Integer getGoodId() {
 		return goodId;
 	}
 	public void setGoodId(Integer goodId) {
