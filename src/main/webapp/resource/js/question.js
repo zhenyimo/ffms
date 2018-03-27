@@ -20,7 +20,7 @@ require.config({
     }
 });
 
-var QuestionApi={}
+var QuestionApi={};
 require(['jquery'],function($){
 	require(['fastclick',
 	         'jqueryWeui',
@@ -77,14 +77,14 @@ require(['jquery'],function($){
 					 $("#progress").append(1+"/"+denominator);
 				 }
 			 
-		}
+		};
 		/**
 		 * 上一题
 		 */
 		QuestionApi.prevQuestion=function(){
 			$("#myCarousel").carousel('prev');
 			QuestionApi.speedOfProgress("prev");
-		}
+		};
 
 		/**
 		 * 下一题
@@ -94,7 +94,7 @@ require(['jquery'],function($){
 //			alert(currentIndex);
 //			alert($(carouselData.$active).html());
 			QuestionApi.speedOfProgress("next");
-		}
+		};
 		//倒计时函数(该函数只能放在这里)
 		QuestionApi.maxtime = 30 * 60; //一个小时，按秒计算，自己调整! 
 		QuestionApi.CountDown=function() {
