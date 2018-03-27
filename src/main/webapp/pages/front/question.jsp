@@ -138,3 +138,4 @@
  </div>
  
 <!-- <script src="../pages/front/js/question.js"></script> -->
+<link rel="stylesheet" href="../pages/front/css/common.css">
