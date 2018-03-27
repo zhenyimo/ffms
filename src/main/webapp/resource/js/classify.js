@@ -10,52 +10,38 @@ require.config({
         "bootstrap":"bootstrap/js/bootstrap.min",
         "txtwav":"pages/front/js/txt.wav.min",
         "front":"pages/front/js/front",
-        "jquery.mloading":"resource/js/jquery.mloading"
+        "jquery.mloading":"resource/js/jquery.mloading",
+        "tail":"resource/js/tail"
     },
     shim: {
     	'jquery.mloading':{
     		deps: ['jquery'],
     	    exports: 'mloading'
-    	},
+    	}
     }
 });
 
 
 require(['jquery'],function($){
-	require(['constants','fastclick','jqueryWeui','swiper','bootstrap','txtwav','jquery.mloading'],function(constants,FastClick,jqueryWeui,swiper,bootstrap,txtwav){				
-		$(function($){	
-			FastClick.attach(document.body);
+	require(['constants',
+	         'fastclick',
+	         'jqueryWeui',
+	         'swiper',
+	         'bootstrap',
+	         'txtwav',
+	         'jquery.mloading',
+	         'tail'],function(constants,FastClick,jqueryWeui,swiper,bootstrap,txtwav,mloading,tail){				
+		$(function($){		
 			//初始化排序
 			initSortWedgit();
 			//初始化左边导航栏
 			initLeftNavBar();
 			//初始化下面的导航栏
-			initBottomNavBar();	
+			tail.initBottomNavBar();	
 			//初始化滚动加载
 		    initScollLoad();
+		    FastClick.attach(document.body);
 		});
-		function initBottomNavBar(){
-			//底部导航
-		    var tab=$("#tabName").val();
-		    if(tab==''){
-		     $("#index").find("div").addClass("foot-menu-home");
-		     $("#index").find("p").css("color","#e21323");
-		    }else if(tab=='classify'){
-		     $("#classify").find("div").toggleClass("foot-menu-list1");
-		     $("#classify").find("p").css("color","#e21323");
-		     homeStyleChange();
-		    }else if(tab=='gift'){
-		     $("#gift").find("div").toggleClass("foot-menu-cart1");
-		     $("#gift").find("p").css("color","#e21323");
-		     homeStyleChange();
-		    }else if(tab=='mine'){
-		        $("#mine").find("div").toggleClass("foot-menu-member1");
-		        $("#mine").find("p").css("color","#e21323");
-		        homeStyleChange();
-		    }else{
-		    	homeStyleChange();  
-		    }
-		}
 		
 		function initLeftNavBar(){
 			//左边的导航初始化
@@ -65,11 +51,6 @@ require(['jquery'],function($){
 				$('.j-content').eq(index).show().siblings('.j-content').hide();
 				changeClassify(this);
 			});
-		}
-		
-		function homeStyleChange(){
-		     $("#index").find("div").removeClass("foot-menu-home").addClass("foot-menu-home2");
-		     $("#index").find("p").css("color","#666");
 		}
 		
 		function initSortWedgit(){

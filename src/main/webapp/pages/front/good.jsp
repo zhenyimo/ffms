@@ -7,6 +7,7 @@ body{font:12px/180% Arial, Helvetica, sans-serif, "宋体";}
 .suspend{width:60px;height:60px;position:fixed;top:65%;right:0;overflow:hidden;z-index:9999;}
 .suspend dl{width:60px;height:35px;border-radius:15px 0px 0px 15px;background:#e2d212;position:absolute;top:0;left:0;cursor:pointer;}
 </style>
+<script src="${basePath}/require/js/require.js" data-main="${basePath}/resource/js/good.js"></script>
 <!--顶部搜索-->
 <header class='weui-header'>
   <div class="weui-search-bar" id="searchBar">
@@ -83,7 +84,7 @@ body{font:12px/180% Arial, Helvetica, sans-serif, "宋体";}
  <div class="suspend">
 	<dl>
 		<dt class="IE6PNG" style="color:red;padding-top:16%;padding-left:10%">赠送他人</dt>
-		<dd class="suspendTel"><a href="javascript:void(0);" onclick="hideGift()" class="weui-tabbar__item  open-popup" data-target="#selcet_sku" ></a></dd>
+		<dd class="suspendTel"><a href="javascript:void(0);" onclick="GoodApi.hideGift()" class="weui-tabbar__item  open-popup" data-target="#selcet_sku" ></a></dd>
 	</dl>
 <!-- 	<a href="javascript:void(0);"  class="weui-tabbar__item  open-popup" >赠送他人</a>
  -->	
@@ -125,8 +126,8 @@ body{font:12px/180% Arial, Helvetica, sans-serif, "宋体";}
         </div>
         <div class="weui-msg__opr-area">
           <p class="weui-btn-area">
-            <a href="order_info.html" onclick="initTimer()" class="weui-btn weui-btn_primary">立即购买</a>
-            <a href="javascript:;" onclick="initTimer()" class="weui-btn weui-btn_default close-popup">不，我再看看</a>
+            <a href="order_info.html" onclick="GoodApi.initTimer()" class="weui-btn weui-btn_primary">立即购买</a>
+            <a href="javascript:;" onclick="GoodApi.initTimer()" class="weui-btn weui-btn_default close-popup">不，我再看看</a>
           </p>
         </div>
       </div>
@@ -151,7 +152,7 @@ body{font:12px/180% Arial, Helvetica, sans-serif, "宋体";}
 
 
 
-  <script type="text/javascript">       
+<!--   <script type="text/javascript">       
 
 $(document).ready(function(){
 	initTimer();	 
@@ -193,7 +194,7 @@ $(function(){
 		});
 	});
 </script>
-
+ -->
 
 
   

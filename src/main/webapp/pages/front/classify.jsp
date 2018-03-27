@@ -1,7 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <!--顶部搜索-->
 <!--主体-->
-<script src="${basePath}/require/js/require.js" data-config="${basePath}/resource/js/requireConfig.js" data-main="${basePath}/resource/js/classify.js"></script>
+<script src="${basePath}/require/js/require.js" data-main="${basePath}/resource/js/classify.js"></script>
 <div class="wy-content">
 	<div class="category-top">
 		<header class='weui-header'>
@@ -35,7 +35,6 @@
 	</aside>
 	<div>
 		<section style="overflow:hidden" class="menu-right padding-all j-content">
-			<h5>酒水食品</h5>
 			<input id="currPage" type="hidden" value="${currPage}" />
 			<ul id="weui-ul-scroll-load" style="height: 500px;overflow-y:auto;">		
 				<div class="weui-panel weui-panel_access classify_scroll_load">

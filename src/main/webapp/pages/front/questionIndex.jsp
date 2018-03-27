@@ -21,8 +21,8 @@
 	
 <%@ include file="/pages/front/tail.jsp" %>
 
-<script>
+<!-- <script>
   $(function() {
     FastClick.attach(document.body);
   });
-</script>
+</script> -->
