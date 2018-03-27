@@ -92,10 +92,10 @@ public class XlQuestionController {
 		Map<String, Object> map = new HashMap<String, Object>();
 		//map.put("titlename", s_title.getTitlename());
 		map.put("question_content", StringUtil.formatLike(xl_Question.getQuestionContent()));//格式化模糊查询
-		map.put("answer_content", StringUtil.formatLike(xl_Question.getQuestionContent()));
+		map.put("answer_content", StringUtil.formatLike(xl_Question.getAnswername()));
+		map.put("answer_num", xl_Question.getAnswerid());
 		//map.put("optionvalue", StringUtil.formatLike(s_title.getOptionvalue()));
 		//map.put("optionvalue", StringUtil.formatLike(s_title.getAnswer()));
-		
 		map.put("start", pageBean.getStart());
 		map.put("size", pageBean.getPageSize());
 		//List<Title> titleList = titleService.findTitle(map);

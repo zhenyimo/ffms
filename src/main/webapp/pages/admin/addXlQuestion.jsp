@@ -175,14 +175,14 @@
 			<a href="javascript:deleteQuestion()" class="easyui-linkbutton" iconCls="icon-remove" plain="true">删除</a>
 		</div>
 		<div>
-			&nbsp;题目名称：&nbsp;<select class="easyui-combobox" id="s_question_content"  editable="false" style="width:175px;">
+			&nbsp;题目名称：&nbsp;<select class="easyui-combobox" id="s_question_num"  name="question_num" editable="false" style="width:175px;">
 					<option value="">请选择名称...</option>
-	 				<c:forEach items="${question_contents }" var="question_content">
-						<option value="${question_content.question_content }">${question_content.question_content }</option>
+	 				<c:forEach items="${questions }" var="question">
+						<option value="${question.question_num }">${question.question_content }</option>
 					</c:forEach>
 				</select>&nbsp;
-			&nbsp;答案：&nbsp;<input type="text" id="s_answer" size="20" onkeydown="if(event.keyCode==13) searchQuestion()"/>
-			<a href="javascript:searchQuestion()" class="easyui-linkbutton" iconCls="icon-search" plain="true">搜索</a>
+			&nbsp;答案：&nbsp;<input type="text" id="s_answer" size="20" onkeydown="if(event.keyCode==13) searchXlQuestion()"/>
+			<a href="javascript:searchXlQuestion()" class="easyui-linkbutton" iconCls="icon-search" plain="true">搜索</a>
 			<a href="javascript:resetSearch()" class="easyui-linkbutton" iconCls="icon-reset" plain="true">清空</a>
 		</div>
 	</div>
