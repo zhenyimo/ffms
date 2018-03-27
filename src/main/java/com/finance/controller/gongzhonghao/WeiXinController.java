@@ -102,7 +102,7 @@ public class WeiXinController extends SerialSupport{
 		logger.info("request the wxPay info.");
 		ApiConfig config=weChatConfigApi.getApiConfig();
 		JsTicket ticket=JsTicketApi.getTicket(JsApiType.jsapi);
-		if(ticket.isSucceed()){
+		if(!ticket.isSucceed()){
 			logger.error("request of jssdk does not success....");
 			throw new BusinessException(ErrorCode.UNKNOWN_ERROR);
 		}

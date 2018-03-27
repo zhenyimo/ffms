@@ -4,10 +4,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Resource;
-import javax.websocket.server.PathParam;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.finance.dao.GoodDao;
@@ -24,7 +24,7 @@ public class VipController {
 	@Resource
 	XlVipService xlVipService;
 	@RequestMapping("/mine/{vipId}")
-	public String goodDetail(Model model,@PathParam("vipId")String goodId){
+	public String goodDetail(Model model,@PathVariable("vipId")String goodId){
 		
 		return "front/mine";	
 	}
