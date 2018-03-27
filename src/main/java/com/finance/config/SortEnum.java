@@ -23,7 +23,7 @@ public enum SortEnum {
 	
     @JsonValue
     public Map<String, Object> toMap() {
-        Map<String, Object> map = new HashMap<>();
+        Map<String, Object> map = new HashMap<String, Object>();
         map.put(getLevel(),getDesc());
         return map;
     }

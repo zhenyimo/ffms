@@ -33,7 +33,7 @@ public class RequestUtil {
   private final static Logger logger = LoggerFactory.getLogger(RequestUtil.class);
 
   public static void main(String[] args) {
-    Map<String, String> parms = new HashMap<>();
+    Map<String, String> parms = new HashMap<String, String>();
     parms.put("userId", "bpmadmin");
     parms.put("sysCode", "bpm");
     parms.put("userKey", "+sadf+234fds+asf");
