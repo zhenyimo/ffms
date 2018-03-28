@@ -1,4 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<script src="${basePath}/require/js/require.js" data-main="${basePath}/resource/js/mine.js"></script>
+
 <header class="wy-header" style="position:fixed; top:0; left:0; right:0; z-index:200;">
   <div class="wy-header-icon-back"><span></span></div>
   <div class="wy-header-title">赠礼管理</div>
