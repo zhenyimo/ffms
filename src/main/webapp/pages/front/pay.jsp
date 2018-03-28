@@ -42,7 +42,7 @@
                 if(res.err_msg == "get_brand_wcpay_request:ok"){
                     location.href="success.jsp";
                 }else if(res.err_msg == "get_brand_wcpay_request:cancel"){
-                    console.log("用户取消支付")
+                    console.log("用户取消支付");
                 }else{
                     alert("支付失败!");
                     location.href="fail.jsp";
