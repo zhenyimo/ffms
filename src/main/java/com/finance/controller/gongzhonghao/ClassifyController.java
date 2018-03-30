@@ -32,9 +32,9 @@ import com.finance.util.StringUtil;
 import com.jfinal.json.Jackson;
 
 @Controller
-@RequestMapping("/classify")
-public class IndexController extends SerialSupport{
-	private Logger logger=LoggerFactory.getLogger(IndexController.class);
+@RequestMapping("front/classify")
+public class ClassifyController extends SerialSupport{
+	private Logger logger=LoggerFactory.getLogger(ClassifyController.class);
 	@Resource
 	XlGoodService xlGoodService;
 	//全部加载完毕

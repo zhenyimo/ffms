@@ -94,7 +94,7 @@ public class UserController {
 				} else {
 					resultRolename.setPassword(Base64Util.decodeStr(resultRolename.getPassword(),"UTF-8"));
 					HttpSession session = request.getSession();
-					session.setAttribute(Constants.currentUserSessionKey, resultRolename);
+					session.setAttribute(Constants.currentAdminUserSessionKey, resultRolename);
 					result.put("errres", 200);
 				}
 			}
@@ -147,7 +147,7 @@ public class UserController {
 	@RequestMapping("/main.do")
 	public String main(ModelMap map, HttpServletRequest request) {
 		HttpSession session = request.getSession();
-		User usersession = (User)session.getAttribute(Constants.currentUserSessionKey);
+		User usersession = (User)session.getAttribute(Constants.currentAdminUserSessionKey);
 		List<Role> list = roleService.getRoles();
 		map.addAttribute("roles", list);
 		User usermessage = userService.getUserById(usersession.getId());
@@ -196,7 +196,7 @@ public class UserController {
 	 */
 	@RequestMapping("/logout.do")
 	public String logout(HttpSession session) throws Exception {
-		session.removeAttribute(Constants.currentUserSessionKey);
+		session.removeAttribute(Constants.currentAdminUserSessionKey);
 		return "redirect:/index.do";
 	}
 

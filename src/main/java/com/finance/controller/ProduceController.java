@@ -162,7 +162,7 @@ public class ProduceController {
 	public String moneyAnalysis(HttpServletRequest request, HttpServletResponse response) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		HttpSession session = request.getSession();
-		User curUser = (User)session.getAttribute(Constants.currentUserSessionKey);
+		User curUser = (User)session.getAttribute(Constants.currentAdminUserSessionKey);
 		map.put("roleid", curUser.getRoleid());
 		map.put("userid", curUser.getId());
 		List<Income> incomeList = incomeService.getIncomeLine(map);

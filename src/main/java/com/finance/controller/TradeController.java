@@ -70,7 +70,7 @@ public class TradeController {
 		map.addAttribute("trades", list);
 		
 		HttpSession session = request.getSession();
-		User curuser = (User)session.getAttribute(Constants.currentUserSessionKey);
+		User curuser = (User)session.getAttribute(Constants.currentAdminUserSessionKey);
 		Map<String, Object> userMap = new HashMap<String, Object>();
 		userMap.put("userid", curuser.getId());
 		userMap.put("roleid", curuser.getRoleid());

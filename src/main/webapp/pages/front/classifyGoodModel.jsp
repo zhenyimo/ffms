@@ -17,14 +17,14 @@
 	<div class="weui-panel__bd">
 		<div class="weui-media-box_appmsg pd-10">
 			<div class="weui-media-box__hd">
-				<a href="${basePath}/good/detail.do?goodId=${classifyGood.id}"><img
+				<a href="${basePath}/front/good/detail.do?goodId=${classifyGood.id}"><img
 					class="weui-media-box__thumb"
 					src="${basePath}/pages/front/images/${classifyGood.pictureName}"
 					alt=""></a>
 			</div>
 			<div class="weui-media-box__bd">
 				<h1 class="weui-media-box__desc">
-					<a href="${basePath}/good/detail.do?goodId=${classifyGood.id}"
+					<a href="${basePath}/front/good/detail.do?goodId=${classifyGood.id}"
 						class="ord-pro-link">${classifyGood.tittle}</a>
 				</h1>
 				<p class="weui-media-box__desc">${classifyGood.subtittle}</p>

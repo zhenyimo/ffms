@@ -55,7 +55,7 @@ import net.sf.json.JSONObject;
  *
  */
 @Controller
-@RequestMapping("EntryController")
+//@RequestMapping("EntryController")
 
 public class EntryController {
 	private Logger logger=LoggerFactory.getLogger(EntryController.class);
@@ -90,7 +90,7 @@ public class EntryController {
 	/**
 	 * 用户登录页面
 	 */
-	@RequestMapping("/gongzhonghaoIndex.do")
+	@RequestMapping("front/entry/gongzhonghaoIndex.do")
 	public String router(Model model,@RequestParam(value="tabName",required=false)String tabName) {
 		model.addAttribute("tabName",tabName);
 		if(tabName==null){
@@ -180,7 +180,7 @@ public class EntryController {
 	 * @param request
 	 * @return
 	 */
-	@RequestMapping("/login.do")
+	@RequestMapping("manage/entry/login.do")
 	public String login(User user, HttpServletRequest request, HttpServletResponse response) {
 		JSONObject result = new JSONObject();
 		User resultUsername = userService.loginUsername(user);
@@ -203,7 +203,7 @@ public class EntryController {
 				} else {
 					resultRolename.setPassword(Base64Util.decodeStr(resultRolename.getPassword(),"UTF-8"));
 					HttpSession session = request.getSession();
-					session.setAttribute(Constants.currentUserSessionKey, resultRolename);
+					session.setAttribute(Constants.currentAdminUserSessionKey, resultRolename);
 					result.put("errres", 200);
 				}
 			}
@@ -215,7 +215,7 @@ public class EntryController {
 	/**
 	 * 用户注册页面
 	 */
-	@RequestMapping("/sign.do")
+	@RequestMapping("manage/entry/sign.do")
 	public String sign() {
 		return "sign";
 	}
@@ -223,7 +223,7 @@ public class EntryController {
 	/**
 	 * 注册用户操作
 	 */
-	@RequestMapping("/gosign.do")
+	@RequestMapping("manage/entry/gosign.do")
 	public String gosign(User user, HttpServletResponse response) throws Exception {
 		int resultTotal = 0; // 操作的记录条数
 		int resultTotalother = 0; // 操作的记录条数
@@ -253,10 +253,10 @@ public class EntryController {
 	/**
 	 * 进入主页面
 	 */
-	@RequestMapping("/main.do")
+	@RequestMapping("manage/entry/main.do")
 	public String main(ModelMap map, HttpServletRequest request) {
 		HttpSession session = request.getSession();
-		User usersession = (User)session.getAttribute(Constants.currentUserSessionKey);
+		User usersession = (User)session.getAttribute(Constants.currentAdminUserSessionKey);
 		List<Role> list = roleService.getRoles();
 		map.addAttribute("roles", list);
 		User usermessage = userService.getUserById(usersession.getId());
@@ -268,7 +268,7 @@ public class EntryController {
 	/**
 	 * 用户信息管理页面
 	 */
-	@RequestMapping("/userManage.do")
+	@RequestMapping("manage/entry/userManage.do")
 	public String userManage(ModelMap map) {
 		List<Role> list = roleService.getRoles();
 		map.addAttribute("roles", list);
@@ -283,7 +283,7 @@ public class EntryController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping("/modifyPassword.do")
+	@RequestMapping("manage/entry/modifyPassword.do")
 	public String modifyPassword(User user, HttpServletResponse response) throws Exception {
 		int resultTotal = userService.updateUser(user);
 		JSONObject result = new JSONObject();
@@ -303,9 +303,9 @@ public class EntryController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping("/logout.do")
+	@RequestMapping("manage/entry/logout.do")
 	public String logout(HttpSession session) throws Exception {
-		session.removeAttribute(Constants.currentUserSessionKey);
+		session.removeAttribute(Constants.currentAdminUserSessionKey);
 		return "redirect:/index.do";
 	}
 
@@ -319,7 +319,7 @@ public class EntryController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping("/userlist.do")
+	@RequestMapping("manage/entry/userlist.do")
 	public String list(@RequestParam(value = "page", required = false) String page,
 			@RequestParam(value = "rows", required = false) String rows, User s_user, HttpServletResponse response)
 			throws Exception {
@@ -373,7 +373,7 @@ public class EntryController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping("/usersave.do")
+	@RequestMapping("manage/entry/usersave.do")
 	public String save(User user, HttpServletResponse response) throws Exception {
 		int resultTotal = 0; // 操作的记录条数
 		JSONObject result = new JSONObject();
@@ -409,7 +409,7 @@ public class EntryController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping("/userdelete.do")
+	@RequestMapping("manage/entry/userdelete.do")
 	public String delete(@RequestParam(value = "ids") String ids, HttpServletResponse response) throws Exception {
 		JSONObject result = new JSONObject();
 		String[] idsStr = ids.split(",");
@@ -430,7 +430,7 @@ public class EntryController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping("/changeTheme.do")
+	@RequestMapping("manage/entry/changeTheme.do")
 	public String changeTheme(
 			@RequestParam(value = "currentTheme") String currentTheme,
 			HttpServletRequest request,

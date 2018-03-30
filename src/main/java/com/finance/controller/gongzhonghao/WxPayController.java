@@ -1,4 +1,4 @@
-package com.finance.controller.gongzhonghao;
+/*package com.finance.controller.gongzhonghao;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.finance.config.WeChatConfigApi;
@@ -63,10 +63,10 @@ public class WxPayController {
 	}
 	
 	
-	/**
+	*//**
 	 * 微信H5 支付--------------------好使
 	 * 注意：必须再web页面中发起支付且域名已添加到开发配置中
-	 */
+	 *//*
 	@RequestMapping(value ="/pay.do",method = {RequestMethod.POST,RequestMethod.GET})
 	public void wapPay(HttpServletRequest request,HttpServletResponse response){
 		System.out.println("--pay start--");
@@ -125,9 +125,9 @@ public class WxPayController {
 		}
 	}
 	
-	/**
+	*//**
 	 * 公众号支付
-	 */
+	 *//*
 	@RequestMapping(value ="/gzhPay.do",method = {RequestMethod.POST,RequestMethod.GET})
 	public ModelAndView webPay(HttpServletRequest request, HttpServletResponse response) {
 		System.out.println("------------------gzhPay start-------------------");
@@ -144,8 +144,8 @@ public class WxPayController {
 			System.out.println("--openid获取错误");
 		}
 		//openid可以通过网页授权获取存到session中从而获取，IJPay是这样做的，我是另一种方式
-		 /*openId，采用 网页授权获取 access_token API：SnsAccessTokenApi获取
-		String openId = (String) request.getSession().getAttribute("openId");*/
+		 openId，采用 网页授权获取 access_token API：SnsAccessTokenApi获取
+		String openId = (String) request.getSession().getAttribute("openId");
 		if (StrKit.isBlank(openId)) {
 			return mv;
 		}
@@ -194,9 +194,9 @@ public class WxPayController {
 		String packageSign = PaymentKit.createSign(packageParams, WxPayApiConfigKit.getWxPayApiConfig().getPaternerKey());
 		packageParams.put("paySign", packageSign);
 		//下面可以通过Map传入参数获取json字符串，其形式和上面一样，传到前台可以转为json形式再用，也是一个不错的方式，可以参考IJPay
-		/*Map<String, String> packageParams = PaymentKit.prepayIdCreateSign(prepay_id);
+		Map<String, String> packageParams = PaymentKit.prepayIdCreateSign(prepay_id);
 		String jsonStr = JSON.toJSONString(packageParams);
-		mv.addObject("jsonStr",jsonStr);*/
+		mv.addObject("jsonStr",jsonStr);
 		mv.addObject("appid",  appID);
 		mv.addObject("timeStamp", timeStamp);
 		mv.addObject("nonceStr", nonce_str);
@@ -206,12 +206,12 @@ public class WxPayController {
 		mv.setViewName("pay");
 		return mv;
 	}
-	/**
+	*//**
 	 * 通过微信用户的code换取网页授权access_token
 	 * @return
 	 * @throws IOException
 	 * @throws
-	 */
+	 *//*
 	public List<Object> accessToken(String code) throws IOException {
 		List<Object> list = new ArrayList<Object>();
 		String url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid="
@@ -287,11 +287,12 @@ public class WxPayController {
 		return null;
 	}
 	
-	/**
+	*//**
 	 * 用户注册页面
-	 */
+	 *//*
 	@RequestMapping("/payIndex.do")
 	public String payIndex() {
 		return "front/payIndex";
 	}
 }
+*/

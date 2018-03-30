@@ -20,9 +20,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="city" column="city" />
 		<result property="province" column="province" />
 	</resultMap>
-	<insert id="insertXlVip" parameterType="Map">
-		INSERT INTO `xl_vip` (`id`, `openId`, `vip_flag`, `subscribeTime`, `unsubscribeTime`, `nickName`, `unionid`, `privilege`, `headimgurl`, `country`, `city`, `province`, `sex`, `updateTime`, `remark`) VALUES (#{id},#{openId},#{vipFlag},#{subscribeTime},#{unsubscribeTime},#{nickName},#{unionid},#{privilege},#{headimgurl},#{country},#{city},#{province},#{sex},#{updateTime},#{remark})
-	</insert>
+	 <insert id="insertXlVip" parameterType="XlVip" >
+       <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
+          SELECT LAST_INSERT_ID()
+      </selectKey>
+        INSERT INTO xl_vip (openId, vip_flag, subscribeTime, unsubscribeTime, nickName, unionid, privilege, headimgurl, country, city, province, sex, updateTime, remark) VALUES (#{openId},#{vipFlag},#{subscribeTime},#{unsubscribeTime},#{nickName},#{unionid},#{privilege},#{headimgurl},#{country},#{city},#{province},#{sex},#{updateTime},#{remark})
+    </insert>
 	<select id="findByOpenId" parameterType="Map" resultMap="vipMap">
 		select * from xl_vip
 		<where>

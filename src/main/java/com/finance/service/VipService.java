@@ -16,5 +16,6 @@ public interface VipService {
 	 * 添加一条记录
 	 * @param map
 	 */
-	public void insertXlVip(Map<String, Object> map);
+	
+	public void insertXlVip(XlVip xlVip);
 }

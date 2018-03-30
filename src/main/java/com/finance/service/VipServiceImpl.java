@@ -22,9 +22,9 @@ public class VipServiceImpl implements VipService{
 	}
 
 	@Override
-	public void insertXlVip(Map<String, Object> map) {
+	public void insertXlVip(XlVip xlVip) {
 		// TODO Auto-generated method stub
-		vipDao.insertXlVip(map);
+		vipDao.insertXlVip(xlVip);
 	}
 	
 }

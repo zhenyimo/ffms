@@ -111,7 +111,7 @@ public class WxUtil {
 	
 	//生成随机字符串
 	private static String createNonceStr() {
-	    return UUID.randomUUID().toString();
+	    return UUID.randomUUID().toString().replace("-","");
 	}
 	//生成时间戳
 	private static String createTimestamp() {

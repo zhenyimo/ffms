@@ -17,7 +17,7 @@ import com.finance.service.XlGoodService;
 
 
 @Controller
-@RequestMapping("/good")
+@RequestMapping("front/good")
 public class GoodController {
 	
 	@Resource

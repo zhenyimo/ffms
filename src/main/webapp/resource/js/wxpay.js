@@ -4,7 +4,7 @@ define(['jquery','commonUtils','wx'],function($,commonUtils,wx){
 		var timestamp=jssdkConfig.timestamp;
 	    var noncestr=jssdkConfig.noncestr;
 		$.ajax({
-			url:pathContext+"/wx/jssdkPlaceOrder.do",
+			url:pathContext+"/front/wx/jssdkPlaceOrder.do",
 			dataType:"json",
 			data:{
 				orderId:orderId,
@@ -35,7 +35,7 @@ define(['jquery','commonUtils','wx'],function($,commonUtils,wx){
 	//init jssdk
 	
 	$.ajax({
-		url:pathContext+"/wx/jssdkConfig.do",
+		url:pathContext+"/front/wx/jssdkConfig.do",
 		data:{
 			locationHref:location.href.split('#')[0]
 		},

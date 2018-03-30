@@ -45,7 +45,7 @@
         <div class="swiper-wrapper">
         	<c:forEach var="hotGood" items="${hotgoods}">
         		 <div class="swiper-slide">
-        		 	<a href="${basePath}/good/detail.do?goodId=${hotGood.id}">
+        		 	<a href="${basePath}/front/good/detail.do?goodId=${hotGood.id}">
         		 			<img  src="${basePath}/pages/front/images/${hotGood.pictureName}" />
                             <h6 class="testNumber">${hotGood.paysuccessNumber}人已测</h6>
                             <h5 class="testName">${hotGood.typeName}类型测评</h5>
@@ -94,7 +94,7 @@
           
            <c:forEach var="newGood" items="${newGoods}">
         		 <div class="swiper-slide">
-        		 	<a href="${basePath}/good/detail?goodId=${newGood.id}">
+        		 	<a href="${basePath}/front/good/detail?goodId=${newGood.id}">
         		 			<img src="${basePath}/pages/front/images/${newGood.pictureName}" />
                             <h6 class="testNumber">${newGood.paysuccessNumber}人已测</h6>
                             <h5 class="testName">${newGood.typeName}类型测评</h5>
@@ -148,13 +148,13 @@
 	    <div class="weui-panel__bd">
 	      	<div class="weui-media-box_appmsg pd-10">
 	        	<div class="weui-media-box__hd">
-	        		<a href="${basePath}/good/detail.do?goodId=${handpickedGood.id}">
+	        		<a href="${basePath}/front/good/detail.do?goodId=${handpickedGood.id}">
 	        			<img class="weui-media-box__thumb" src="${basePath}/pages/front/images/${newGood.pictureName}" alt="">
 	        		</a>
 	        	</div>
 	        	<div class="weui-media-box__bd">
 	          		<h1 class="weui-media-box__desc">
-	          			<a href="${basePath}/good/detail/${handpickedGood.id}.do" class="ord-pro-link">${handpickedGood.tittle}</a>
+	          			<a href="${basePath}/front/good/detail/${handpickedGood.id}.do" class="ord-pro-link">${handpickedGood.tittle}</a>
 	          		</h1>
 	          		<p class="weui-media-box__desc">
 	          			<span>${handpickedGood.subtittle}</span>
@@ -208,7 +208,7 @@
   </div>
   
   
-      <div class="morelinks"><a style="color:green" href="${basePath}/EntryController/gongzhonghaoIndex.do?tabName=classify">查看更多 >></a></div>
+      <div class="morelinks"><a style="color:green" href="${basePath}/front/entry/gongzhonghaoIndex.do?tabName=classify">查看更多 >></a></div>
     </div>
   </div>
 </div>

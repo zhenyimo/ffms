@@ -18,7 +18,7 @@ import com.finance.service.XlVipService;
 
 
 @Controller
-@RequestMapping("/vip")
+@RequestMapping("front/vip")
 public class VipController {
 	
 	@Resource

@@ -27,6 +27,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.finance.config.WeChatConfigApi;
 import com.finance.config.WeChatConfigApi.WeChatPayConfig;
 import com.finance.dao.GoodDao;
@@ -63,7 +64,7 @@ import com.jfinal.weixin.sdk.api.SnsApi;
 import com.jfinal.weixin.sdk.kit.PaymentKit;
 
 @Controller
-@RequestMapping("/wx")
+@RequestMapping("front/wx")
 public class WeiXinController extends SerialSupport{
 	public final Logger logger=LoggerFactory.getLogger(WeiXinController.class);
 	@Autowired
@@ -97,12 +98,16 @@ public class WeiXinController extends SerialSupport{
 	
 	@RequestMapping("/getCode.do")
 	public String getCode(ModelMap map,HttpServletRequest request){
+		//如果已经登录了的，就不需要去获取用户信息
+		if(request.getSession().getAttribute(Constants.currentFrontUserSessionKey)!=null){
+			return "redirect:/EntryController/gongzhonghaoIndex.do";	
+		}
 		ApiConfig config=weChatConfigApi.getApiConfig();
 		String curUrl=request.getRequestURL().toString();
 		int lastIndex=curUrl.lastIndexOf("/");
 		String callBackUrl=curUrl.substring(0,lastIndex)+"/getUserInfo.do";
 		String url = SnsAccessTokenApi.getAuthorizeURL(config.getAppId(),callBackUrl,  
-                false);  
+                false); 
 		return "redirect:"+url;
 		
 	}
@@ -151,10 +156,10 @@ public class WeiXinController extends SerialSupport{
 		Map<String,String> payBaseParms=WxUtil.createBaseOrderParams(weChatConfigApi,noncestr);
 		
 		//现在还没有把用户信息放入session中
-		String openId=(String) request.getSession().getAttribute(Constants.currentUserSessionKey);
+		//String openId=(String) request.getSession().getAttribute(Constants.currentUserSessionKey);
 		
 		//自定义字段的参数填充，其中交易类型为jsapi，即微信h5发起的交易
-		payBaseParms=WxUtil.wapperPayOrderParam(payBaseParms,openId,String.valueOf(good.getPrice()*Integer.parseInt(number)),TradeType.JSAPI.name(),request.getRemoteAddr(),good.getTittle(),"心理测试");
+		payBaseParms=WxUtil.wapperPayOrderParam(payBaseParms,"",String.valueOf(good.getPrice()*Integer.parseInt(number)),TradeType.JSAPI.name(),request.getRemoteAddr(),good.getTittle(),"心理测试");
 		//向微信发起预订单
 		String xmlResult=PaymentApi.pushOrder(payBaseParms);
 		logger.info("push order result :" +xmlResult);
@@ -230,19 +235,38 @@ public class WeiXinController extends SerialSupport{
 		Map<String,Object> params=new HashMap<String,Object>();
 		params.put(VipDao.PARM_VIP_OPEN_ID,sn.getOpenid());
 		List<XlVip> userInfo=vipService.findByOpenId(params);
+		//存在且有两条以上则认为是错误的
 		if(ArrayUtil.isNotBlank(userInfo)&&userInfo.size()>1){
 			logger.info("the user openid has more record in xl_vip table");
-			throw new Exception("");
+			throw new Exception("the user openid has more record in xl_vip table");
 		}
-		
-		ApiResult apiResult=SnsApi.getUserInfo(sn.getAccessToken(),sn.getOpenid());
-		
-		request.getSession().setAttribute(sn.getOpenid(),apiResult);//以openid为key将用户信息保存到session中
+		//不存在则请求微信后台获取用户信息
+		XlVip xlVip=null;
+		if(ArrayUtil.isNotBlank(userInfo)){
+			ApiResult apiResult=SnsApi.getUserInfo(sn.getAccessToken(),sn.getOpenid());
+			xlVip=newXlVip(apiResult);
+			vipService.insertXlVip(xlVip);
+		}else{
+			xlVip=userInfo.get(0);
+		}
+		request.getSession().setAttribute(Constants.currentFrontUserSessionKey,xlVip);
 	    //System.out.println(apiResult.getJson());
 		return "redirect:/EntryController/gongzhonghaoIndex.do";		
 	}
 	
-	
+	private XlVip newXlVip(ApiResult apiResult){
+		XlVip vip=new XlVip();
+		vip.setCity(apiResult.getStr("city"));
+		vip.setOpenId(apiResult.getStr("openid"));
+		vip.setProvince(apiResult.getStr("province"));
+		vip.setCountry(apiResult.getStr("country"));
+		vip.setHeadimgurl(apiResult.getStr("headimgurl"));
+		vip.setPrivilege(apiResult.getStr("privilege"));
+		vip.setUnionid(apiResult.getStr("unionid"));
+		vip.setSex(apiResult.getInt("sex"));
+		vip.setNickName(apiResult.getStr("nickname"));
+		return vip;
+	}
 	
 	//微信公众平台验证url是否有效使用的接口
 	@RequestMapping(value="/validWx.do",method=RequestMethod.GET,produces="text/html;charset=UTF-8")

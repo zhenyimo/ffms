@@ -108,7 +108,7 @@ require(['jquery'],function($){
 			      "sortType":sortType
 			  }
 			  $.ajax({
-				  url:pathContext+"/classify/goodListHtml.do",
+				  url:pathContext+"/front/classify/goodListHtml.do",
 				  data:data,
 				  dataType:"html",
 				  success:function(html){
