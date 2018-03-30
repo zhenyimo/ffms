@@ -1,6 +1,8 @@
 package com.finance.controller.gongzhonghao;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.finance.config.WeChatConfigApi;
+import com.finance.config.WeChatConfigApi.WeChatPayConfig;
 import com.finance.entity.H5ScencInfo;
 import com.finance.entity.H5ScencInfo.H5;
 import com.jpay.ext.kit.HttpKit;
@@ -21,6 +23,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -43,12 +46,14 @@ public class WxPayController {
 	
 	private Logger log = LoggerFactory.getLogger(this.getClass());
 	private AjaxResult result = new AjaxResult();
-	private static final String appID="";
+	private static final String appID="2liang.net";
 	private static final String secret="";
 	private static final String mchID="";
 	private static final String partnerKey="";
 	private String notify_url = "";
 	
+	@Autowired
+	private WeChatConfigApi weChatConfigApi;
 	public static WxPayApiConfig getApiConfig() {
 		return WxPayApiConfig.New()
 				       .setAppId(appID)
@@ -76,7 +81,7 @@ public class WxPayController {
 		h5_info.setType("Wap");
 		//此域名必须在商户平台--"产品中心"--"开发配置"中添加
 		
-		h5_info.setWap_url("http://www.xxx.com");
+		h5_info.setWap_url("http://jinbang888.viphk.ngrok.org");
 		h5_info.setWap_name("公司官网");
 		sceneInfo.setH5_info(h5_info);
 		//WxPayApiConfig wxPayApiConfig=getApiConfig();
@@ -85,7 +90,7 @@ public class WxPayController {
 				                           .setMchId(mchID)
 				                           .setBody("IJPay H5支付测试  -By Javen")
 				                           .setSpbillCreateIp(ip)
-				                           .setTotalFee("520")
+				                           .setTotalFee("1")
 				                           .setTradeType(WxPayApi.TradeType.MWEB)
 				                           .setNotifyUrl(notify_url)
 				                           .setPaternerKey(partnerKey)
@@ -116,7 +121,7 @@ public class WxPayController {
 		try {
 			response.sendRedirect(mweb_url);
 		} catch (IOException e) {
-			e.printStackTrace();
+			log.error("预支付出错", e.getMessage());
 		}
 	}
 	
@@ -282,4 +287,11 @@ public class WxPayController {
 		return null;
 	}
 	
+	/**
+	 * 用户注册页面
+	 */
+	@RequestMapping("/payIndex.do")
+	public String payIndex() {
+		return "front/payIndex";
+	}
 }

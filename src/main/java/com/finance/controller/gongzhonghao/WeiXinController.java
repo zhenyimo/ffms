@@ -220,7 +220,7 @@ public class WeiXinController extends SerialSupport{
 		logger.info("sn openId is "+sn.getOpenid());
 		ApiResult apiResult=SnsApi.getUserInfo(sn.getAccessToken(),sn.getOpenid());
 		
-		request.getSession().setAttribute(Constants.currentUserSessionKey,apiResult);
+		request.getSession().setAttribute(sn.getOpenid(),apiResult);//以openid为key将用户信息保存到session中
 	    System.out.println(apiResult.getJson());
 		return "redirect:/EntryController/gongzhonghaoIndex.do";		
 	}

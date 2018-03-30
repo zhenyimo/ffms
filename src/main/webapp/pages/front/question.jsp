@@ -1,7 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-
-<script src="${basePath}/require/js/require.js" data-main="${basePath}/resource/js/question.js"></script>
-
+ <script src="${basePath}/resource/js/question.js"></script> 
 <div class="weui-progress"  >
 <span id="progress"></span>&nbsp;
   <div class="weui-progress__bar" >
@@ -130,8 +128,8 @@
   <div class="weui-flex__item"><a  href="#myCarousel" data-slide="next" class="weui-btn weui-btn_primary">下一题</a></div>
 </div> -->
 <div>
-<a  href="#myCarousel" id="nextBtn"  data-slide="next" onclick="QuestionApi.nextQuestion()" class="weui-btn weui-btn_primary">下一题</a>
-<a  href="#myCarousel" id="prevBtn"  data-slide="prev" onclick="QuestionApi.prevQuestion()" class="weui-btn weui-btn_primary" >上一题</a>
+<a  href="#myCarousel" id="nextBtn"  data-slide="next" onclick="nextQuestion()" class="weui-btn weui-btn_primary">下一题</a>
+<a  href="#myCarousel" id="prevBtn"  data-slide="prev" onclick="prevQuestion()" class="weui-btn weui-btn_primary" >上一题</a>
 </div>
 
 

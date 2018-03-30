@@ -16,7 +16,7 @@
           href="//cdn.bootcss.com/weui/1.1.1/style/weui.min.css">
     <link rel="stylesheet"
           href="//cdn.bootcss.com/jquery-weui/1.0.1/css/jquery-weui.min.css">
-    <link rel="stylesheet" href="#(ctxPath)/static/css/demos.css">
+    <!-- <link rel="stylesheet" href="#(ctxPath)/static/css/demos.css"> -->
 </head>
 <body>
 <body ontouchstart>
@@ -27,7 +27,7 @@
                 <h1 class="demos-title">支付支付支付！！！</h1>
             </header>
             <div class="weui-btn-area">
-                <a href="/Pay/wc/pay.do" class="weui-btn weui-btn_primary">微信H5支付</a>
+                <a href="../wc/pay.do" class="weui-btn weui-btn_primary">微信H5支付</a>
             </div>
             <div class="weui-btn-area">
                 <a href="#" class="weui-btn weui-btn_primary" onclick="gzhPay()">微信公众号支付</a>
@@ -54,7 +54,7 @@
 <script>
     /*公众号支付*/
     function gzhPay() {
-        var url = "http://www.moodgame.cn/Pay/wc/gzhPay.do?total_fee=100"; //注意此处的basePath是没有端口号的域名地址。如果包含:80,在提交给微信时有可能会提示 “redirect_uri参数错误” 。
+        var url = "http://jinbang666.free.ngrok.cc/ffms/wc/gzhPay.do?total_fee=100"; //注意此处的basePath是没有端口号的域名地址。如果包含:80,在提交给微信时有可能会提示 “redirect_uri参数错误” 。
         //money为订单需要支付的金额
         //state中存放的为商品订单号
         console.log(url);
