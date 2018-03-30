@@ -43,7 +43,7 @@ function speedOfProgress(operate){
 			 }
 			 $("#nextBtn").attr("style","display:block");
 			 $("#speed").attr("style","width:"+(Number(molecule-1)/denominator)*100+"%");
-		 }else{
+		     }else{
 			 $("#progress").append(1+"/"+denominator);
 		 }
 	 

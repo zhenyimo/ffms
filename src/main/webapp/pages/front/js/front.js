@@ -58,7 +58,7 @@ function gotoPage(nextPage,typeVal,sortType,needReInitScollLoad){
 	      "type":typeVal,
 	      "nextPage":nextPage,
 	      "sortType":sortType
-	  }
+	  };
 	  $.ajax({
 		  url:pathContext+"/classify/goodListHtml.do",
 		  data:data,

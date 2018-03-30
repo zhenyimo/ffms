@@ -1,18 +1,7 @@
 <%@ page language="java" import="java.util.*" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%
-	String path = request.getContextPath();
-	String basePath ="";
-	if(request.getServerPort()==80){
-		basePath=request.getScheme()+"://"+request.getServerName()+path;
-	}else{
-		basePath=request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path;
-	}
-	pageContext.setAttribute("basePath", basePath);
-%>
-<jsp:include page="/pages/front/head.jsp">
-<jsp:param value="/resource/css/subIndex.css" name="cssPath"/>
-</jsp:include>
+
+<%@ include file="/pages/front/common.jsp" %>
 
 <!--商品详情页-->
 <%@ include file="/pages/front/question.jsp" %>

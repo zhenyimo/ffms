@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 
+
 public enum SortEnum {
 	TIME_SORT_DESC("0","按时间"),PRICE_SORT_DESC("1","按价格"),HOT_SORT_DESC("2","按热度");
 	private final String level;
@@ -23,7 +24,7 @@ public enum SortEnum {
 	
     @JsonValue
     public Map<String, Object> toMap() {
-        Map<String, Object> map = new HashMap<>();
+        Map<String, Object> map = new HashMap<String, Object>();
         map.put(getLevel(),getDesc());
         return map;
     }

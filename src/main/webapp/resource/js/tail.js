@@ -20,7 +20,7 @@ define(function(){
 	    }else{
 	    	homeStyleChange();  
 	    }
-	}
+	};
 	
 	function homeStyleChange(){
 	     $("#index").find("div").removeClass("foot-menu-home").addClass("foot-menu-home2");

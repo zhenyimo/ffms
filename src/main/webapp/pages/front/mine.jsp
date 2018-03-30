@@ -1,5 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <!--主体-->
+<script src="${basePath}/require/js/require.js" data-main="${basePath}/resource/js/mine.js"></script>
+
 <div class='weui-content'>
   <div class="wy-center-top">
     <div class="weui-media-box weui-media-box_appmsg">
@@ -151,4 +153,4 @@
     </div>
   </div> 
  </div>
-</div>    
+</div> 

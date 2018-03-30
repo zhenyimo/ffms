@@ -1,4 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<script src="${basePath}/require/js/require.js" data-main="${basePath}/resource/js/mine.js"></script>
+
 <header class="wy-header" style="position:fixed; top:0; left:0; right:0; z-index:200;">
   <div class="wy-header-icon-back"><span></span></div>
   <div class="wy-header-title">赠礼管理</div>
@@ -12,7 +14,7 @@
     <div class="weui-tab__bd proinfo-tab-con" style="padding-top:87px;">
       <div id="tab1" class="weui-tab__bd-item weui-tab__bd-item--active">
         <div class="weui-panel jyjl">
-          <div class="weui-panel__hd">购买商品总金额：-￥<em class="num">56.5</em></div>
+          <div class="weui-panel__hd">购买商品总金额：￥<em class="num">56.5</em></div>
           
           <div class="weui-panel__bd">
             <div class="weui-media-box weui-media-box_text">
@@ -79,7 +81,7 @@
           <div class="weui-panel__bd">
             <div class="weui-media-box weui-media-box_text">
             <div class="swiper-slide"><a href="pro_info.html"><img class="pictureStyle" src="../pages/front/upload/jingxuan1.jpg" /></a><span class="titlefontsize">人格分裂测试</span></div>
-              <h4 class="weui-media-box__title">-￥<em class="num">56.5</em></h4>
+              <h4 class="weui-media-box__title">￥<em class="num">56.5</em></h4>
               <p class="weui-media-box__desc">订单号：645564231654564</p>
               <ul class="weui-media-box__info ">
                 <li class="weui-media-box__info__meta">交易时间：<em class="num">2015-10-16 13:00</em></li>
@@ -96,7 +98,7 @@
           <div class="weui-panel__bd">
             <div class="weui-media-box weui-media-box_text">
             <div class="swiper-slide"><a href="pro_info.html"><img class="pictureStyle" src="../pages/front/upload/jingxuan1.jpg" /></a><span class="titlefontsize">人格分裂测试</span></div>
-              <h4 class="weui-media-box__title">-￥<em class="num">56.5</em></h4>
+              <h4 class="weui-media-box__title">￥<em class="num">3.0</em></h4>
               <p class="weui-media-box__desc">订单号：645564231654564</p>
               <ul class="weui-media-box__info ">
                 <li class="weui-media-box__info__meta">交易时间：<em class="num">2015-10-16 13:00</em></li>
@@ -114,5 +116,6 @@
       </div>
     </div>
   </div>
+</div>
 </div>
 
