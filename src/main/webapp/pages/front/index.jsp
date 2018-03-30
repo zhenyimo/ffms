@@ -13,7 +13,6 @@
 <jsp:include page="/pages/front/head.jsp">
 <jsp:param value="/resource/css/subIndex.css" name="cssPath"/>
 </jsp:include>
-
 <c:choose>
     <c:when test="${tab!=null&&tab.equals('gift')}">
       	<!--赠礼管理-->

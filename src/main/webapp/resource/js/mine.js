@@ -30,7 +30,9 @@ require(['jquery'],function($){
 	         'bootstrap',
 	         'txtwav',
 	         'jquery.mloading',
-	         'tail'],function(constants,FastClick,jqueryWeui,swiper,bootstrap,txtwav,mloading,tail){				
+	         'tail'],function(constants,FastClick,jqueryWeui,swiper,bootstrap,txtwav,mloading,tail){
+		//初始化下面的导航栏
+		tail.initBottomNavBar();	
 		$(function($){		
 		FastClick.attach(document.body);
 		});
