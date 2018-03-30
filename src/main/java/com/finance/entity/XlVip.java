@@ -20,6 +20,13 @@ public class XlVip extends Model<XlVip>{
 	private Integer sex; //性别
 	private Date updateTime; //更新时间
 	private String remark; // 备注
+	private Date subscribeTime;
+	private Date unsubscribeTime;
+	private String unionid; 
+	private String country; 
+	private String city; 
+	private String province; 
+	
      static Log log = Log.getLog(XlVip.class);
 	
 	public static final XlVip dao = new XlVip();
@@ -81,6 +88,42 @@ public class XlVip extends Model<XlVip>{
 	}
 	
 	
+	public Date getSubscribeTime() {
+		return subscribeTime;
+	}
+	public void setSubscribeTime(Date subscribeTime) {
+		this.subscribeTime = subscribeTime;
+	}
+	public Date getUnsubscribeTime() {
+		return unsubscribeTime;
+	}
+	public void setUnsubscribeTime(Date unsubscribeTime) {
+		this.unsubscribeTime = unsubscribeTime;
+	}
+	public String getUnionid() {
+		return unionid;
+	}
+	public void setUnionid(String unionid) {
+		this.unionid = unionid;
+	}
+	public String getCountry() {
+		return country;
+	}
+	public void setCountry(String country) {
+		this.country = country;
+	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	public String getProvince() {
+		return province;
+	}
+	public void setProvince(String province) {
+		this.province = province;
+	}
 	/**
 	 * 从缓存中加载用户信息
 	 * @param userId

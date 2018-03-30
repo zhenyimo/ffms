@@ -7,6 +7,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -28,12 +29,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.finance.config.WeChatConfigApi;
 import com.finance.config.WeChatConfigApi.WeChatPayConfig;
 import com.finance.dao.GoodDao;
+import com.finance.dao.VipDao;
 import com.finance.entity.XlGood;
+import com.finance.entity.XlVip;
 import com.finance.exception.BusinessException;
 import com.finance.exception.ErrorCode;
 import com.finance.lock.ObjectLockMap;
 import com.finance.model.AjaxResult;
+import com.finance.service.VipService;
 import com.finance.service.XlGoodService;
+import com.finance.util.ArrayUtil;
 import com.finance.util.Constants;
 import com.finance.util.StringUtil;
 import com.finance.util.WeXinConstants;
@@ -66,6 +71,9 @@ public class WeiXinController extends SerialSupport{
 	@Resource
 	XlGoodService xlGoodService;
 	
+	@Resource
+	VipService vipService;
+	
 	@RequestMapping("/authPageBind.do")
     public void authPageBind(String signature,String timestamp,String nonce,String echostr,HttpServletResponse response) throws NoSuchAlgorithmException, IOException{  
         // 将token、timestamp、nonce三个参数进行字典序排序   
@@ -96,9 +104,9 @@ public class WeiXinController extends SerialSupport{
 		
 	}
 	
-	@RequestMapping("/getJsSdkTicket.do")
+	@RequestMapping("/jssdkConfig.do")
 	@ResponseBody
-	public AjaxResult getJsSdkTicket(HttpServletRequest request){
+	public AjaxResult getJsSdkTicket(HttpServletRequest request,String locationHref){
 		logger.info("request the wxPay info.");
 		ApiConfig config=weChatConfigApi.getApiConfig();
 		JsTicket ticket=JsTicketApi.getTicket(JsApiType.jsapi);
@@ -106,10 +114,10 @@ public class WeiXinController extends SerialSupport{
 			logger.error("request of jssdk does not success....");
 			throw new BusinessException(ErrorCode.UNKNOWN_ERROR);
 		}
-		String curUrl=request.getRequestURL().toString();
+		String url=locationHref;
 		Map<String,String> result=null;
 		try {
-			result=WxUtil.jssdkSignMap(ticket,config.getAppId(),curUrl);
+			result=WxUtil.jssdkSignMap(ticket,config.getAppId(),url);
 			return new AjaxResult(AjaxResult.SUCCESS,AjaxResult.DEFAULT_SUCCESS_TIP,jsonSerial.serial(result));
 		} catch (NoSuchAlgorithmException e) {
 			// TODO Auto-generated catch block
@@ -210,15 +218,26 @@ public class WeiXinController extends SerialSupport{
 	
 	
 	@RequestMapping("/getUserInfo.do")
-	public String getUserInfo(HttpServletRequest request, ModelMap map,@RequestParam("code")String code,@RequestParam("state")String state){
+	public String getUserInfo(HttpServletRequest request, ModelMap map,@RequestParam("code")String code,@RequestParam("state")String state) throws Exception{
 		logger.info("the wx return code is "+code+","+state);
 		SnsAccessToken sn = SnsAccessTokenApi  
                 .getSnsAccessToken(weChatConfigApi.getApiConfig().getAppId(),weChatConfigApi.getApiConfig().getAppSecret(), code); 
 		logger.info("sn openId is "+sn.getOpenid());
+		//查询数据库是否存在此openid记录
+		Map<String,Object> params=new HashMap<String,Object>();
+		params.put(VipDao.PARM_VIP_OPEN_ID,sn.getOpenid());
+		List<XlVip> userInfo=vipService.findByOpenId(params);
+		if(ArrayUtil.isNotBlank(userInfo)&&userInfo.size()>1){
+			logger.info("the user openid has more record in xl_vip table");
+			throw new Exception("");
+		}
+		
 		ApiResult apiResult=SnsApi.getUserInfo(sn.getAccessToken(),sn.getOpenid());
 		
+		
+		
 		request.getSession().setAttribute(Constants.currentUserSessionKey,apiResult);
-	    System.out.println(apiResult.getJson());
+	    //System.out.println(apiResult.getJson());
 		return "redirect:/EntryController/gongzhonghaoIndex.do";		
 	}
 }

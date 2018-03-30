@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.finance.dao.VipDao">
+	<resultMap type="XlVip" id="vipMap">
+		<result property="id" column="id" />
+		<result property="openId" column="openId" />
+		<result property="vipFlag" column="vip_flag" />
+		<result property="nickName" column="nickName" />
+		<result property="privilege" column="privilege" />
+		<result property="headimgurl" column="headimgurl" />
+		<result property="sex" column="sex" />
+		<result property="updateTime" column="updateTime" />
+		<result property="subscribeTime" column="subscribeTime" />
+		<result property="unsubscribeTime" column="unsubscribeTime" />
+		<result property="nickName" column="nickName" />
+		<result property="unionid" column="unionid" />
+		<result property="country" column="country" />
+		<result property="city" column="city" />
+		<result property="province" column="province" />
+	</resultMap>
+	<insert id="insertXlVip" parameterType="Map">
+		INSERT INTO `xl_vip` (`id`, `openId`, `vip_flag`, `subscribeTime`, `unsubscribeTime`, `nickName`, `unionid`, `privilege`, `headimgurl`, `country`, `city`, `province`, `sex`, `updateTime`, `remark`) VALUES (#{id},#{openId},#{vipFlag},#{subscribeTime},#{unsubscribeTime},#{nickName},#{unionid},#{privilege},#{headimgurl},#{country},#{city},#{province},#{sex},#{updateTime},#{remark})
+	</insert>
+	<select id="findByOpenId" parameterType="Map" resultMap="vipMap">
+		select * from xl_vip
+		<where>
+			openId=#{openId}
+		</where> 
+	</select>
+</mapper>

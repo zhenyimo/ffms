@@ -31,13 +31,13 @@ public class WxUtil {
 		   String nonceStr=createNonceStr();
 		   Map<String,String> parms=new HashMap<String, String>();
 		   parms.put("appId", appId);
-		   parms.put("jsapi_ticket",ticket.getTicket());
+		   //parms.put("jsapi_ticket",ticket.getTicket());
 		   parms.put("noncestr",nonceStr );
 		   parms.put("timestamp",timeStamp);
 		   parms.put("url",url);
 		   StringBuilder sb=new StringBuilder();
-		   sb.append("noncestr="+nonceStr);
-		   sb.append("&jsapi_ticket="+ticket.getTicket());
+		   sb.append("jsapi_ticket="+ticket.getTicket());
+		   sb.append("&noncestr="+nonceStr);
 		   sb.append("&timestamp="+timeStamp);
 		   sb.append("&url="+url);
 		   String sign = new String(    

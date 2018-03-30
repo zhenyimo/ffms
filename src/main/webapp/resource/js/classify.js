@@ -3,7 +3,7 @@ require.config({
     paths: {
         "jquery": "pages/front/lib/jquery-2.1.4",
         "wx":"wx/js/jweixin-1.2.0",
-        "constants":"resource/js/constants",
+        "commonUtils":"resource/js/commonUtils",
         "fastclick":"pages/front/lib/fastclick",
         "jqueryWeui":"pages/front/js/jquery-weui",
         "swiper":"pages/front/js/swiper",
@@ -11,26 +11,29 @@ require.config({
         "txtwav":"pages/front/js/txt.wav.min",
         "front":"pages/front/js/front",
         "jquery.mloading":"resource/js/jquery.mloading",
-        "tail":"resource/js/tail"
+        "tail":"resource/js/tail",
     },
     shim: {
     	'jquery.mloading':{
     		deps: ['jquery'],
     	    exports: 'mloading'
+    	},
+    	'custWXApi':{
+    		deps: ['jquery','commonUtils','wx']
     	}
     }
 });
 
 
 require(['jquery'],function($){
-	require(['constants',
+	require(['commonUtils',
 	         'fastclick',
 	         'jqueryWeui',
 	         'swiper',
 	         'bootstrap',
 	         'txtwav',
 	         'jquery.mloading',
-	         'tail'],function(constants,FastClick,jqueryWeui,swiper,bootstrap,txtwav,mloading,tail){				
+	         'tail'],function(commonUtils,FastClick,jqueryWeui,swiper,bootstrap,txtwav,mloading,tail){				
 		$(function($){		
 			//初始化排序
 			initSortWedgit();

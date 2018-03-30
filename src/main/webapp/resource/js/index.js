@@ -3,7 +3,7 @@ require.config({
     paths: {
         "jquery": "pages/front/lib/jquery-2.1.4",
         "wx":"wx/js/jweixin-1.2.0",
-        "constants":"resource/js/constants",
+        "commonUtils":"resource/js/commonUtils",
         "fastclick":"pages/front/lib/fastclick",
         "jqueryWeui":"pages/front/js/jquery-weui",
         "swiper":"pages/front/js/swiper",
@@ -14,7 +14,7 @@ require.config({
 });
 
 require(['jquery'],function($){
-	require(['constants','fastclick','jqueryWeui','swiper','bootstrap','txtwav','tail'],function(constants,FastClick,jqueryWeui,swiper,bootstrap,txtwav,tail){
+	require(['fastclick','jqueryWeui','swiper','bootstrap','txtwav','tail'],function(FastClick,jqueryWeui,swiper,bootstrap,txtwav,tail){
 		 //底部导航初始化
 		 $(function() {
 			 FastClick.attach(document.body);

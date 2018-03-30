@@ -1,3 +1,4 @@
+
 require.config({
 	baseUrl: '/ffms/',
     paths: {
@@ -29,7 +30,9 @@ require(['jquery'],function($){
 	         'txtwav',
 	         'jquery.mloading',
 	         'tail'],function(FastClick,jqueryWeui,swiper,bootstrap,txtwav,mloading,tail){
-		
+		var carouselData;
+		var currentIndex;
+		var items;
 		$(function($){		
 			//初始化下面的导航栏
 			tail.initBottomNavBar();	
