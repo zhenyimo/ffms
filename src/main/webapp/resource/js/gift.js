@@ -3,7 +3,6 @@ require.config({
     paths: {
         "jquery": "pages/front/lib/jquery-2.1.4",
         "wx":"wx/js/jweixin-1.2.0",
-        "constants":"resource/js/constants",
         "fastclick":"pages/front/lib/fastclick",
         "jqueryWeui":"pages/front/js/jquery-weui",
         "swiper":"pages/front/js/swiper",
@@ -23,14 +22,13 @@ require.config({
 
 
 require(['jquery'],function($){
-	require(['constants',
-	         'fastclick',
+	require(['fastclick',
 	         'jqueryWeui',
 	         'swiper',
 	         'bootstrap',
 	         'txtwav',
 	         'jquery.mloading',
-	         'tail'],function(constants,FastClick,jqueryWeui,swiper,bootstrap,txtwav,mloading,tail){				
+	         'tail'],function(FastClick,jqueryWeui,swiper,bootstrap,txtwav,mloading,tail){				
 		$(function($){		
 		//初始化下面的导航栏
 		tail.initBottomNavBar();	
