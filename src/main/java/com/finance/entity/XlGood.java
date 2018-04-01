@@ -1,39 +1,35 @@
 package com.finance.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class XlGood implements Serializable{
 	/**
-	 * 
+	 * 商品表
 	 */
-	
-	
 	private static final long serialVersionUID = 1L;
 	private Integer id; // 编号
-
-
 	private String tittle; //标题
-	private String subtittle; //
-	private Integer typeId; //
-	private String typeName; // 来源
+	private String subtittle; //副标题
+	private Integer typeId; //类型id
+	private String typeName; // 类型名称
 	private double price; // 金额
-	private double originalPrice; // 类型
-	private String pictureName; // 备注
+	private double originalPrice; // 原价
+	private String pictureName; //照片名称
 	private Integer answerTime; // 回答限定分钟以内
-	private String description; // 创建时间
+	private String description; // 描述
 	private String paysuccessNumber; // 支付成功的数量
-
 	private String flag; //题目是否有效
 	private Integer createUser; // 创建者id
 	private String createUsername;// 创建人名字
-	
 	private Date createTime;//
 	private Integer updateUser; // 创建者id
 	private String updateUsername;// 创建人名字
-	
 	private Date updateTime;//
-	
+	private List<XlQuestion> quesList;
+
 	public Integer getId() {
 		return id;
 	}
@@ -177,6 +173,12 @@ public class XlGood implements Serializable{
 	public void setUpdateTime(Date updateTime) {
 		this.updateTime = updateTime;
 	}
-	
+	public List<XlQuestion> getQuesList() {
+		return quesList;
+	}
+
+	public void setQuesList(List<XlQuestion> quesList) {
+		this.quesList = quesList;
+	}
 
 }

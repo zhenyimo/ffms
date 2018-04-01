@@ -40,7 +40,7 @@ import net.sf.json.JSONObject;
  *
  */
 @Controller
-//@RequestMapping("PayController")
+@RequestMapping("/manage")
 public class PayController {
 	
 	

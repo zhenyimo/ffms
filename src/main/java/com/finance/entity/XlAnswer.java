@@ -1,84 +1,61 @@
 package com.finance.entity;
 
 import java.io.Serializable;
-//import java.util.List;
-
 public class XlAnswer implements Serializable{
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
-
 	private Integer id; // 编号
-
-	private String answer_num; // 创建人ID
-	//private Integer answer_num; // 创建人ID
-	private String answer_content; // 创建人角色
-	private Integer questionId; //问题id 
-	private Integer next_questionId; //下一题id
-	private Integer answer_score; // 该题分数
-	
-	//private List<XlQuestion> xlQuestionList;// 一个答案亦都可能对应多个问题
+	private String ansNum; // 第几个答案
+	private String ansContent; // 答案内容
+	private Integer quesId; //问题id 
+	private Integer nextQuestionId; //下一题id
+	private Integer answerScore; // 该题分数	
 	public Integer getId() {
 		return id;
 	}
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getAnswer_num() {
-		return answer_num;
+	
+	public String getAnsNum() {
+		return ansNum;
 	}
-	public void setAnswer_num(String answer_num) {
-		this.answer_num = answer_num;
+	public void setAnsNum(String ansNum) {
+		this.ansNum = ansNum;
 	}
-/*	public Integer getAnswer_num() {
-		return answer_num;
+	public String getAnsContent() {
+		return ansContent;
 	}
-	public void setAnswer_num(Integer answer_num) {
-		this.answer_num = answer_num;
-	}*/
-	public String getAnswer_content() {
-		return answer_content;
+	public void setAnsContent(String ansContent) {
+		this.ansContent = ansContent;
 	}
-	public void setAnswer_content(String answer_content) {
-		this.answer_content = answer_content;
+	public Integer getQuesId() {
+		return quesId;
 	}
-	public Integer getQuestionId() {
-		return questionId;
+	public void setQuesId(Integer quesId) {
+		this.quesId = quesId;
 	}
-	public void setQuestionId(Integer questionId) {
-		this.questionId = questionId;
+	public Integer getNextQuestionId() {
+		return nextQuestionId;
 	}
-	public Integer getNext_questionId() {
-		return next_questionId;
+	public void setNextQuestionId(Integer nextQuestionId) {
+		this.nextQuestionId = nextQuestionId;
 	}
-	public void setNext_questionId(Integer next_questionId) {
-		this.next_questionId = next_questionId;
+	public Integer getAnswerScore() {
+		return answerScore;
 	}
-	public Integer getAnswer_score() {
-		return answer_score;
-	}
-	public void setAnswer_score(Integer answer_score) {
-		this.answer_score = answer_score;
+	public void setAnswerScore(Integer answerScore) {
+		this.answerScore = answerScore;
 	}
 	@Override
 	public String toString() {
-		return "XlAnswer [id=" + id + ", answer_num=" + answer_num
-				+ ", answer_content=" + answer_content + ", questionId="
-				+ questionId + ", next_questionId=" + next_questionId
-				+ ", answer_score=" + answer_score + "]";
+		return "XlAnswer [id=" + id + ", ansNum=" + ansNum + ", ansContent="
+				+ ansContent + ", quesId=" + quesId + ", nextQuestionId="
+				+ nextQuestionId + ", answerScore=" + answerScore
+				+ ", getId()=" + getId() + ", getAnsNum()=" + getAnsNum()
+				+ ", getAnsContent()=" + getAnsContent() + ", getQuesId()="
+				+ getQuesId() + ", getNextQuestionId()=" + getNextQuestionId()
+				+ ", getAnswerScore()=" + getAnswerScore() + "]";
 	}
-	
-/*	@Override
-	public String toString() {
-		return "XlAnswer [id=" + id + ", answer_num=" + answer_num
-				+ ", answer_content=" + answer_content + ", questionId="
-				+ questionId + ", next_questionId=" + next_questionId
-				+ ", answer_score=" + answer_score + ", xlQuestionList="
-				+ xlQuestionList + "]";
-	}
-	*/
-	
-	
 
 }

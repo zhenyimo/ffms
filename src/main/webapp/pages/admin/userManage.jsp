@@ -63,7 +63,7 @@
 	
 	function openUserAddDialog(){
 		$("#dlg").dialog("open").dialog("setTitle","添加用户信息");
-		url="${basePath}usersave.do";
+		url="${basePath}manage/usersave.do";
 	}
 	
 	function openUserModifyDialog(){
@@ -75,7 +75,7 @@
 		var row=selectedRows[0];
 		$("#dlg").dialog("open").dialog("setTitle","编辑用户信息");
 		$('#fm').form('load',row);
-		url="${basePath}usersave.do?id="+row.id;
+		url="${basePath}manage/usersave.do?id="+row.id;
 	}
 	
 	function saveUser(){
@@ -188,7 +188,7 @@
 <body style="margin:1px;">
 	<table id="dg" title="用户管理" class="easyui-datagrid"
 	 fitColumns="true" pagination="true" rownumbers="true"
-	 url="${basePath}userlist.do" fit="true" toolbar="#tb" remoteSort="false" multiSort="true">
+	 url="${basePath}manage/userlist.do" fit="true" toolbar="#tb" remoteSort="false" multiSort="true">
 	 <thead>
 	 	<tr>
 	 		<th field="cb" checkbox="true" align="center"></th>

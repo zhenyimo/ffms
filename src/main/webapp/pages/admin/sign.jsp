@@ -82,7 +82,7 @@
 						return false;
 		    		}else{
 		    			$.ajax({
-							url:"${basePath}gosign.do",
+							url:"${basePath}manage/gosign.do",
 							type:"post",
 							dataType:"text",
 							data:{"username":inputUsername,"password":inputPassword,"roleid":2},

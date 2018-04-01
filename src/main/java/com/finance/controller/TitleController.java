@@ -30,7 +30,7 @@ import net.sf.json.JSONObject;
  *
  */
 @Controller
-//@RequestMapping("DatadicController")
+@RequestMapping("/manage")
 
 public class TitleController {
 	

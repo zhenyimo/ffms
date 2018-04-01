@@ -67,7 +67,7 @@
 
 	function openTradeAddDialog() {
 		$("#dlg").dialog("open").dialog("setTitle", "添加流水账信息");
-		url = "${basePath}tradesave.do";
+		url = "${basePath}manage/tradesave.do";
 	}
 
 	function openTradeModifyDialog() {
@@ -79,7 +79,7 @@
 		var row = selectedRows[0];
 		$("#dlg").dialog("open").dialog("setTitle", "编辑流水账信息");
 		$('#fm').form('load', row);
-		url = "${basePath}tradesave.do?id=" + row.id;
+		url = "${basePath}manage/tradesave.do?id=" + row.id;
 	}
 
 	function saveTrade() {
@@ -162,7 +162,7 @@
 </head>
 <body style="margin: 1px;">
 	<table id="dg" title="流水账管理" class="easyui-datagrid" fitColumns="true"
-		pagination="true" rownumbers="true" url="${basePath}tradelist.do?roleid=${currentUser.roleid}&userid=${currentUser.id}"
+		pagination="true" rownumbers="true" url="${basePath}manage/tradelist.do?roleid=${currentUser.roleid}&userid=${currentUser.id}"
 		fit="true" toolbar="#tb" remoteSort="false" multiSort="true">
 		<thead>
 			<tr>

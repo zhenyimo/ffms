@@ -50,7 +50,6 @@ public class GoodController {
 		Map<String,Object> params=new HashMap<String,Object>();
 		params.put(GoodDao.PARAM_GOOD_ID,goodId);
 		XlGood good=xlGoodService.findByGoodId(params);
-		
 		model.addAttribute("good",good);
 		return "front/questionIndex";	
 	}

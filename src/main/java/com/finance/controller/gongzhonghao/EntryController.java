@@ -56,7 +56,7 @@ import net.sf.json.JSONObject;
  *
  */
 @Controller
-//@RequestMapping("EntryController")
+//@RequestMapping("")
 
 public class EntryController {
 	private Logger logger=LoggerFactory.getLogger(EntryController.class);
@@ -91,7 +91,7 @@ public class EntryController {
 	/**
 	 * 用户登录页面
 	 */
-	@RequestMapping("front/entry/gongzhonghaoIndex.do")
+	@RequestMapping("/front/index.do")
 	public String router(Model model,@RequestParam(value="tabName",required=false)String tabName) {
 		model.addAttribute("tabName",tabName);
 		if(tabName==null){

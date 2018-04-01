@@ -39,7 +39,7 @@ import net.sf.json.JSONObject;
  *
  */
 @Controller
-//@RequestMapping("UserController")
+@RequestMapping("/manage")
 
 public class UserController {
 	@Resource
@@ -61,6 +61,7 @@ public class UserController {
 	public String index(ModelMap map) {
 		List<Role> list = roleService.getRoles();
 		map.addAttribute("roles", list);
+		
 		return "admin/login";
 	}
 
