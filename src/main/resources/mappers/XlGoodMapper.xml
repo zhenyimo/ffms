@@ -21,7 +21,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="createTime" column="create_time" />
 		<result property="updateUser" column="update_user" />
 		<result property="updateUsername" column="update_username" />
-		<result property="updateTime" column="update_time" />		
+		<result property="updateTime" column="update_time" />
+		<!-- 一对多关系 -->
+		<!-- <collection property="xlquesist" column="goodId" ofType="com.finance.entity.XlQuestion" >
+             <id property="id" column="id" javaType="java.lang.Integer"></id>
+             <result property="quesNum" column="question_num" javaType="java.lang.Integer"></result>
+             <result property="quesContent" column="question_content" javaType="java.lang.String"></result>
+             <result property="type" column="ques_type"  javaType="java.lang.String"></result>
+        </collection>	 -->	
 	</resultMap>
 	<select id="findByLimit" parameterType="Map" resultMap="goodMap">
 		select * from xl_good 

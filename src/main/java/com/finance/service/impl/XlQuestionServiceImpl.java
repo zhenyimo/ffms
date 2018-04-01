@@ -109,4 +109,10 @@ public class XlQuestionServiceImpl implements XlQuestionService{
 		// TODO Auto-generated method stub
 		return xlQuestionDao.getXlQuestion();
 	}
+
+	@Override
+	public List<XlQuestion> findQuestionByGoodId(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return xlQuestionDao.findQuestionByGoodId(map);
+	}
 }

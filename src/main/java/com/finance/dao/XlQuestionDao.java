@@ -4,28 +4,13 @@ import java.util.List;
 import java.util.Map;
 
 import com.finance.entity.XlQuestion;
-
-//import com.finance.entity.Question;
-
-//import com.finance.entity.Datadic;
-//import com.finance.entity.Title;
-
-
 /**
  * 题目dao层接口
  * @author zhongzh
  *
  */
 public interface XlQuestionDao {
-/*	public List<Datadic> getDatadicIncome();
-	
-	public List<Datadic> getDatadicPay();
-	
-	public List<Datadic> getDatadicSecurity();
-	
-	public List<Datadic> getDatadicTrade();
-	*/
-	//public List<Question> getTitlename();
+
 	public List<XlQuestion> getXlQuestion();
 	/**
 	 * 查询题目
@@ -61,5 +46,13 @@ public interface XlQuestionDao {
 	 * @return
 	 */
 	public int deleteXlQuestion(Integer id);
+	
+	
+	/**
+	 * 查询题目
+	 * @param map
+	 * @return
+	 */
+	public List<XlQuestion> findQuestionByGoodId(Map<String,Object> map);
 
 }

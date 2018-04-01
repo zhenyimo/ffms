@@ -15,14 +15,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="quesId" column="question_content" javaType="java.lang.String"/>
 		
 		<!-- 一对多关系 -->
-		<collection property="xlanswerList" column="questionId" ofType="com.finance.entity.XlAnswer" >
+		<!-- <collection property="xlanswerList" column="questionId" ofType="com.finance.entity.XlAnswer" >
              <id property="id" column="id" javaType="java.lang.Integer"></id>
              <result property="ansNum" column="answer_num" javaType="java.lang.Integer"></result>
              <result property="ansContent" column="answer_content" javaType="java.lang.String"></result>
              <result property="answerScore" column="answer_score"  javaType="java.lang.Integer"></result>
-        </collection>
+        </collection> -->
 	</resultMap>
-
+	<select id="findQuestionByGoodId" parameterType="Map" resultMap="XlQuestionResult">
+		select * from xl_question
+		<where>
+			goodId=#{goodId}
+		</where>
+	</select>
 
  	
  	<!-- get XlQuestion list with XlAnswer-->

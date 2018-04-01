@@ -15,16 +15,6 @@ import com.finance.entity.XlQuestion;
  *
  */
 public interface XlQuestionService {
-/*	public List<Datadic> getDatadicIncome();
-	
-	public List<Datadic> getDatadicPay();
-	
-	public List<Datadic> getDatadicSecurity();
-	
-	
-	
-	public List<Datadic> getDatadicTrade();*/
-	//public List<Title> getTitlename();
 	public List<XlQuestion> getXlQuestion();
 
 	/**
@@ -62,4 +52,9 @@ public interface XlQuestionService {
 	 * @return
 	 */
 	public int deleteXlQuestion(Integer id);
+	/**
+	 * 
+	 * @return
+	 */
+	public List<XlQuestion> findQuestionByGoodId(Map<String,Object> map);
 }
