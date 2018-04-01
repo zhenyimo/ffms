@@ -2,20 +2,20 @@
 <!--底部导航-->
 <div class="foot-black"></div>
 <div class="weui-tabbar wy-foot-menu" style="margin-bottom:-2%;">
-  <a href="${basePath}/front/entry/gongzhonghaoIndex.do"  id="index" class="weui-tabbar__item weui-bar__item--on" >
+  <a href="${basePath}/front/index.do"  id="index" class="weui-tabbar__item weui-bar__item--on" >
     <div class="weui-tabbar__icon foot-menu-home"></div>
     <p class="weui-tabbar__label">首页</p>
   </a>
-  <a href="${basePath}/front/entry/gongzhonghaoIndex.do?tabName=classify" id="classify" class="weui-tabbar__item" >
+  <a href="${basePath}/front/index.do?tabName=classify" id="classify" class="weui-tabbar__item" >
     <div class="weui-tabbar__icon foot-menu-list"></div>
     <p class="weui-tabbar__label">分类</p>
   </a>
-  <a href="${basePath}/front/entry/gongzhonghaoIndex.do?tabName=gift" class="weui-tabbar__item" id="gift" >
+  <a href="${basePath}/front/index.do?tabName=gift" class="weui-tabbar__item" id="gift" >
     <span class="weui-badge" style="position: absolute;top: -.4em;right: 1em;">8</span>
     <div class="weui-tabbar__icon foot-menu-cart"></div>
     <p class="weui-tabbar__label">赠礼管理</p>
   </a>
-  <a href="${basePath}/front/entry/gongzhonghaoIndex.do?tabName=mine" class="weui-tabbar__item" id="mine" >
+  <a href="${basePath}/front/index.do?tabName=mine" class="weui-tabbar__item" id="mine" >
     <div class="weui-tabbar__icon foot-menu-member" style="color:green"></div>
     <p class="weui-tabbar__label">我的测评</p>
   </a>
