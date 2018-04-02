@@ -92,7 +92,7 @@ public class EntryController {
 	 * 用户登录页面
 	 */
 	@RequestMapping("/front/index.do")
-	public String router(Model model,@RequestParam(value="tabName",required=false)String tabName) {
+	public String index(Model model,@RequestParam(value="tabName",required=false)String tabName) {
 		model.addAttribute("tabName",tabName);
 		if(tabName==null){
 			index(model);	
