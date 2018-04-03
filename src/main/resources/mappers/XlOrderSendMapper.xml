@@ -62,7 +62,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="sumOrderMoneyByToUser" parameterType="Map" resultType="java.lang.Double">
-		select COALESCE(sum(o.money),0) from from xl_order_send o
+		select COALESCE(sum(o.money),0) from xl_order_send o
 		<where>
 			o.to_user=#{toUser}
 		</where> 

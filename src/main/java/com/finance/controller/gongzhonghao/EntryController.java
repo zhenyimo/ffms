@@ -162,7 +162,7 @@ public class EntryController {
 		Map<String,Object> orderReceiveTotalMoneyParam=new HashMap<String,Object>();
 		orderReceiveTotalMoneyParam.put(XlOrderSendDao.PARAM_TO_USER,curUser.getId());
 		//orderSendParam.put(XlOrderSendDao.PARAM_TO_USER,curUser.getOpenId());
-		double orderReceiveTotalMoney=xlOrderService.sumOrderMoneyByVipId(orderReceiveTotalMoneyParam);
+		double orderReceiveTotalMoney=xlOrderSendService.sumOrderMoneyByToUser(orderReceiveTotalMoneyParam);
 		
 		
 		model.addAttribute("orderReceiveTotalMoney", orderReceiveTotalMoney);
