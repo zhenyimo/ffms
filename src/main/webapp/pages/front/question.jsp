@@ -28,7 +28,7 @@
 	
 	<div class="item " itemIndex="${status.count}">
 			               <p style="padding-left:3%;font-size:1.3em;"><em><c:out value="${status.count}"/>.</em>${question.quesContent}</p>
-	                    <c:forEach var="answer" items="${question.getAnswerList()}" begin="1" end ="${question.getAnswerList().size()}" varStatus="anstatus">
+	                    <c:forEach var="answer" items="${question.getAnswerList()}" begin="0" end ="${question.getAnswerList().size()}" varStatus="anstatus">
 		                     <div class="panel-body">
 		                    <span style="font-size:1.2em;color:#333"> <em><c:out value="${anstatus.count}"/>.</em>${answer.ansContent}</span>
 		                        <input type="radio" id="singleRadio1" style="float:right;" value="option1" name="radioSingle1" aria-label="Single radio One">
