@@ -54,7 +54,7 @@
 	
 	function openRoleAddDialog(){
 		$("#dlg").dialog("open").dialog("setTitle","添加角色信息");
-		url="${basePath}rolesave.do";
+		url="${basePath}manage/rolesave.do";
 	}
 	
 	function openRoleModifyDialog(){
@@ -66,7 +66,7 @@
 		var row=selectedRows[0];
 		$("#dlg").dialog("open").dialog("setTitle","编辑角色信息");
 		$('#fm').form('load',row);
-		url="${basePath}rolesave.do?id="+row.id;
+		url="${basePath}manage/rolesave.do?id="+row.id;
 	}
 	
 	function saveRole(){
@@ -103,7 +103,7 @@
 <body style="margin:1px;">
 	<table id="dg" title="角色管理" class="easyui-datagrid"
 	 fitColumns="true" pagination="true" rownumbers="true"
-	 url="${basePath}rolelist.do" fit="true" toolbar="#tb" remoteSort="false" multiSort="true">
+	 url="${basePath}manage/rolelist.do" fit="true" toolbar="#tb" remoteSort="false" multiSort="true">
 	 <thead>
 	 	<tr>
 	 		<th field="cb" checkbox="true" align="center"></th>

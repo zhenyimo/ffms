@@ -40,7 +40,7 @@ import net.sf.json.JSONObject;
  *
  */
 @Controller
-//@RequestMapping("SecurityController")
+@RequestMapping("/manage")
 public class SecurityController {
 	@Resource
 	private SecurityService securityService;

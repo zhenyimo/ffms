@@ -40,7 +40,7 @@ import net.sf.json.JSONObject;
  *
  */
 @Controller
-//@RequestMapping("IncomeController")
+@RequestMapping("/manage")
 public class IncomeController {
 	@Resource
 	private IncomeService incomeService;

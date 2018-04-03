@@ -79,7 +79,7 @@ function openTab(text, url, iconCls) {
 
 function openPasswordModifyDialog() {
 	$("#dlg").dialog("open").dialog("setTitle", "修改密码");
-	url = "${basePath}modifyPassword.do?id=${currentUser.id}";
+	url = "${basePath}manage/modifyPassword.do?id=${currentUser.id}";
 }
 
 function closePasswordModifyDialog() {
@@ -124,7 +124,7 @@ function modifyPassword() {
 
 function openMessageModifyDialog(){
 	$("#mdlg").dialog("open").dialog("setTitle", "修改用户信息");
-	url = "${basePath}usersave.do?id=${currentUser.id}";
+	url = "${basePath}manage/usersave.do?id=${currentUser.id}";
 }
 
 function modifyMessage(){
@@ -213,37 +213,37 @@ function logout() {
 	<div region="west" style="width: 200px" title="导航菜单" split="true">
 		<div class="easyui-accordion" data-options="fit:true,border:false">
 			<div title="投资管理" data-options="selected:true,iconCls:'icon-yxgl'" style="padding: 10px">
-				<a href="javascript:openTab('收入信息维护','incomeManage.do','icon-yxjhgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-yxjhgl'" style="width: 150px;">收入信息维护</a> 
-				<a href="javascript:openTab('投资支出信息维护','payManage.do','icon-khkfjh')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khkfjh'" style="width: 150px;">投资信息维护</a>
+				<a href="javascript:openTab('收入信息维护','manage/incomeManage.do','icon-yxjhgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-yxjhgl'" style="width: 150px;">收入信息维护</a> 
+				<a href="javascript:openTab('投资支出信息维护','manage/payManage.do','icon-khkfjh')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khkfjh'" style="width: 150px;">投资信息维护</a>
 			</div>
 			<div title="证券信息管理" data-options="iconCls:'icon-khgl'" style="padding: 10px;">
-				<a href="javascript:openTab('证券帐户处理','securityManage.do','icon-khxxgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khxxgl'" style="width: 150px;">证券帐户管理</a>
-				<a href="javascript:openTab('持股管理','sharesManage.do','icon-khlsgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khlsgl'" style="width: 150px;">持股管理</a> 
-				<a href="javascript:openTab('证券流水账管理','tradeManage.do','icon-khlsgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khlsgl'" style="width: 150px;">证券流水账管理</a>
+				<a href="javascript:openTab('证券帐户处理','manage/securityManage.do','icon-khxxgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khxxgl'" style="width: 150px;">证券帐户管理</a>
+				<a href="javascript:openTab('持股管理','manage/sharesManage.do','icon-khlsgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khlsgl'" style="width: 150px;">持股管理</a> 
+				<a href="javascript:openTab('证券流水账管理','manage/tradeManage.do','icon-khlsgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khlsgl'" style="width: 150px;">证券流水账管理</a>
 			</div>
 			<div title="股票走势" data-options="iconCls:'icon-chart'" style="padding: 10px">
-				<a href="javascript:openTab('按时间收入报表','incomeTimeManage.do','icon-khgxfx')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khgxfx'" style="width: 150px;">按时间收入报表</a> 
-				<a href="javascript:openTab('按时间支出报表','payTimeManage.do','icon-khgcfx')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khgcfx'" style="width: 150px;">按时间投资报表</a>
-				<a href="javascript:openTab('按类型报表','typePieManage.do','icon-khgcfx')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khgcfx'" style="width: 150px;">按类型报表</a>
+				<a href="javascript:openTab('按时间收入报表','manage/incomeTimeManage.do','icon-khgxfx')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khgxfx'" style="width: 150px;">按时间收入报表</a> 
+				<a href="javascript:openTab('按时间支出报表','manage/payTimeManage.do','icon-khgcfx')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khgcfx'" style="width: 150px;">按时间投资报表</a>
+				<a href="javascript:openTab('按类型报表','manage/typePieManage.do','icon-khgcfx')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khgcfx'" style="width: 150px;">按类型报表</a>
 			</div>
 			<div title="报表管理" data-options="iconCls:'icon-chart'" style="padding: 10px">
-				<a href="javascript:openTab('按时间收入报表','incomeTimeManage.do','icon-khgxfx')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khgxfx'" style="width: 150px;">按时间收入报表</a> 
-				<a href="javascript:openTab('按时间投资报表','payTimeManage.do','icon-khgcfx')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khgcfx'" style="width: 150px;">按时间投资报表</a>
-				<a href="javascript:openTab('按类型报表','typePieManage.do','icon-khgcfx')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khgcfx'" style="width: 150px;">按类型报表</a>
+				<a href="javascript:openTab('按时间收入报表','manage/incomeTimeManage.do','icon-khgxfx')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khgxfx'" style="width: 150px;">按时间收入报表</a> 
+				<a href="javascript:openTab('按时间投资报表','manage/payTimeManage.do','icon-khgcfx')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khgcfx'" style="width: 150px;">按时间投资报表</a>
+				<a href="javascript:openTab('按类型报表','manage/typePieManage.do','icon-khgcfx')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khgcfx'" style="width: 150px;">按类型报表</a>
 			</div> 
 			<c:if test="${currentUser.roleid==1 }">
 			<div title="数据库管理" data-options="iconCls:'icon-jcsjgl'" style="padding: 10px">
-				<a href="javascript:openTab('数据库备份','databackManage.do','icon-cpxxgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-cpxxgl'" style="width: 150px;">数据库备份</a>
-				<a href="javascript:openTab('数据库恢复','datarecoverManage.do','icon-cpxxgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-cpxxgl'" style="width: 150px;">数据库恢复</a>
-				<a href="javascript:openTab('数据库初始化','datainitManage.do','icon-cpxxgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-cpxxgl'" style="width: 150px;">数据库初始化</a>
-				<a href="javascript:openTab('数据库整理','dataorderManage.do','icon-cpxxgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-cpxxgl'" style="width: 150px;">数据库整理</a>
+				<a href="javascript:openTab('数据库备份','manage/databackManage.do','icon-cpxxgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-cpxxgl'" style="width: 150px;">数据库备份</a>
+				<a href="javascript:openTab('数据库恢复','manage/datarecoverManage.do','icon-cpxxgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-cpxxgl'" style="width: 150px;">数据库恢复</a>
+				<a href="javascript:openTab('数据库初始化','manage/datainitManage.do','icon-cpxxgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-cpxxgl'" style="width: 150px;">数据库初始化</a>
+				<a href="javascript:openTab('数据库整理','manage/dataorderManage.do','icon-cpxxgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-cpxxgl'" style="width: 150px;">数据库整理</a>
 			</div> 
 			</c:if>
 			<div title="用户管理" data-options="iconCls:'icon-item'" style="padding: 10px">
 				<c:if test="${currentUser.roleid==1 }">
-					<a href="javascript:openTab('用户信息管理','userManage.do','icon-sjzdgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-sjzdgl'" style="width: 150px;">用户信息管理</a>
-					<a href="javascript:openTab('角色管理','roleManage.do','icon-sjzdgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-sjzdgl'" style="width: 150px;">角色管理</a>
-					<a href="javascript:openTab('数据字典管理','datadicManage.do','icon-sjzdgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-sjzdgl'" style="width: 150px;">数据字典管理</a>
+					<a href="javascript:openTab('用户信息管理','manage/userManage.do','icon-sjzdgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-sjzdgl'" style="width: 150px;">用户信息管理</a>
+					<a href="javascript:openTab('角色管理','manage/roleManage.do','icon-sjzdgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-sjzdgl'" style="width: 150px;">角色管理</a>
+					<a href="javascript:openTab('数据字典管理','manage/datadicManage.do','icon-sjzdgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-sjzdgl'" style="width: 150px;">数据字典管理</a>
 				</c:if>
 				<a href="javascript:openMessageModifyDialog()" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khxxgl'" style="width: 150px;">修改用户信息</a> 
 				<a href="javascript:openPasswordModifyDialog()" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-modifyPassword'" style="width: 150px;">修改密码</a> 

@@ -310,11 +310,11 @@
       <version>1.11.0</version>
     </dependency>
     
-    <dependency>
+    <!-- <dependency>
       <groupId>com.github.javen205</groupId>
       <artifactId>IJPay</artifactId>
       <version>0.6</version>
-    </dependency>
+    </dependency> -->
 		
   </dependencies>
 </project>

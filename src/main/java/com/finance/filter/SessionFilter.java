@@ -22,13 +22,13 @@ public class SessionFilter extends OncePerRequestFilter {
 	public static final String FRONT_BASE_URL="/front";
 	public static final String MANAGE_BASE_URL="/manage";
     public static final String FRONT_LOGIN_URL=FRONT_BASE_URL+"/wx/getCode.do";
-    public static final String MANAGE_LOGIN_URL=MANAGE_BASE_URL+"/login.do";
+    public static final String MANAGE_LOGIN_URL=MANAGE_BASE_URL+"/index.do";
     public static final String ERROR_PAGE_URL="/page-front/errors.html";
     public static String[] FRONT_NOT_FILTER=new String[]{
     		"/getCode.do","/orderNotify.do","/getUserInfo.do","/authPageBind.do"
     };
     public static String[] MANAGE_NOT_FILTER=new String[]{
-    		 "/sign.do","/gosign.do","/login.do"
+    		 "/sign.do","/gosign.do","/index.do","/login.do"
     };
     
     public static boolean FRONT_TEST_MODE=true;

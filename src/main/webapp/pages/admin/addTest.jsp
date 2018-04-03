@@ -61,7 +61,7 @@
 	
 	function openTitleAddDialog(){
 		$("#dlg").dialog("open").dialog("setTitle","添加题目");
-		url="${basePath}titlesave.do";
+		url="${basePath}manage/titlesave.do";
 	}
 	
 	function openTitleModifyDialog(){
@@ -73,7 +73,7 @@
 		var row=selectedRows[0];
 		$("#dlg").dialog("open").dialog("setTitle","编辑题目");
 		$('#fm').form('load',row);
-		url="${basePath}titlesave.do?id="+row.id;
+		url="${basePath}manage/titlesave.do?id="+row.id;
 	}
 	
 	function saveTitle(){
@@ -117,7 +117,7 @@
 <body style="margin:1px;">
 	<table id="dg" title="添加测评" class="easyui-datagrid"
 	 fitColumns="true" pagination="true" rownumbers="true"
-	 url="${basePath}titlelist.do" fit="true" toolbar="#tb" remoteSort="false" multiSort="true">
+	 url="${basePath}manage/titlelist.do" fit="true" toolbar="#tb" remoteSort="false" multiSort="true">
  
 	 <thead>
 	    <tr>

@@ -33,7 +33,7 @@ import net.sf.json.JSONObject;
  *
  */
 @Controller
-//@RequestMapping("produceController")
+@RequestMapping("/manage")
 public class ProduceController {
 	
 	@Resource

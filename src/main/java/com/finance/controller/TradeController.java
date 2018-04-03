@@ -42,7 +42,7 @@ import net.sf.json.JSONObject;
  *
  */
 @Controller
-//@RequestMapping("UserController")
+@RequestMapping("/manage")
 public class TradeController {
 	@Resource
 	private TradeService tradeService;

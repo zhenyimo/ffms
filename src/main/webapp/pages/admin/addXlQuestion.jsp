@@ -62,7 +62,7 @@
 	
 	function openXlQuestionAddDialog(){
 		$("#dlg").dialog("open").dialog("setXlQuestion","添加题目");
-		url="${basePath}xlQuestionsave.do";
+		url="${basePath}manage/xlQuestionsave.do";
 	}
 	
 	function openXlQuestionModifyDialog(){

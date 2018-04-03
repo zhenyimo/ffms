@@ -70,7 +70,7 @@
 
 	function openSecurityAddDialog() {
 		$("#dlg").dialog("open").dialog("setTitle", "添加证券信息");
-		url = "${basePath}securitysave.do";
+		url = "${basePath}manage/securitysave.do";
 	}
 
 	function openSecurityModifyDialog() {
@@ -82,7 +82,7 @@
 		var row = selectedRows[0];
 		$("#dlg").dialog("open").dialog("setTitle", "编辑证券信息");
 		$('#fm').form('load', row);
-		url = "${basePath}securitysave.do?id=" + row.id;
+		url = "${basePath}manage/securitysave.do?id=" + row.id;
 	}
 
 	function saveSecurity() {
@@ -171,7 +171,7 @@
 </head>
 <body style="margin: 1px;">
 	<table id="dg" title="证券管理" class="easyui-datagrid" fitColumns="true"
-		pagination="true" rownumbers="true" url="${basePath}securitylist.do?roleid=${currentUser.roleid}&userid=${currentUser.id}"
+		pagination="true" rownumbers="true" url="${basePath}manage/securitylist.do?roleid=${currentUser.roleid}&userid=${currentUser.id}"
 		fit="true" toolbar="#tb" remoteSort="false" multiSort="true">
 		<thead>
 			<tr>

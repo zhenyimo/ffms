@@ -87,14 +87,14 @@
 						return false;
 		    		}else{
 		    			$.ajax({
-							url:"${basePath}login.do",
+							url:"${basePath}manage/login.do",
 							type:"post",
 							dataType:"text",
 							data:{"username":inputUsername,"password":inputPassword,"roleid":inputRoleid},
 							success:function(data){
 								var result=eval('('+data+')');
 								if(result.errres==200){
-				            		window.location.href="${basePath}main.do";
+				            		window.location.href="${basePath}manage/main.do";
 								}else{
 				            		$("#messageshow").html(result.errmsg);
 					    			$("#myModal").modal("show");
