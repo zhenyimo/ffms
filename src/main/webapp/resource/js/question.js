@@ -21,7 +21,7 @@ require.config({
     }
 });
 
-var QuestionApi={}
+var QuestionApi={};
 require(['jquery'],function($){
 	require(['fastclick',
 	         'jqueryWeui',
@@ -62,14 +62,16 @@ require(['jquery'],function($){
 			
 				 $("#progress").html("");
 				 if(operate=="next"){
-					 if(Number(denominator-molecule)>1){
-						 $("#progress").append(Number(molecule+1)+"/"+denominator);	 	 
-					 }else {
-						 $("#progress").append(Number(molecule+1)+"/"+denominator);	 	 
-						 $("#nextBtn").attr("style","display:none");
-					 }
+					 $("#progress").append(Number(molecule+1)+"/"+denominator);	 	 
 					 $("#speed").attr("style","width:"+(Number(molecule+1)/denominator)*100+"%");
 					 $("#prevBtn").attr("style","display:block");
+					 var lastAns=$("#myCarousel").find(".item:last()");
+					 console.log($(lastAns).html());
+					 if(Number(molecule+1)==denominator&&denominator!=1){
+						 $.each($(lastAns).find(".panel-body"),function(){
+							 $(this).find("input[type='radio']").removeAttr("onclick");
+						 });
+					 }
 				 }else if(operate=="prev"){
 					  if(molecule==2){
 						 $("#prevBtn").attr("style","display:none");
@@ -77,30 +79,30 @@ require(['jquery'],function($){
 					 }else if(molecule>2){
 					 $("#progress").append(Number(molecule-1)+"/"+denominator); 
 					 }
-					 $("#nextBtn").attr("style","display:block");
+//					 $("#nextBtn").attr("style","display:block");
 					 $("#speed").attr("style","width:"+(Number(molecule-1)/denominator)*100+"%");
 				 }else{
 					 $("#progress").append(1+"/"+denominator);
 				 }
 			 
-		}
+		};
 		/**
 		 * 上一题
 		 */
 		QuestionApi.prevQuestion=function(){
 			$("#myCarousel").carousel('prev');
 			QuestionApi.speedOfProgress("prev");
-		}
+		};
 
 		/**
 		 * 下一题
 		 */
-		QuestionApi.nextQuestion=function(){
+		QuestionApi.nextQuestion=function(radio){
 			$("#myCarousel").carousel('next');
 //			alert(currentIndex);
 //			alert($(carouselData.$active).html());
 			QuestionApi.speedOfProgress("next");
-		}
+		};
 		//倒计时函数(该函数只能放在这里)
 		QuestionApi.maxtime = 30 * 60; //一个小时，按秒计算，自己调整! 
 		QuestionApi.CountDown=function() {
