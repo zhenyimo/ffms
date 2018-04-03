@@ -127,7 +127,7 @@ body{font:12px/180% Arial, Helvetica, sans-serif, "宋体";}
         </div>
         <div class="weui-msg__opr-area">
           <p class="weui-btn-area">
-            <a href="../wx/pay.do" onclick="GoodApi.initTimer()" class="weui-btn weui-btn_primary">立即购买</a>
+            <a href="javascript:;" onclick="GoodApi.payGood()" class="weui-btn weui-btn_primary">立即购买</a>
             <a href="javascript:;" onclick="GoodApi.initTimer()" class="weui-btn weui-btn_default close-popup">不，我再看看</a>
           </p>
         </div>

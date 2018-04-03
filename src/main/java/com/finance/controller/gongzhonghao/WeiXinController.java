@@ -266,6 +266,15 @@ public class WeiXinController extends SerialSupport{
 		return "redirect:"+redirectUrl;		
 	}
 	
+	@RequestMapping("/payGood.do")
+	public String payGood(ModelMap map,HttpServletRequest request){
+		
+		return "front/payTest";
+		
+	}
+	
+	
+	
 	private XlVip newXlVip(ApiResult apiResult){
 		XlVip vip=new XlVip();
 		vip.setCity(apiResult.getStr("city"));

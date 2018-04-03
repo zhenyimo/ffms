@@ -34,23 +34,27 @@ require(['jquery'],function($){
 			$(".suspend").animate({width: 30}, 400);
 			GoodApi.timer1=setInterval( "GoodApi.giftOut() " , 3000 );
 			GoodApi.timer2=setInterval( "GoodApi.giftIn() " , 6000 );
-		}
+		};
 		GoodApi.giftOut=function(){
 		$(".suspend").stop();
 		 $(".suspend").animate({width: 60}, 200);  
-		}
+		};
 
 		GoodApi.giftIn=function(){
 		$(".suspend").stop();
 		$(".suspend").animate({width: 30}, 400);
-		}
+		};
 		//隐藏礼物控件
 		GoodApi.hideGift=function(){
 			$(".suspend").stop();
 			$(".suspend").animate({width: 0}, 400);
 			window.clearInterval(GoodApi.timer1);
 			window.clearInterval(GoodApi.timer2);
-		}
+		};
+		//跳转到支付页面
+		GoodApi.payGood=function(){
+			window.location.href=pathContext+"/front/wx/payGood.do";
+		};
 		
 		
 		//初始化

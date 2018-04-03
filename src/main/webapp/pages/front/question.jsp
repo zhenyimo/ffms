@@ -8,7 +8,9 @@
   <a href="javascript:;" class="weui-progress__opr">
   </a>
   <i class="fa fa-clock-o" aria-hidden="true"></i>
-   <div id="timer" style="color:red"></div>
+   <div id="timer" style="color:red">
+   <input type="hidden" name="downtime" id="downtime" value="${good.answerTime}"/>
+   </div>
  <div id="warring" style="color:red"></div>
 </div>
 
@@ -52,4 +54,4 @@
 </div>
 
  </div>
-<link rel="stylesheet" href="${basePath}/pages/front/css/question.css">
+ 

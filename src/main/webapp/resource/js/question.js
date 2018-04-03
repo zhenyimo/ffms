@@ -50,6 +50,8 @@ require(['jquery'],function($){
 			 $("#speed").attr("style","width:"+Number(1/denominator*100)+"%");
 		    $("#myCarousel").find("ol").find("li:eq(0)").addClass("active");
 		    $("#myCarousel").find(".carousel-inner").find("div:eq(0)").addClass("active");
+
+		      
 		});	
 		/**
 		 * 统计进度函数
@@ -66,10 +68,10 @@ require(['jquery'],function($){
 					 $("#speed").attr("style","width:"+(Number(molecule+1)/denominator)*100+"%");
 					 $("#prevBtn").attr("style","display:block");
 					 var lastAns=$("#myCarousel").find(".item:last()");
-					 console.log($(lastAns).html());
+//					 console.log($(lastAns).html());
 					 if(Number(molecule+1)==denominator&&denominator!=1){
 						 $.each($(lastAns).find(".panel-body"),function(){
-							 $(this).find("input[type='radio']").removeAttr("onclick");
+							 $(this).find("input[type='radio']").attr("onclick","QuestionApi.payConfirm()");
 						 });
 					 }
 				 }else if(operate=="prev"){
@@ -104,7 +106,8 @@ require(['jquery'],function($){
 			QuestionApi.speedOfProgress("next");
 		};
 		//倒计时函数(该函数只能放在这里)
-		QuestionApi.maxtime = 30 * 60; //一个小时，按秒计算，自己调整! 
+		var downtime=$("#downtime").val();
+		QuestionApi.maxtime = downtime * 60; //一个小时，按秒计算，自己调整! 
 		QuestionApi.CountDown=function() {
 		    if (QuestionApi.maxtime >= 0) {
 		        minutes = Math.floor(QuestionApi.maxtime / 60);
@@ -115,12 +118,22 @@ require(['jquery'],function($){
 		           --QuestionApi.maxtime;
 		   } else{
 		       clearInterval(QuestionApi.timer);
-		       alert("时间到，结束!");
+		       alert("评测时间已到!");
 		   }
-		}
+		};
 		//启动定时器
 		QuestionApi.timer = setInterval("QuestionApi.CountDown()", 1000); 
+	
 		
+		QuestionApi.payConfirm=function(){
+			//确定支付的dialog
+	        $.confirm("为了感谢我们的心理老师和程序员为测评的撰写和编辑，请您付上一点小小的爱心吧?",  function() {
+	          $.toast("文件已经删除!");
+	        }, function() {
+	          //取消操作
+	        });
+	    
+		};
 		
 	});	
 	
