@@ -18,7 +18,8 @@ public class XlQuestion implements Serializable{
 	private Integer goodId;
 	private Integer quesNum; //第几题
 	private String quesContent; // 题目内容
-	private String type;//题目类型
+	private String quesType;//题目类型
+	
 	//一对多，1条题目可能有多个答案。
 	private List<XlAnswer> xlanswerList;  //一条题目对应的答案列表
 
@@ -46,6 +47,12 @@ public class XlQuestion implements Serializable{
 	public void setQuesContent(String quesContent) {
 		this.quesContent = quesContent;
 	}
+	public String getQuesType() {
+		return quesType;
+	}
+	public void setQuesType(String quesType) {
+		this.quesType = quesType;
+	}
 /*	public String getVersionCode() {
 		return versionCode;
 	}
@@ -57,33 +64,22 @@ public class XlQuestion implements Serializable{
 	public List<XlAnswer> getAnswerList() {
 		return xlanswerList;
 	}
+	public void setAnswerList(List<XlAnswer> xlanswerList) {
+		this.xlanswerList = xlanswerList;
+	}
 	public Integer getGoodId() {
 		return goodId;
 	}
 	public void setGoodId(Integer goodId) {
 		this.goodId = goodId;
 	}
-	public void setAnswerList(List<XlAnswer> xlanswerList) {
-		this.xlanswerList = xlanswerList;
-	}
-	
-	public List<XlAnswer> getXlanswerList() {
-		return xlanswerList;
-	}
-	public void setXlanswerList(List<XlAnswer> xlanswerList) {
-		this.xlanswerList = xlanswerList;
-	}
-		public String getType() {
-		return type;
-	}
-	public void setType(String type) {
-		this.type = type;
-	}
+
+		
 	@Override
 	public String toString() {
 		return "XlQuestion [id=" + id + ", goodId=" + goodId
 				+ ", quesNum=" + quesNum + ", quesContent="
-				+ quesContent + ", xlanswerList=" + xlanswerList + "]";
+				+ quesContent +  "]";
 	}
 	
     

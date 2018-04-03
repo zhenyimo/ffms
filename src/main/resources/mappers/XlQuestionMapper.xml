@@ -2,41 +2,51 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<!--  
+
 <mapper namespace="com.finance.dao.XlQuestionDao">
--->
-<mapper namespace="ffms.mappers.XlQuestionMapper">
  	<!-- get XlQuestion list only-->
     <resultMap type="com.finance.entity.XlQuestion" id="XlQuestionResult">
 		<id property="id" column="id" javaType="java.lang.Integer"/>
 		<result property="quesNum" column="question_num" javaType="java.lang.Integer"/>
-		<result property="questionContent" column="question_content" javaType="java.lang.String"/>
-		<result property="questionContent" column="question_content" javaType="java.lang.String"/>
-		<result property="quesId" column="question_content" javaType="java.lang.String"/>
+		<result property="quesContent" column="question_content" javaType="java.lang.String"/>
+		<result property="quesType" column="ques_type" javaType="java.lang.String"/>
+		<result property="goodId" column="goodId" javaType="java.lang.Integer"/>
 		
 		<!-- 一对多关系 -->
-		<!-- <collection property="xlanswerList" column="questionId" ofType="com.finance.entity.XlAnswer" >
+	   <!--  <collection property="xlanswerList"  ofType="com.finance.entity.XlAnswer"  columnPrefix="ANNEX_">
              <id property="id" column="id" javaType="java.lang.Integer"></id>
-             <result property="ansNum" column="answer_num" javaType="java.lang.Integer"></result>
+             <result property="ansNum" column="answer_num" javaType="java.lang.String"></result>
              <result property="ansContent" column="answer_content" javaType="java.lang.String"></result>
              <result property="answerScore" column="answer_score"  javaType="java.lang.Integer"></result>
-        </collection> -->
+        </collection>  -->
 	</resultMap>
-	<select id="findQuestionByGoodId" parameterType="Map" resultMap="XlQuestionResult">
-		select * from xl_question
-		<where>
-			goodId=#{goodId}
-		</where>
-	</select>
+	<!-- <select id="findQuestionByGoodId" parameterType="Map" resultMap="XlQuestionResult">
+	select q.*,a.* from xl_question q,xl_answer a 
+	where a.questionId=q.id and q.goodId=#{goodId}
+	</select> --> 
 
  	
  	<!-- get XlQuestion list with XlAnswer-->
  	<resultMap type="com.finance.entity.XlQuestion" id="XlQuestionXlAnswerResult" extends="XlQuestionResult">
-        <result property="answer_content" column="answer_content"/>
-        <collection property="answerIDsList"  column="id"  ofType="java.util.Map" javaType="java.util.ArrayList" select="selectAnswerids" />  
-	</resultMap>
-	<select id="selectAnswerids" parameterType="int" resultType="java.util.Map">
-	   select a.answer_num,a.answer_content from xl_question q,xl_answer a where a.questionId=q.question_num
+        <collection property="xlanswerList"  ofType="com.finance.entity.XlAnswer" columnPrefix="annex_">
+             <id property="id" column="id" javaType="java.lang.Integer"/>
+             <result property="ansNum" column="answer_num" javaType="java.lang.String"/>
+             <result property="ansContent" column="answer_content" javaType="java.lang.String"/>
+             <result property="answerScore" column="answer_score"  javaType="java.lang.Integer"/>
+             <result property="quesId" column="questionId" javaType="java.lang.Integer"/>
+             <result property="nextQuestionId" column="next_quesionId" javaType="java.lang.Integer"/>
+        </collection>
+	</resultMap> 
+	<select id="findQuestionByGoodId" parameterType="Map" resultMap="XlQuestionXlAnswerResult">
+       select q.*,
+       a.id annex_id,
+       a.answer_num annex_answer_num,
+       a.answer_content annex_answer_content,
+       a.questionId annex_questionId,
+       a.next_quesionId annex_next_quesionId,
+       a.answer_score annex_answer_score
+       from xl_question q,xl_answer a 
+	   where a.questionId=q.id and q.goodId=#{goodId}
 	</select>
 	
  	<!-- 单表查询，查询所有题目 -->
@@ -44,54 +54,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from xl_question;
 	</select>
 	<!-- 一对多查询，查询所有题目与答案 -->
-	 	<select id="findXlQuestionAndXlAnswer" parameterType="int" resultMap="XlQuestionXlAnswerResult">
+	 <!-- 	<select id="findXlQuestionAndXlAnswer" parameterType="int" resultMap="XlQuestionXlAnswerResult">
 		select q.*,a.* from xl_question q,xl_answer a where q.questionId=a.questionId; 
-		<!--  
-		<where>
-		    <if test="question_content!=null and question_content!='' ">
-				question_content=#{question_content}
-			</if>
-			<if test="answer!=null and answer!='' ">
-				and answer like #{answer}
-			</if>
-		</where>
-		<if test="start!=null and size!=null">
-			limit #{start},#{size}
-		</if>
-	</select>
-    <select id="getTotalXlQuestion" parameterType="Map" resultType="Long">
-		select count(*) from xl_question
-		<where>
-		    <if test="question_content!=null and question_content!='' ">
-				question_content=#{question_content}
-			</if>
-			<if test="optionvalue!=null and optoinvalue!='' ">
-				and optionvalue like #{optionvalue}
-			</if>
-		</where>
-	</select>
-	
-    <insert id="addXlQuestion" parameterType="XlQuestion">
-		insert into xl_question values(null,#{titlename},#{optionvalue});
-	</insert>
-	
-    <update id="updateXlQuestion" parameterType="XlQuestion" >
-		update t_title
-		<set>
-			<if test="titlename!=null and titlename!='' ">
-				titlename=#{titlename},
-			</if>
-			<if test="datadicvalue!=null and datadicvalue!='' ">
-				optionvalue=#{optionvalue}
-			</if>
-		</set>
-		where id=#{id}
-	</update>
-	
-    <delete id="deleteXlQuestion" parameterType="Integer">
-	    delete from xl_question where id=#{id};
-	</delete>
--->
+		
 
-</select>
+</select> -->
 </mapper> 	

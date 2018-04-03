@@ -52,7 +52,7 @@ public class XlAnswer implements Serializable{
 		return "XlAnswer [id=" + id + ", ansNum=" + ansNum + ", ansContent="
 				+ ansContent + ", quesId=" + quesId + ", nextQuestionId="
 				+ nextQuestionId + ", answerScore=" + answerScore
-				+ ", getId()=" + getId() + ", getAnsNum()=" + getAnsNum()
+				+ ", getAid()=" + getId() + ", getAnsNum()=" + getAnsNum()
 				+ ", getAnsContent()=" + getAnsContent() + ", getQuesId()="
 				+ getQuesId() + ", getNextQuestionId()=" + getNextQuestionId()
 				+ ", getAnswerScore()=" + getAnswerScore() + "]";

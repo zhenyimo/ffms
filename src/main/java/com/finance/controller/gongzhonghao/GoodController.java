@@ -61,11 +61,11 @@ public class GoodController {
 		params.put(GoodDao.PARAM_GOOD_ID,goodId);
 		XlGood good=xlGoodService.findByGoodId(params);
 		model.addAttribute("good",good);
-		params.put("goodId", goodId);
+//		params.put("goodId", Integer.parseInt(goodId));
 		List<XlQuestion> questions=xlQuestionService.findQuestionByGoodId(params);
 		model.addAttribute("questions",questions);
 		}catch(Exception e){
-			logger.error("异常信息:", e.getMessage());
+			logger.error("异常信息:", e.getCause());
 		}
 		return "front/questionIndex";	
 	}
