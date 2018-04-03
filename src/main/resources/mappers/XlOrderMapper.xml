@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.finance.dao.XlOrderDao">
+	<resultMap type="XlOrder" id="orderMap">
+		<id property="id" column="aid" />
+		<result property="orderNo" column="aorder_no" />
+		<result property="time" column="atime" />
+		<result property="flag" column="aflag" />
+		<result property="money" column="amoney" />
+		<result property="vipId" column="avipId" />
+		<result property="goodId" column="agoodId" />
+		<result property="commentId" column="acommentId" />
+		<association property="good" javaType="XlGood" >
+			<result property="tittle" column="gtittle" />
+			<result property="subtittle" column="gsubtittle" />
+		</association>
+		<collection property="orderSend" javaType="java.util.List" ofType="XlOrderSend">  		  
+			<result property="id" column="sid" />
+			<result property="orderNo" column="sorder_no" />
+			<result property="time" column="stime" />
+			<result property="money" column="smoney" />
+			<result property="order_num" column="sorder_num" />
+			<result property="fromUser" column="sfrom_user" />
+			<result property="toUser" column="sto_user" />	
+			<association property="vip" javaType="XlVip" >
+				<result property="openId" column="vopenId" />
+				<result property="nickName" column="vnickName" />
+			</association>
+		</collection>  	
+	</resultMap>
+	<select id="findOrderSendByVipId" parameterType="Map" resultMap="orderMap">
+		select a.id aid,a.order_no aorder_no,a.time atime,a.flag aflag,a.money amoney,a.vipId avipId,a.goodId agoodId,a.commentId acommentId,s.id sid, s.order_no sorder_no, s.time stime, s.money smoney, s.goodId sgoodId, s.order_num sorder_num, s.from_user sfrom_user,v.openId vopenId,v.nickName vnickName, s.to_user sto_user,a.gtittle,a.gsubtittle from (
+			select o.*,g.tittle gtittle,g.subtittle gsubtittle from xl_order o inner join xl_good g on o.goodId=g.id
+			<where>
+		       o.vipId=#{vipId}
+			</where> 
+			order by o.time desc limit #{limitStart},#{limitLength}
+		) a 
+		left join xl_order_send s 
+		on a.order_no=s.order_no and a.vipId=s.from_user inner join xl_vip v on s.to_user=v.id 
+	</select>
+	
+	<select id="sumOrderMoneyByVipId" resultType="java.lang.Double">  
+		 select COALESCE(sum(Money),0) from xl_order o
+		 <where>
+		 	o.vipId=#{vipId}
+		 </where>  
+  	</select>  
+</mapper>

@@ -7,6 +7,7 @@ import java.util.UUID;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -126,6 +127,8 @@ public class SessionFilter extends OncePerRequestFilter {
         	//loginPage = "http://"+request.getServerName()+request.getContextPath()+"/login.jsp"; 
             // 如果session中不存在登录者实体，则弹出框提示重新登录
             // 设置request和response的字符集，防止乱码
+        	//先登录，然后在跳转回原来的请求url
+        	response.addCookie(new Cookie(Constants.COOKIE_SOURCE_REDIRECT_URL,uri));
         	renderPage(request,response,loginPage.toString());
 	    }else{
 	    	filterChain.doFilter(request, response);
@@ -148,6 +151,7 @@ public class SessionFilter extends OncePerRequestFilter {
     }
 	private XlVip newTestXlVip(){
 		XlVip vip=new XlVip();
+		vip.setId(1);
 		vip.setCity("广州");
 		vip.setOpenId(UUID.randomUUID().toString().replace("-",""));
 		vip.setProvince("广东");

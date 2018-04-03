@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.finance.dao.XlOrderSendDao">
+	<resultMap type="XlOrderSend" id="orderSendMap">
+		<result property="id" column="id" />
+		<result property="orderNo" column="order_no" />
+		<result property="time" column="time" />
+		<result property="money" column="money" />
+		<result property="order_num" column="order_num" />
+		<result property="fromUser" column="from_user" />
+		<result property="toUser" column="to_user" />
+	</resultMap>
+	<resultMap type="XlOrderSend" id="orderSendWithVipMap">
+		<result property="id" column="oid" />
+		<result property="orderNo" column="order_no" />
+		<result property="time" column="time" />
+		<result property="money" column="money" />
+		<result property="order_num" column="order_num" />
+		<result property="fromUser" column="from_user" />
+		<result property="toUser" column="to_user" />
+		<association property="vip" javaType="XlVip" >
+				<result property="openId" column="vopenId" />
+				<result property="nickName" column="vnickName" />
+		</association>	
+	</resultMap>
+	<select id="findByFromUser" parameterType="Map" resultMap="orderSendMap">
+		select * from xl_order_send o 
+		<where>
+			o.from_user=#{fromUser}
+		</where> 
+		  order by o.time desc limit #{limitStart},#{limitLength}
+	</select>
+	<select id="findByFromUserAndOrderNo" parameterType="Map" resultMap="orderSendMap">
+		select * from xl_order_send o 
+		<where>
+			o.from_user=#{fromUser} and o.order_no=#{orderNo}
+		</where> 
+		  order by o.time desc limit #{limitStart},#{limitLength}
+	</select>
+	<select id="findByToUser" parameterType="Map" resultMap="orderSendMap">
+		select * from xl_order_send o
+		<where>
+			o.to_user=#{toUser}
+		</where> 
+		  order by o.time desc limit #{limitStart},#{limitLength}
+	</select>
+	<select id="findByToUserWithFromUserVip" parameterType="Map" resultMap="orderSendWithVipMap">
+		select o.id oid, o.order_no, o.time, o.money, o.goodId, o.order_num, o.from_user, o.to_user,v.openId vopenId,v.nickName vnickName from xl_order_send o inner join xl_vip v on o.from_user=v.id
+		<where>
+			o.to_user=#{toUser}
+		</where> 
+		 order by o.time desc limit #{limitStart},#{limitLength}
+	</select>
+	<select id="findByToUserAndOrderNo" parameterType="Map" resultMap="orderSendMap">
+		select * from xl_order_send o
+		<where>
+			o.to_user=#{toUser} and o.order_no=#{orderNo}
+		</where> 
+		  order by o.time desc limit #{limitStart},#{limitLength}
+	</select>
+	
+	<select id="sumOrderMoneyByToUser" parameterType="Map" resultType="java.lang.Double">
+		select COALESCE(sum(o.money),0) from from xl_order_send o
+		<where>
+			o.to_user=#{toUser}
+		</where> 
+	</select>
+</mapper>

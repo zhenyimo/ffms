@@ -13,11 +13,10 @@ public class XlOrderSend implements Serializable{
 	private String orderNo; // 
 	private Date time; // 
 	private double money; // 
-	private String gvId; // 
-	private String versionCode; // 
 	private Integer orderNum; // 
 	private Integer fromUser; // 赠送者id
 	private Integer toUser; // 
+	private XlVip vip;
 	public Integer getId() {
 		return id;
 	}
@@ -42,18 +41,7 @@ public class XlOrderSend implements Serializable{
 	public void setMoney(double money) {
 		this.money = money;
 	}
-	public String getGvId() {
-		return gvId;
-	}
-	public void setGvId(String gvId) {
-		this.gvId = gvId;
-	}
-	public String getVersionCode() {
-		return versionCode;
-	}
-	public void setVersionCode(String versionCode) {
-		this.versionCode = versionCode;
-	}
+	
 	public Integer getOrderNum() {
 		return orderNum;
 	}
@@ -72,5 +60,12 @@ public class XlOrderSend implements Serializable{
 	public void setToUser(Integer toUser) {
 		this.toUser = toUser;
 	}
+	public XlVip getVip() {
+		return vip;
+	}
+	public void setVip(XlVip vip) {
+		this.vip = vip;
+	}
 
+	
 }

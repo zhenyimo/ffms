@@ -2,6 +2,7 @@ package com.finance.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 public class XlOrder implements Serializable{
 	private Integer id; // 编号
@@ -10,13 +11,12 @@ public class XlOrder implements Serializable{
 	private Date time; // 创建人角色
 	private String flag; //是否已支付（1：支付，2：未支付）
 	private double money; // 来源
-	private Integer dataid; // 类型
 	private Integer vipId; // 备注
 	private String goodId; // 收入时间
 	private Integer commentId; // 创建时间
-	private String versionCode; // 更新时间
-	private String versionName; // 更新时间
-
+	private XlGood good;
+	private List<XlOrderSend> orderSend;
+	private List<XlOrderSend> orderReceive;
 	public Integer getId() {
 		return id;
 	}
@@ -47,12 +47,7 @@ public class XlOrder implements Serializable{
 	public void setMoney(double money) {
 		this.money = money;
 	}
-	public Integer getDataid() {
-		return dataid;
-	}
-	public void setDataid(Integer dataid) {
-		this.dataid = dataid;
-	}
+
 	public Integer getVipId() {
 		return vipId;
 	}
@@ -71,16 +66,26 @@ public class XlOrder implements Serializable{
 	public void setCommentId(Integer commentId) {
 		this.commentId = commentId;
 	}
-	public String getVersionCode() {
-		return versionCode;
+
+	public List<XlOrderSend> getOrderSend() {
+		return orderSend;
 	}
-	public void setVersionCode(String versionCode) {
-		this.versionCode = versionCode;
+	public void setOrderSend(List<XlOrderSend> orderSend) {
+		this.orderSend = orderSend;
 	}
-	public String getVersionName() {
-		return versionName;
+	public List<XlOrderSend> getOrderReceive() {
+		return orderReceive;
 	}
-	public void setVersionName(String versionName) {
-		this.versionName = versionName;
+	public void setOrderReceive(List<XlOrderSend> orderReceive) {
+		this.orderReceive = orderReceive;
 	}
+	public XlGood getGood() {
+		return good;
+	}
+	public void setGood(XlGood good) {
+		this.good = good;
+	}
+
+	
+	
 }

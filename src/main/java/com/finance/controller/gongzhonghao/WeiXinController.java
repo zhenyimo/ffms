@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -42,6 +43,7 @@ import com.finance.service.VipService;
 import com.finance.service.XlGoodService;
 import com.finance.util.ArrayUtil;
 import com.finance.util.Constants;
+import com.finance.util.RequestUtil;
 import com.finance.util.StringUtil;
 import com.finance.util.WeXinConstants;
 import com.finance.util.WxUtil;
@@ -226,7 +228,7 @@ public class WeiXinController extends SerialSupport{
 	
 	
 	@RequestMapping("/getUserInfo.do")
-	public String getUserInfo(HttpServletRequest request, ModelMap map,@RequestParam("code")String code,@RequestParam("state")String state) throws Exception{
+	public String getUserInfo(HttpServletRequest request,HttpServletResponse response, ModelMap map,@RequestParam("code")String code,@RequestParam("state")String state) throws Exception{
 		logger.info("the wx return code is "+code+","+state);
 		SnsAccessToken sn = SnsAccessTokenApi  
                 .getSnsAccessToken(weChatConfigApi.getApiConfig().getAppId(),weChatConfigApi.getApiConfig().getAppSecret(), code); 
@@ -251,7 +253,17 @@ public class WeiXinController extends SerialSupport{
 		}
 		request.getSession().setAttribute(Constants.currentFrontUserSessionKey,xlVip);
 	    //System.out.println(apiResult.getJson());
-		return "redirect:/EntryController/gongzhonghaoIndex.do";		
+		//判断当前是否有源请求的url
+		Cookie cookie=RequestUtil.getCookieByName(request,Constants.COOKIE_SOURCE_REDIRECT_URL);
+		String redirectUrl="front/entry/gongzhonghaoIndex.do";
+		if(cookie!=null){
+			String sourceRqUrl=cookie.getValue();
+			if(StringUtil.isNotEmpty(sourceRqUrl)){
+				redirectUrl=sourceRqUrl;
+			}
+			RequestUtil.delCookieByName(response, Constants.COOKIE_SOURCE_REDIRECT_URL);
+		}
+		return "redirect:"+redirectUrl;		
 	}
 	
 	private XlVip newXlVip(ApiResult apiResult){

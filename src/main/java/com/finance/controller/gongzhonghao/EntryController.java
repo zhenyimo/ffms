@@ -27,12 +27,17 @@ import com.finance.config.SortEnum;
 import com.finance.dao.AdGoodDao;
 import com.finance.dao.GoodDao;
 import com.finance.dao.SqlParmCon;
+import com.finance.dao.XlOrderDao;
+import com.finance.dao.XlOrderSendDao;
 import com.finance.entity.PageBean;
 import com.finance.entity.Role;
 import com.finance.entity.User;
 import com.finance.entity.XlAds;
 import com.finance.entity.XlGood;
+import com.finance.entity.XlOrder;
+import com.finance.entity.XlOrderSend;
 import com.finance.entity.XlType;
+import com.finance.entity.XlVip;
 import com.finance.exception.ErrorCode;
 import com.finance.model.AjaxResult;
 import com.finance.service.AdGoodService;
@@ -40,6 +45,8 @@ import com.finance.service.RoleService;
 import com.finance.service.TypeService;
 import com.finance.service.UserService;
 import com.finance.service.XlGoodService;
+import com.finance.service.XlOrderSendService;
+import com.finance.service.XlOrderService;
 import com.finance.util.Base64Util;
 import com.finance.util.Constants;
 import com.finance.util.ResponseUtil;
@@ -63,10 +70,15 @@ public class EntryController {
 	private UserService userService;
 	@Resource
 	XlGoodService xlGoodService;
+	
+	@Resource
+	XlOrderService xlOrderService;
 	@Resource
 	private RoleService roleService;
 	@Resource
 	TypeService typeService;
+	@Resource
+	XlOrderSendService xlOrderSendService;
 	@Resource
 	private AdGoodService adGoodService;
 	@Value("${ad.good.lunbo.times}")
@@ -91,7 +103,9 @@ public class EntryController {
 	 * 用户登录页面
 	 */
 	@RequestMapping("front/entry/gongzhonghaoIndex.do")
-	public String router(Model model,@RequestParam(value="tabName",required=false)String tabName) {
+	public String router(HttpServletRequest request,Model model,@RequestParam(value="tabName",required=false)String tabName) {
+		XlVip currUser=(XlVip) request.getSession().getAttribute(Constants.currentFrontUserSessionKey);
+		
 		model.addAttribute("tabName",tabName);
 		if(tabName==null){
 			index(model);	
@@ -103,6 +117,8 @@ public class EntryController {
 			model.addAttribute("tab","mine");
 			
 		}else if(tabName.equals("gift")){
+			gift(model,currUser);
+			
 			model.addAttribute("tab","gift");
 			
 		}else if(tabName.equals("good")){
@@ -117,6 +133,44 @@ public class EntryController {
 	
 	
 	
+	private void gift(Model model,XlVip curUser) {
+		// TODO Auto-generated method stub
+		//查询用户赠送的测试题
+		Map<String,Object> orderSendParam=new HashMap<String,Object>();
+		orderSendParam.put(XlOrderDao.PARAM_ORDER_VIP_ID,curUser.getId());
+		//orderSendParam.put(XlOrderSendDao.PARAM_TO_USER,curUser.getOpenId());
+		orderSendParam.put(SqlParmCon.LIMITSTART_PARAM,0);
+		orderSendParam.put(SqlParmCon.LIMIT_LENGTH,5);
+		List<XlOrder> orderSendList=xlOrderService.findOrderSendByVipId(orderSendParam);
+		
+		//查询用户赠送的测试题总金额
+		Map<String,Object> orderSendTotalMoneyParam=new HashMap<String,Object>();
+		orderSendTotalMoneyParam.put(XlOrderDao.PARAM_ORDER_VIP_ID,curUser.getId());
+		//orderSendParam.put(XlOrderSendDao.PARAM_TO_USER,curUser.getOpenId());
+		double orderSendTotalMoney=xlOrderService.sumOrderMoneyByVipId(orderSendTotalMoneyParam);
+		
+		//查询用户收到的赠送测试题
+		Map<String,Object> orderReceiveParam=new HashMap<String,Object>();
+		orderReceiveParam.put(XlOrderSendDao.PARAM_TO_USER,curUser.getId());
+		//orderSendParam.put(XlOrderSendDao.PARAM_TO_USER,curUser.getOpenId());
+		orderReceiveParam.put(SqlParmCon.LIMITSTART_PARAM,0);
+		orderReceiveParam.put(SqlParmCon.LIMIT_LENGTH,5);
+		List<XlOrderSend> orderReceiveList=xlOrderSendService.findByToUserWithFromUserVip(orderReceiveParam);
+		
+		//查询用户收到的赠送测试题的总金额
+		Map<String,Object> orderReceiveTotalMoneyParam=new HashMap<String,Object>();
+		orderReceiveTotalMoneyParam.put(XlOrderSendDao.PARAM_TO_USER,curUser.getId());
+		//orderSendParam.put(XlOrderSendDao.PARAM_TO_USER,curUser.getOpenId());
+		double orderReceiveTotalMoney=xlOrderService.sumOrderMoneyByVipId(orderReceiveTotalMoneyParam);
+		
+		
+		model.addAttribute("orderReceiveTotalMoney", orderReceiveTotalMoney);
+		model.addAttribute("orderSendTotalMoney", orderSendTotalMoney);
+		model.addAttribute("orderSendList", orderSendList);
+		model.addAttribute("orderReceiveList", orderReceiveList);
+		
+	}
+
 	private void classify(Model model) {
 		//查询数据字典的测试题所有类型
 		List<XlType> typeList=typeService.findAll();
