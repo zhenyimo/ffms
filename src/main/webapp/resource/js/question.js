@@ -47,7 +47,7 @@ require(['jquery'],function($){
 			  currentIndex = carouselData.getActiveIndex();//当前图片的索引，注意：这并不是下一张图的索引号
 			  items = carouselData.$items;//所有图片的包裹div的数组
 			});
-		    
+			 $("#speed").attr("style","width:"+Number(1/denominator*100)+"%");
 		    $("#myCarousel").find("ol").find("li:eq(0)").addClass("active");
 		    $("#myCarousel").find(".carousel-inner").find("div:eq(0)").addClass("active");
 		});	
