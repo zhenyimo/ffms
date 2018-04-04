@@ -43,6 +43,7 @@ import com.finance.service.VipService;
 import com.finance.service.XlGoodService;
 import com.finance.util.ArrayUtil;
 import com.finance.util.Constants;
+import com.finance.util.NumberUtil;
 import com.finance.util.RequestUtil;
 import com.finance.util.StringUtil;
 import com.finance.util.WeXinConstants;
@@ -144,7 +145,7 @@ public class WeiXinController extends SerialSupport{
 		Map<String,Object> params=new HashMap<String,Object>();
 		//test
 		String goodId="1";
-		String number="3";
+		String number="1";
 		
 		
 		params.put(GoodDao.PARAM_GOOD_ID, goodId);
@@ -158,10 +159,9 @@ public class WeiXinController extends SerialSupport{
 		Map<String,String> payBaseParms=WxUtil.createBaseOrderParams(weChatConfigApi,noncestr);
 		
 		//现在还没有把用户信息放入session中
-		//String openId=(String) request.getSession().getAttribute(Constants.currentUserSessionKey);
-		
+		XlVip curUser=(XlVip) request.getSession().getAttribute(Constants.currentFrontUserSessionKey);
 		//自定义字段的参数填充，其中交易类型为jsapi，即微信h5发起的交易
-		payBaseParms=WxUtil.wapperPayOrderParam(payBaseParms,"",String.valueOf(good.getPrice()*Integer.parseInt(number)),TradeType.JSAPI.name(),request.getRemoteAddr(),good.getTittle(),"心理测试");
+		payBaseParms=WxUtil.wapperPayOrderParam(payBaseParms,curUser.getOpenId(),String.valueOf((long)(NumberUtil.decimal(good.getPrice(),2)*100*Integer.parseInt(number))),TradeType.JSAPI.name(),request.getRemoteAddr(),good.getTittle(),"心理测试");
 		//向微信发起预订单
 		String xmlResult=PaymentApi.pushOrder(payBaseParms);
 		logger.info("push order result :" +xmlResult);
@@ -244,7 +244,7 @@ public class WeiXinController extends SerialSupport{
 		}
 		//不存在则请求微信后台获取用户信息
 		XlVip xlVip=null;
-		if(ArrayUtil.isNotBlank(userInfo)){
+		if(!ArrayUtil.isNotBlank(userInfo)){
 			ApiResult apiResult=SnsApi.getUserInfo(sn.getAccessToken(),sn.getOpenid());
 			xlVip=newXlVip(apiResult);
 			vipService.insertXlVip(xlVip);
@@ -282,7 +282,7 @@ public class WeiXinController extends SerialSupport{
 		vip.setProvince(apiResult.getStr("province"));
 		vip.setCountry(apiResult.getStr("country"));
 		vip.setHeadimgurl(apiResult.getStr("headimgurl"));
-		vip.setPrivilege(apiResult.getStr("privilege"));
+		vip.setPrivilege(apiResult.getList("privilege").toString());
 		vip.setUnionid(apiResult.getStr("unionid"));
 		vip.setSex(apiResult.getInt("sex"));
 		vip.setNickName(apiResult.getStr("nickname"));
