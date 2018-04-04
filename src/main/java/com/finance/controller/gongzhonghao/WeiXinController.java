@@ -102,7 +102,7 @@ public class WeiXinController extends SerialSupport{
 	public String getCode(ModelMap map,HttpServletRequest request){
 		//如果已经登录了的，就不需要去获取用户信息
 		if(request.getSession().getAttribute(Constants.currentFrontUserSessionKey)!=null){
-			return "redirect:/EntryController/gongzhonghaoIndex.do";	
+			return "redirect:/front/index.do";	
 		}
 		ApiConfig config=weChatConfigApi.getApiConfig();
 		String curUrl=request.getRequestURL().toString();
@@ -255,7 +255,7 @@ public class WeiXinController extends SerialSupport{
 	    //System.out.println(apiResult.getJson());
 		//判断当前是否有源请求的url
 		Cookie cookie=RequestUtil.getCookieByName(request,Constants.COOKIE_SOURCE_REDIRECT_URL);
-		String redirectUrl="front/entry/gongzhonghaoIndex.do";
+		String redirectUrl="/front/index.do";
 		if(cookie!=null){
 			String sourceRqUrl=cookie.getValue();
 			if(StringUtil.isNotEmpty(sourceRqUrl)){
