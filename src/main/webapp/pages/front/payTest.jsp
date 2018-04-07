@@ -18,7 +18,7 @@
 <script type="text/javascript">
     var pathContext = "<%=basePath%>";
 </script>
-<script src="${basePath}/require/js/require.js" data-main="${basePath}/resource/js/pay.js"></script>
+<script src="${basePath}/require/js/require.js" data-main="${basePath}/resource/js/pay.js?v=1.2"></script>
 <button onclick="wxpayApi.placeOrder('123')">微信支付</button>
 
 </body>

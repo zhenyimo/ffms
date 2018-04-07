@@ -11,14 +11,16 @@ define(['jquery','commonUtils','wx'],function($,commonUtils,wx){
 				timestamp:timestamp,
 				noncestr:noncestr
 			},
-			success:function(data){
-				if(commonUtils.debug)
+			success:function(data){	
+				if(commonUtils.debug){
 					console.log("jssdkPlaceOrder response : "+data);
+					alert("jssdkPlaceOrder response : "+data.data);
+				}	
 				commonUtils.jsonResultHandler(data,function(result){
 					var orderMessage=JSON.parse(result.data);
 					wx.chooseWXPay({
-					    timestamp: orderMessage.timestamp, // 支付签名时间戳，注意微信jssdk中的所有使用timestamp字段均为小写。但最新版的支付后台生成签名使用的timeStamp字段名需大写其中的S字符
-					    nonceStr: orderMessage.noncestr, // 支付签名随机串，不长于 32 位
+					    timestamp: orderMessage.timeStamp, // 支付签名时间戳，注意微信jssdk中的所有使用timestamp字段均为小写。但最新版的支付后台生成签名使用的timeStamp字段名需大写其中的S字符
+					    nonceStr: orderMessage.nonceStr, // 支付签名随机串，不长于 32 位
 					    package: orderMessage.package, // 统一支付接口返回的prepay_id参数值，提交格式如：prepay_id=***）
 					    signType: orderMessage.signType, // 签名方式，默认为'SHA1'，使用新版支付需传入'MD5'
 					    paySign: orderMessage.paySign, // 支付签名

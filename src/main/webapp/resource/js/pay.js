@@ -27,7 +27,6 @@ require.config({
 
 var wxpayApi={}
 require(['jquery','wxpay','jquery.mloading'],function($,wxpay,mloading){
-
 	wxpayApi.placeOrder=function(orderId){
 		return wxpay.jssdkPlaceOrder(orderId,successPay,failPay);
 	}
