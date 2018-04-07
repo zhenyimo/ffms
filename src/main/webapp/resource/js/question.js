@@ -56,8 +56,7 @@ require(['jquery'],function($){
 		/**
 		 * 统计进度函数
 		 */
-		QuestionApi.speedOfProgress=function(operate){
-			
+		QuestionApi.speedOfProgress=function(operate,goodId){			
 			 var denominator=$("#myCarousel").find("ol").find("li").length;
 			 var molecule=Number(currentIndex+1);
 			 var a=Number(denominator/molecule);
@@ -71,7 +70,7 @@ require(['jquery'],function($){
 //					 console.log($(lastAns).html());
 					 if(Number(molecule+1)==denominator&&denominator!=1){
 						 $.each($(lastAns).find(".panel-body"),function(){
-							 $(this).find("input[type='radio']").attr("onclick","QuestionApi.payConfirm()");
+							 $(this).find("input[type='radio']").attr("onclick","QuestionApi.payConfirm("+goodId+")");
 						 });
 					 }
 				 }else if(operate=="prev"){
@@ -91,19 +90,19 @@ require(['jquery'],function($){
 		/**
 		 * 上一题
 		 */
-		QuestionApi.prevQuestion=function(){
+		QuestionApi.prevQuestion=function(goodId){
 			$("#myCarousel").carousel('prev');
-			QuestionApi.speedOfProgress("prev");
+			QuestionApi.speedOfProgress("prev",goodId);
 		};
 
 		/**
 		 * 下一题
 		 */
-		QuestionApi.nextQuestion=function(radio){
+		QuestionApi.nextQuestion=function(goodId){
 			$("#myCarousel").carousel('next');
 //			alert(currentIndex);
 //			alert($(carouselData.$active).html());
-			QuestionApi.speedOfProgress("next");
+			QuestionApi.speedOfProgress("next",goodId);
 		};
 		//倒计时函数(该函数只能放在这里)
 		var downtime=$("#downtime").val();
@@ -125,14 +124,20 @@ require(['jquery'],function($){
 		QuestionApi.timer = setInterval("QuestionApi.CountDown()", 1000); 
 	
 		
-		QuestionApi.payConfirm=function(){
+		QuestionApi.payConfirm=function(goodId){
 			//确定支付的dialog
 	        $.confirm("为了感谢我们的心理老师和程序员为测评的撰写和编辑，请您付上一点小小的爱心吧?",  function() {
-	          $.toast("文件已经删除!");
+//	          $.toast("文件已经删除!");
+	        	QuestionApi.payGood(goodId);
 	        }, function() {
 	          //取消操作
 	        });
 	    
+		};
+		
+		//跳转到支付页面
+		QuestionApi.payGood=function(goodId){
+			window.location.href=pathContext+"/front/wx/payGood.do?goodId="+goodId;
 		};
 		
 	});	

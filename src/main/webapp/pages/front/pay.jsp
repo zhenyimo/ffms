@@ -9,7 +9,7 @@
 <script type="text/javascript">
     var pathContext = "<%=basePath%>";
 </script>
-<script src="${basePath}/require/js/require.js" data-main="${basePath}/resource/js/pay.js"></script>
+<script src="${basePath}/require/js/require.js" data-main="${basePath}/resource/js/pay.js?v=1.2"></script>
 
 <!--主体-->
 <header class="wy-header">

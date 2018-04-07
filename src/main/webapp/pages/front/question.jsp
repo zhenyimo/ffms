@@ -33,7 +33,7 @@
 	                    <c:forEach var="answer" items="${question.getAnswerList()}" begin="0" end ="${question.getAnswerList().size()}" varStatus="anstatus">
 		                     <div class="panel-body">
 		                    <span style="font-size:1.2em;color:#333"> <em><c:out value="${anstatus.count}"/>.</em>${answer.ansContent}</span>
-		                        <input type="radio" id="singleRadio1" style="float:right;" onclick="QuestionApi.nextQuestion()"  value="option1" name="radioSingle1" aria-label="Single radio One">
+		                        <input type="radio" id="singleRadio1" style="float:right;" onclick="QuestionApi.nextQuestion(${good.id})"  value="option1" name="radioSingle1" aria-label="Single radio One">
 		                        <hr style="margin:5px;height:1px;color:#D5D5D5;"/>
 		                    </div>
 		                 </c:forEach>
@@ -50,7 +50,7 @@
 
 <div>
 <!-- <a  href="#myCarousel" id="nextBtn"  onclick="QuestionApi.nextQuestion()" class="weui-btn weui-btn_primary">下一题</a> -->
-<a  href="#myCarousel" id="prevBtn"  onclick="QuestionApi.prevQuestion()" class="weui-btn weui-btn_primary" >上一题</a>
+<a  href="#myCarousel" id="prevBtn"  onclick="QuestionApi.prevQuestion(${good.id})" class="weui-btn weui-btn_primary" >上一题</a>
 </div>
 
  </div>

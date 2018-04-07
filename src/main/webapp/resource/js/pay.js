@@ -47,6 +47,7 @@ require(['jquery','wxpay','jquery.mloading'],function($,wxpay,mloading){
 
 	wxpayApi.placeOrder=function(orderId){
 		return wxpay.jssdkPlaceOrder(orderId,successPay,failPay);
+	}
 	//支付成功回调
 	function successPay(wxRes){
 		
