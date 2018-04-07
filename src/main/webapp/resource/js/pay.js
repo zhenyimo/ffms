@@ -25,11 +25,28 @@ require.config({
     }
 });
 
-var wxpayApi={}
+var wxpayApi={};
 require(['jquery','wxpay','jquery.mloading'],function($,wxpay,mloading){
+	
+	$(function($){
+	 var MAX = 99, MIN = 1;
+     $('.weui-count__decrease').click(function (e) {
+       var $input = $(e.currentTarget).parent().find('.weui-count__number');
+       var number = parseInt($input.val() || "0") - 1;
+       if (number < MIN) number = MIN;
+       $input.val(number);
+     });
+     $('.weui-count__increase').click(function (e) {
+       var $input = $(e.currentTarget).parent().find('.weui-count__number');
+       var number = parseInt($input.val() || "0") + 1;
+       if (number > MAX) number = MAX;
+       $input.val(number);
+     });
+	});
+	
+
 	wxpayApi.placeOrder=function(orderId){
 		return wxpay.jssdkPlaceOrder(orderId,successPay,failPay);
-	}
 	//支付成功回调
 	function successPay(wxRes){
 		

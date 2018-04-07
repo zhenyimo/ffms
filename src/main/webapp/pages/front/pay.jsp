@@ -1,54 +1,49 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Administrator
-  Date: 2017/10/12
-  Time: 19:22
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" import="java.util.*" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ include file="/pages/front/common.jsp" %>
 <html>
 <head>
     <title>微信支付</title>
 </head>
-<body onload="javascript:pay();">
+<body>
 <script type="text/javascript">
-    function pay(){
-        if (typeof WeixinJSBridge == "undefined"){
-            if( document.addEventListener ){
-                document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
-            }else if (document.attachEvent){
-                document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
-                document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
-            }
-        }else{
-            onBridgeReady();
-        }
-    }
-    function onBridgeReady(){
-        var appid="${appid}";
-        var timestamp="${timeStamp}";
-        var nocncestr="${nonceStr}";
-        var package="${packageValue}";
-        var paysign="${paySign}";
-        WeixinJSBridge.invoke(
-            'getBrandWCPayRequest', {
-                "appId" : "${appid}",     //公众号名称，由商户传入
-                "timeStamp": "${timeStamp}",         //时间戳，自1970年以来的秒数
-                "nonceStr" : "${nonceStr}", //随机串
-                "package" : "${packageValue}",
-                "signType" : "MD5",         //微信签名方式:
-                "paySign" : "${paySign}"    //微信签名
-            },function(res){
-                if(res.err_msg == "get_brand_wcpay_request:ok"){
-                    location.href="success.jsp";
-                }else if(res.err_msg == "get_brand_wcpay_request:cancel"){
-                    console.log("用户取消支付");
-                }else{
-                    alert("支付失败!");
-                    location.href="fail.jsp";
-                }
-            });
-    }
+    var pathContext = "<%=basePath%>";
 </script>
+<script src="${basePath}/require/js/require.js" data-main="${basePath}/resource/js/pay.js"></script>
+
+<!--主体-->
+<header class="wy-header">
+  <div class="wy-header-icon-back"><span></span></div>
+  <div class="wy-header-title">微信支付</div>
+</header>
+
+<div class="weui-content">
+
+  <div class="wy-media-box weui-media-box_text">
+    <div class="weui-media-box__bd">
+     <div class="weui-media-box_appmsg ord-pro-list">
+        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="${basePath}/pages/front/images/${good.pictureName}"  alt=""></a></div>
+        <div class="weui-media-box__bd">
+          <h1 class="weui-media-box__desc"><a href="javascript:void(0)" class="ord-pro-link">${good.tittle }</a></h1>
+          <p class="weui-media-box__desc">类型：<span>${good.typeName}</span>
+          <div class="clear mg-t-10">
+            <div class="wy-pro-pri fl">¥<em class="num font-15">${good.price}</em></div>
+            <div class="pro-amount fr"><div id="spinner-amount" class="Spinner"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="weui-panel">
+    <div class="weui-panel__bd">
+      
+  <div class="wy-media-box weui-media-box_text">
+<!--     <div class="mg10-0 t-c">总金额：<span class="wy-pro-pri mg-tb-5">¥<em class="num font-20">296.00</em></span></div>-->    
+<div class="mg10-0"><a href="shopcart.html" onclick="wxpayApi.placeOrder('123')" class="weui-btn weui-btn_primary">微信付款</a></div>
+  </div>
+</div>
+</div>
+</div>
+
 </body>
 </html>

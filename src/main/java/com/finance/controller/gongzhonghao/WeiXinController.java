@@ -22,6 +22,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -267,9 +268,13 @@ public class WeiXinController extends SerialSupport{
 	}
 	
 	@RequestMapping("/payGood.do")
-	public String payGood(ModelMap map,HttpServletRequest request){
+	public String payGood(Model model,HttpServletRequest request,@RequestParam("goodId")String goodId){
+		Map<String,Object> params=new HashMap<String,Object>();
+		params.put(GoodDao.PARAM_GOOD_ID,goodId);
+		XlGood good=xlGoodService.findByGoodId(params);
 		
-		return "front/payTest";
+		model.addAttribute("good",good);
+		return "front/pay";
 		
 	}
 	

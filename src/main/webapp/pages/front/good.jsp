@@ -115,19 +115,25 @@ body{font:12px/180% Arial, Helvetica, sans-serif, "宋体";}
                   <li><a href="javascript:;">10</a></li>
                   <li><a href="javascript:;">15</a></li>
                   <li><a href="javascript:;">20</a></li>
-                  <li><a href="javascript:;">30</a></li>
                 </ul>
               </div>
             </div>
           </div>
-          <div class="weui-media-box_appmsg">
-            <div class="weui-media-box__hd proinfo-txt-l"><span class="promotion-label-tit"></span></div>
-           
-          </div>
+         
         </div>
+        
+          
+            <div class="weui-cell__ft">
+              <div class="weui-count">
+                <a class="weui-count__btn weui-count__decrease"></a>
+                <input class="weui-count__number" type="number" value="1" />
+                <a class="weui-count__btn weui-count__increase"></a>
+              </div>
+            </div><hr>
+        
         <div class="weui-msg__opr-area">
           <p class="weui-btn-area">
-            <a href="javascript:;" onclick="GoodApi.payGood()" class="weui-btn weui-btn_primary">立即购买</a>
+            <a href="javascript:;" onclick="GoodApi.payGood(${good.id})" class="weui-btn weui-btn_primary">立即购买</a>
             <a href="javascript:;" onclick="GoodApi.initTimer()" class="weui-btn weui-btn_default close-popup">不，我再看看</a>
           </p>
         </div>

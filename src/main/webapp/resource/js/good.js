@@ -52,8 +52,8 @@ require(['jquery'],function($){
 			window.clearInterval(GoodApi.timer2);
 		};
 		//跳转到支付页面
-		GoodApi.payGood=function(){
-			window.location.href=pathContext+"/front/wx/payGood.do";
+		GoodApi.payGood=function(goodId){
+			window.location.href=pathContext+"/front/wx/payGood.do?goodId="+goodId;
 		};
 		
 		
@@ -66,6 +66,22 @@ require(['jquery'],function($){
 			FastClick.attach(document.body);
 			//初始化下面的导航栏
 			tail.initBottomNavBar();
+			
+			
+			
+			 var MAX = 99, MIN = 1;
+		     $('.weui-count__decrease').click(function (e) {
+		       var $input = $(e.currentTarget).parent().find('.weui-count__number');
+		       var number = parseInt($input.val() || "0") - 1;
+		       if (number < MIN) number = MIN;
+		       $input.val(number);
+		     });
+		     $('.weui-count__increase').click(function (e) {
+		       var $input = $(e.currentTarget).parent().find('.weui-count__number');
+		       var number = parseInt($input.val() || "0") + 1;
+		       if (number > MAX) number = MAX;
+		       $input.val(number);
+		     });
 		});	
 		
 		
