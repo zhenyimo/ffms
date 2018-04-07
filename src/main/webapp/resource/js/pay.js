@@ -28,6 +28,7 @@ require.config({
 var wxpayApi={};
 require(['jquery','wxpay','jquery.mloading'],function($,wxpay,mloading){
 	
+	//初始化支付页面商品数量触发事件
 	$(function($){
 	 var MAX = 99, MIN = 1;
      $('.weui-count__decrease').click(function (e) {
