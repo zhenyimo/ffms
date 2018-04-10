@@ -63,4 +63,5 @@
 %>
 
 </head>
+<input id="jsApiListInit" type="hidden" value="${jsApiListInit}"/> 
 <body>

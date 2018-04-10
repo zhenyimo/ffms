@@ -29,6 +29,9 @@ require(['jquery'],function($){
 	         'bootstrap',
 	         'txtwav',
 	         'tail'],function(FastClick,jqueryWeui,swiper,bootstrap,txtwav,tail){
+		
+		 var MAX = 99, MIN = 1;
+		
 		//初始化定时器
 		GoodApi.initTimer=function(){
 			$(".suspend").animate({width: 30}, 400);
@@ -53,7 +56,12 @@ require(['jquery'],function($){
 		};
 		//跳转到支付页面
 		GoodApi.payGood=function(goodId){
-			window.location.href=pathContext+"/front/wx/payGood.do?goodId="+goodId;
+			var giftNum=$("#count__number").val();
+			if(giftNum<MIN||giftNum>MAX){
+				alert("赠送数量必须在1-99之间");
+				return false;
+			}	
+			window.location.href=pathContext+"/front/wx/payGood.do?goodId="+goodId+"&goodNum="+giftNum;
 		};
 		
 		
@@ -62,6 +70,12 @@ require(['jquery'],function($){
 			GoodApi.initTimer();
 			$(".promotion-sku li").click(function(){
 				$(this).addClass("active").siblings("li").removeClass("active");
+				var giftText=$(this).text();
+		    	var $input = $("#count__number");
+		    	var giftNum=parseInt(giftText|| "0");
+		    	if(giftNum<MIN||giftNum>MAX)
+		    		 return;
+		    	$input.val(giftNum);
 			});
 			FastClick.attach(document.body);
 			//初始化下面的导航栏
@@ -69,7 +83,7 @@ require(['jquery'],function($){
 			
 			
 			
-			 var MAX = 99, MIN = 1;
+			
 		     $('.weui-count__decrease').click(function (e) {
 		       var $input = $(e.currentTarget).parent().find('.weui-count__number');
 		       var number = parseInt($input.val() || "0") - 1;

@@ -23,6 +23,8 @@ public class WeChatConfigApi implements InitializingBean{
 	@Value("${wxgz.pay.noticeUrl}")
 	private String noticeUrl;
 	
+	private static WeChatPayConfig weChatPayConfig;
+	
 	public static class WeChatPayConfig{
 		private String appId;
 		private String mchId;
@@ -83,7 +85,7 @@ public class WeChatConfigApi implements InitializingBean{
     }  
 	
 	public WeChatPayConfig getWeChatPayConfig(){
-		return new WeChatPayConfig(appID,mchId,paternerKey,noticeUrl);
+		return weChatPayConfig;
 	}
 
 	@Override
@@ -95,5 +97,6 @@ public class WeChatConfigApi implements InitializingBean{
         ac.setAppId(appID);  
         ac.setAppSecret(appSecret);  
         ApiConfigKit.putApiConfig(ac);
+        weChatPayConfig=new WeChatPayConfig(appID,mchId,paternerKey,noticeUrl);
 	}
 }

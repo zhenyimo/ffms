@@ -9,14 +9,14 @@
 <script type="text/javascript">
     var pathContext = "<%=basePath%>";
 </script>
-<script src="${basePath}/require/js/require.js" data-main="${basePath}/resource/js/pay.js?v=1.2"></script>
+<script src="${basePath}/require/js/require.js" data-main="${basePath}/resource/js/pay.js?v=1.5"></script>
 
 <!--主体-->
 <header class="wy-header">
   <div class="wy-header-icon-back"><span></span></div>
   <div class="wy-header-title">微信支付</div>
 </header>
-
+<input id="jsApiListInit" type="hidden" value="${jsApiListInit}"/> 
 <div class="weui-content">
 
   <div class="wy-media-box weui-media-box_text">
@@ -39,7 +39,7 @@
       
   <div class="wy-media-box weui-media-box_text">
 <!--     <div class="mg10-0 t-c">总金额：<span class="wy-pro-pri mg-tb-5">¥<em class="num font-20">296.00</em></span></div>-->    
-<div class="mg10-0"><a href="shopcart.html" onclick="wxpayApi.placeOrder('123')" class="weui-btn weui-btn_primary">微信付款</a></div>
+<div class="mg10-0"><a href="#" onclick="wxpayApi.placeOrder('${orderNo}')" class="weui-btn weui-btn_primary">微信付款</a></div>
   </div>
 </div>
 </div>

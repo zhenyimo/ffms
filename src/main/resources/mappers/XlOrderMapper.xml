@@ -11,6 +11,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="money" column="amoney" />
 		<result property="vipId" column="avipId" />
 		<result property="goodId" column="agoodId" />
+		<result property="orderNum" column="aorderNum"/>
+		<result property="claimNum" column="aclaimNum"/>
 		<result property="commentId" column="acommentId" />
 		<association property="good" javaType="XlGood" >
 			<result property="tittle" column="gtittle" />
@@ -21,7 +23,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<result property="orderNo" column="sorder_no" />
 			<result property="time" column="stime" />
 			<result property="money" column="smoney" />
-			<result property="order_num" column="sorder_num" />
+		<!-- 	<result property="order_num" column="sorder_num" /> -->
 			<result property="fromUser" column="sfrom_user" />
 			<result property="toUser" column="sto_user" />	
 			<association property="vip" javaType="XlVip" >
@@ -31,7 +33,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</collection>  	
 	</resultMap>
 	<select id="findOrderSendByVipId" parameterType="Map" resultMap="orderMap">
-		select a.id aid,a.order_no aorder_no,a.time atime,a.flag aflag,a.money amoney,a.vipId avipId,a.goodId agoodId,a.commentId acommentId,s.id sid, s.order_no sorder_no, s.time stime, s.money smoney, s.goodId sgoodId, s.order_num sorder_num, s.from_user sfrom_user,v.openId vopenId,v.nickName vnickName, s.to_user sto_user,a.gtittle,a.gsubtittle from (
+		select a.id aid,a.order_no aorder_no,a.time atime,a.flag aflag,a.money amoney,a.vipId avipId,a.goodId agoodId,a.commentId acommentId,s.id sid, s.order_no sorder_no, s.time stime, s.money smoney, s.goodId sgoodId, s.from_user sfrom_user,v.openId vopenId,v.nickName vnickName, s.to_user sto_user,a.gtittle,a.gsubtittle,a.claim_num aclaimNum,a.order_num aorderNum from (
 			select o.*,g.tittle gtittle,g.subtittle gsubtittle from xl_order o inner join xl_good g on o.goodId=g.id
 			<where>
 		       o.vipId=#{vipId}
@@ -48,4 +50,30 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		 	o.vipId=#{vipId}
 		 </where>  
   	</select>  
+  	<select id="findByOrderNo"  parameterType="Map" resultMap="orderMap">  
+		 select a.claim_num aclaimNum,a.order_num aorderNum,a.id aid,a.order_no aorder_no,a.time atime,a.flag aflag,a.money amoney,a.vipId avipId,a.goodId agoodId,a.commentId acommentId from xl_order a
+		 <where>
+		 	a.order_no=#{orderNo}
+		 </where>  
+  	</select>  
+  	
+  	<select id="findByOrderNoAndVipId"  parameterType="Map" resultMap="orderMap">  
+		 select a.claim_num aclaimNum,a.order_num aorderNum,a.id aid,a.order_no aorder_no,a.time atime,a.flag aflag,a.money amoney,a.vipId avipId,a.goodId agoodId,a.commentId acommentId from xl_order a
+		 <where>
+		 	a.order_no=#{orderNo} and a.vipId=#{vipId}
+		 </where>  
+  	</select>  
+  	
+  	<update id="updateStatusByOrderNo" parameterType="Map">  
+		 update xl_order set flag=#{flag} 
+		 <where>
+		 	order_no=#{orderNo}
+		 </where>  
+  	</update>  
+  	 <insert id="insertXlOrder" parameterType="XlOrder" >
+       <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
+          SELECT LAST_INSERT_ID()
+      </selectKey>
+        INSERT INTO xl_order (order_no, time, flag, money, vipId, goodId, commentId, order_num, claim_num) VALUES (#{orderNo}, #{time}, #{flag}, #{money}, #{vipId}, #{goodId}, #{commentId}, #{orderNum}, #{claimNum})
+    </insert>
 </mapper>

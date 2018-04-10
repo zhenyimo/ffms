@@ -5,12 +5,20 @@ import java.util.Date;
 import java.util.List;
 
 public class XlOrder implements Serializable{
+	
+	public static final String FLAG_PAY_SUCCESS="1";
+	public static final String FLAG_NOT_PAY="2";
+	public static final String FLAG_PAY_FAIL="3";
+	public static final String FLAG_PAY_CANNEL="4";
 	private Integer id; // 编号
 	
 	private String orderNo; // 订单编号
 	private Date time; // 创建人角色
-	private String flag; //是否已支付（1：支付，2：未支付）
-	private double money; // 来源
+	private String flag; //是否已支付（1：支付，2：未支付,3:支付失败,4:取消订单）
+	
+	private Integer orderNum;//购买数量
+	private Integer claimNum;//已认领数量
+	private double money; // 总金额
 	private Integer vipId; // 备注
 	private String goodId; // 收入时间
 	private Integer commentId; // 创建时间
@@ -85,7 +93,23 @@ public class XlOrder implements Serializable{
 	public void setGood(XlGood good) {
 		this.good = good;
 	}
-
 	
+	public Integer getOrderNum() {
+		return orderNum;
+	}
+	public void setOrderNum(Integer orderNum) {
+		this.orderNum = orderNum;
+	}
+	public Integer getClaimNum() {
+		return claimNum;
+	}
+	public void setClaimNum(Integer claimNum) {
+		this.claimNum = claimNum;
+	}
+	public boolean isPay(){
+		if("1".equals(flag))
+			return true;
+		else return false;
+	}
 	
 }

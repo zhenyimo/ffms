@@ -14,4 +14,10 @@ public class ArrayUtil {
 			return true;
 		else return false;
 	}
+	
+	public static boolean isUnique(List list){
+		if(isNotBlank(list)&&list.size()==1)
+			return true;
+		else return false;
+	}
 }

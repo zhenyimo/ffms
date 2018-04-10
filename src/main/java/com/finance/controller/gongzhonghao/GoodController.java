@@ -5,9 +5,11 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,20 +19,27 @@ import com.finance.dao.GoodDao;
 import com.finance.dao.SqlParmCon;
 import com.finance.dao.XlQuestionDao;
 import com.finance.entity.XlGood;
+import com.finance.entity.XlOrder;
 import com.finance.entity.XlQuestion;
+import com.finance.entity.XlVip;
 import com.finance.service.XlGoodService;
+import com.finance.service.XlOrderService;
 import com.finance.service.XlQuestionService;
+import com.finance.util.Constants;
 
 
 @Controller
 @RequestMapping("front/good")
 public class GoodController {
 	private Logger logger=LoggerFactory.getLogger(GoodController.class);
-
+	@Value("${fix.gift.num}")
+	String linarizeGiftNum;
 	@Resource
 	XlGoodService xlGoodService;
 	@Resource
 	XlQuestionService xlQuestionService;
+	@Resource
+	XlOrderService xlOrderService;
 	
 	/**
 	 * 跳转到商品详情页（也就是测评的详情页）
@@ -43,7 +52,8 @@ public class GoodController {
 		Map<String,Object> params=new HashMap<String,Object>();
 		params.put(GoodDao.PARAM_GOOD_ID,goodId);
 		XlGood good=xlGoodService.findByGoodId(params);
-		
+		String[] linarizeGiftNumArray=linarizeGiftNum.split(",");
+		model.addAttribute("linarizeGiftNumArray", linarizeGiftNumArray);
 		model.addAttribute("good",good);
 		return "front/goodIndex";	
 	}
@@ -85,4 +95,7 @@ public class GoodController {
 		model.addAttribute("good",good);
 		return "front/questionIndex";	
 	}
+	
+	
+
 }

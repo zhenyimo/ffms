@@ -38,6 +38,7 @@ public class ExceptionHandler implements HandlerExceptionResolver {
     	//request.getSession().setAttribute("errorTips", ex.getMessage());
     	//request.getSession().setAttribute("ex",ex.fillInStackTrace());
     	ModelAndView mv=new ModelAndView("redirect:/page-front/errors.html");
+    	ex.printStackTrace();
    		return mv; 	
      }
  

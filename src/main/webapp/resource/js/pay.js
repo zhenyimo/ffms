@@ -47,14 +47,14 @@ require(['jquery','wxpay','jquery.mloading'],function($,wxpay,mloading){
 	
 
 	wxpayApi.placeOrder=function(orderId){
-		return wxpay.jssdkPlaceOrder(orderId,successPay,failPay);
+		return wxpay.placeOrder(orderId,successPay,failPay);
 	}
 	//支付成功回调
 	function successPay(wxRes){
-		
+		window.location.href=pathContext+"/front/paySuccess.jsp";
 	}
 	//支付失败回调
 	function failPay(wxRes){
-		
+		window.location.href=pathContext+"/front/payFail.jsp";
 	}
 });

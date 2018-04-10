@@ -21,7 +21,19 @@
        http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
 	<!--  扫service包-->
 	<context:component-scan base-package="com.finance.service" />
-	
+	<context:component-scan base-package="com.finance.config"/>
+	<!-- 引入wx资源文件 -->
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
+		p:fileEncoding="UTF-8">
+		<property name="locations">
+			<list>
+				<value>classpath:wx.properties</value>
+				<value>classpath:front.properties</value>
+				<value>classpath:db.properties</value>
+			</list>
+		</property>
+	</bean>
 	<bean id="springUtil" class="com.finance.util.SpringUtil" />
 	
 	<!-- 捕获系统抛出的异常，而路径不正确的异常定制化处理，需要在web.xml文件中配置error page信息 -->

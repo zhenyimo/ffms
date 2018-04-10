@@ -13,7 +13,6 @@ public class XlOrderSend implements Serializable{
 	private String orderNo; // 
 	private Date time; // 
 	private double money; // 
-	private Integer orderNum; // 
 	private Integer fromUser; // 赠送者id
 	private Integer toUser; // 
 	private XlVip vip;
@@ -42,12 +41,6 @@ public class XlOrderSend implements Serializable{
 		this.money = money;
 	}
 	
-	public Integer getOrderNum() {
-		return orderNum;
-	}
-	public void setOrderNum(Integer orderNum) {
-		this.orderNum = orderNum;
-	}
 	public Integer getFromUser() {
 		return fromUser;
 	}

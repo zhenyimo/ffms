@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,7 +35,9 @@ import com.finance.config.WeChatConfigApi;
 import com.finance.config.WeChatConfigApi.WeChatPayConfig;
 import com.finance.dao.GoodDao;
 import com.finance.dao.VipDao;
+import com.finance.dao.XlOrderDao;
 import com.finance.entity.XlGood;
+import com.finance.entity.XlOrder;
 import com.finance.entity.XlVip;
 import com.finance.exception.BusinessException;
 import com.finance.exception.ErrorCode;
@@ -42,6 +45,7 @@ import com.finance.lock.ObjectLockMap;
 import com.finance.model.AjaxResult;
 import com.finance.service.VipService;
 import com.finance.service.XlGoodService;
+import com.finance.service.XlOrderService;
 import com.finance.util.ArrayUtil;
 import com.finance.util.Constants;
 import com.finance.util.NumberUtil;
@@ -73,6 +77,9 @@ public class WeiXinController extends SerialSupport{
 	public final Logger logger=LoggerFactory.getLogger(WeiXinController.class);
 	@Autowired
 	private WeChatConfigApi weChatConfigApi;
+	
+	@Resource
+	private XlOrderService xlOrderService;
 	
 	@Resource
 	XlGoodService xlGoodService;
@@ -134,6 +141,7 @@ public class WeiXinController extends SerialSupport{
 		} catch (NoSuchAlgorithmException e) {
 			// TODO Auto-generated catch block
 			logger.error("no such algom ",e);
+			
 			return new AjaxResult(AjaxResult.FAIL_ALERT,AjaxResult.DEFAULT_FAIL_TIP,jsonSerial.serial(ErrorCode.UNKNOWN_ERROR));
 		}
 	}
@@ -142,27 +150,28 @@ public class WeiXinController extends SerialSupport{
 	@RequestMapping("/jssdkPlaceOrder.do")
 	@ResponseBody
 	public AjaxResult jssdkPlaceOrder(HttpServletRequest request,@RequestParam("orderId")String orderId,@RequestParam(value="timestamp")String timestamp,@RequestParam(value="noncestr")String noncestr){
-		
+		XlVip curUser=(XlVip) request.getSession().getAttribute(Constants.currentFrontUserSessionKey);
+		//获取订单信息
+		List<XlOrder> orderList=xlOrderService.findByOrderNoAndVipId(orderId, curUser.getId());
+		if(!ArrayUtil.isUnique(orderList)){
+			return new AjaxResult(AjaxResult.FAIL_ALERT,AjaxResult.DEFAULT_FAIL_TIP,jsonSerial.serial(ErrorCode.UNKNOWN_GOOD_ERROR));
+		}
+		XlOrder xlOrder=orderList.get(0);
+		//获取商品信息
 		Map<String,Object> params=new HashMap<String,Object>();
-		//test
-		String goodId="1";
-		String number="1";
-		
-		
-		params.put(GoodDao.PARAM_GOOD_ID, goodId);
+		params.put(GoodDao.PARAM_GOOD_ID, xlOrder.getGoodId());
 		XlGood good=xlGoodService.findByGoodId(params);
 		if(good==null){
-			logger.error("no such good and good id is :"+goodId );
+			logger.error("no such good and good id is :"+xlOrder.getGoodId());
 			return new AjaxResult(AjaxResult.FAIL_ALERT,AjaxResult.DEFAULT_FAIL_TIP,jsonSerial.serial(ErrorCode.UNKNOWN_GOOD_ERROR));
 		}
 		
 		//生成微信基本的预订单参数
 		Map<String,String> payBaseParms=WxUtil.createBaseOrderParams(weChatConfigApi,noncestr);
 		
-		//现在还没有把用户信息放入session中
-		XlVip curUser=(XlVip) request.getSession().getAttribute(Constants.currentFrontUserSessionKey);
+
 		//自定义字段的参数填充，其中交易类型为jsapi，即微信h5发起的交易
-		payBaseParms=WxUtil.wapperPayOrderParam(payBaseParms,curUser.getOpenId(),String.valueOf((long)(NumberUtil.decimal(good.getPrice(),2)*100*Integer.parseInt(number))),TradeType.JSAPI.name(),request.getRemoteAddr(),good.getTittle(),"心理测试");
+		payBaseParms=WxUtil.wapperPayOrderParam(payBaseParms,curUser.getOpenId(),xlOrder.getOrderNo(),String.valueOf((long)(NumberUtil.decimal(good.getPrice(),2)*100*xlOrder.getOrderNum())),TradeType.JSAPI.name(),request.getRemoteAddr(),good.getTittle(),"心理测试");
 		//向微信发起预订单
 		String xmlResult=PaymentApi.pushOrder(payBaseParms);
 		logger.info("push order result :" +xmlResult);
@@ -183,10 +192,37 @@ public class WeiXinController extends SerialSupport{
 	}
 	
 	
+	@RequestMapping("/cannelOrder.do")
+	@ResponseBody
+	public AjaxResult cannelOrder(HttpServletRequest request,@RequestParam("orderId")String orderId,@RequestParam(value="timestamp")String timestamp,@RequestParam(value="noncestr")String noncestr){
+		//生成微信基本的预订单参数
+		//Map<String,String> payBaseCannelParms=WxUtil.createBaseCannelOrderParams(weChatConfigApi,orderId,noncestr);
+		
+		//现在还没有把用户信息放入session中
+		XlVip curUser=(XlVip) request.getSession().getAttribute(Constants.currentFrontUserSessionKey);
+		//自定义字段的参数填充，其中交易类型为jsapi，即微信h5发起的交易
+		//payBaseParms=WxUtil.createBaseCannelOrderParams(weChatConfig,curUser.getOpenId(),String.valueOf((long)(NumberUtil.decimal(good.getPrice(),2)*100*Integer.parseInt(number))),TradeType.JSAPI.name(),request.getRemoteAddr(),good.getTittle(),"心理测试");
+		//向微信发起预订单
+		WeChatPayConfig api=weChatConfigApi.getWeChatPayConfig();
+		Map<String, String> xmlResultMap=PaymentApi.closeOrder(api.getAppId(),api.getMchId(),api.getPaternerKey(), orderId);
+		logger.info("push order result :" +xmlResultMap);
+		String return_code = xmlResultMap.get(WeXinConstants.WX_RETURN_CODE);
+		//关闭统一预订单失败
+        if(StrKit.isBlank(return_code) || !WeXinConstants.WX_SUCCESS_VALUE.equals(return_code)){
+        	return new AjaxResult(AjaxResult.FAIL_ALERT,AjaxResult.DEFAULT_FAIL_TIP,jsonSerial.serial(ErrorCode.CANNEL_ORDER_ERROR));
+        }
+        String result_code = xmlResultMap.get(WeXinConstants.WX_RESULT_CODE);
+        if(StrKit.isBlank(result_code) || !WeXinConstants.WX_SUCCESS_VALUE.equals(result_code)){
+        	return new AjaxResult(AjaxResult.FAIL_ALERT,AjaxResult.DEFAULT_FAIL_TIP,jsonSerial.serial(ErrorCode.CANNEL_ORDER_ERROR));
+        }  
+        //提示成功
+        return new AjaxResult(AjaxResult.SUCCESS,AjaxResult.DEFAULT_SUCCESS_TIP,null);		
+	}
+	
+	
 	@RequestMapping("/orderNotify.do")
 	@ResponseBody
 	public String orderNotify(HttpServletRequest request,HttpServletResponse response){
-		
 		String xmlRequest=HttpKit.readData(request);
 		logger.info("receive weixin order notify request :"+xmlRequest);
 		Map<String,String> result=PaymentKit.xmlToMap(xmlRequest);
@@ -195,31 +231,48 @@ public class WeiXinController extends SerialSupport{
 		if(StringUtil.isNotEmpty(mchtTraceNo)){
 			Object mchtTraceNolock=ObjectLockMap.getLockObject(mchtTraceNo);
 			synchronized (mchtTraceNolock) {
-				WeChatPayConfig config=weChatConfigApi.getWeChatPayConfig();
-				 if(PaymentKit.verifyNotify(result, config.getPaternerKey())){
-					String result_code = result.get(WeXinConstants.WX_RESULT_CODE);
-					 
-		            if("SUCCESS".equals(result_code)){	
-		            	returnMap.put(WeXinConstants.WX_RETURN_CODE,WeXinConstants.WX_SUCCESS_VALUE);
-		            	returnMap.put(WeXinConstants.WX_RETURN_MSG,WeXinConstants.WX_OK_VALUE);
-		            	return PaymentKit.toXml(returnMap);
-		            }else {
-		            	logger.info("the resultCode of order Notify result is not success ");
-		            	returnMap.put(WeXinConstants.WX_RETURN_CODE,WeXinConstants.WX_SUCCESS_VALUE);
-		            	returnMap.put(WeXinConstants.WX_RETURN_MSG,WeXinConstants.WX_OK_VALUE);
-		            	return PaymentKit.toXml(returnMap);
-		            }
-			     }else {
-			    	 logger.info("the sign of order notify result verifies error ");
-			    	 returnMap.put(WeXinConstants.WX_RETURN_CODE,WeXinConstants.WX_FAIL_VALUE);
-			    	 returnMap.put(WeXinConstants.WX_RETURN_MSG,"签名失败");
-			    	 return PaymentKit.toXml(returnMap);
-			     }
+				
+				boolean paySuccess=xlOrderService.isOrderPay(mchtTraceNo);
+				if(!paySuccess){
+					WeChatPayConfig config=weChatConfigApi.getWeChatPayConfig();
+					Map<String,Object> param=new HashMap<String,Object>();
+					param.put(XlOrderDao.PARAM_ORDER_NO, mchtTraceNo);
+					 if(PaymentKit.verifyNotify(result, config.getPaternerKey())){
+						String result_code = result.get(WeXinConstants.WX_RESULT_CODE);
+			            if("SUCCESS".equals(result_code)){	
+			            	param.put(XlOrderDao.PARAM_FLAG,XlOrder.FLAG_PAY_SUCCESS);
+			            	xlOrderService.updateStatusByOrderNo(param);
+			            	returnMap.put(WeXinConstants.WX_RETURN_CODE,WeXinConstants.WX_SUCCESS_VALUE);
+			            	returnMap.put(WeXinConstants.WX_RETURN_MSG,WeXinConstants.WX_OK_VALUE);
+			            	return PaymentKit.toXml(returnMap);
+			            }else {
+			            	logger.info("the resultCode of order Notify result is not success ");
+			            	param.put(XlOrderDao.PARAM_FLAG,XlOrder.FLAG_PAY_FAIL);
+			            	xlOrderService.updateStatusByOrderNo(param);
+			            	returnMap.put(WeXinConstants.WX_RETURN_CODE,WeXinConstants.WX_FAIL_VALUE);
+			            	returnMap.put(WeXinConstants.WX_RETURN_MSG,"支付失败");
+			            	return PaymentKit.toXml(returnMap);
+			            }
+				     }else {
+				    	 logger.info("the sign of order notify result verifies error ");
+				    	 param.put(XlOrderDao.PARAM_FLAG,XlOrder.FLAG_PAY_FAIL);
+			             xlOrderService.updateStatusByOrderNo(param);
+				    	 returnMap.put(WeXinConstants.WX_RETURN_CODE,WeXinConstants.WX_FAIL_VALUE);
+				    	 returnMap.put(WeXinConstants.WX_RETURN_MSG,"签名失败");
+				    	 return PaymentKit.toXml(returnMap);
+				     }
+				}else{
+					returnMap.put(WeXinConstants.WX_RETURN_CODE,WeXinConstants.WX_SUCCESS_VALUE);
+		        	returnMap.put(WeXinConstants.WX_RETURN_MSG,"repeat request !");
+		        	return PaymentKit.toXml(returnMap);
+				}
+				
 			}
 		}else{
 			logger.info("the traceNo can not find in order notify result");
+			
 			returnMap.put(WeXinConstants.WX_RETURN_CODE,WeXinConstants.WX_FAIL_VALUE);
-        	returnMap.put(WeXinConstants.WX_RETURN_MSG,"商户系统没有此交易订单");
+        	returnMap.put(WeXinConstants.WX_RETURN_MSG,"the request of notify has no mchtTraceNo");
         	return PaymentKit.toXml(returnMap);
 		}
 		
@@ -267,17 +320,21 @@ public class WeiXinController extends SerialSupport{
 		return "redirect:"+redirectUrl;		
 	}
 	
+
 	@RequestMapping("/payGood.do")
-	public String payGood(Model model,HttpServletRequest request,@RequestParam("goodId")String goodId){
+	public String payGood(Model model,HttpServletRequest request,@RequestParam("goodId")String goodId,@RequestParam("goodNum")int goodNum){
 		Map<String,Object> params=new HashMap<String,Object>();
 		params.put(GoodDao.PARAM_GOOD_ID,goodId);
 		XlGood good=xlGoodService.findByGoodId(params);
-		
+		XlVip curUser=(XlVip) request.getSession().getAttribute(Constants.currentFrontUserSessionKey);
+		String orderNo=xlOrderService.insertXlOrder(curUser.getId(),goodNum,curUser.getOpenId(),good);
+		model.addAttribute("goodNum", goodNum);
+		model.addAttribute("orderNo",orderNo);
+		model.addAttribute("jsApiListInit","onMenuShareAppMessage,chooseWXPay");
 		model.addAttribute("good",good);
 		return "front/pay";
 		
 	}
-	
 	
 	
 	private XlVip newXlVip(ApiResult apiResult){
@@ -291,6 +348,7 @@ public class WeiXinController extends SerialSupport{
 		vip.setUnionid(apiResult.getStr("unionid"));
 		vip.setSex(apiResult.getInt("sex"));
 		vip.setNickName(apiResult.getStr("nickname"));
+		vip.setUpdateTime(new Date());
 		return vip;
 	}
 	
@@ -305,6 +363,8 @@ public class WeiXinController extends SerialSupport{
 			return "error";
 		}
 	}
+	
+	
 	
 	/**
 	 * 根据token计算signature验证是否为weixin服务端发送的消息

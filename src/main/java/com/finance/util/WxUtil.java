@@ -18,6 +18,7 @@ import org.apache.commons.codec.binary.Hex;
 
 
 
+
 import com.finance.config.WeChatConfigApi;
 import com.finance.config.WeChatConfigApi.WeChatPayConfig;
 import com.jfinal.kit.StrKit;
@@ -65,20 +66,21 @@ public class WxUtil {
 		WeChatPayConfig payConfig=weChatConfig.getWeChatPayConfig();
 	   	params.put("appid", payConfig.getAppId());
         params.put("mch_id", payConfig.getMchId());
-        params.put("out_trade_no", new SimpleDateFormat("yyyyMMddHHmmss").format(new Date())+(int)(Math.random()*90000+10000)); //订单编号
+       // params.put("out_trade_no",SequenceUtil.getOrderSequence(payConfig.get, openId)); //订单编号
         params.put("nonce_str",nonceStr); //随机字符串
         params.put("notify_url", payConfig.getNoticeUrl()); //支付后通知回调地址
         params.put("paternerKey", payConfig.getPaternerKey());
 		return params;
 	}
 	
-	public static Map<String,String> wapperPayOrderParam(Map<String,String> baseParams,String openId,String totalMoney,String tradeType,String userIp,String body,String attach){
+	public static Map<String,String> wapperPayOrderParam(Map<String,String> baseParams,String openId,String orderNo,String totalMoney,String tradeType,String userIp,String body,String attach){
 		baseParams.put("total_fee", totalMoney);
 		baseParams.put("trade_type", tradeType);
 		 if(StrKit.isBlank(userIp)){
 			 userIp = "127.0.0.1";
 	        }
 		baseParams.put("spbill_create_ip", userIp);
+		baseParams.put("out_trade_no",orderNo);
 		baseParams.put("openid", openId);
 		baseParams.put("body",body);
 		baseParams.put("attach", attach);

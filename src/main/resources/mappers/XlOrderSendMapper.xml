@@ -8,7 +8,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="orderNo" column="order_no" />
 		<result property="time" column="time" />
 		<result property="money" column="money" />
-		<result property="order_num" column="order_num" />
+		<!-- <result property="order_num" column="order_num" /> -->
 		<result property="fromUser" column="from_user" />
 		<result property="toUser" column="to_user" />
 	</resultMap>
@@ -17,7 +17,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="orderNo" column="order_no" />
 		<result property="time" column="time" />
 		<result property="money" column="money" />
-		<result property="order_num" column="order_num" />
+		<!-- <result property="order_num" column="order_num" /> -->
 		<result property="fromUser" column="from_user" />
 		<result property="toUser" column="to_user" />
 		<association property="vip" javaType="XlVip" >
@@ -47,7 +47,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		  order by o.time desc limit #{limitStart},#{limitLength}
 	</select>
 	<select id="findByToUserWithFromUserVip" parameterType="Map" resultMap="orderSendWithVipMap">
-		select o.id oid, o.order_no, o.time, o.money, o.goodId, o.order_num, o.from_user, o.to_user,v.openId vopenId,v.nickName vnickName from xl_order_send o inner join xl_vip v on o.from_user=v.id
+		select o.id oid, o.order_no, o.time, o.money, o.goodId, o.from_user, o.to_user,v.openId vopenId,v.nickName vnickName from xl_order_send o inner join xl_vip v on o.from_user=v.id
 		<where>
 			o.to_user=#{toUser}
 		</where> 

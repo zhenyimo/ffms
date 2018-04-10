@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="${basePath}/pages/front/css/common.css">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <style type="text/css">
 *{margin:0;padding:0;list-style-type:none;}
 a,img{border:0;}
@@ -107,14 +108,17 @@ body{font:12px/180% Arial, Helvetica, sans-serif, "宋体";}
             <div class="weui-media-box__hd proinfo-txt-l"><span class="promotion-label-tit"></span></div>
             <div class="weui-media-box__bd">
               <div class="promotion-sku clear">
-                <ul>
-                  <li><a href="javascript:;">1</a></li>
+                <ul class="gift_box_ul">
+                   <c:forEach var="num" items="${linarizeGiftNumArray}">
+         			  <li><a href="javascript:;">${num}</a></li>
+                   </c:forEach>
+                  <!-- <li><a href="javascript:;">1</a></li>
                   <li><a href="javascript:;">2</a></li>
                   <li><a href="javascript:;">3</a></li>
                   <li><a href="javascript:;">5</a></li>
                   <li><a href="javascript:;">10</a></li>
                   <li><a href="javascript:;">15</a></li>
-                  <li><a href="javascript:;">20</a></li>
+                  <li><a href="javascript:;">20</a></li> -->
                 </ul>
               </div>
             </div>
@@ -126,7 +130,7 @@ body{font:12px/180% Arial, Helvetica, sans-serif, "宋体";}
             <div class="weui-cell__ft">
               <div class="weui-count">
                 <a class="weui-count__btn weui-count__decrease"></a>
-                <input class="weui-count__number" type="number" value="1" />
+                <input id="count__number" class="weui-count__number" type="number" value="1" />
                 <a class="weui-count__btn weui-count__increase"></a>
               </div>
             </div><hr>

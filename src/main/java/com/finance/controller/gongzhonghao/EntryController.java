@@ -218,7 +218,7 @@ public class EntryController {
 		List<XlGood> newGoods=xlGoodService.findByLimit(newParams);
 		model.addAttribute("newGoods", newGoods);
 		}catch(Exception e){
-			logger.error("异常信息:", e.getCause());
+			logger.error("异常信息:", e);
 		}
 		
 		
