@@ -2,19 +2,26 @@ package com.finance.controller;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
 import com.finance.entity.PageBean;
+import com.finance.entity.Role;
 import com.finance.entity.XlAnswer;
 import com.finance.entity.XlQuestion;
+import com.finance.service.RoleService;
+import com.finance.service.UserService;
 import com.finance.service.XlAnswerService;
 import com.finance.service.XlQuestionService;
 import com.finance.util.ResponseUtil;
 import com.finance.util.StringUtil;
+
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
@@ -25,7 +32,7 @@ import net.sf.json.JSONObject;
  *
  */
 @Controller
-@RequestMapping("question")
+@RequestMapping("manage/question")
 public class XlQuestionController {
 	
 	@Resource
@@ -34,15 +41,20 @@ public class XlQuestionController {
 	@Resource
 	private XlAnswerService xlAnswerService;
 	
+	@Resource
+	private UserService userService;
+	@Resource
+	private RoleService roleService;
+	
 	/**
 	 * 题目信息页面
 	 */
-	@RequestMapping("/xlQuestionManage.do")
-    public String xlQuestionManage(ModelMap map) {
+	@RequestMapping("/xlGoodsManage.do")
+    public String xlGoodManage(ModelMap map) {
 		
-		List<XlAnswer> list = xlAnswerService.getXlAnswers();
-		map.addAttribute("answer_contents", list);
-		return "admin/xlQuestionManage";
+		List<Role> list = roleService.getRoles();
+		map.addAttribute("roles", list);
+		return "admin/xlGoodsManage";
 	}
 	
 	/**
