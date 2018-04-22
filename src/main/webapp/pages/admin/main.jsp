@@ -243,6 +243,7 @@ function logout() {
 				<%-- <c:if test="${currentUser.roleid==1 }"> --%>
 					<a href="javascript:openTab('用户信息管理','manage/userManage.do','icon-sjzdgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-sjzdgl'" style="width: 150px;">用户信息管理</a>
 					<a href="javascript:openTab('角色管理','manage/roleManage.do','icon-sjzdgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-sjzdgl'" style="width: 150px;">角色管理</a>
+					<a href="javascript:openTab('权限管理','manage/authorityManage.do','icon-sjzdgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-sjzdgl'" style="width: 150px;">权限管理</a>
 					<a href="javascript:openTab('数据字典管理','manage/datadicManage.do','icon-sjzdgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-sjzdgl'" style="width: 150px;">数据字典管理</a>
 				<%-- </c:if> --%>
 				<a href="javascript:openMessageModifyDialog()" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khxxgl'" style="width: 150px;">修改用户信息</a> 
@@ -257,6 +258,9 @@ function logout() {
 					<a href="javascript:openTab('查询测评','manage/queryXlQuestion.do','icon-sjzdgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-sjzdgl'" style="width: 150px;">查询测评</a> -->
 			<%-- 	</c:if> --%>
 				
+			</div>
+			<div title="类型管理" data-options="iconCls:'icon-item'" style="padding: 10px">
+			<a href="javascript:openTab('类型管理','manage/question/xlTypeManage.do','icon-sjzdgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-sjzdgl'" style="width: 150px;">类型管理</a>
 			</div>
 		</div>
 	</div>

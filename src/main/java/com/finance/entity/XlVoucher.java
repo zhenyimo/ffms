@@ -1,8 +1,6 @@
 package com.finance.entity;
-
 import java.io.Serializable;
 import java.util.Date;
-
 public class XlVoucher implements Serializable{
 	/**
 	 * 
@@ -79,5 +77,9 @@ public class XlVoucher implements Serializable{
 	}
 	public void setStipulatePrice(double stipulatePrice) {
 		this.stipulatePrice = stipulatePrice;
+	}
+	public String getVonum() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
