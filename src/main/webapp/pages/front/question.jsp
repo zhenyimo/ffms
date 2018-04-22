@@ -33,7 +33,15 @@
 	                    <c:forEach var="answer" items="${question.getAnswerList()}" begin="0" end ="${question.getAnswerList().size()}" varStatus="anstatus">
 		                     <div class="panel-body">
 		                    <span style="font-size:1.2em;color:#333"> <em><c:out value="${anstatus.count}"/>.</em>${answer.ansContent}</span>
-		                        <input type="radio" id="singleRadio1" style="float:right;" onclick="QuestionApi.nextQuestion(${good.id})"  value="option1" name="radioSingle1" aria-label="Single radio One">
+		                        <input type="radio" id="singleRadio1" style="float:right;" onclick="QuestionApi.nextQuestion(${good.id},this)"  value="option1" name="radioSingle1" aria-label="Single radio One">
+		                        <div>
+		                        <input type="hidden" name="id" value="${answer.id}">
+		                        <input type="hidden" name="ansNum" value="${answer.ansNum}">
+		                      <%--   <input type="hidden" name="ansContent" value="${answer.ansContent}"> --%>
+		                        <input type="hidden" name="quesId" value="${answer.quesId}">
+		                        <input type="hidden" name="nextQuestionId" value="${answer.nextQuestionId}">
+		                        <input type="hidden" name="answerScore" value="${answer.answerScore}">		                        
+		                        </div>
 		                        <hr style="margin:5px;height:1px;color:#D5D5D5;"/>
 		                    </div>
 		                 </c:forEach>

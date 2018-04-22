@@ -24,7 +24,7 @@ public class AjaxResult {
 
 	// 成功时携带的数据
 	private Object data;
-	
+	public AjaxResult(){};
 	public AjaxResult(int code, String message, Object data) {
 		super();
 		this.code = code;

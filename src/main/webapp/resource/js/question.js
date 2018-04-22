@@ -98,11 +98,12 @@ require(['jquery'],function($){
 		/**
 		 * 下一题
 		 */
-		QuestionApi.nextQuestion=function(goodId){
+		QuestionApi.nextQuestion=function(goodId,obj){
 			$("#myCarousel").carousel('next');
 //			alert(currentIndex);
 //			alert($(carouselData.$active).html());
 			QuestionApi.speedOfProgress("next",goodId);
+			QuestionApi.saveAnswerCache(goodId,obj);
 		};
 		//倒计时函数(该函数只能放在这里)
 		var downtime=$("#downtime").val();
@@ -138,6 +139,33 @@ require(['jquery'],function($){
 		//跳转到支付页面
 		QuestionApi.payGood=function(goodId){
 			window.location.href=pathContext+"/front/wx/payGood.do?goodId="+goodId;
+		};
+		
+		//跳转到测评结果页面
+		QuestionApi.result=function(goodId){
+			window.location.href=pathContext+"/front/good/result.do?goodId="+goodId;
+		};
+		
+		//将答题结果缓存到eacache
+		QuestionApi.saveAnswerCache=function(goodId,obj){
+			var answer=new Object();
+			 answer.answerId=$(obj).next().find("input[name='answerId']").val();
+			 answer.ansNum=$(obj).next().find("input[name='ansNum']").val();
+			 answer.ansContent=$(obj).next().find("input[name='ansContent']").val();
+			 answer.quesId=$(obj).next().find("input[name='quesId']").val();
+			 answer.nextQuestionId=$(obj).next().find("input[name='nextQuestionId']").val();
+			 answer.answerScore=$(obj).next().find("input[name='answerScore']").val();
+			  $.ajax({
+				  url:pathContext+"/front/question/saveAnswerCache.do?goodId="+goodId,
+				  data:{answer:JSON.stringify(answer)},
+				  dataType:"json",
+				  success:function(result){
+//					alert("缓存成功！");	
+				  },
+			  	  error:function(ex){
+			  		alert(ex+"缓存失败！");
+			  	  }
+			  });
 		};
 		
 	});	

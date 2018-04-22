@@ -7,8 +7,12 @@ import java.net.SocketTimeoutException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.finance.controller.gongzhonghao.EntryController;
 
 /**
  * 
@@ -18,14 +22,15 @@ import org.springframework.web.servlet.ModelAndView;
  * 
  */
 public class ExceptionHandler implements HandlerExceptionResolver {
- 
+	private Logger logger=LoggerFactory.getLogger(ExceptionHandler.class);
     
     public ModelAndView resolveException(HttpServletRequest request,
         HttpServletResponse response, Object handler, Exception ex) {    	
 	    if (ex instanceof NumberFormatException) {
 	        return new ModelAndView("exception/number");
 	    }else if (ex instanceof NullPointerException) {
-	        return new ModelAndView("exception/null");
+	    	ex.printStackTrace();
+  	        return new ModelAndView("exception/null");
 	    }else if (ex instanceof SocketTimeoutException || ex instanceof ConnectException) {
 	        try {
 	        	response.getWriter().write("网络异常");

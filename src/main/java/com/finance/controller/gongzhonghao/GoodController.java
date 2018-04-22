@@ -8,6 +8,9 @@ import java.util.Map;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import net.sf.json.JSONArray;
+import net.sf.json.util.JSONUtils;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -16,6 +19,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.alibaba.fastjson.JSON;
 import com.finance.dao.GoodDao;
 import com.finance.dao.SqlParmCon;
 import com.finance.dao.XlQuestionDao;
@@ -76,6 +80,7 @@ public class GoodController {
 		model.addAttribute("good",good);
 //		params.put("goodId", Integer.parseInt(goodId));
 		List<XlQuestion> questions=xlQuestionService.findQuestionByGoodId(params);
+//		String json=JSONArray.fromObject(questions).toString();
 		model.addAttribute("questions",questions);
 		}catch(Exception e){
 			logger.error("异常信息:", e.getCause());
@@ -89,19 +94,9 @@ public class GoodController {
 	 * @param goodId
 	 * @return
 	 */
-	@RequestMapping("/answer.do")
+	@RequestMapping("/result.do")
 	public String answer(Model model,HttpServletRequest request,@RequestParam("goodId")String goodId,XlVipAnswer ans){
-		Map<String,Object> params=new HashMap<String,Object>();
-		params.put(GoodDao.PARAM_GOOD_ID,goodId);
-		XlGood good=xlGoodService.findByGoodId(params);
-		XlVip curUser=(XlVip) request.getSession().getAttribute(Constants.currentFrontUserSessionKey);
-        String openId=curUser.getOpenId();
-		Map<String,Map<String,List<XlVipAnswer>>> map=new HashMap<>();
-		Map<String,List<XlVipAnswer>> goodMap=new HashMap<>();
-		List<XlVipAnswer> ansList=new ArrayList<>();
-		ansList.add(ans);
 		
-		model.addAttribute("good",good);
 		return "front/questionIndex";	
 	}
 	
