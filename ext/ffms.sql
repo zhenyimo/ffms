@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : root
-Source Server Version : 50717
+Source Server         : MySQL57
+Source Server Version : 50721
 Source Host           : localhost:3306
 Source Database       : ffms
 
 Target Server Type    : MYSQL
-Target Server Version : 50717
+Target Server Version : 50721
 File Encoding         : 65001
 
-Date: 2018-03-07 02:04:49
+Date: 2018-04-21 18:41:55
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -316,6 +316,46 @@ CREATE TABLE `xl_answer` (
 -- ----------------------------
 -- Records of xl_answer
 -- ----------------------------
+INSERT INTO `xl_answer` VALUES ('1', '1', '紫色/粉色系', '1', '2', '10');
+INSERT INTO `xl_answer` VALUES ('2', '2', '红色/黄色系', '1', '2', '10');
+INSERT INTO `xl_answer` VALUES ('3', '3', '绿色/青色系', '1', '2', '10');
+INSERT INTO `xl_answer` VALUES ('4', '4', '很认真的挑选同性的朋友', '2', '3', '10');
+INSERT INTO `xl_answer` VALUES ('5', '5', '很认真的挑选异性的朋友', '2', '3', null);
+INSERT INTO `xl_answer` VALUES ('6', '6', '并不仔细挑选朋友', '2', '3', null);
+
+-- ----------------------------
+-- Table structure for xl_authority
+-- ----------------------------
+DROP TABLE IF EXISTS `xl_authority`;
+CREATE TABLE `xl_authority` (
+  `authorityid` int(11) NOT NULL AUTO_INCREMENT,
+  `authorityname` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`authorityid`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of xl_authority
+-- ----------------------------
+INSERT INTO `xl_authority` VALUES ('1', '管理员');
+INSERT INTO `xl_authority` VALUES ('2', '老师');
+INSERT INTO `xl_authority` VALUES ('3', '学生');
+INSERT INTO `xl_authority` VALUES ('4', '学生111');
+INSERT INTO `xl_authority` VALUES ('5', '学生1112222');
+INSERT INTO `xl_authority` VALUES ('6', '学生1112222333');
+INSERT INTO `xl_authority` VALUES ('7', '学生1112222333444');
+INSERT INTO `xl_authority` VALUES ('8', '11111');
+INSERT INTO `xl_authority` VALUES ('9', '2222');
+INSERT INTO `xl_authority` VALUES ('10', '22223333');
+INSERT INTO `xl_authority` VALUES ('11', '2222333344');
+INSERT INTO `xl_authority` VALUES ('12', '222233334455');
+INSERT INTO `xl_authority` VALUES ('13', '老师111');
+INSERT INTO `xl_authority` VALUES ('14', '2222学生');
+INSERT INTO `xl_authority` VALUES ('15', '2222学生XXXYYY');
+INSERT INTO `xl_authority` VALUES ('16', '2222333344TTTT');
+INSERT INTO `xl_authority` VALUES ('17', '管理员T');
+INSERT INTO `xl_authority` VALUES ('18', '老师TT');
+INSERT INTO `xl_authority` VALUES ('19', '学生VVV');
+INSERT INTO `xl_authority` VALUES ('20', 'NNN');
 
 -- ----------------------------
 -- Table structure for xl_comment
@@ -496,13 +536,23 @@ CREATE TABLE `xl_question` (
   `id` int(11) NOT NULL,
   `goodId` int(11) DEFAULT NULL,
   `question_num` int(33) DEFAULT NULL COMMENT '第几题',
-  `question_content` blob COMMENT '题目内容',
+  `question_content` varchar(33) DEFAULT NULL COMMENT '题目内容',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=gbk;
 
 -- ----------------------------
 -- Records of xl_question
 -- ----------------------------
+INSERT INTO `xl_question` VALUES ('1', '1', '1', '你最喜欢的颜色系是');
+INSERT INTO `xl_question` VALUES ('2', '1', '2', '挑选朋友的时候，你会');
+INSERT INTO `xl_question` VALUES ('3', '1', '3', '你是一个在自己的性别中显得比较');
+INSERT INTO `xl_question` VALUES ('4', '1', '4', '你对自己的同性朋友经常有什么样的想法');
+INSERT INTO `xl_question` VALUES ('5', '1', '5', '你有过长时间的和很好的知心朋友交换日记或者交换信件的经历吗');
+INSERT INTO `xl_question` VALUES ('6', '1', '6', '在爱情中的你');
+INSERT INTO `xl_question` VALUES ('7', '1', '7', '哪种花会让你更爱自己的恋人');
+INSERT INTO `xl_question` VALUES ('8', '1', '8', '你习惯于哪个类型的接吻方式');
+INSERT INTO `xl_question` VALUES ('9', '1', '9', '回家的路上，突然下了很大的雨，但是你没有带雨具，这时你会');
+INSERT INTO `xl_question` VALUES ('10', '1', '10', '在生活中，你最经常用以下哪个词语称呼你的恋人');
 
 -- ----------------------------
 -- Table structure for xl_type
@@ -513,7 +563,7 @@ CREATE TABLE `xl_type` (
   `name` char(22) DEFAULT NULL COMMENT '类型名称',
   `flag` int(11) DEFAULT '1' COMMENT '1：表示有效 2：表示无效',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=gb2312;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=gb2312;
 
 -- ----------------------------
 -- Records of xl_type
@@ -528,6 +578,8 @@ INSERT INTO `xl_type` VALUES ('12', '历史地理', '0');
 INSERT INTO `xl_type` VALUES ('13', '自然科学', '1');
 INSERT INTO `xl_type` VALUES ('14', '', '0');
 INSERT INTO `xl_type` VALUES ('15', '金融类', '1');
+INSERT INTO `xl_type` VALUES ('16', '计算机技术111222', '1');
+INSERT INTO `xl_type` VALUES ('17', '金融类', '1');
 
 -- ----------------------------
 -- Table structure for xl_vip
