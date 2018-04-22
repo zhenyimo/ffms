@@ -1,5 +1,6 @@
 package com.finance.controller.gongzhonghao;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,10 +19,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.finance.dao.GoodDao;
 import com.finance.dao.SqlParmCon;
 import com.finance.dao.XlQuestionDao;
+import com.finance.entity.XlAnswer;
 import com.finance.entity.XlGood;
 import com.finance.entity.XlOrder;
 import com.finance.entity.XlQuestion;
 import com.finance.entity.XlVip;
+import com.finance.entity.XlVipAnswer;
 import com.finance.service.XlGoodService;
 import com.finance.service.XlOrderService;
 import com.finance.service.XlQuestionService;
@@ -87,10 +90,16 @@ public class GoodController {
 	 * @return
 	 */
 	@RequestMapping("/answer.do")
-	public String answer(Model model,@RequestParam("goodId")String goodId){
+	public String answer(Model model,HttpServletRequest request,@RequestParam("goodId")String goodId,XlVipAnswer ans){
 		Map<String,Object> params=new HashMap<String,Object>();
 		params.put(GoodDao.PARAM_GOOD_ID,goodId);
 		XlGood good=xlGoodService.findByGoodId(params);
+		XlVip curUser=(XlVip) request.getSession().getAttribute(Constants.currentFrontUserSessionKey);
+        String openId=curUser.getOpenId();
+		Map<String,Map<String,List<XlVipAnswer>>> map=new HashMap<>();
+		Map<String,List<XlVipAnswer>> goodMap=new HashMap<>();
+		List<XlVipAnswer> ansList=new ArrayList<>();
+		ansList.add(ans);
 		
 		model.addAttribute("good",good);
 		return "front/questionIndex";	
