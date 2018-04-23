@@ -18,18 +18,28 @@
 	
 	function searchXlVoucher(){
 		$("#dg").datagrid('load',{
-			"name":$("#s_name").val()
+			"name":$("#s_name").val(),
+			"price":$("#s_price").val(),
+			"flag":$("#s_flag").combobox("getValue"),
+			"type":$("#s_type").combobox("getValue"),
+			"validate":$("#s_validate").val(),
+			"vo_num":$("#s_vo_num").val()
 		});
 	}
 	
 	function resetSearch(){
-		$("#s_name").val("");
+			"name":$("#s_name").val("");
+			"price":$("#s_price").val("");
+			"flag":$("#s_flag").combobox("setValue","");
+			"type":$("#s_type").combobox("setValue","");
+			"validate":$("#s_validate").val("");
+			"vo_num":$("#s_vo_num").val("");
 	}
 	
 	function deleteXlVoucher(){
 		var selectedRows=$("#dg").datagrid('getSelections');
 		if(selectedRows.length==0){
-			$.messager.alert("系统提示","请选择要删除的数据！");
+			$.messager.alert("系统提示","请选择要删除的数据！","info");
 			return;
 		}
 		var strIds=[];
@@ -37,16 +47,16 @@
 			strIds.push(selectedRows[i].id);
 		}
 		var ids=strIds.join(",");
-		alert(ids);
+		//alert(ids);
 		$.messager.confirm("系统提示","您确认要删除这<font color=red>"+selectedRows.length+"</font>条数据吗？",function(r){
-			alert(r);
+			//alert(r);
 			if(r){
 				$.post("${basePath}xlVoucherdelete.do",{ids:ids},function(result){
 					if(result.errres){
-						$.messager.alert("系统提示",result.errmsg);
+						$.messager.alert("系统提示",result.errmsg,"info");
 						$("#dg").datagrid("reload");
 					}else{
-						$.messager.alert("系统提示","数据删除失败！");
+						$.messager.alert("系统提示","数据删除失败！","error");
 					}
 				},"json");
 			}
@@ -96,6 +106,34 @@
 		$("#name").val("");
 	}
 	
+	function openUserFindDialog(){
+		var selectedRows=$("#dg").datagrid('getSelections');
+		if(selectedRows.length!=1){
+			$.messager.alert("系统提示","请选择一条要查看的数据！","info");
+			return;
+		}
+		var row=selectedRows[0];
+		$("#finddlg").dialog("open").dialog("setTitle","查看抵用券信息");
+		$("#fusername").text(row.username);
+		$("#fpassword").text(row.password);
+		$("#fsex").text(formatSex(row.sex));
+		$("#fage").text(row.age);
+		$("#ftruename").text(row.truename);
+		$("#femail").text(row.email);
+		$("#fphone").text(row.phone);
+		$("#faddress").text(row.address);
+		$("#fappellation").text(row.appellation);
+		$("#fsalary").text(row.salary);
+		$("#fcard").text(row.card);
+		$("#frolename").text(row.rolename);
+		$("#fcreatetime").text(row.createtime);
+		$("#fupdatetime").text(row.updatetime);
+	}
+    
+    function closeFindDialog(){
+		$('#finddlg').dialog('close');
+	}
+	
 	function closeXlVoucherDialog(){
 		$("#dlg").dialog("close");
 		resetValue();
@@ -111,6 +149,12 @@
 	 		<th field="cb" checkbox="true" align="center"></th>
 	 		<th field="id" width="50" align="center" sortable="true">编号</th>
 	 		<th field="name" width="100" align="center" sortable="true">抵用券名称</th>
+	 		<th field="price" width="100" align="center" sortable="true">抵用券价格</th>
+	 		<th field="flag" width="100" align="center" sortable="true">抵用券是否有效</th>
+	 		<th field="type" width="100" align="center" sortable="true">抵用券类型</th>
+	 		<th field="validate" width="100" align="center" sortable="true">抵用券有效期</th>
+	 		<th field="vo_num" width="100" align="center" sortable="true">抵用券数量</th>
+	 		<th field="goodId" width="100" align="center" sortable="true">抵用券指定商品</th>
 	 	</tr>
 	 </thead>
 	</table>
@@ -121,7 +165,20 @@
 			<a href="javascript:deleteXlVoucher()" class="easyui-linkbutton" iconCls="icon-remove" plain="true">删除</a>
 		</div>
 		<div>
-			&nbsp;抵用券名称：&nbsp;<input type="text" id="s_name" size="15" onkeydown="if(event.keyCode==13) searchXlType()"/>
+			&nbsp;抵用券名称：&nbsp;<input type="text" id="s_name" size="15" onkeydown="if(event.keyCode==13) searchXlVoucher()"/>
+		    &nbsp;抵用券价格：&nbsp;<input type="text" id="s_price" size="15" onkeydown="if(event.keyCode==13) searchXlVoucher()"/>
+			&nbsp;抵用券是否有效：&nbsp;<select class="easyui-combobox" id="s_flag"  editable="false" style="width:140px;">
+					<option value="">请选择...</option>
+					<option value="1">有效</option>
+					<option value="2">无效</option>
+				</select>&nbsp;
+			&nbsp;抵用券类型：&nbsp;<select class="easyui-combobox" id="s_type"  editable="false" style="width:140px;">
+					<option value="">请选择...</option>
+					<option value="1">不指定某题的</option>
+					<option value="2">指定某题的</option>
+				</select>&nbsp;
+			&nbsp;抵用券有效期：&nbsp;<input type="datetime" id="s_validate" size="15" onkeydown="if(event.keyCode==13) searchXlVoucher()"/>
+		    &nbsp;抵用券数量：&nbsp;<input type="text" id="s_vo_num" size="15" onkeydown="if(event.keyCode==13) searchXlVoucher()"/>
 			<a href="javascript:searchXlVoucher()" class="easyui-linkbutton" iconCls="icon-search" plain="true">搜索</a>
 			<a href="javascript:resetSearch()" class="easyui-linkbutton" iconCls="icon-reset" plain="true">清空</a>
 		</div>
@@ -131,15 +188,91 @@
 	 	<form id="fm" method="post">
 	 		<table cellspacing="8px">
 	 			<tr>
-	 				<td>类型名称：</td>
+	 				<td>抵用券名称：</td>
 	 				<td><input type="text" id="name" name="name" class="easyui-validatebox easyui-textbox" required="true"/>&nbsp;<font color="red">*</font></td>
 				</tr>
+				<tr>
+	 				<td>抵用券价格：</td>
+	 				<td><input type="text" id="price" name="price" class="easyui-validatebox easyui-textbox" required="true"/>&nbsp;<font color="red">*</font></td>
+				</tr>
+				<tr>
+	 				<td>抵用券是否有效：</td>
+	 				<td>
+                    <select class="easyui-combobox" id="flag" name="flag" editable="false" style="width:175px;">
+	 						<option value="" selected>请选择...</option>
+	 						<option value="1">有效</option>
+	 						<option value="2">无效</option>
+	 					</select>&nbsp;<font color="red">*</font></td>
+				</tr>
+			    <tr>
+	 				<td>抵用券类型：</td>
+	 				<td><select class="easyui-combobox" id="type" name="type" editable="false" style="width:175px;">
+	 						<option value="" selected>请选择...</option>
+	 						<option value="1">不指定某题的</option>
+	 						<option value="2">指定某题的</option>
+	 					</select>&nbsp;<font color="red">*</font></td>
+				</tr>
+				<tr>
+	 				<td>抵用券有效期：</td>
+	 				<td><input type="datetime" id="validate" name="validate" class="easyui-validatebox easyui-textbox" required="true"/>&nbsp;<font color="red">*</font></td>
+				</tr>
+				<tr>
+	 				<td>抵用券数量：</td>
+	 				<td><input type="text" id="vo_num" name="vo_num" class="easyui-validatebox easyui-textbox" required="true"/>&nbsp;<font color="red">*</font></td>
+	 			</tr>
+				<tr>
+	 			    <td>抵用券指定商品：</td>
+	 			    <td>
+				<select class="easyui-combobox" id="goodid" name="goodid" editable="false" style="width:175px;">
+					<option value="">请选择角色...</option>
+	 				<c:forEach items="${goods }" var="good">
+						<option value="${good.id }">${good.title }</option>
+					</c:forEach>
+				</select>&nbsp;<font color="red">*</font>
+				</td>
+				</tr>
+				
 	 		</table>
 	 	</form>
 	</div>
 	<div id="dlg-buttons">
 		<a href="javascript:saveXlVoucher()" class="easyui-linkbutton" iconCls="icon-ok">保存</a>
 		<a href="javascript:closeXlVoucherDialog()" class="easyui-linkbutton" iconCls="icon-cancel">关闭</a>
+	</div>
+		<div id="finddlg" class="easyui-dialog" style="width: 670px;height:300px;padding: 10px 20px" closed="true" buttons="#finddlg-buttons">
+	 	<table cellspacing="8px" class="findtable" width="100%">
+	 		<tr>
+	 			<td>抵用券名：</td>
+	 			<td><span id="fname"></span></td>
+	 			<td>抵用券价格：</td>
+	 			<td><span id="fprice"></span></td>
+	 		</tr>
+	 		<tr>
+	 			<td>抵用券是否有效：</td>
+	 			<td><span id="fflag"></span></td>
+	 			<td>抵用券类型：</td>
+	 			<td><span id="ftype"></span></td>
+	 		</tr>
+	 		<tr>
+	 			<td>抵用券有效期：</td>
+	 			<td><span id="fvalidate"></span></td>
+	 			<td>抵用券数量：</td>
+	 			<td><span id="f_vo_num"></span></td>
+	 		</tr>
+	 		<tr>
+	 			<td>抵用券指定商品：</td>
+	 			<td><span id="fgoodid"></span></td>
+	 		</tr>
+	 		<tr>
+	 			<td>创建用户：</td>
+	 			<td><span id="fcreateuser"></span></td>
+	 			<td>修改用户：</td>
+	 			<td><span id="fupdateuser"></span></td>
+	 		</tr>
+	 	</table>
+	</div>
+		<div id="finddlg-buttons">
+		<a href="javascript:closeFindDialog()" class="easyui-linkbutton" iconCls="icon-ok">确定</a>
 	</div>
 </body>
 </html>

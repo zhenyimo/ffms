@@ -262,6 +262,9 @@ function logout() {
 			<div title="类型管理" data-options="iconCls:'icon-item'" style="padding: 10px">
 			<a href="javascript:openTab('类型管理','manage/question/xlTypeManage.do','icon-sjzdgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-sjzdgl'" style="width: 150px;">类型管理</a>
 			</div>
+			<div title="抵用券管理" data-options="iconCls:'icon-item'" style="padding: 10px">
+			<a href="javascript:openTab('抵用券管理','manage/xlVoucherManage.do','icon-sjzdgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-sjzdgl'" style="width: 150px;">抵用券管理</a>
+			</div>
 		</div>
 	</div>
 

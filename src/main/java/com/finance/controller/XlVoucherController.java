@@ -33,7 +33,7 @@ public class XlVoucherController {
 	/**
 	 * 抵用券管理页面
 	 */
-	@RequestMapping("/question/xlVoucherManage.do")
+	@RequestMapping("/xlVoucherManage.do")
 	public String xlVoucherManage(ModelMap map) {
 		List<XlVoucher> list = xlVoucherService.getXlVouchers();
 		map.addAttribute("xlVouchernames", list);
