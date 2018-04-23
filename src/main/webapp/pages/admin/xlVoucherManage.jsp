@@ -23,17 +23,25 @@
 			"flag":$("#s_flag").combobox("getValue"),
 			"type":$("#s_type").combobox("getValue"),
 			"validate":$("#s_validate").val(),
-			"vo_num":$("#s_vo_num").val()
+			"vo_num":$("#s_vo_num").val(),
+			"goodId":$("s_goodId").val(),
+			"stipulate_price":$("s_stipulate_price").val(),
+			"create_user":$("s_create_user").val(),
+			"update_user":$("s_update_user").val()
 		});
 	}
 	
 	function resetSearch(){
-			"name":$("#s_name").val("");
-			"price":$("#s_price").val("");
-			"flag":$("#s_flag").combobox("setValue","");
-			"type":$("#s_type").combobox("setValue","");
-			"validate":$("#s_validate").val("");
-			"vo_num":$("#s_vo_num").val("");
+			$("#s_name").val("");
+			$("#s_price").val("");
+			$("#s_flag").combobox("setValue","");
+			$("#s_type").combobox("setValue","");
+			$("#s_validate").val("");
+			$("#s_vo_num").val("");
+			$("#s_goodId").val("");
+			$("#s_stipulate_price").val("");
+			$("#s_create_user").val("");
+			$("#s_update_user").val("");
 	}
 	
 	function deleteXlVoucher(){
@@ -106,6 +114,15 @@
 		$("#name").val("");
 	}
 	
+	function formatSex(val){
+		if(val==1){
+			return "有效";
+		}else if(val==2){
+			return "无效";
+		}else{
+			return "未定义";
+		}
+	}
 	function openUserFindDialog(){
 		var selectedRows=$("#dg").datagrid('getSelections');
 		if(selectedRows.length!=1){
@@ -150,11 +167,14 @@
 	 		<th field="id" width="50" align="center" sortable="true">编号</th>
 	 		<th field="name" width="100" align="center" sortable="true">抵用券名称</th>
 	 		<th field="price" width="100" align="center" sortable="true">抵用券价格</th>
-	 		<th field="flag" width="100" align="center" sortable="true">抵用券是否有效</th>
+	 		<th field="flag" width="100" align="center" formatter="formatSex" sortable="true">抵用券是否有效</th>
 	 		<th field="type" width="100" align="center" sortable="true">抵用券类型</th>
 	 		<th field="validate" width="100" align="center" sortable="true">抵用券有效期</th>
 	 		<th field="vo_num" width="100" align="center" sortable="true">抵用券数量</th>
 	 		<th field="goodId" width="100" align="center" sortable="true">抵用券指定商品</th>
+	 		<th field="stipulate_price" width="100" align="center" sortable="true">抵用券到达金额</th>
+	 		<th field="create_user" width="100" align="center" sortable="true">抵用券创建者</th>
+	 		<th field="update_user" width="100" align="center" sortable="true">抵用券修改者</th>
 	 	</tr>
 	 </thead>
 	</table>
@@ -179,6 +199,9 @@
 				</select>&nbsp;
 			&nbsp;抵用券有效期：&nbsp;<input type="datetime" id="s_validate" size="15" onkeydown="if(event.keyCode==13) searchXlVoucher()"/>
 		    &nbsp;抵用券数量：&nbsp;<input type="text" id="s_vo_num" size="15" onkeydown="if(event.keyCode==13) searchXlVoucher()"/>
+		    &nbsp;抵用券指定商品：&nbsp;<input type="text" id="s_goodId" size="15" onkeydown="if(event.keyCode==13) searchXlVoucher()"/>
+		    &nbsp;抵用券创建者：&nbsp;<input type="text" id="s_create_user" size="15" onkeydown="if(event.keyCode==13) searchXlVoucher()"/>
+		    &nbsp;抵用券修改者：&nbsp;<input type="text" id="s_update_user" size="15" onkeydown="if(event.keyCode==13) searchXlVoucher()"/>
 			<a href="javascript:searchXlVoucher()" class="easyui-linkbutton" iconCls="icon-search" plain="true">搜索</a>
 			<a href="javascript:resetSearch()" class="easyui-linkbutton" iconCls="icon-reset" plain="true">清空</a>
 		</div>
@@ -224,9 +247,9 @@
 	 			    <td>抵用券指定商品：</td>
 	 			    <td>
 				<select class="easyui-combobox" id="goodid" name="goodid" editable="false" style="width:175px;">
-					<option value="">请选择角色...</option>
+					<option value="">请选择商品...</option>
 	 				<c:forEach items="${goods }" var="good">
-						<option value="${good.id }">${good.title }</option>
+						<option value="${good.id }">${good.tittle }</option>
 					</c:forEach>
 				</select>&nbsp;<font color="red">*</font>
 				</td>

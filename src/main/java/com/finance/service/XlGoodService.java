@@ -8,4 +8,5 @@ import com.finance.entity.XlGood;
 public interface XlGoodService {
 	public List<XlGood> findByLimit(Map<String, Object> map);
 	public XlGood findByGoodId(Map<String,Object> map);
+	public List<XlGood> getXlGoods();
 }

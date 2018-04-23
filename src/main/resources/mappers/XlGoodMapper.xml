@@ -57,4 +57,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			id=#{goodId}
 		</where>
 	</select>
+
+	<insert id="addGood" parameterType="XlGood">	
+    <!-- 获取刚刚插入的xl_good的自动生成的主键id：（用来插入xl_voucher表的goodId） -->
+	<selectKey keyProperty="id" resultType="int" order="AFTER">
+	
+	</selectKey>
+	</insert>
+	<select id="getXlGoods" resultType="XlGood">
+ 		select * from xl_good
+ 	</select>
 </mapper>

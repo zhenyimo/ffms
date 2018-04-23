@@ -16,8 +16,10 @@ public class XlVoucher implements Serializable{
 	private Date validate; // 金额
 	private Integer voNum; // 类型
 	private Integer goodId; // 备注
-	private Integer gvid; // 收入时间
+	//private Integer gvid; // 收入时间
 	private double stipulatePrice; // 创建时间
+	private String createuser; //创建者
+	private String updateuser; //修改者
 	public Integer getId() {
 		return id;
 	}
@@ -66,12 +68,12 @@ public class XlVoucher implements Serializable{
 	public void setGoodId(Integer goodId) {
 		this.goodId = goodId;
 	}
-	public Integer getGvid() {
+/*	public Integer getGvid() {
 		return gvid;
 	}
 	public void setGvid(Integer gvid) {
 		this.gvid = gvid;
-	}
+	}*/
 	public double getStipulatePrice() {
 		return stipulatePrice;
 	}
@@ -82,4 +84,17 @@ public class XlVoucher implements Serializable{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	public String getCreateuser() {
+		return createuser;
+	}
+	public void setCreateuser(String createuser) {
+		this.createuser = createuser;
+	}
+	public String getUpdateuser() {
+		return updateuser;
+	}
+	public void setUpdateuser(String updateuser) {
+		this.updateuser = updateuser;
+	}
+	
 }

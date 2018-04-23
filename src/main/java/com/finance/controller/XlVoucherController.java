@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.finance.entity.PageBean;
+import com.finance.entity.XlGood;
 import com.finance.entity.XlVoucher;
+import com.finance.service.XlGoodService;
 import com.finance.service.XlVoucherService;
 import com.finance.util.ResponseUtil;
 import com.finance.util.StringUtil;
@@ -30,6 +32,8 @@ import com.finance.util.StringUtil;
 public class XlVoucherController {
 	@Resource
 	private XlVoucherService xlVoucherService;
+	@Resource
+	private XlGoodService xlGoodService;
 	/**
 	 * 抵用券管理页面
 	 */
@@ -37,6 +41,8 @@ public class XlVoucherController {
 	public String xlVoucherManage(ModelMap map) {
 		List<XlVoucher> list = xlVoucherService.getXlVouchers();
 		map.addAttribute("xlVouchernames", list);
+		List<XlGood> goodlist = xlGoodService.getXlGoods();
+		map.addAttribute("goods", goodlist);
 		return "admin/xlVoucherManage";
 	}
 	/**
@@ -60,8 +66,12 @@ public class XlVoucherController {
 		map.put("flag", StringUtil.formatLike(s_xlVoucher.getFlag()));
 		map.put("type", StringUtil.formatLike(s_xlVoucher.getType()));
 		map.put("validate", s_xlVoucher.getValidate());
-		map.put("vo_num", StringUtil.formatLike(s_xlVoucher.getVonum()));
-		map.put("start", pageBean.getStart());
+		map.put("vo_num", StringUtil.formatLike(s_xlVoucher.getVonum()));	
+		map.put("goodId", s_xlVoucher.getGoodId());	
+		map.put("stipulate_price", s_xlVoucher.getStipulatePrice());
+		map.put("crateuser", s_xlVoucher.getStipulatePrice());
+		map.put("updateuser", s_xlVoucher.getStipulatePrice());
+		map.put("start", pageBean.getStart());	
 		map.put("size", pageBean.getPageSize());
 		List<XlVoucher> xlVoucherList = xlVoucherService.findXlVoucher(map);
 		Long total = xlVoucherService.getTotalXlVoucher(map);

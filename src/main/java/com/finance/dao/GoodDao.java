@@ -10,4 +10,5 @@ public interface GoodDao {
 	public static final String PARAM_GOOD_ID="goodId";
 	public List<XlGood> findByLimit(Map<String, Object> map);
 	public XlGood findByGoodId(Map<String, Object> map);
+	public List<XlGood> getXlGoods();
 }
