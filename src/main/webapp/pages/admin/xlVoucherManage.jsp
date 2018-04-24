@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/pages/admin/common/Head.jsp"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -114,7 +115,7 @@
 		$("#name").val("");
 	}
 	
-	function formatSex(val){
+	function formatValidate(val){
 		if(val==1){
 			return "有效";
 		}else if(val==2){
@@ -131,20 +132,16 @@
 		}
 		var row=selectedRows[0];
 		$("#finddlg").dialog("open").dialog("setTitle","查看抵用券信息");
-		$("#fusername").text(row.username);
-		$("#fpassword").text(row.password);
-		$("#fsex").text(formatSex(row.sex));
-		$("#fage").text(row.age);
-		$("#ftruename").text(row.truename);
-		$("#femail").text(row.email);
-		$("#fphone").text(row.phone);
-		$("#faddress").text(row.address);
-		$("#fappellation").text(row.appellation);
-		$("#fsalary").text(row.salary);
-		$("#fcard").text(row.card);
-		$("#frolename").text(row.rolename);
-		$("#fcreatetime").text(row.createtime);
-		$("#fupdatetime").text(row.updatetime);
+		$("#fname").text(row.name);
+		$("#fprice").text(row.price);
+		$("#fflag").text(formatSex(row.flag));
+		$("#ftype").text(row.type);
+		$("#fvalidate").text(row.validate);
+		$("#fvo_num").text(row.vo_num);
+		$("#fgoodId").text(row.goodId);
+		$("#fstipulate_price").text(row.stipulate_price);
+		$("#fcreateuser").text(row.createuser);
+		$("#fupdateuser").text(row.updateuser);
 	}
     
     function closeFindDialog(){
@@ -167,7 +164,7 @@
 	 		<th field="id" width="50" align="center" sortable="true">编号</th>
 	 		<th field="name" width="100" align="center" sortable="true">抵用券名称</th>
 	 		<th field="price" width="100" align="center" sortable="true">抵用券价格</th>
-	 		<th field="flag" width="100" align="center" formatter="formatSex" sortable="true">抵用券是否有效</th>
+	 		<th field="flag" width="100" align="center" formatter="formatValidate" sortable="true">抵用券是否有效</th>
 	 		<th field="type" width="100" align="center" sortable="true">抵用券类型</th>
 	 		<th field="validate" width="100" align="center" sortable="true">抵用券有效期</th>
 	 		<th field="vo_num" width="100" align="center" sortable="true">抵用券数量</th>
@@ -212,7 +209,7 @@
 		</div>
 	</div>
 	
-	<div id="dlg" class="easyui-dialog" style="width: 320px;height:150px;padding: 10px 20px" closed="true" buttons="#dlg-buttons">
+	<div id="dlg" class="easyui-dialog" style="width: 670px;height:300px;padding: 10px 20px" closed="true" buttons="#dlg-buttons">
 	 	<form id="fm" method="post">
 	 		<table cellspacing="8px">
 	 			<tr>
