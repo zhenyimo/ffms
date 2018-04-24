@@ -44,4 +44,10 @@ public class XlVoucherServiceImpl implements XlVoucherService{
 		
 	}
 
+	@Override
+	public int addXlVoucherGood(XlVoucher xlVoucher) {
+		// TODO Auto-generated method stub
+		return xlVoucherDao.addXlVoucherGood(xlVoucher);
+	}
+
 }

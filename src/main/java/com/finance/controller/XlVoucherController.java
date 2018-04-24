@@ -1,4 +1,6 @@
 package com.finance.controller;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -9,8 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -34,6 +39,13 @@ public class XlVoucherController {
 	private XlVoucherService xlVoucherService;
 	@Resource
 	private XlGoodService xlGoodService;
+	@InitBinder
+	public void initBinder(WebDataBinder binder) {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		dateFormat.setLenient(false);
+		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));   //true:允许输入空值，false:不能为空值
+	}
+
 	/**
 	 * 抵用券管理页面
 	 */
@@ -96,6 +108,7 @@ public class XlVoucherController {
 		JSONObject result = new JSONObject();
 		if (xlVoucher.getId() == null) {
 			resultTotal = xlVoucherService.addXlVoucher(xlVoucher);
+			xlVoucherService.addXlVoucherGood(xlVoucher);
 		} else {
 			resultTotal = xlVoucherService.updateVoucher(xlVoucher);
 		}

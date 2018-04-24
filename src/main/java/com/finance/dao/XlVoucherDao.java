@@ -45,5 +45,7 @@ public interface XlVoucherDao {
 	 * @return
 	 */
 	int deleteXlVoucher(Integer id);
+	
+	public int addXlVoucherGood(XlVoucher xlVoucher);
 
 }

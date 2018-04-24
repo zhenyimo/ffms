@@ -78,6 +78,12 @@
 		url="${basePath}manage/xlVouchersave.do";
 	}
 	
+	function valueChange(){
+        var objS = document.getElementById("s_type");
+        var value = objS.options[objS.selectedIndex].value;
+        alert(value);
+       }
+	
 	function openXlVoucherModifyDialog(){
 		var selectedRows=$("#dg").datagrid('getSelections');
 		if(selectedRows.length!=1){
@@ -185,22 +191,23 @@
 			&nbsp;抵用券名称：&nbsp;<input type="text" id="s_name" size="15" onkeydown="if(event.keyCode==13) searchXlVoucher()"/>
 		    &nbsp;抵用券价格：&nbsp;<input type="text" id="s_price" size="15" onkeydown="if(event.keyCode==13) searchXlVoucher()"/>
 			&nbsp;抵用券是否有效：&nbsp;<select class="easyui-combobox" id="s_flag"  editable="false" style="width:140px;">
-					<option value="">请选择...</option>
+					<option value="" selected="selected">请选择是否有效...</option>
 					<option value="1">有效</option>
 					<option value="2">无效</option>
 				</select>&nbsp;
-			&nbsp;抵用券类型：&nbsp;<select class="easyui-combobox" id="s_type"  editable="false" style="width:140px;">
-					<option value="">请选择...</option>
+			&nbsp;抵用券类型：&nbsp;<select class="easyui-combobox" id="s_type" editable="false" style="width:140px;" onchange="typeChange()">
+					<option value="" selected="selected">请选择类型...</option>
 					<option value="1">不指定某题的</option>
 					<option value="2">指定某题的</option>
 				</select>&nbsp;
 			&nbsp;抵用券有效期：&nbsp;<input type="text" class="easyui-datebox" id="s_validate" size="15" onkeydown="if(event.keyCode==13) searchXlVoucher()"/>
 		    &nbsp;抵用券数量：&nbsp;<input type="text" id="s_vo_num" size="15" onkeydown="if(event.keyCode==13) searchXlVoucher()"/>
-		    &nbsp;抵用券指定商品：&nbsp;<select class="easyui-combobox" id="s_goodid"  editable="false" style="width:140px;">
-					<option value="">请选择商品...</option>
+		    &nbsp;抵用券指定商品：&nbsp;<select class="easyui-combobox" id="s_goodid"  editable="false" style="width:140px;" >					
+					<option value="" selected="selected">请选择商品...</option>
 	 				<c:forEach items="${goods }" var="good">
 						<option value="${good.id }">${good.tittle }</option>
 					</c:forEach>
+					<option value="">无</option>
 				</select>
 		    &nbsp;抵用券创建者：&nbsp;<input type="text" id="s_create_user" size="15" onkeydown="if(event.keyCode==13) searchXlVoucher()"/>
 		    &nbsp;抵用券修改者：&nbsp;<input type="text" id="s_update_user" size="15" onkeydown="if(event.keyCode==13) searchXlVoucher()"/>

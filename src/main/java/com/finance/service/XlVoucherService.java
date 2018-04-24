@@ -43,5 +43,11 @@ public interface XlVoucherService {
 	 * @return
 	 */
 	public int deleteXlVoucher(Integer id);
+	/**
+	 * 添加抵用券商品匹配
+	 * @param xlVoucher
+	 * @return
+	 */
+	public int addXlVoucherGood(XlVoucher xlVoucher);
 
 }
