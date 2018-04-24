@@ -197,9 +197,14 @@
 					<option value="1">不指定某题的</option>
 					<option value="2">指定某题的</option>
 				</select>&nbsp;
-			&nbsp;抵用券有效期：&nbsp;<input type="datetime" id="s_validate" size="15" onkeydown="if(event.keyCode==13) searchXlVoucher()"/>
+			&nbsp;抵用券有效期：&nbsp;<input type="text" class="easyui-datebox" id="s_validate" size="15" onkeydown="if(event.keyCode==13) searchXlVoucher()"/>
 		    &nbsp;抵用券数量：&nbsp;<input type="text" id="s_vo_num" size="15" onkeydown="if(event.keyCode==13) searchXlVoucher()"/>
-		    &nbsp;抵用券指定商品：&nbsp;<input type="text" id="s_goodId" size="15" onkeydown="if(event.keyCode==13) searchXlVoucher()"/>
+		    &nbsp;抵用券指定商品：&nbsp;<select class="easyui-combobox" id="s_goodid"  editable="false" style="width:140px;">
+					<option value="">请选择商品...</option>
+	 				<c:forEach items="${goods }" var="good">
+						<option value="${good.id }">${good.tittle }</option>
+					</c:forEach>
+				</select>
 		    &nbsp;抵用券创建者：&nbsp;<input type="text" id="s_create_user" size="15" onkeydown="if(event.keyCode==13) searchXlVoucher()"/>
 		    &nbsp;抵用券修改者：&nbsp;<input type="text" id="s_update_user" size="15" onkeydown="if(event.keyCode==13) searchXlVoucher()"/>
 			<a href="javascript:searchXlVoucher()" class="easyui-linkbutton" iconCls="icon-search" plain="true">搜索</a>
@@ -237,7 +242,7 @@
 				</tr>
 				<tr>
 	 				<td>抵用券有效期：</td>
-	 				<td><input type="datetime" id="validate" name="validate" class="easyui-validatebox easyui-textbox" required="true"/>&nbsp;<font color="red">*</font></td>
+	 				<td><input type="text" id="validate" name="validate" class="easyui-validatebox easyui-datebox" required="true"/>&nbsp;<font color="red">*</font></td>
 				</tr>
 				<tr>
 	 				<td>抵用券数量：</td>
