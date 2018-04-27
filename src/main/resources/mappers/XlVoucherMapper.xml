@@ -47,7 +47,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 	
     <insert id="addXlVoucherGood" parameterType="XlVoucher">
-		insert into t_user_role (select null,a.id,b.id from t_user a,t_role b where a.username=#{username} and b.id=#{roleid});
+		insert into xl_voucher (select null,a.id,b.id from xl_voucher a,xl_good b where a.createuser=#{createuser} and b.id=#{goodId});
 	</insert>
 	
     <update id="updateXlVoucher" parameterType="XlVoucher" >

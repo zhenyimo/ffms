@@ -153,6 +153,80 @@
 	
 	function openXlVoucherAddDialog(){
 		$("#dlg").dialog("open").dialog("setTitle","添加抵用券信息");
+	var typeData = [{text:"不指定某题的",value:"1"},{text:"指定某题的",value:"2"}];
+
+	//调用后台xlGoodController的xlGoodlist方法
+	$.ajax({
+	   url:'xlGoodController/xlGoodlist.do',
+	   type:'post',
+	   dataType:'json',
+	   success:function(result){
+	     //成功回调
+	    alert(result);
+	   },
+	   error : function(result) {
+	      alert(result);
+	   }
+	
+	});
+	//var goodoptions02 = document.getElementById("goodnames").value;
+	//var goodoptions02 = ${goodnames};
+    var goodData = ${goods};
+    //JSONArray jsonArray = JSONArray.fromObject(goodData);//将goodlist转化为JSON数组
+    var goodoptions02object = {};//JSON对象
+    var goodoptions02 = [];//JSON数组
+    
+ 	for(var i=0;i<goodData.length;i++){
+ 	  //goodoptions02object.push({text:'goodData[i].tittle',id:'goodData[i].id'});
+ 	   	goodoptions02object["text"]=goodData[i].tittle;
+ 	   	goodoptions02object["value"]=goodData[i].id;
+ 	    goodoptions02.push(goodoptions02object);
+ 	  //goodoptions02.push({text:goodData[i].tittle,id:goodData[i].id});
+	}
+	var goodoptions01 = [{text : "无", value : ""}];
+ 	/*for(int i=0;i<goodData.length;i++){
+	   if(i!=goodData.length-1){
+	   goodoptions02+="{text:"+goodData[i].tittle+",value:"+goodData[i].id+"},";
+	   }else{
+	   goodoptions02+="{text:"+goodData[i].tittle+",value:"+goodData[i].id+"}]";
+	   } 
+	   
+	}*/
+	//初始化查询抵用券类型的下拉列表
+	$("#s_type1").combobox({
+	  valueField: 'value',
+	  textField: 'text',
+	  data : typeData,
+	  panelHeight:170,
+	  onSelect: function(){
+	  var myOptValue = $("#s_type1").combobox("getValue");
+	   //1.清空原来的s_type这个combobox中的选项
+	   $("#s_goodid1").combobox("clear");  
+	   //2.动态添加"抵用券指定商品"的下拉列表框的option
+	  if(myOptValue != null && (myOptValue == "1")){	  
+	  console.info("myOptValue = "+myOptValue);
+	  $("#s_goodid1").combobox({
+
+	     panelHeight:50,
+         data :	goodoptions01  
+	  }); 	  
+    }else if (myOptValue != null && myOptValue == "2"){
+    
+      $("#s_goodid1").combobox({
+         panelHeight:140,
+         data : goodoptions02       
+      });
+    }
+   }
+   });
+	
+	//初始化goods的下拉列表
+	$("#s_goodid1").combobox({
+	  valueField: 'value',
+	  textField : 'text',
+	  data : goodoptions01,
+	  panelHeight:140,	
+	});	
 		url="${basePath}manage/xlVouchersave.do";
 	}
 	
@@ -301,6 +375,7 @@
 	 				<td>抵用券价格：</td>
 	 				<td><input type="text" id="price" name="price" class="easyui-validatebox easyui-textbox" required="true"/>&nbsp;<font color="red">*</font></td>
 				</tr>
+				<!--  
 				<tr>
 	 				<td>抵用券是否有效：</td>
 	 				<td>
@@ -310,13 +385,14 @@
 	 						<option value="2">无效</option>
 	 					</select>&nbsp;<font color="red">*</font></td>
 				</tr>
+				-->
 			    <tr>
 	 				<td>抵用券类型：</td>
 	 				<td><!--<select class="easyui-combobox" id="type" name="type" editable="false" style="width:175px;">
 	 						<option value="" selected>请选择...</option>
 	 						<option value="1">不指定某题的</option>
 	 						<option value="2">指定某题的</option>
-	 					</select>--><input class="easyui-combobox" id="s_type" name="s_type" editable="false" style="width:140px;" >&nbsp;<font color="red">*</font></td>
+	 					</select>--><input class="easyui-combobox" id="s_type1" name="s_type" editable="false" style="width:140px;" >&nbsp;<font color="red">*</font></td>
 				</tr>
 				<tr>
 	 				<td>抵用券有效期：</td>
@@ -334,7 +410,7 @@
 	 				<c:forEach items="${goods }" var="good">
 						<option value="${good.id }">${good.tittle }</option>
 					</c:forEach>
-				</select>--><input class="easyui-combobox" id="s_goodid" name="s_goodid" editable="false" style="width:140px;" >&nbsp;<font color="red">*</font>
+				</select>--><input class="easyui-combobox" id="s_goodid1" name="s_goodid" editable="false" style="width:140px;" >&nbsp;<font color="red">*</font>
 				</td>
 				</tr>
 				

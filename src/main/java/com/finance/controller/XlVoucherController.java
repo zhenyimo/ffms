@@ -98,8 +98,8 @@ public class XlVoucherController {
 		map.put("vo_num", StringUtil.formatLike(s_xlVoucher.getVonum()));	
 		map.put("goodId", s_xlVoucher.getGoodId());	
 		map.put("stipulate_price", s_xlVoucher.getStipulatePrice());
-		map.put("crateuser", s_xlVoucher.getStipulatePrice());
-		map.put("updateuser", s_xlVoucher.getStipulatePrice());
+		map.put("crateuser", s_xlVoucher.getCreateuser());
+		map.put("updateuser", s_xlVoucher.getUpdateuser());
 		map.put("start", pageBean.getStart());	
 		map.put("size", pageBean.getPageSize());
 		List<XlVoucher> xlVoucherList = xlVoucherService.findXlVoucher(map);
