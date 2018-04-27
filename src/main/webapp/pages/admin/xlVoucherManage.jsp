@@ -15,8 +15,86 @@
 <script type="text/javascript" src="${basePath}jquery-easyui-1.3.3/jquery.cookie.js"></script>
 <script type="text/javascript">
 
-	var url;
+    $(function(){
+	var typeData = [{text:"不指定某题的",value:"1"},{text:"指定某题的",value:"2"}];
+
+	//调用后台xlGoodController的xlGoodlist方法
+	$.ajax({
+	   url:'xlGoodController/xlGoodlist.do',
+	   type:'post',
+	   dataType:'json',
+	   success:function(result){
+	     //成功回调
+	    alert(result);
+	   },
+	   error : function(result) {
+	      alert(result);
+	   }
 	
+	});
+	//var goodoptions02 = document.getElementById("goodnames").value;
+	//var goodoptions02 = ${goodnames};
+    var goodData = ${goods};
+    //JSONArray jsonArray = JSONArray.fromObject(goodData);//将goodlist转化为JSON数组
+    var goodoptions02object = {};//JSON对象
+    var goodoptions02 = [];//JSON数组
+    
+ 	for(var i=0;i<goodData.length;i++){
+ 	  //goodoptions02object.push({text:'goodData[i].tittle',id:'goodData[i].id'});
+ 	   	goodoptions02object["text"]=goodData[i].tittle;
+ 	   	goodoptions02object["value"]=goodData[i].id;
+ 	    goodoptions02.push(goodoptions02object);
+ 	  //goodoptions02.push({text:goodData[i].tittle,id:goodData[i].id});
+	}
+	var goodoptions01 = [{text : "无", value : ""}];
+ 	/*for(int i=0;i<goodData.length;i++){
+	   if(i!=goodData.length-1){
+	   goodoptions02+="{text:"+goodData[i].tittle+",value:"+goodData[i].id+"},";
+	   }else{
+	   goodoptions02+="{text:"+goodData[i].tittle+",value:"+goodData[i].id+"}]";
+	   } 
+	   
+	}*/
+	//初始化查询抵用券类型的下拉列表
+	$("#s_type").combobox({
+	  valueField: 'value',
+	  textField: 'text',
+	  data : typeData,
+	  panelHeight:170,
+	  onSelect: function(){
+	  var myOptValue = $("#s_type").combobox("getValue");
+	   //1.清空原来的s_type这个combobox中的选项
+	   $("#s_goodid").combobox("clear");  
+	   //2.动态添加"抵用券指定商品"的下拉列表框的option
+	  if(myOptValue != null && (myOptValue == "1")){	  
+	  console.info("myOptValue = "+myOptValue);
+	  $("#s_goodid").combobox({
+
+	     panelHeight:50,
+         data :	goodoptions01  
+	  }); 	  
+    }else if (myOptValue != null && myOptValue == "2"){
+    
+      $("#s_goodid").combobox({
+         panelHeight:140,
+         data : goodoptions02       
+      });
+    }
+   }
+   });
+	
+	//初始化goods的下拉列表
+	$("#s_goodid").combobox({
+	  valueField: 'value',
+	  textField : 'text',
+	  data : goodoptions01,
+	  panelHeight:140,	
+	});
+	});
+	
+	
+	
+    var url;
 	function searchXlVoucher(){
 		$("#dg").datagrid('load',{
 			"name":$("#s_name").val(),
@@ -77,12 +155,6 @@
 		$("#dlg").dialog("open").dialog("setTitle","添加抵用券信息");
 		url="${basePath}manage/xlVouchersave.do";
 	}
-	
-	function valueChange(){
-        var objS = document.getElementById("s_type");
-        var value = objS.options[objS.selectedIndex].value;
-        alert(value);
-       }
 	
 	function openXlVoucherModifyDialog(){
 		var selectedRows=$("#dg").datagrid('getSelections');
@@ -195,20 +267,22 @@
 					<option value="1">有效</option>
 					<option value="2">无效</option>
 				</select>&nbsp;
-			&nbsp;抵用券类型：&nbsp;<select class="easyui-combobox" id="s_type" editable="false" style="width:140px;" onchange="typeChange()">
+			&nbsp;抵用券类型：&nbsp;<!--<select class="easyui-combobox" id="s_type" name="s_type" editable="false" style="width:140px;">
 					<option value="" selected="selected">请选择类型...</option>
 					<option value="1">不指定某题的</option>
 					<option value="2">指定某题的</option>
-				</select>&nbsp;
+				</select>--><input class="easyui-combobox" id="s_type" name="s_type" editable="false" style="width:140px;">&nbsp;
 			&nbsp;抵用券有效期：&nbsp;<input type="text" class="easyui-datebox" id="s_validate" size="15" onkeydown="if(event.keyCode==13) searchXlVoucher()"/>
 		    &nbsp;抵用券数量：&nbsp;<input type="text" id="s_vo_num" size="15" onkeydown="if(event.keyCode==13) searchXlVoucher()"/>
-		    &nbsp;抵用券指定商品：&nbsp;<select class="easyui-combobox" id="s_goodid"  editable="false" style="width:140px;" >					
+		    <input type="hidden" id="goodnames" name="goodnames" value="${goodnames}"/>
+		    &nbsp;抵用券指定商品：&nbsp;<!--<select class="easyui-combobox" id="s_goodid" name="s_goodid" editable="false" style="width:140px;" >					
 					<option value="" selected="selected">请选择商品...</option>
 	 				<c:forEach items="${goods }" var="good">
 						<option value="${good.id }">${good.tittle }</option>
 					</c:forEach>
 					<option value="">无</option>
-				</select>
+				</select>-->
+				<input class="easyui-combobox" id="s_goodid" name="s_goodid" editable="false" style="width:140px;" >		
 		    &nbsp;抵用券创建者：&nbsp;<input type="text" id="s_create_user" size="15" onkeydown="if(event.keyCode==13) searchXlVoucher()"/>
 		    &nbsp;抵用券修改者：&nbsp;<input type="text" id="s_update_user" size="15" onkeydown="if(event.keyCode==13) searchXlVoucher()"/>
 			<a href="javascript:searchXlVoucher()" class="easyui-linkbutton" iconCls="icon-search" plain="true">搜索</a>
@@ -238,11 +312,11 @@
 				</tr>
 			    <tr>
 	 				<td>抵用券类型：</td>
-	 				<td><select class="easyui-combobox" id="type" name="type" editable="false" style="width:175px;">
+	 				<td><!--<select class="easyui-combobox" id="type" name="type" editable="false" style="width:175px;">
 	 						<option value="" selected>请选择...</option>
 	 						<option value="1">不指定某题的</option>
 	 						<option value="2">指定某题的</option>
-	 					</select>&nbsp;<font color="red">*</font></td>
+	 					</select>--><input class="easyui-combobox" id="s_type" name="s_type" editable="false" style="width:140px;" >&nbsp;<font color="red">*</font></td>
 				</tr>
 				<tr>
 	 				<td>抵用券有效期：</td>
@@ -255,12 +329,12 @@
 				<tr>
 	 			    <td>抵用券指定商品：</td>
 	 			    <td>
-				<select class="easyui-combobox" id="goodid" name="goodid" editable="false" style="width:175px;">
+				<!--<select class="easyui-combobox" id="goodid" name="goodid" editable="false" style="width:175px;">
 					<option value="">请选择商品...</option>
 	 				<c:forEach items="${goods }" var="good">
 						<option value="${good.id }">${good.tittle }</option>
 					</c:forEach>
-				</select>&nbsp;<font color="red">*</font>
+				</select>--><input class="easyui-combobox" id="s_goodid" name="s_goodid" editable="false" style="width:140px;" >&nbsp;<font color="red">*</font>
 				</td>
 				</tr>
 				

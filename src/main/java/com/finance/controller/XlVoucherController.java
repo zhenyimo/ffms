@@ -2,6 +2,7 @@ package com.finance.controller;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -54,7 +55,23 @@ public class XlVoucherController {
 		List<XlVoucher> list = xlVoucherService.getXlVouchers();
 		map.addAttribute("xlVouchernames", list);
 		List<XlGood> goodlist = xlGoodService.getXlGoods();
-		map.addAttribute("goods", goodlist);
+		//List<String> goodnameslist = new LinkedList<String>();
+		JSONArray jsonArray = new JSONArray();
+		for(int i = 0 ; i < goodlist.size();i++){
+			//goodnameslist.add(goodlist.get(i).getTittle());
+			JSONObject result = new JSONObject();//不放在循环里面会覆盖原来的数据造成数据污染
+			result.put("text", goodlist.get(i).getTittle());
+			result.put("value", goodlist.get(i).getId());
+		    jsonArray.add(result);
+		}
+		//map.addAttribute("goodnames", goodnameslist);
+	    //第二种写法：直接JSONArray.fromObject(goodlist)
+		JSONArray jsonArray1 = JSONArray.fromObject(goodlist);
+	    System.out.println(jsonArray.toString());
+	    System.out.println(jsonArray1.toString());
+	    map.addAttribute("goodnames", jsonArray);
+	    //map.addAttribute("goods", goodlist);
+	    map.addAttribute("goods",jsonArray1);
 		return "admin/xlVoucherManage";
 	}
 	/**
