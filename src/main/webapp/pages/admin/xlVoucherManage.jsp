@@ -193,26 +193,26 @@
 	   
 	}*/
 	//初始化查询抵用券类型的下拉列表
-	$("#s_type1").combobox({
+	$("#type").combobox({
 	  valueField: 'value',
 	  textField: 'text',
 	  data : typeData,
 	  panelHeight:170,
 	  onSelect: function(){
-	  var myOptValue = $("#s_type1").combobox("getValue");
+	  var myOptValue = $("#type").combobox("getValue");
 	   //1.清空原来的s_type这个combobox中的选项
-	   $("#s_goodid1").combobox("clear");  
+	   $("#goodid").combobox("clear");  
 	   //2.动态添加"抵用券指定商品"的下拉列表框的option
 	  if(myOptValue != null && (myOptValue == "1")){	  
 	  console.info("myOptValue = "+myOptValue);
-	  $("#s_goodid1").combobox({
+	  $("#goodid").combobox({
 
 	     panelHeight:50,
          data :	goodoptions01  
 	  }); 	  
     }else if (myOptValue != null && myOptValue == "2"){
     
-      $("#s_goodid1").combobox({
+      $("#goodid").combobox({
          panelHeight:140,
          data : goodoptions02       
       });
@@ -221,7 +221,7 @@
    });
 	
 	//初始化goods的下拉列表
-	$("#s_goodid1").combobox({
+	$("#goodid").combobox({
 	  valueField: 'value',
 	  textField : 'text',
 	  data : goodoptions01,
@@ -246,6 +246,24 @@
 		$("#fm").form("submit",{
 			url:url,
 			onSubmit:function(){
+			    if($("#type").combobox("getValue")==""||$("#type").combobox("getValue")==null){
+					$.messager.alert("系统提示","请选择抵用券类型！","error");
+					return false;
+				}
+				if($("#goodid").combobox("getValue")==""||$("#goodid").combobox("getValue")==null){
+					$.messager.alert("系统提示","请选择抵用券指定商品！","error");
+					return false;
+				}
+				var price = /^[1-9][0-9]$/;
+		        if($("#price").val()!=''&&!price.test($("#price").val())){
+		        	$.messager.alert("系统提示","抵用券价格格式错误，请重新输入！","error");
+		            return false;
+		        }
+		        var vo_num = /^[1-2][0-9]$/;
+		        if($("#vo_num").val()!=''&&!vo_num.test($("#vo_num").val())){
+		        	$.messager.alert("系统提示","抵用券数量格式错误，请重新输入！","error");
+		            return false;
+		        }
 				return $(this).form("validate");
 			},
 			success:function(result){
@@ -392,7 +410,7 @@
 	 						<option value="" selected>请选择...</option>
 	 						<option value="1">不指定某题的</option>
 	 						<option value="2">指定某题的</option>
-	 					</select>--><input class="easyui-combobox" id="s_type1" name="s_type" editable="false" style="width:140px;" >&nbsp;<font color="red">*</font></td>
+	 					</select>--><input class="easyui-combobox" id="type" name="type" editable="false" style="width:140px;" >&nbsp;<font color="red">*</font></td>
 				</tr>
 				<tr>
 	 				<td>抵用券有效期：</td>
@@ -410,7 +428,7 @@
 	 				<c:forEach items="${goods }" var="good">
 						<option value="${good.id }">${good.tittle }</option>
 					</c:forEach>
-				</select>--><input class="easyui-combobox" id="s_goodid1" name="s_goodid" editable="false" style="width:140px;" >&nbsp;<font color="red">*</font>
+				</select>--><input class="easyui-combobox" id="goodid" name="goodid" editable="false" style="width:140px;" >&nbsp;<font color="red">*</font>
 				</td>
 				</tr>
 				

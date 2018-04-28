@@ -43,11 +43,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
     <insert id="addXlVoucher" parameterType="XlVoucher">
-		insert into xl_voucher(id,name,price,flag,type,validate,vo_num,goodId,stipulate_price,create_user) values(null,#{name},#{price},#{flag},#{type},#{validate},#{vo_num},#{goodId},#{stipulate_price},#{create_user});
+		insert into xl_voucher (id,name,price,flag,type,validate,vo_num,goodId,stipulate_price,create_user) values(null,#{name},#{price},#{flag},#{type},#{validate},#{vo_num},#{goodId},#{stipulate_price},#{create_user});
 	</insert>
 	
     <insert id="addXlVoucherGood" parameterType="XlVoucher">
-		insert into xl_voucher (select null,a.id,b.id from xl_voucher a,xl_good b where a.createuser=#{createuser} and b.id=#{goodId});
+		insert into xl_voucher (select a.* from xl_voucher a,xl_good b where a.createuser=#{createuser} and b.id=#{goodId});
 	</insert>
 	
     <update id="updateXlVoucher" parameterType="XlVoucher" >
