@@ -10,9 +10,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="flag" column="flag"/>
 		<result property="type" column="type"/>
 		<result property="validate" column="validate"/>
-		<result property="vo_num" column="vo_num"/>
+		<result property="voNum" column="vo_num"/>
 		<result property="goodId" column="goodId"/>
-		<result property="stipulate_price" column="stipulate_price"/>
+		<result property="goodname" column="tittle"/>
+		<result property="stipulatePrice" column="stipulate_price"/>
 		<result property="createuser" column="create_user"/>
 		<result property="updateuser" column="update_user"/>
 	</resultMap>
@@ -22,11 +23,44 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  	</select>
  	
     <select id="findXlVoucher" parameterType="Map" resultMap="XlVoucherResult">
-		select * from xl_voucher
+		select a.id,a.name,a.price,a.flag,a.type,a.validate,a.vo_num,a.goodId,b.tittle,a.stipulate_price,a.create_user,a.update_user from xl_voucher a,xl_good b
 		<where>
+		    <!--  
 		    <if test="name!=null and name!='' ">
 				name like #{name}
 			</if>
+			-->
+			a.goodId=b.id
+		<if test="name!=null and name!='' ">
+				and a.name like #{name}
+		</if>
+		<if test="price!=null and price!='' ">
+				and a.price = #{price}
+		</if>
+		<if test="flag!=null and flag!='' ">
+				and a.flag = #{flag}
+		</if>
+		<if test="type!=null and type!='' ">
+				and a.type = #{type}
+		</if>
+		<if test="validate!=null and validate!='' ">
+				and a.validate = #{validate}
+		</if>
+		<if test="voNum!=null and voNum!='' ">
+				and a.vo_num = #{voNum}
+		</if>
+		<if test="goodId!=null and goodId!='' ">
+				and a.goodId = #{goodId}
+		</if>
+		<if test="stipulatePrice!=null and stipulatePrice!='' ">
+				and a.stipulate_price = #{stipulatePrice}
+		</if>
+		<if test="createuser!=null and createuser!='' ">
+				and a.createuser = #{createuser}
+		</if>
+		<if test="updateuser!=null and updateuser!='' ">
+				and a.updateuser = #{updateuser}
+		</if>
 		</where>
 		<if test="start!=null and size!=null">
 			limit #{start},#{size}
@@ -43,11 +77,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
     <insert id="addXlVoucher" parameterType="XlVoucher">
-		insert into xl_voucher (id,name,price,flag,type,validate,vo_num,goodId,stipulate_price,create_user) values(null,#{name},#{price},#{flag},#{type},#{validate},#{vo_num},#{goodId},#{stipulate_price},#{create_user});
+		insert into xl_voucher (id,name,price,flag,type,validate,vo_num,goodId,stipulate_price,create_user,update_user) values(null,#{name},#{price},#{flag},#{type},#{validate},#{voNum},#{goodId},#{stipulatePrice},#{create_user},#{update_user});
 	</insert>
 	
     <insert id="addXlVoucherGood" parameterType="XlVoucher">
-		insert into xl_voucher (select a.* from xl_voucher a,xl_good b where a.createuser=#{createuser} and b.id=#{goodId});
+		insert into xl_voucher (select a.* from xl_voucher a,xl_good b where a.createuser=#{createuser} and b.id=#{goodId} and a.goodId=b.id);
 	</insert>
 	
     <update id="updateXlVoucher" parameterType="XlVoucher" >

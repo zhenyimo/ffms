@@ -2,7 +2,7 @@ package com.finance.controller;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.LinkedList;
+//import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -95,10 +95,10 @@ public class XlVoucherController {
 		map.put("flag", StringUtil.formatLike(s_xlVoucher.getFlag()));
 		map.put("type", StringUtil.formatLike(s_xlVoucher.getType()));
 		map.put("validate", s_xlVoucher.getValidate());
-		map.put("vo_num", StringUtil.formatLike(s_xlVoucher.getVonum()));	
+		map.put("voNum", StringUtil.formatLike(s_xlVoucher.getVonum()));	
 		map.put("goodId", s_xlVoucher.getGoodId());	
-		map.put("stipulate_price", s_xlVoucher.getStipulatePrice());
-		map.put("crateuser", s_xlVoucher.getCreateuser());
+		map.put("stipulatePrice", s_xlVoucher.getStipulatePrice());
+		map.put("createuser", s_xlVoucher.getCreateuser());
 		map.put("updateuser", s_xlVoucher.getUpdateuser());
 		map.put("start", pageBean.getStart());	
 		map.put("size", pageBean.getPageSize());

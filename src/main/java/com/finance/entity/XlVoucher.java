@@ -16,6 +16,16 @@ public class XlVoucher implements Serializable{
 	private Date validate; // 金额
 	private Integer voNum; // 类型
 	private Integer goodId; // 备注
+	private String goodname;
+	public String getGoodname() {
+		return goodname;
+	}
+	public void setGoodname(String goodname) {
+		this.goodname = goodname;
+	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 	//private Integer gvid; // 收入时间
 	private double stipulatePrice; // 创建时间
 	private String createuser; //创建者
