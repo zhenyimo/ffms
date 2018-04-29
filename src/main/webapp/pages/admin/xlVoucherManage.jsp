@@ -114,17 +114,27 @@
 		        	$.messager.alert("系统提示","抵用券数量格式错误，请重新输入！","error");
 		            return false;
 		        }
+		        var stipulate_price = /^[1-3][0-9][0-9]$/;
+		        if($("#s_stipulate_price").val()!=''&&!stipulate_price.test($("#s_stipulate_price").val())){
+		        	$.messager.alert("系统提示","抵用券到达金额格式错误，请重新输入！","error");
+		            return false;
+		        }
 		$("#dg").datagrid('load',{
 			"name":$("#s_name").val(),
 			"price":$("#s_price").val(),
 			"flag":$("#s_flag").combobox("getValue"),
 			"type":$("#s_type").combobox("getValue"),
 			"validate":$("#s_validate").val(),
-			"vo_num":$("#s_vo_num").val(),
-			"goodId":$("s_goodId").val(),
-			"stipulate_price":$("s_stipulate_price").val(),
-			"create_user":$("s_create_user").val(),
-			"update_user":$("s_update_user").val()
+			//"vo_num":$("#s_vo_num").val(),
+			"voNum":$("s_vo_num").val(),
+			//"goodId":$("s_goodId").val(),
+			//"stipulate_price":$("s_stipulate_price").val(),
+			//"create_user":$("s_create_user").val(),
+			//"update_user":$("s_update_user").val()
+			"goodname":$("s_goodid").combobox("getValue"),
+			"stipulatePrice":$("s_stipulate_price").val(),
+			"createuser":$("s_create_user").val(),
+			"updateuser":$("s_update_user").val()
 		});
 	}
 	
@@ -133,9 +143,12 @@
 			$("#s_price").val("");
 			$("#s_flag").combobox("setValue","");
 			$("#s_type").combobox("setValue","");
-			$("#s_validate").val("");
+			//$("#s_type").val("");
+			//$("#s_validate").val("");
+			$("#s_validate").datebox("setValue", "");
 			$("#s_vo_num").val("");
-			$("#s_goodId").val("");
+			$("#s_goodid").combobox("setValue","");
+			//$("#s_goodid").val("");
 			$("#s_stipulate_price").val("");
 			$("#s_create_user").val("");
 			$("#s_update_user").val("");
@@ -284,6 +297,11 @@
 		        	$.messager.alert("系统提示","抵用券数量格式错误，请重新输入！","error");
 		            return false;
 		        }
+		        var stipulate_price = /^[1-3][0-9][0-9]$/;
+		        if($("#stipulate_price").val()!=''&&!stipulate_price.test($("#stipulate_price").val())){
+		        	$.messager.alert("系统提示","抵用券到达金额格式错误，请重新输入！","error");
+		            return false;
+		        }
 				return $(this).form("validate");
 			},
 			success:function(result){
@@ -323,7 +341,7 @@
 			return "未定义";
 		}
 	}
-	function openUserFindDialog(){
+	function openXlVoucherFindDialog(){
 		var selectedRows=$("#dg").datagrid('getSelections');
 		if(selectedRows.length!=1){
 			$.messager.alert("系统提示","请选择一条要查看的数据！","info");
@@ -333,12 +351,12 @@
 		$("#finddlg").dialog("open").dialog("setTitle","查看抵用券信息");
 		$("#fname").text(row.name);
 		$("#fprice").text(row.price);
-		$("#fflag").text(formatSex(row.flag));
-		$("#ftype").text(row.type);
+		$("#fflag").text(formatFlag(row.flag));
+		$("#ftype").text(formatType(row.type));
 		$("#fvalidate").text(row.validate);
-		$("#fvo_num").text(row.vo_num);
-		$("#fgoodId").text(row.goodId);
-		$("#fstipulate_price").text(row.stipulate_price);
+		$("#fvo_num").text(row.voNum);
+		$("#fgoodname").text(row.goodname);
+		$("#fstipulate_price").text(row.stipulatePrice);
 		$("#fcreateuser").text(row.createuser);
 		$("#fupdateuser").text(row.updateuser);
 	}
@@ -379,6 +397,7 @@
 			<a href="javascript:openXlVoucherAddDialog()" class="easyui-linkbutton" iconCls="icon-add" plain="true">添加</a>
 			<a href="javascript:openXlVoucherModifyDialog()" class="easyui-linkbutton" iconCls="icon-edit" plain="true">修改</a>
 			<a href="javascript:deleteXlVoucher()" class="easyui-linkbutton" iconCls="icon-remove" plain="true">删除</a>
+		    <a href="javascript:openXlVoucherFindDialog()" class="easyui-linkbutton" iconCls="icon-lsdd" plain="true">查看详细</a>
 		</div>
 		<div>
 			&nbsp;抵用券名称：&nbsp;<input type="text" id="s_name" size="15" onkeydown="if(event.keyCode==13) searchXlVoucher()"/>
@@ -404,6 +423,7 @@
 					<option value="">无</option>
 				</select>-->
 				<input class="easyui-combobox" id="s_goodid" name="s_goodid" editable="false" style="width:140px;" >		
+		    &nbsp;抵用券到达金额：&nbsp;<input type="text" id="s_stipulate_price" size="15" onkeydown="if(event.keyCode==13) searchXlVoucher()"/>
 		    &nbsp;抵用券创建者：&nbsp;<input type="text" id="s_create_user" size="15" onkeydown="if(event.keyCode==13) searchXlVoucher()"/>
 		    &nbsp;抵用券修改者：&nbsp;<input type="text" id="s_update_user" size="15" onkeydown="if(event.keyCode==13) searchXlVoucher()"/>
 			<a href="javascript:searchXlVoucher()" class="easyui-linkbutton" iconCls="icon-search" plain="true">搜索</a>
@@ -460,6 +480,10 @@
 				</select>--><input class="easyui-combobox" id="goodid" name="goodid" editable="false" style="width:140px;" >&nbsp;<font color="red">*</font>
 				</td>
 				</tr>
+				<tr>
+	 				<td>抵用券到达金额：</td>
+	 				<td><input type="text" id="stipulate_price" name="stipulate_price" class="easyui-validatebox easyui-textbox" required="true" />&nbsp;<font color="red">*</font></td>
+	 			</tr>
 			    <tr>
 	 				<td>抵用券创建者：</td>
 	 				<td><input type="text" id="createuser" name="createuser" class="easyui-validatebox easyui-textbox" required="true" value="${usernamemessage}"/>&nbsp;<font color="red">*</font></td>
@@ -493,16 +517,18 @@
 	 			<td>抵用券有效期：</td>
 	 			<td><span id="fvalidate"></span></td>
 	 			<td>抵用券数量：</td>
-	 			<td><span id="f_vo_num"></span></td>
+	 			<td><span id="fvo_num"></span></td>
 	 		</tr>
 	 		<tr>
 	 			<td>抵用券指定商品：</td>
-	 			<td><span id="fgoodid"></span></td>
+	 			<td><span id="fgoodname"></span></td>
+	 			<td>抵用券到达金额：</td>
+	 			<td><span id="fstipulate_price"></span></td>
 	 		</tr>
 	 		<tr>
-	 			<td>创建用户：</td>
+	 			<td>抵用券创建者：</td>
 	 			<td><span id="fcreateuser"></span></td>
-	 			<td>修改用户：</td>
+	 			<td>抵用券修改者：</td>
 	 			<td><span id="fupdateuser"></span></td>
 	 		</tr>
 	 	</table>
