@@ -14,9 +14,9 @@
             />
 	
 	
-	<!-- 缓存10分钟 -->
-    <cache name="tenMinute"
-           maxElementsInMemory="10000"
+	<!-- 缓存30分钟 -->
+    <cache name="thirtyMinute"
+           maxElementsInMemory="30000"
            maxElementsOnDisk="100000"
            eternal="false"
            timeToIdleSeconds="600"

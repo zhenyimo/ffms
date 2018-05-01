@@ -57,5 +57,7 @@ public class XlAnswer implements Serializable{
 				+ getQuesId() + ", getNextQuestionId()=" + getNextQuestionId()
 				+ ", getAnswerScore()=" + getAnswerScore() + "]";
 	}
+	
+	
 
 }

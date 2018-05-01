@@ -1,8 +1,6 @@
 package com.finance.entity;
-
 import java.io.Serializable;
 import java.util.Date;
-
 public class XlVoucher implements Serializable{
 	/**
 	 * 
@@ -18,8 +16,20 @@ public class XlVoucher implements Serializable{
 	private Date validate; // 金额
 	private Integer voNum; // 类型
 	private Integer goodId; // 备注
-	private Integer gvid; // 收入时间
+	private String goodname;
+	public String getGoodname() {
+		return goodname;
+	}
+	public void setGoodname(String goodname) {
+		this.goodname = goodname;
+	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	//private Integer gvid; // 收入时间
 	private double stipulatePrice; // 创建时间
+	private String createuser; //创建者
+	private String updateuser; //修改者
 	public Integer getId() {
 		return id;
 	}
@@ -68,16 +78,33 @@ public class XlVoucher implements Serializable{
 	public void setGoodId(Integer goodId) {
 		this.goodId = goodId;
 	}
-	public Integer getGvid() {
+/*	public Integer getGvid() {
 		return gvid;
 	}
 	public void setGvid(Integer gvid) {
 		this.gvid = gvid;
-	}
+	}*/
 	public double getStipulatePrice() {
 		return stipulatePrice;
 	}
 	public void setStipulatePrice(double stipulatePrice) {
 		this.stipulatePrice = stipulatePrice;
 	}
+	public String getVonum() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public String getCreateuser() {
+		return createuser;
+	}
+	public void setCreateuser(String createuser) {
+		this.createuser = createuser;
+	}
+	public String getUpdateuser() {
+		return updateuser;
+	}
+	public void setUpdateuser(String updateuser) {
+		this.updateuser = updateuser;
+	}
+	
 }

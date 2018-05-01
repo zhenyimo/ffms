@@ -26,5 +26,10 @@ public class XlGoodServiceImpl implements XlGoodService{
 		// TODO Auto-generated method stub
 		return goodDao.findByGoodId(map);
 	}
+	@Override
+	public List<XlGood> getXlGoods() {
+		// TODO Auto-generated method stub
+		return goodDao.getXlGoods();
+	}
 	
 }

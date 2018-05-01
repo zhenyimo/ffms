@@ -3,7 +3,9 @@ package com.finance.service;
 import java.util.List;
 import java.util.Map;
 
+import com.finance.entity.XlEvaluation;
 import com.finance.entity.XlQuestion;
+import com.finance.entity.XlVipAnswer;
 
 //import com.finance.entity.Datadic;
 //import com.finance.entity.Title;
@@ -22,7 +24,6 @@ public interface XlQuestionService {
 	 * @param map
 	 * @return
 	 */
-	//public List<Title> findTitle(Map<String,Object> map);
 	public List<XlQuestion> findXlQuestion(Map<String,Object> map);
 	
 	/**
@@ -31,6 +32,9 @@ public interface XlQuestionService {
 	 * @return
 	 */
 	public Long getTotalXlQuestion(Map<String,Object> map);
+	
+	//根据quesId获取XlQuestion
+	public XlQuestion findQuestionById(Integer quesId);
 	
 	/**
 	 * 更新题目
@@ -44,7 +48,6 @@ public interface XlQuestionService {
 	 * @param xlQuestion
 	 * @return
 	 */
-	//public int addTitle(Title title);
 	public int addXlQuestion(XlQuestion xlQuestion);
 	/**
 	 * 删除题目
@@ -53,8 +56,19 @@ public interface XlQuestionService {
 	 */
 	public int deleteXlQuestion(Integer id);
 	/**
-	 * 
+	 * 根据goodId返回question
 	 * @return
 	 */
 	public List<XlQuestion> findQuestionByGoodId(Map<String,Object> map);
+	
+	/**
+	 * 根据goodId和openId获取用户回答的答案
+	 * @param map
+	 * @return
+	 */
+	public List<XlVipAnswer> findVipAnsByGoodIdAndOpenId(Map<String,Object> map);
+	
+	public List<XlEvaluation> findEvaluationDetails(Map<String,Object> map);
+	
+	
 }

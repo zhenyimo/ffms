@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.finance.dao.XlTypeDao">
+    <resultMap type="XlType" id="XlTypeResult">
+		<result property="id" column="id"/>
+		<result property="name" column="name"/>
+		<result property="flag" column="flag"/>
+	</resultMap>
+	
+    <select id="getXlTypes" resultType="XlType">
+ 		select * from xl_type
+ 	</select>
+ 	
+    <select id="findXlType" parameterType="Map" resultMap="XlTypeResult">
+		select * from xl_type
+		<where>
+		    <if test="name!=null and name!='' ">
+				name like #{name}
+			</if>
+		</where>
+		<if test="start!=null and size!=null">
+			limit #{start},#{size}
+		</if>
+	</select>
+	
+    <select id="getTotalXlType" parameterType="Map" resultType="Long">
+		select count(*) from xl_type
+		<where>
+		    <if test="name!=null and name!='' ">
+				name like #{name}
+			</if>
+		</where>
+	</select>
+	
+    <insert id="addXlType" parameterType="XlType">
+		insert into xl_type(id,name) values(null,#{name});
+	</insert>
+	
+    <update id="updateXlType" parameterType="XlType" >
+		update xl_type
+		<set>
+			<if test="name!=null and name!='' ">
+				name=#{name}
+			</if>
+		</set>
+		where id=#{id}
+	</update>
+	
+    <delete id="deleteXlType" parameterType="Integer">
+	    delete from xl_type where id=#{id};
+	</delete>
+
+</mapper> 	

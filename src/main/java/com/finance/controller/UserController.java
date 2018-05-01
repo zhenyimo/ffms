@@ -154,7 +154,10 @@ public class UserController {
 		User usermessage = userService.getUserById(usersession.getId());
 		usermessage.setPassword(Base64Util.decodeStr(usermessage.getPassword(),"UTF-8"));
 		map.addAttribute("usermessage", usermessage);
-		return "admin/main";
+		//map.addAttribute("usernamemessage",usermessage.getUsername());
+		//map.put("usernamemessage", usermessage.getUsername());
+		session.setAttribute("usernamemessage", usermessage.getUsername());
+		return "/admin/main";
 	}
 
 	/**

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.finance.dao.XlVipAnswerDao">
+	<resultMap type="com.finance.entity.XlVipAnswer" id="vipAnswerQuestionList">
+		<id property="id" column="id" javaType="java.lang.Integer"/>
+		<result property="answer_num" column="answer_num" javaType="java.lang.String"/>
+		<result property="answer_content" column="answer_content" javaType="java.lang.String"/>
+		<result property="answer_score" column="answer_score" javaType="java.lang.String"/>
+		<result property="questionId" column="questionId" javaType="java.lang.Integer"/>
+		<result property="next_questionId" column="next_questionId" javaType="java.lang.Integer"/>
+		<result property="goodId" column="goodId" javaType="java.lang.Integer"/>
+		<result property="openId" column="openId" javaType="java.lang.String"/>
+	</resultMap>
+	<!--  
+	<select id="findByLimit" parameterType="Map" resultMap="goodMap">
+	-->
+	<select id="findVipAnsByGoodIdAndOpenId" resultMap="vipAnswerQuestionList">
+		 select *from xl_vip_answer where goodId=#{goodId} and openId=#{openId}
+	</select>
+</mapper>
