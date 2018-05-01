@@ -20,7 +20,7 @@ public class XlOrder implements Serializable{
 	private Integer claimNum;//已认领数量
 	private double money; // 总金额
 	private Integer vipId; // 备注
-	private String goodId; // 收入时间
+	private Integer goodId; // 收入时间
 	private Integer commentId; // 创建时间
 	private XlGood good;
 	private List<XlOrderSend> orderSend;
@@ -62,10 +62,10 @@ public class XlOrder implements Serializable{
 	public void setVipId(Integer vipId) {
 		this.vipId = vipId;
 	}
-	public String getGoodId() {
+	public Integer getGoodId() {
 		return goodId;
 	}
-	public void setGoodId(String goodId) {
+	public void setGoodId(Integer goodId) {
 		this.goodId = goodId;
 	}
 	public Integer getCommentId() {
@@ -112,4 +112,8 @@ public class XlOrder implements Serializable{
 		else return false;
 	}
 	
+	
+	public void incClaimNum(){
+		this.claimNum++;
+	}
 }

@@ -4,7 +4,8 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class XlOrderSend implements Serializable{
-
+	public static final int NOT_CLAIM=0;
+	public static final int CLAIMED=1;
 	/**
 	 * 
 	 */
@@ -13,9 +14,11 @@ public class XlOrderSend implements Serializable{
 	private String orderNo; // 
 	private Date time; // 
 	private double money; // 
+	private Integer goodId;
 	private Integer fromUser; // 赠送者id
 	private Integer toUser; // 
 	private XlVip vip;
+	private Integer isClaim;
 	public Integer getId() {
 		return id;
 	}
@@ -58,6 +61,18 @@ public class XlOrderSend implements Serializable{
 	}
 	public void setVip(XlVip vip) {
 		this.vip = vip;
+	}
+	public Integer getIsClaim() {
+		return isClaim;
+	}
+	public void setIsClaim(Integer isClaim) {
+		this.isClaim = isClaim;
+	}
+	public Integer getGoodId() {
+		return goodId;
+	}
+	public void setGoodId(Integer goodId) {
+		this.goodId = goodId;
 	}
 
 	

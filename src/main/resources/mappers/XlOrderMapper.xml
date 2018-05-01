@@ -26,6 +26,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<!-- 	<result property="order_num" column="sorder_num" /> -->
 			<result property="fromUser" column="sfrom_user" />
 			<result property="toUser" column="sto_user" />	
+			<result property="isClaim" column="sis_claim" />
 			<association property="vip" javaType="XlVip" >
 				<result property="openId" column="vopenId" />
 				<result property="nickName" column="vnickName" />
@@ -33,7 +34,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</collection>  	
 	</resultMap>
 	<select id="findOrderSendByVipId" parameterType="Map" resultMap="orderMap">
-		select a.id aid,a.order_no aorder_no,a.time atime,a.flag aflag,a.money amoney,a.vipId avipId,a.goodId agoodId,a.commentId acommentId,s.id sid, s.order_no sorder_no, s.time stime, s.money smoney, s.goodId sgoodId, s.from_user sfrom_user,v.openId vopenId,v.nickName vnickName, s.to_user sto_user,a.gtittle,a.gsubtittle,a.claim_num aclaimNum,a.order_num aorderNum from (
+		select a.id aid,a.order_no aorder_no,a.time atime,a.flag aflag,a.money amoney,a.vipId avipId,a.goodId agoodId,a.commentId acommentId,s.id sid, s.order_no sorder_no, s.time stime, s.money smoney, s.goodId sgoodId, s.from_user sfrom_user,v.openId vopenId,v.nickName vnickName, s.to_user sto_user,s.is_claim sis_claim,a.gtittle,a.gsubtittle,a.claim_num aclaimNum,a.order_num aorderNum from (
 			select o.*,g.tittle gtittle,g.subtittle gsubtittle from xl_order o inner join xl_good g on o.goodId=g.id
 			<where>
 		       o.vipId=#{vipId}
@@ -76,4 +77,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
       </selectKey>
         INSERT INTO xl_order (order_no, time, flag, money, vipId, goodId, commentId, order_num, claim_num) VALUES (#{orderNo}, #{time}, #{flag}, #{money}, #{vipId}, #{goodId}, #{commentId}, #{orderNum}, #{claimNum})
     </insert>
+    
+    
+     <update id="updateOne"  parameterType="XlOrder">
+ 		UPDATE xl_order
+		 <trim prefix="set" suffixOverrides=",">
+		  <if test="orderNo!=null">order_no=#{orderNo},</if>
+		  <if test="time!=null">time=#{time},</if>
+		  <if test="flag!=null">flag=#{flag},</if>
+		  <if test="money!=null">money=#{money},</if>
+		  <if test="goodId!=null">goodId=#{goodId},</if>
+		  <if test="vipId!=null">vipId=#{vipId},</if>
+		  <if test="commentId!=null">commentId=#{commentId},</if>
+		  <if test="orderNum!=null">order_num=#{orderNum},</if>
+		  <if test="claimNum!=null">claim_num=#{claimNum},</if>
+		 </trim>
+ 		WHERE id=#{id}
+	</update>   
 </mapper>

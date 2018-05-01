@@ -75,7 +75,7 @@ public class XlOrderServiceImpl implements XlOrderService{
 		// TODO Auto-generated method stub
 		XlOrder order=new XlOrder();
 		order.setClaimNum(0);
-		order.setGoodId(good.getId().toString());
+		order.setGoodId(good.getId());
 		order.setFlag(XlOrder.FLAG_NOT_PAY);
 		order.setTime(new Date());
 		order.setVipId(vipId);
@@ -85,6 +85,11 @@ public class XlOrderServiceImpl implements XlOrderService{
 		order.setMoney(good.getPrice()*goodNum);
 		xlOrderDao.insertXlOrder(order);
 		return order.getOrderNo();
+	}
+	@Override
+	public void updateOne(XlOrder order) {
+		// TODO Auto-generated method stub
+		xlOrderDao.updateOne(order);
 	}
 
 }

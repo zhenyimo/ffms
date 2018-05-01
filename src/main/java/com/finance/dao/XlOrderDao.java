@@ -14,6 +14,6 @@ public interface XlOrderDao {
 	public List<XlOrder> findByOrderNo(Map<String,Object> param);
 	public void updateStatusByOrderNo(Map<String,Object> param);
 	public Integer insertXlOrder(XlOrder order);
-	
+	public void updateOne(XlOrder order);
 	public List<XlOrder> findByOrderNoAndVipId(Map<String,Object> param);
 }

@@ -322,7 +322,7 @@ public class WeiXinController extends SerialSupport{
 	
 
 	@RequestMapping("/payGood.do")
-	public String payGood(Model model,HttpServletRequest request,@RequestParam("goodId")String goodId,@RequestParam("goodNum")int goodNum){
+	public String payGood(Model model,HttpServletRequest request,@RequestParam("goodId")String goodId,@RequestParam("goodNum")int goodNum,@RequestParam("isGift")int isGift){
 		Map<String,Object> params=new HashMap<String,Object>();
 		params.put(GoodDao.PARAM_GOOD_ID,goodId);
 		XlGood good=xlGoodService.findByGoodId(params);
@@ -332,9 +332,17 @@ public class WeiXinController extends SerialSupport{
 		model.addAttribute("orderNo",orderNo);
 		model.addAttribute("jsApiListInit","onMenuShareAppMessage,chooseWXPay");
 		model.addAttribute("good",good);
+		//0-赠送，1-测评后的支付，赠送的话，支付完成后需要跳转到分享页面，测评的话则跳转到测评结果
+		if(isGift==0){
+			model.addAttribute("redirectUrl","/front/gift/giftShare.do?orderNo="+orderNo);
+		}else{
+			//跳到测评结果页面
+			model.addAttribute("redirectUrl","");
+		}
 		return "front/pay";
 		
 	}
+	
 	
 	
 	private XlVip newXlVip(ApiResult apiResult){

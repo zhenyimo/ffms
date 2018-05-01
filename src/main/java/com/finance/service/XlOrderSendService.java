@@ -10,4 +10,5 @@ public interface XlOrderSendService {
 	public List<XlOrderSend> findByToUser(Map<String,Object> param); 
 	public double sumOrderMoneyByToUser(Map<String,Object> param); 
 	public List<XlOrderSend> findByToUserWithFromUserVip(Map<String,Object> param); 
+	public boolean claimIfOrderHasRest(String orderNo,Object fromUser,Object toUser);
 }

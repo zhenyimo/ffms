@@ -16,15 +16,16 @@
   <div class="wy-header-icon-back"><span></span></div>
   <div class="wy-header-title">微信支付</div>
 </header>
+<input id="jsApiListInit" type="hidden" value="${jsApiListInit}"/> 
 <div class="weui-content">
-  <input id="afterPayRedirectUrl" type="hidden" value="${redirectUrl}"/>
+  <input id="redirectUrl" type="hidden" value="${redirectUrl}"/>
   <div class="wy-media-box weui-media-box_text">
     <div class="weui-media-box__bd">
      <div class="weui-media-box_appmsg ord-pro-list">
-        <div class="weui-media-box__hd"><a href="#"><img class="weui-media-box__thumb" src="${basePath}/pages/front/images/${good.pictureName}"  alt=""></a></div>
+        <div class="weui-media-box__hd"><a href="pro_info.html"><img class="weui-media-box__thumb" src="${basePath}/pages/front/images/${good.pictureName}"  alt=""></a></div>
         <div class="weui-media-box__bd">
           <h1 class="weui-media-box__desc"><a href="javascript:void(0)" class="ord-pro-link">${good.tittle }</a></h1>
-          <p class="weui-media-box__desc">类型：<span>${good.typeName}</span></p>
+          <p class="weui-media-box__desc">类型：<span>${good.typeName}</span>
           <div class="clear mg-t-10">
             <div class="wy-pro-pri fl">¥<em class="num font-15">${good.price}</em></div>
             <div class="pro-amount fr"><div id="spinner-amount" class="Spinner"></div></div>
