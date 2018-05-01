@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.finance.entity.XlQuestion;
+import com.finance.entity.XlVipAnswer;
 /**
  * 题目dao层接口
  * @author zhongzh
@@ -25,6 +26,13 @@ public interface XlQuestionDao {
 	 * @return
 	 */
 	public Long getTotalXlQuestion(Map<String,Object> map);
+	
+	/**
+	 * 根据quesId获取XlQuestion
+	 * @param quesId
+	 * @return
+	 */
+	public XlQuestion findQuestionById(Integer quesId);
 	
 	/**
 	 * 更新题目
@@ -54,5 +62,7 @@ public interface XlQuestionDao {
 	 * @return
 	 */
 	public List<XlQuestion> findQuestionByGoodId(Map<String,Object> map);
+	
+	
 
 }

@@ -28,6 +28,9 @@ public class XlGood implements Serializable{
 	private Integer updateUser; // 创建者id
 	private String updateUsername;// 创建人名字
 	private Date updateTime;//
+	private Integer quesTypeNum;
+	
+
 	private List<XlQuestion> quesList;
 
 	public Integer getId() {
@@ -179,6 +182,14 @@ public class XlGood implements Serializable{
 
 	public void setQuesList(List<XlQuestion> quesList) {
 		this.quesList = quesList;
+	}
+	
+	public Integer getQuesTypeNum() {
+		return quesTypeNum;
+	}
+
+	public void setQuesTypeNum(Integer quesTypeNum) {
+		this.quesTypeNum = quesTypeNum;
 	}
 
 }

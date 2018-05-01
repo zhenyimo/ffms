@@ -53,10 +53,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  	<select id="findXlQuestion" resultMap="XlQuestionResult">
 		select * from xl_question;
 	</select>
-	<!-- 一对多查询，查询所有题目与答案 -->
-	 <!-- 	<select id="findXlQuestionAndXlAnswer" parameterType="int" resultMap="XlQuestionXlAnswerResult">
-		select q.*,a.* from xl_question q,xl_answer a where q.questionId=a.questionId; 
-		
-
-</select> -->
+	<select id="findQuestionById" resultMap="XlQuestionResult" parameterType="int">
+	select * from xl_question where id=#{quesId}
+	</select>
 </mapper> 	

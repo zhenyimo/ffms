@@ -22,6 +22,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="updateUser" column="update_user" />
 		<result property="updateUsername" column="update_username" />
 		<result property="updateTime" column="update_time" />
+		<result property="quesTypeNum" column="ques_type_num" />
 		<!-- 一对多关系 -->
 		<!-- <collection property="xlquesist" column="goodId" ofType="com.finance.entity.XlQuestion" >
              <id property="id" column="id" javaType="java.lang.Integer"></id>

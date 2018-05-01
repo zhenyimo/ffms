@@ -19,6 +19,8 @@ public class XlVipAnswer implements Serializable{
 	private Integer nextQuestionId; //下一题id
 	private Integer answerScore; // 该题分数	
 	private String openId;
+	private Integer goodId;
+	
 	public String getOpenId() {
 		return openId;
 	}
@@ -63,6 +65,12 @@ public class XlVipAnswer implements Serializable{
 	}
 	public void setAnswerScore(Integer answerScore) {
 		this.answerScore = answerScore;
+	}
+	public Integer getGoodId() {
+		return goodId;
+	}
+	public void setGoodId(Integer goodId) {
+		this.goodId = goodId;
 	}
 	@Override
 	public String toString() {

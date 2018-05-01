@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.finance.dao.XlEvaluationDao">
+ 	<!-- -->
+    <resultMap type="com.finance.entity.XlEvaluation" id="XlEvaluationResult">
+		<id property="id" column="id" javaType="java.lang.Integer"/>
+		<result property="reportDescribe" column="report_describe" javaType="java.lang.String"/>
+		<result property="minScore" column="min_score" javaType="java.lang.Integer"/>
+		<result property="maxScore" column="max_score" javaType="java.lang.Integer"/>
+		<result property="goodId" column="goodId" javaType="java.lang.Integer"/>
+		<result property="goodname" column="goodname" javaType="java.lang.String"/>
+		<result property="level" column="level" javaType="java.lang.String"/>
+		<result property="quesType" column="ques_type" javaType="java.lang.String"/>
+	</resultMap>
+ 	<!-- -->
+ 	<resultMap type="com.finance.entity.XlEvaluation" id="XlEvaluationResultDetail" extends="XlEvaluationResult">
+        <collection property="xlEvaluationDetailList"  ofType="com.finance.entity.XlEvaluationDetail" columnPrefix="eval_">
+             <id property="id" column="id" javaType="java.lang.Integer"/>
+             <result property="eid" column="eid" javaType="java.lang.Integer"/>
+             <result property="evalType" column="eval_type" javaType="java.lang.String"/>
+             <result property="evalNum" column="eval_num" javaType="java.lang.Integer"/>
+             <result property="evalContent" column="eval_content" javaType="java.lang.String"/>
+              <result property="evalUrl" column="eval_url" javaType="java.lang.String"/>
+        </collection>
+	</resultMap> 
+	<select id="findEvaluationDetails" parameterType="Map" resultMap="XlEvaluationResultDetail">
+       select q.*,
+       a.id eval_id,
+       a.eid eval_eid,
+       a.eval_num eval_num,
+       a.eval_type eval_type,
+       a.eval_content eval_content,
+       a.eval_url eval_url
+       from xl_evaluation q,xl_evaluation_detail a 
+	   where a.eid=q.id and q.goodId=#{goodId} and q.min_score<![CDATA[ <= ]]>#{score} and q.max_score<![CDATA[ >= ]]>#{score}
+	</select>
+	
+ 	
+</mapper> 	

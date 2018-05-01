@@ -129,7 +129,7 @@ require(['jquery'],function($){
 			//确定支付的dialog
 	        $.confirm("为了感谢我们的心理老师和程序员为测评的撰写和编辑，请您付上一点小小的爱心吧?",  function() {
 //	          $.toast("文件已经删除!");
-	        	QuestionApi.payGood(goodId);
+	        	QuestionApi.result(goodId);
 	        }, function() {
 	          //取消操作
 	        });
@@ -139,11 +139,12 @@ require(['jquery'],function($){
 		//跳转到支付页面
 		QuestionApi.payGood=function(goodId){
 			window.location.href=pathContext+"/front/wx/payGood.do?goodId="+goodId;
+			
 		};
 		
 		//跳转到测评结果页面
 		QuestionApi.result=function(goodId){
-			window.location.href=pathContext+"/front/good/result.do?goodId="+goodId;
+			window.location.href=pathContext+"/front/question/evaluationResult.do?goodId="+goodId;
 		};
 		
 		//将答题结果缓存到eacache

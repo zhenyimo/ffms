@@ -7,8 +7,12 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.finance.dao.XlEvaluationDao;
 import com.finance.dao.XlQuestionDao;
+import com.finance.dao.XlVipAnswerDao;
+import com.finance.entity.XlEvaluation;
 import com.finance.entity.XlQuestion;
+import com.finance.entity.XlVipAnswer;
 import com.finance.service.XlQuestionService;
 
 /**
@@ -21,6 +25,10 @@ import com.finance.service.XlQuestionService;
 public class XlQuestionServiceImpl implements XlQuestionService{
 	@Resource
 	private XlQuestionDao xlQuestionDao;
+	@Resource
+	private XlVipAnswerDao xlVipAnswerDao;
+	@Resource
+	private XlEvaluationDao xlEvaluationDao;
 
 	public List<XlQuestion> findXlQuestion(Map<String, Object> map) {
 		return xlQuestionDao.findXlQuestion(map);
@@ -43,68 +51,6 @@ public class XlQuestionServiceImpl implements XlQuestionService{
 		return xlQuestionDao.deleteXlQuestion(id);
 	}
 
-	
-/*	public List<Datadic> getDatadicIncome() {
-		// TODO Auto-generated method stub
-		return datadicDao.getDatadicIncome();
-	}
-
-	
-	public List<Datadic> getDatadicPay() {
-		// TODO Auto-generated method stub
-		return datadicDao.getDatadicPay();
-	}
-
-	
-	public List<Datadic> getDatadicSecurity() {
-		// TODO Auto-generated method stub
-		return datadicDao.getDatadicSecurity();
-	}
-
-	
-	public List<Datadic> findDatadic(Map<String, Object> map) {
-		// TODO Auto-generated method stub
-		return datadicDao.findDatadic(map);
-	}
-
-	
-	public Long getTotalDatadic(Map<String, Object> map) {
-		// TODO Auto-generated method stub
-		return datadicDao.getTotalDatadic(map);
-	}
-
-	
-	public int updateDatadic(Datadic datadic) {
-		// TODO Auto-generated method stub
-		return datadicDao.updateDatadic(datadic);
-	}
-
-	
-	public int addDatadic(Datadic datadic) {
-		// TODO Auto-generated method stub
-		return datadicDao.addDatadic(datadic);
-	}
-
-	
-	public int deleteDatadic(Integer id) {
-		// TODO Auto-generated method stub
-		return datadicDao.deleteDatadic(id);
-	}
-	
-	public List<Datadic> getDatadicname(){
-		return datadicDao.getDatadicname();
-	}
-
-
-	public List<Title> getTitleTrade() {
-		// TODO Auto-generated method stub
-		return titleDao.getDatadicTrade();
-	}
-	*/
-/*	public List<Title> getTitlename() {
-		// TODO Auto-generated method stub
-		return titleDao.getTitlename();
-	}*/
 	public List<XlQuestion> getXlQuestion() {
 		// TODO Auto-generated method stub
 		return xlQuestionDao.getXlQuestion();
@@ -114,5 +60,20 @@ public class XlQuestionServiceImpl implements XlQuestionService{
 	public List<XlQuestion> findQuestionByGoodId(Map<String, Object> map) {
 		// TODO Auto-generated method stub
 		return xlQuestionDao.findQuestionByGoodId(map);
+	}
+
+	@Override
+	public XlQuestion findQuestionById(Integer quesId) {
+		return xlQuestionDao.findQuestionById(quesId);
+	}
+
+	@Override
+	public List<XlVipAnswer> findVipAnsByGoodIdAndOpenId(Map<String, Object> map) {
+		return xlVipAnswerDao.findVipAnsByGoodIdAndOpenId(map);
+	}
+
+	@Override
+	public List<XlEvaluation> findEvaluationDetails(Map<String, Object> map) {
+		return xlEvaluationDao.findEvaluationDetails(map);
 	}
 }

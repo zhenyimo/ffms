@@ -1,6 +1,7 @@
 package com.finance.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class XlEvaluation implements Serializable{
 	/**
@@ -12,9 +13,11 @@ public class XlEvaluation implements Serializable{
 	private Integer goodId; // 
 	private String goodname; // 
 	private String reportDescribe; // 描述
-	private Integer minScore; // 来源
-	private Integer maxScore; // 金额
-	private String level; // 类型
+	private Integer minScore; // 最低
+	private Integer maxScore; // 最高分
+	private String level; // 程度
+	private String quesType;
+	private List<XlEvaluationDetail> xlEvaluationDetailList;
 	
 	public Integer getId() {
 		return id;
@@ -57,5 +60,18 @@ public class XlEvaluation implements Serializable{
 	}
 	public void setLevel(String level) {
 		this.level = level;
+	}
+	public String getQuesType() {
+		return quesType;
+	}
+	public void setQuesType(String quesType) {
+		this.quesType = quesType;
+	}
+	public List<XlEvaluationDetail> getXlEvaluationDetailList() {
+		return xlEvaluationDetailList;
+	}
+	public void setXlEvaluationDetailList(
+			List<XlEvaluationDetail> xlEvaluationDetailList) {
+		this.xlEvaluationDetailList = xlEvaluationDetailList;
 	}
 }
