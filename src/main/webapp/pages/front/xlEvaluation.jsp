@@ -9,7 +9,11 @@
         <div class="weui-panel__bd">
           <div class="wy-media-box weui-media-box_text">
             <div class="weui-cell nopd weui-cell_access">
-              <div class="weui-cell__bd weui-cell_primary"><p>"${eval.level}:${eval.reportDescribe}"</p></div>
+              <div class="weui-cell__bd weui-cell_primary"><p>
+              <c:if test="${eval.level==1}">A </c:if>
+              <c:if test="${eval.level==2}">B </c:if>
+              <c:if test="${eval.level==3}">C </c:if>
+              :${eval.reportDescribe}</p></div>
             </div>
             <c:forEach var="detail" items="${eval.xlEvaluationDetailList}">
             <p class="weui-media-box__desc">"${detail.evalContent}"</p>

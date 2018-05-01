@@ -33,7 +33,7 @@
 	                    <c:forEach var="answer" items="${question.getAnswerList()}" begin="0" end ="${question.getAnswerList().size()}" varStatus="anstatus">
 		                     <div class="panel-body">
 		                    <span style="font-size:1.2em;color:#333"> <em><c:out value="${anstatus.count}"/>.</em>${answer.ansContent}</span>
-		                        <input type="radio" id="singleRadio1" style="float:right;" onclick="QuestionApi.nextQuestion(${good.id},this)"  value="option1" name="radioSingle1" aria-label="Single radio One">
+		                        <input type="radio" id="singleRadio_${anstatus.count}" style="float:right;" onclick="QuestionApi.nextQuestion(${good.id},this,'${answer.nextQuestionId}','${answer.nextQuesNum}')"  value="option_${anstatus.count}" name="radioSingle_${anstatus.count}" aria-label="Single radio One">
 		                        <div>
 		                        <input type="hidden" name="id" value="${answer.id}">
 		                        <input type="hidden" name="ansNum" value="${answer.ansNum}">

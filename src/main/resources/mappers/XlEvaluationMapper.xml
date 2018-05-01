@@ -17,7 +17,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</resultMap>
  	<!-- -->
  	<resultMap type="com.finance.entity.XlEvaluation" id="XlEvaluationResultDetail" extends="XlEvaluationResult">
-        <collection property="xlEvaluationDetailList"  ofType="com.finance.entity.XlEvaluationDetail" columnPrefix="eval_">
+        <collection property="xlEvaluationDetailList"  ofType="com.finance.entity.XlEvaluationDetail" columnPrefix="result_">
              <id property="id" column="id" javaType="java.lang.Integer"/>
              <result property="eid" column="eid" javaType="java.lang.Integer"/>
              <result property="evalType" column="eval_type" javaType="java.lang.String"/>
@@ -28,12 +28,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</resultMap> 
 	<select id="findEvaluationDetails" parameterType="Map" resultMap="XlEvaluationResultDetail">
        select q.*,
-       a.id eval_id,
-       a.eid eval_eid,
-       a.eval_num eval_num,
-       a.eval_type eval_type,
-       a.eval_content eval_content,
-       a.eval_url eval_url
+       a.id result_id,
+       a.eid result_eid,
+       a.eval_num result_eval_num,
+       a.eval_type result_eval_type,
+       a.eval_content result_eval_content,
+       a.eval_url result_eval_url
        from xl_evaluation q,xl_evaluation_detail a 
 	   where a.eid=q.id and q.goodId=#{goodId} and q.min_score<![CDATA[ <= ]]>#{score} and q.max_score<![CDATA[ >= ]]>#{score}
 	</select>

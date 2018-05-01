@@ -63,27 +63,31 @@ public class QuesController {
 	@ResponseBody
 	public AjaxJsonResult saveAnswerCache(Model model,HttpServletRequest request,@RequestParam("goodId")String goodId,String answer){
 		AjaxJsonResult result = new AjaxJsonResult();
-		Map<String,Object> params=new HashMap<String,Object>();
+		Map<String,Object> params=new ConcurrentHashMap<String,Object>();
 		params.put(GoodDao.PARAM_GOOD_ID,goodId);
 		XlGood good=xlGoodService.findByGoodId(params);
 		XlVip curUser=(XlVip) request.getSession().getAttribute(Constants.currentFrontUserSessionKey);
         String openId=curUser.getOpenId();
         XlVipAnswer vipAnswer=JSON.parseObject(answer, XlVipAnswer.class);
         vipAnswer.setOpenId(openId);
-		  Map<String, List<XlVipAnswer>> goodMap= (Map<String, List<XlVipAnswer>>) EhcacheUtil.getInstance().get("thirtyMinute", openId);
+		  Map<String, List<XlVipAnswer>> goodMap= (Map<String, List<XlVipAnswer>>) EhcacheUtil.getInstance().get(XlVipAnswer.VIP_ANSWER_CACHE_NAME, openId);
 //          EhcacheUtil.getInstance().remove(XlVipAnswer.VIP_ANSWER_CACHE_NAME, openId);
           if (goodMap== null) {  
               System.err.println("缓存不存在");  
               goodMap=new HashMap<String, List<XlVipAnswer>>();
               List<XlVipAnswer> indextList=new LinkedList<XlVipAnswer>();
-              indextList.add(vipAnswer );
+              synchronized(indextList){
+            	  indextList.add(vipAnswer ); 
+              }
         	  goodMap.put(goodId, indextList);
         	  EhcacheUtil.getInstance().put(XlVipAnswer.VIP_ANSWER_CACHE_NAME, openId, goodMap);
           }else{  
         	  List<XlVipAnswer> indextList= goodMap.get(goodId);
-        	  indextList.add(vipAnswer );
-        	  goodMap.put(goodId, indextList);
-        	  EhcacheUtil.getInstance().put(XlVipAnswer.VIP_ANSWER_CACHE_NAME, openId, goodMap);
+        	  synchronized(indextList){
+        		  indextList.add(vipAnswer );  
+        	  }
+//        	  goodMap.put(goodId, indextList);
+//        	  EhcacheUtil.getInstance().put(XlVipAnswer.VIP_ANSWER_CACHE_NAME, openId, goodMap);
           }  
           result.setSuccess(true);
     	  result.setMessage("缓存成功");
@@ -139,7 +143,7 @@ public class QuesController {
 			int score=entry.getValue();
 			params.put("score", score);
 			List<XlEvaluation> evalList=xlQuestionService.findEvaluationDetails(params);
-			XlEvaluation evalEntity=evalList.get(1);
+			XlEvaluation evalEntity=evalList.get(0);
 			evals.add(evalEntity);
 		}
 		
