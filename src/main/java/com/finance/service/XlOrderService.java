@@ -12,6 +12,10 @@ public interface XlOrderService {
 	public List<XlOrder> findByOrderNo(Map<String,Object> param);
 	public boolean isOrderPay(String orderNo);
 	public void updateStatusByOrderNo(Map<String,Object> param);
-	public String insertXlOrder(Integer vipId,Integer goodNum,String openId,XlGood good);
+	//public String insertXlOrder(Integer vipId,Integer goodNum,String openId,XlGood good);
 	public List<XlOrder> findByOrderNoAndVipId(String orderNo,Object vipId);
+	String insertXlOrder(Integer vipId, Integer goodNum,
+			String openId, XlGood good);
+	public void updateOne(XlOrder order);
+	
 }

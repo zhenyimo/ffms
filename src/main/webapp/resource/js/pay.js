@@ -51,7 +51,11 @@ require(['jquery','wxpay','jquery.mloading'],function($,wxpay,mloading){
 	}
 	//支付成功回调
 	function successPay(wxRes){
-		window.location.href=pathContext+"/front/paySuccess.jsp";
+		var redirctUrl=$("#afterPayRedirectUrl").val()||"";
+		if(redirctUrl!="")
+			window.location.href=pathContext+redirctUrl;
+		else
+			window.location.href=pathContext+"front/paySuccess.jsp";
 	}
 	//支付失败回调
 	function failPay(wxRes){

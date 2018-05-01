@@ -9,8 +9,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="time" column="time" />
 		<result property="money" column="money" />
 		<!-- <result property="order_num" column="order_num" /> -->
+		<result property="goodId" column="goodId" />
 		<result property="fromUser" column="from_user" />
 		<result property="toUser" column="to_user" />
+		<result property="isClaim" column="is_claim" />
 	</resultMap>
 	<resultMap type="XlOrderSend" id="orderSendWithVipMap">
 		<result property="id" column="oid" />
@@ -18,8 +20,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="time" column="time" />
 		<result property="money" column="money" />
 		<!-- <result property="order_num" column="order_num" /> -->
+		<result property="goodId" column="goodId" />
 		<result property="fromUser" column="from_user" />
 		<result property="toUser" column="to_user" />
+		<result property="isClaim" column="is_claim" />
 		<association property="vip" javaType="XlVip" >
 				<result property="openId" column="vopenId" />
 				<result property="nickName" column="vnickName" />
@@ -47,7 +51,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		  order by o.time desc limit #{limitStart},#{limitLength}
 	</select>
 	<select id="findByToUserWithFromUserVip" parameterType="Map" resultMap="orderSendWithVipMap">
-		select o.id oid, o.order_no, o.time, o.money, o.goodId, o.from_user, o.to_user,v.openId vopenId,v.nickName vnickName from xl_order_send o inner join xl_vip v on o.from_user=v.id
+		select o.id oid,o.goodId,o.order_no, o.time, o.money, o.goodId, o.from_user, o.to_user,o.is_claim,v.openId vopenId,v.nickName vnickName from xl_order_send o inner join xl_vip v on o.from_user=v.id
 		<where>
 			o.to_user=#{toUser}
 		</where> 
@@ -67,4 +71,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			o.to_user=#{toUser}
 		</where> 
 	</select>
+	   <insert id="insertXlOrderSend" parameterType="XlOrderSend" >
+	    	<selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
+          		SELECT LAST_INSERT_ID()
+      		</selectKey>
+        	INSERT INTO xl_order_send (order_no, time, money, goodId, from_user, to_user, is_claim) VALUES (#{orderNo}, #{time}, #{money}, #{goodId}, #{fromUser}, #{toUser}, #{isClaim})
+       </insert>
+    <update id="updateOne"  parameterType="XlOrderSend">
+ 		UPDATE xl_order_send
+		 <trim prefix="set" suffixOverrides=",">
+		  <if test="orderNo!=null">order_no=#{orderNo},</if>
+		  <if test="time!=null">time=#{time},</if>
+		  <if test="money!=null">money=#{money},</if>
+		  <if test="goodId!=null">goodId=#{goodId},</if>
+		  <if test="fromUser!=null">from_user=#{fromUser},</if>
+		  <if test="toUser!=null">to_user=#{toUser},</if>
+		  <if test="isClaim!=null">is_claim=#{isClaim},</if>
+		 </trim>
+ 		WHERE id=#{id}
+	</update>   
+       
+       
 </mapper>

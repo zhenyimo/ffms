@@ -9,7 +9,7 @@ body{font:12px/180% Arial, Helvetica, sans-serif, "宋体";}
 .suspend{width:60px;height:60px;position:fixed;top:65%;right:0;overflow:hidden;z-index:9999;}
 .suspend dl{width:60px;height:35px;border-radius:15px 0px 0px 15px;background:#e2d212;position:absolute;top:0;left:0;cursor:pointer;}
 </style>
-<script src="${basePath}/require/js/require.js" data-main="${basePath}/resource/js/good.js"></script>
+<script src="${basePath}/require/js/require.js" data-main="${basePath}/resource/js/good.js?_v=20180425"></script>
 <!--顶部搜索-->
 <header class='weui-header'>
   <div class="weui-search-bar" id="searchBar">

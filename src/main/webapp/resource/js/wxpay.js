@@ -17,7 +17,7 @@ define(['jquery','commonUtils','wx'],function($,commonUtils,wx){
 				//初始化分享给朋友：
 			wx.onMenuShareAppMessage(shareConfig);
 		},
-		placeOrder:function(orderId,successCallBack,FailCallBack){
+		placeOrder:function(orderId,successCallBack,failCallBack){
 			var timestamp=jssdkConfig.timestamp;
 		    var noncestr=jssdkConfig.noncestr;
 			$.ajax({
@@ -44,8 +44,13 @@ define(['jquery','commonUtils','wx'],function($,commonUtils,wx){
 						    success: function (res) {
 						        // 支付成功后的回调函数
 						    	successCallBack(res);
-						    }
+						    },
+							fail:function(res){
+								failCallBack(res);
+							}
 						});
+					},function(result){
+						alert(result.message);
 					});
 				}
 			});
