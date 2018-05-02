@@ -132,9 +132,7 @@ public class QuesController extends SerialSupport{
             		  int index=indexOfAnswer(indexList,curQuestionId);
             		  if(index>0){
             			  result.setSuccess(true);
-                		  XlVipAnswer answer=new XlVipAnswer();
-                		  answer.setQuesId(indexList.get(index).getQuesId());
-                		  result.setMessage(jsonSerial.serial(answer));
+                		  result.setMessage(jsonSerial.serial(indexList.get(index)));
                     	  clearAnswerCache(indexList,index);
             		  }else{
             			  result.setSuccess(false);

@@ -101,18 +101,26 @@ require(['jquery'],function($){
 		};
 		
 		
-		QuestionApi.preQuestion2=function(){
-			 var answer=new Object();
+		QuestionApi.preQuestion2=function(goodId){
 			 var curQuestion=$(".carousel-inner div.item.active");
 			 if(curQuestion!=null&&curQuestion!=undefined){
-				 var curQuestion.attr("questionId");
+				 var curQuestionId=curQuestion.attr("questionId");
 				 $.ajax({
 					  url:pathContext+"/front/question/saveAnswerCache.do?goodId="+goodId,
-					  data:{answer:JSON.stringify(answer)},
+					  data:{
+						  "goodId":goodId,
+						  "curQuestionId":curQuestionId
+					  },
 					  dataType:"json",
 					  async:false,
 					  success:function(result){
-//						alert("缓存成功！");	
+//						alert("缓存成功！");
+						  if(result.success){
+							  var quesId=JSON.parse(result.message).quesId;
+							  var itemIndex=$("div.item[questionId="+"'"+quesId+"'"+"]").attr("itemIndex");
+							  $("#myCarousel").carousel(itemIndex);
+							  QuestionApi.speedOfProgress("prev",goodId);
+						  }
 					  },
 				  	  error:function(ex){
 				  		alert(ex+"缓存失败！");
