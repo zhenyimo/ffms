@@ -3,8 +3,14 @@
 
 <%@ include file="/pages/front/common.jsp" %>
 <script src="${basePath}/require/js/require.js" data-main="${basePath}/resource/js/xlEvaluation.js"></script>
-
 <div class="weui-content">
+  <div class="weui-media-box__bd" >
+  <div class="wy-media-box weui-media-box_text">
+              <div class="weui-cell__bd weui-cell_primary">
+        <h4  style="font-weight:bold;font-size:1.7em" >测试结果</h4>
+        </div>
+       </div>
+       </div>
 	<c:forEach var="eval" items="${evals}" begin="0" end ="${evals.size()}" varStatus="status">
         <div class="weui-panel__bd">
           <div class="wy-media-box weui-media-box_text">
@@ -26,10 +32,13 @@
           </div>
         </div>
         </c:forEach>
+                
+        
       </div>
-  <div class="weui-footer">
+      <a href="${basePath}/front/index.do"  class="weui-btn weui-btn_primary" style="width:50%">返回首页</a>    
+  <!-- <div class="weui-footer">
   <p class="weui-footer__links">
   <a href="javascript:void(0);" class="weui-footer__link">底部链接</a>
   </p>
   <p class="weui-footer__text">Copyright © 2008-2016 weui.io</p>
-  </div>
+  </div> -->

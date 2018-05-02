@@ -17,7 +17,7 @@
   </div>
   <div class="weui-panel weui-panel_access">
     <div class="weui-panel__hd">
-      <a href="../EntryController/gongzhonghaoIndex.do?tabName=gift" class="weui-cell weui-cell_access center-alloder">
+      <a href="${basePath}/front/index.do?tabName=gift"class="weui-cell weui-cell_access center-alloder">
         <div class="weui-cell__bd wy-cell">
           <div ><i class="fa fa-gift fa-2x" aria-hidden="true" style="color:#0ea9d8"></i><span class="weui-media-box__title">&nbsp;赠礼管理</span> </div>
         </div>
