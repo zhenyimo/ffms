@@ -2,6 +2,7 @@
 package com.finance.controller.gongzhonghao;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
@@ -28,6 +29,7 @@ import com.finance.dao.GoodDao;
 import com.finance.dao.SqlParmCon;
 import com.finance.entity.XlAnswer;
 import com.finance.entity.XlEvaluation;
+import com.finance.entity.XlEvaluationRecord;
 import com.finance.entity.XlGood;
 import com.finance.entity.XlQuestion;
 import com.finance.entity.XlVip;
@@ -126,7 +128,7 @@ public class QuesController {
          	}
          	        	
         	}
-         List<XlEvaluation> evals=getEvaluations(scoreMap,goodId);
+         List<XlEvaluation> evals=getEvaluations(scoreMap,goodId,curUser);
          model.addAttribute("evals", evals);
 		model.addAttribute("good",good);
 		return "front/xlEvaluation";	
@@ -134,17 +136,31 @@ public class QuesController {
 	
 	
 	//根据分数和goodId获取评测结果
-	public List<XlEvaluation> getEvaluations(Map<String,Integer> scoreMap,String goodId){
+	public List<XlEvaluation> getEvaluations(Map<String,Integer> scoreMap,String goodId,XlVip curUser ){
 		Map<String,Object> params=new HashMap<String,Object>();
 		params.put(GoodDao.PARAM_GOOD_ID, goodId);
 //		Map<String,XlEvaluation> evalMap=new HashMap<>();
 		List<XlEvaluation> evals=new ArrayList<XlEvaluation> ();
+        List<XlEvaluationRecord> evalRecordList=new ArrayList<XlEvaluationRecord>();
+
 		for(Entry<String, Integer> entry : scoreMap.entrySet()){
 			int score=entry.getValue();
 			params.put("score", score);
 			List<XlEvaluation> evalList=xlQuestionService.findEvaluationDetails(params);
 			XlEvaluation evalEntity=evalList.get(0);
-			evals.add(evalEntity);
+			 evals.add(evalEntity);
+			 
+			 //将缓存的结果入库
+			 XlEvaluationRecord record=new XlEvaluationRecord();
+        	 record.setEid(evalEntity.getId());
+        	 record.setGoodId(Integer.parseInt(goodId));
+        	 record.setScore(score);
+        	 record.setVipId(curUser.getId());
+			 record.setVipname(curUser.getNickName());
+			 record.setStartTime(new Date());
+			 evalRecordList.add(record);
+	         xlQuestionService.saveXlEvaluationRecord(evalRecordList);
+
 		}
 		
 		return evals;

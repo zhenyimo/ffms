@@ -16,7 +16,7 @@
               :${eval.reportDescribe}</p></div>
             </div>
             <c:forEach var="detail" items="${eval.xlEvaluationDetailList}">
-            <p class="weui-media-box__desc">"${detail.evalContent}"</p>
+            <p class="weui-media-box__desc">${detail.evalContent}</p>
             <ul class="weui-uploader__files clear mg-com-img">
                 <li class="weui-uploader__file" style="background-image:url(./upload/pro3.jpg)"></li>
                 <li class="weui-uploader__file" style="background-image:url(./upload/pro3.jpg)"></li>

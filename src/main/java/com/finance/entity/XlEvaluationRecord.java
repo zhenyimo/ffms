@@ -10,7 +10,6 @@ public class XlEvaluationRecord implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	private Integer id; // 编号
-
 	private Integer goodId; // 商品id
 	private Integer vipId; // 
 	private Integer eid; // 
