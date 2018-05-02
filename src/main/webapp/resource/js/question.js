@@ -68,16 +68,12 @@ require(['jquery'],function($){
 					 $("#prevBtn").attr("style","display:block");
 					 var lastAns=$("#myCarousel").find(".item:last()");
 //					 console.log($(lastAns).html());
-					 if(Number(molecule+1)==denominator&&denominator!=1){
-						 $.each($(lastAns).find(".panel-body"),function(){
-							 $(this).find("input[type='radio']").attr("onclick","QuestionApi.payConfirm("+goodId+")");
-						 });
-					 }
-//					 if(nextQuesId==''||nextQuesId==undefined){
+//					 if(Number(molecule+1)==denominator&&denominator!=1){
 //						 $.each($(lastAns).find(".panel-body"),function(){
 //							 $(this).find("input[type='radio']").attr("onclick","QuestionApi.payConfirm("+goodId+")");
 //						 });
 //					 }
+
 				 }else if(operate=="prev"){
 					  if(molecule==2){
 						 $("#prevBtn").attr("style","display:none");
@@ -138,8 +134,16 @@ require(['jquery'],function($){
 		/**
 		 * 下一题
 		 */
-		QuestionApi.nextQuestion=function(goodId,obj,nextQuesId,nextQuesNum){
-			$("#myCarousel").carousel(Number(nextQuesNum-1));
+		QuestionApi.nextQuestion=function(goodId,obj,nextQuesId){
+			var items=$(".carousel-inner").find("div");
+			$.each(items,function(){
+				if($(this).attr("questionId")==nextQuesId){
+					var quesIndex=$(this).attr("itemindex");
+					$("#myCarousel").carousel(Number(quesIndex-1));
+				}
+			});
+			
+			
 //			alert(currentIndex);
 //			alert($(carouselData.$active).html());
 			QuestionApi.speedOfProgress("next",goodId);

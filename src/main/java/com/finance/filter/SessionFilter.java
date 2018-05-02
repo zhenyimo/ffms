@@ -31,7 +31,7 @@ public class SessionFilter extends OncePerRequestFilter {
     		 "/sign.do","/gosign.do","/index.do","/login.do"
     };
     
-    public static boolean FRONT_TEST_MODE=false;
+    public static boolean FRONT_TEST_MODE=true;
     public static boolean MANAGE_TEST_MODE=false;
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)

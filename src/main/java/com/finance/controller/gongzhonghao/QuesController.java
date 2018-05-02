@@ -76,22 +76,28 @@ public class QuesController extends SerialSupport{
         vipAnswer.setOpenId(openId);
 		  Map<String, List<XlVipAnswer>> goodMap= (Map<String, List<XlVipAnswer>>) EhcacheUtil.getInstance().get(XlVipAnswer.VIP_ANSWER_CACHE_NAME, openId);
 //          EhcacheUtil.getInstance().remove(XlVipAnswer.VIP_ANSWER_CACHE_NAME, openId);
+		  List<XlVipAnswer> indextList=null;
           if (goodMap== null) {  
               System.err.println("缓存不存在");  
               goodMap=new HashMap<String, List<XlVipAnswer>>();
-              List<XlVipAnswer> indextList=new LinkedList<XlVipAnswer>();
+             indextList=new ArrayList<XlVipAnswer>();
               synchronized(indextList){
             	  indextList.add(vipAnswer ); 
               }
         	  goodMap.put(goodId, indextList);
         	  EhcacheUtil.getInstance().put(XlVipAnswer.VIP_ANSWER_CACHE_NAME, openId, goodMap);
           }else{  
-        	  List<XlVipAnswer> indextList= goodMap.get(goodId);
+        	  if(null==goodMap.get(goodId)){
+        		  indextList=new ArrayList<XlVipAnswer>();
+        	  }else{
+        	   indextList= goodMap.get(goodId);
+        	  }
         	  synchronized(indextList){
         		  indextList.add(vipAnswer );  
         	  }
-//        	  goodMap.put(goodId, indextList);
-//        	  EhcacheUtil.getInstance().put(XlVipAnswer.VIP_ANSWER_CACHE_NAME, openId, goodMap);
+        	  
+        	  goodMap.put(goodId, indextList);
+        	  EhcacheUtil.getInstance().put(XlVipAnswer.VIP_ANSWER_CACHE_NAME, openId, goodMap);
           }  
           result.setSuccess(true);
     	  result.setMessage("缓存成功");
