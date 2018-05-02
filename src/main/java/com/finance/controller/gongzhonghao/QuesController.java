@@ -1,6 +1,8 @@
 
 package com.finance.controller.gongzhonghao;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -222,6 +224,11 @@ public class QuesController extends SerialSupport{
 			XlEvaluation evalEntity=evalList.get(0);
 			 evals.add(evalEntity);
 			 
+			//得到long类型当前时间
+			 long timestamp = System.currentTimeMillis();
+			 Date date = new Date(timestamp);
+			 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			 
 			 //将缓存的结果入库
 			 XlEvaluationRecord record=new XlEvaluationRecord();
         	 record.setEid(evalEntity.getId());
@@ -229,7 +236,7 @@ public class QuesController extends SerialSupport{
         	 record.setScore(score);
         	 record.setVipId(curUser.getId());
 			 record.setVipname(curUser.getNickName());
-			 record.setStartTime(new Date());
+			 record.setStartTime(dateFormat.format(date));
 			 evalRecordList.add(record);
 	         xlQuestionService.saveXlEvaluationRecord(evalRecordList);
 

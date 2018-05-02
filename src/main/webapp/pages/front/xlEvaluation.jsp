@@ -19,6 +19,9 @@
               <c:if test="${eval.level==1}">A </c:if>
               <c:if test="${eval.level==2}">B </c:if>
               <c:if test="${eval.level==3}">C </c:if>
+              <c:if test="${eval.level==4}">D </c:if>
+              <c:if test="${eval.level==5}">E </c:if>
+              <c:if test="${eval.level==6}">F </c:if>
               :${eval.reportDescribe}</p></div>
             </div>
             <c:forEach var="detail" items="${eval.xlEvaluationDetailList}">

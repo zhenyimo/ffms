@@ -1,5 +1,6 @@
 package com.finance.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import com.jfinal.kit.StrKit;
@@ -9,7 +10,12 @@ import com.jfinal.plugin.ehcache.IDataLoader;
 import com.jfinal.plugin.activerecord.Model;
 
 
-public class XlVip extends Model<XlVip>{
+public class XlVip extends Model<XlVip> implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private Integer id; // 编号
 
 	private String openId; // 
