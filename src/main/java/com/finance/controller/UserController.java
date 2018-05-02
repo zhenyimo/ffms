@@ -156,7 +156,9 @@ public class UserController {
 		map.addAttribute("usermessage", usermessage);
 		//map.addAttribute("usernamemessage",usermessage.getUsername());
 		//map.put("usernamemessage", usermessage.getUsername());
-		session.setAttribute("usernamemessage", usermessage.getUsername());
+		//session.setAttribute("usernamemessage", usermessage.getUsername());
+		session.setAttribute("usermessage", usermessage);
+		
 		return "/admin/main";
 	}
 

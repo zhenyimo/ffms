@@ -56,7 +56,7 @@ require(['jquery'],function($){
 		/**
 		 * 统计进度函数
 		 */
-		QuestionApi.speedOfProgress=function(operate,goodId){			
+		QuestionApi.speedOfProgress=function(operate,goodId,nextQuesId){			
 			 var denominator=$("#myCarousel").find("ol").find("li").length;
 			 var molecule=Number(currentIndex+1);
 			 var a=Number(denominator/molecule);
@@ -73,6 +73,11 @@ require(['jquery'],function($){
 							 $(this).find("input[type='radio']").attr("onclick","QuestionApi.payConfirm("+goodId+")");
 						 });
 					 }
+//					 if(nextQuesId==''||nextQuesId==undefined){
+//						 $.each($(lastAns).find(".panel-body"),function(){
+//							 $(this).find("input[type='radio']").attr("onclick","QuestionApi.payConfirm("+goodId+")");
+//						 });
+//					 }
 				 }else if(operate=="prev"){
 					  if(molecule==2){
 						 $("#prevBtn").attr("style","display:none");
@@ -125,13 +130,14 @@ require(['jquery'],function($){
 		/**
 		 * 下一题
 		 */
-		QuestionApi.nextQuestion=function(goodId,obj){
-			$("#myCarousel").carousel('next');
+		QuestionApi.nextQuestion=function(goodId,obj,nextQuesId,nextQuesNum){
+			$("#myCarousel").carousel(Number(nextQuesNum-1));
 //			alert(currentIndex);
 //			alert($(carouselData.$active).html());
 			QuestionApi.speedOfProgress("next",goodId);
 			QuestionApi.saveAnswerCache(goodId,obj);
 		};
+				
 		//倒计时函数(该函数只能放在这里)
 		var downtime=$("#downtime").val();
 		QuestionApi.maxtime = downtime * 60; //一个小时，按秒计算，自己调整! 

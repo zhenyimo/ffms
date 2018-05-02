@@ -9,6 +9,7 @@ public class XlAnswer implements Serializable{
 	private String ansContent; // 答案内容
 	private Integer quesId; //问题id 
 	private Integer nextQuestionId; //下一题id
+	private Integer nextQuesNum;
 	private Integer answerScore; // 该题分数	
 	public Integer getId() {
 		return id;
@@ -46,6 +47,12 @@ public class XlAnswer implements Serializable{
 	}
 	public void setAnswerScore(Integer answerScore) {
 		this.answerScore = answerScore;
+	}
+	public Integer getNextQuesNum() {
+		return nextQuesNum;
+	}
+	public void setNextQuesNum(Integer nextQuesNum) {
+		this.nextQuesNum = nextQuesNum;
 	}
 	@Override
 	public String toString() {

@@ -6,7 +6,6 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.finance.dao.RoleDao;
 import com.finance.dao.XlVoucherDao;
 import com.finance.entity.XlVoucher;
 import com.finance.service.XlVoucherService;
@@ -20,15 +19,15 @@ public class XlVoucherServiceImpl implements XlVoucherService{
 	@Resource
 	private XlVoucherDao xlVoucherDao;
 	public Long getTotalXlVoucher(Map<String, Object> map) {
-		return xlVoucherDao.getTotalXlVoucher();
+		return xlVoucherDao.getTotalXlVoucher(map);
 	}
 
 	public List<XlVoucher> findXlVoucher(Map<String, Object> map) {
 		return xlVoucherDao.findXlVoucher(map);
 	}
 
-	public List<XlVoucher> getXlVouchers() {
-		return xlVoucherDao.getXlVouchers();
+	public List<XlVoucher> getAllXlVouchers(Map<String, Object> map) {
+		return xlVoucherDao.getAllXlVouchers(map);
 	}
 
 	public int addXlVoucher(XlVoucher xlVoucher) {
@@ -48,6 +47,12 @@ public class XlVoucherServiceImpl implements XlVoucherService{
 	public int addXlVoucherGood(XlVoucher xlVoucher) {
 		// TODO Auto-generated method stub
 		return xlVoucherDao.addXlVoucherGood(xlVoucher);
+	}
+
+	@Override
+	public long getXlVoucherIsExists(XlVoucher xlVoucher) {
+		// TODO Auto-generated method stub
+		return xlVoucherDao.getXlVoucherIsExists(xlVoucher);
 	}
 
 }

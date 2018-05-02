@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.finance.dao.XlEvaluationRecordDao">
+ 	<!-- -->
+    <resultMap type="com.finance.entity.XlEvaluationRecord" id="xlEvaluationRecord">
+		<id property="id" column="id" javaType="java.lang.Integer"/>
+		<result property="vipId" column="vipId" javaType="java.lang.Integer"/>
+		<result property="eid" column="eid" javaType="java.lang.Integer"/>
+		<result property="goodId" column="goodId" javaType="java.lang.Integer"/>
+		<result property="vipname" column="vipname" javaType="java.lang.String"/>
+		<result property="startTime" column="start_time" javaType="java.lang.String"/>
+		<result property="score" column="score" javaType="java.lang.Integer"/>
+	</resultMap>
+ 	<!-- -->
+ 
+<!-- 	<select id="saveXlEvaluationRecord" parameterType="Map" resultMap="xlEvaluationRecord">
+     
+	</select> -->
+	<insert id="saveXlEvaluationRecord"  parameterType="java.util.List">
+      
+        <if test="list != null and list.size() > 0">  
+         insert into xl_evaluation_record(goodId,vipId,eid,vipname,start_time,score) values
+      <foreach collection="list" item="item1" index= "index" separator =",">
+      (#{item1.goodId, jdbcType=NUMERIC}, #{item1.vipId, jdbcType=NUMERIC},#{item1.eid, jdbcType=NUMERIC}, #{item1.vipname, jdbcType=VARCHAR},#{item1.startTime, jdbcType=DATE}, #{item1.score, jdbcType=NUMERIC})
+      </foreach>
+      </if>
+      
+  </insert>
+ 	
+</mapper> 	

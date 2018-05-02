@@ -24,7 +24,7 @@ public interface XlVoucherService {
 	 * @param map
 	 * @return
 	 */
-	public List<XlVoucher> getXlVouchers();
+	public List<XlVoucher> getAllXlVouchers(Map<String, Object> map);
 	/**
 	 * 添加抵用券
 	 * @param xlVoucher
@@ -49,5 +49,11 @@ public interface XlVoucherService {
 	 * @return
 	 */
 	public int addXlVoucherGood(XlVoucher xlVoucher);
+	/**
+	 * 判断抵用券是否已经存在
+	 * @param xlVoucher
+	 * @return  0：不存在  >已经存在
+	 */
+	public long getXlVoucherIsExists(XlVoucher xlVoucher);
 
 }

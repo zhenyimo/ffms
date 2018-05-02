@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.finance.entity.XlEvaluation;
+import com.finance.entity.XlEvaluationRecord;
 import com.finance.entity.XlQuestion;
 import com.finance.entity.XlVipAnswer;
 
@@ -33,7 +34,6 @@ public interface XlQuestionService {
 	 */
 	public Long getTotalXlQuestion(Map<String,Object> map);
 	
-	//根据quesId获取XlQuestion
 	public XlQuestion findQuestionById(Integer quesId);
 	
 	/**
@@ -41,7 +41,6 @@ public interface XlQuestionService {
 	 * @param xlQuestion
 	 * @return
 	 */
-	//public int updateTitle(Title title);
 	public int updateXlQuestion(XlQuestion xlQuestion);
 	/**
 	 * 添加题目
@@ -67,8 +66,19 @@ public interface XlQuestionService {
 	 * @return
 	 */
 	public List<XlVipAnswer> findVipAnsByGoodIdAndOpenId(Map<String,Object> map);
-	
+	/**
+	 * 查看评测结果的明细
+	 * @param map
+	 * @return
+	 */
 	public List<XlEvaluation> findEvaluationDetails(Map<String,Object> map);
+	
+	/**
+	 * 得出结果以后保存入库
+	 * @param list
+	 * @return
+	 */
+	public void saveXlEvaluationRecord(List<XlEvaluationRecord> list);
 	
 	
 }

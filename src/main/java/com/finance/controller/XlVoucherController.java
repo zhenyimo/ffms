@@ -1,4 +1,5 @@
 package com.finance.controller;
+//import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
+import net.sf.json.JsonConfig;
 
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
@@ -21,10 +23,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.finance.entity.PageBean;
+//import com.finance.entity.User;
 import com.finance.entity.XlGood;
 import com.finance.entity.XlVoucher;
 import com.finance.service.XlGoodService;
 import com.finance.service.XlVoucherService;
+import com.finance.util.JsonDateValueProcessor;
 import com.finance.util.ResponseUtil;
 import com.finance.util.StringUtil;
 /**
@@ -42,7 +46,8 @@ public class XlVoucherController {
 	private XlGoodService xlGoodService;
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		//SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		dateFormat.setLenient(false);
 		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));   //true:允许输入空值，false:不能为空值
 	}
@@ -52,7 +57,7 @@ public class XlVoucherController {
 	 */
 	@RequestMapping("/xlVoucherManage.do")
 	public String xlVoucherManage(ModelMap map) {
-		List<XlVoucher> list = xlVoucherService.getXlVouchers();
+		List<XlVoucher> list = xlVoucherService.getAllXlVouchers(map);
 		map.addAttribute("xlVouchernames", list);
 		List<XlGood> goodlist = xlGoodService.getXlGoods();
 		//List<String> goodnameslist = new LinkedList<String>();
@@ -95,7 +100,7 @@ public class XlVoucherController {
 		map.put("flag", StringUtil.formatLike(s_xlVoucher.getFlag()));
 		map.put("type", StringUtil.formatLike(s_xlVoucher.getType()));
 		map.put("validate", s_xlVoucher.getValidate());
-		map.put("voNum", StringUtil.formatLike(s_xlVoucher.getVonum()));	
+		map.put("voNum", s_xlVoucher.getVoNum());	
 		map.put("goodId", s_xlVoucher.getGoodId());	
 		map.put("stipulatePrice", s_xlVoucher.getStipulatePrice());
 		map.put("createuser", s_xlVoucher.getCreateuser());
@@ -105,12 +110,41 @@ public class XlVoucherController {
 		List<XlVoucher> xlVoucherList = xlVoucherService.findXlVoucher(map);
 		Long total = xlVoucherService.getTotalXlVoucher(map);
 		JSONObject result = new JSONObject();
-		JSONArray jsonArray = JSONArray.fromObject(xlVoucherList);
+		JsonConfig config = new JsonConfig();          
+		config.setIgnoreDefaultExcludes(false);           
+		config.registerJsonValueProcessor(java.util.Date.class, new JsonDateValueProcessor("yyyy-MM-dd"));         
+		//config.registerJsonValueProcessor(java.sql.Date.class, new JsonDateValueProcessor("yyyy-MM-dd"));
+		//JSONArray jsonArray = JSONArray.fromObject(xlVoucherList);
+		JSONArray jsonArray = JSONArray.fromObject(xlVoucherList,config);
 		result.put("rows", jsonArray);
+		//result.put("rows", jsonArray.toString());
 		result.put("total", total);
 		ResponseUtil.write(response, result);
 		return null;
 	}	
+	
+	/**
+	 * 判断指定的抵用券是否已经存在
+	 * 
+	 * @param XlVoucher
+	 *            xlVoucher
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 */
+
+	private boolean isXlVoucherExists(XlVoucher xlVoucher) throws Exception {
+		long resultTotal = 0; // 操作的记录条数
+		resultTotal = xlVoucherService.getXlVoucherIsExists(xlVoucher);
+		boolean rs = false;
+		if (resultTotal > 0) { // 执行成功
+			rs = true;
+		}
+		return rs;
+	}
+	
+	
+	
 	/**
 	 * 添加与修改抵用券
 	 * 
@@ -123,6 +157,12 @@ public class XlVoucherController {
 	public String save(XlVoucher xlVoucher, HttpServletResponse response) throws Exception {
 		int resultTotal = 0; // 操作的记录条数
 		JSONObject result = new JSONObject();
+		if (isXlVoucherExists(xlVoucher)) {
+			result.put("errres", false);
+			result.put("errmsg", "用户名已经被使用！");
+			ResponseUtil.write(response, result);
+			return null;
+		}
 		if (xlVoucher.getId() == null) {
 			resultTotal = xlVoucherService.addXlVoucher(xlVoucher);
 			xlVoucherService.addXlVoucherGood(xlVoucher);

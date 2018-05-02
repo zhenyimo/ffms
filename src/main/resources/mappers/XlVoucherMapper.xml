@@ -18,8 +18,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="updateuser" column="update_user"/>
 	</resultMap>
 	
-    <select id="getXlVouchers" resultType="XlVoucher">
- 		select * from xl_voucher
+    <select id="getAllXlVouchers" parameterType="Map" resultType="XlVoucher">
+ 		select * from xl_voucher a,xl_good b
+ 		<where>
+ 		 				a.goodId = b.id 
+ 		     <if test="createuser!=null and createuser!='' and createuser != 'admin' ">
+                   and a.create_user = #{createuser}
+ 		     </if>
+ 		</where>
  	</select>
  	
     <select id="findXlVoucher" parameterType="Map" resultMap="XlVoucherResult">
@@ -55,11 +61,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<if test="stipulatePrice!=null and stipulatePrice!='' ">
 				and a.stipulate_price = #{stipulatePrice}
 		</if>
-		<if test="createuser!=null and createuser!='' ">
-				and a.createuser = #{createuser}
+		<if test="createuser!=null and createuser!='' and createuser != 'admin' ">
+				and a.create_user = #{createuser}
 		</if>
 		<if test="updateuser!=null and updateuser!='' ">
-				and a.updateuser = #{updateuser}
+				and a.update_user = #{updateuser}
 		</if>
 		</where>
 		<if test="start!=null and size!=null">
@@ -67,55 +73,70 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</if>
 	</select>
 	
-    <select id="getTotalXlVoucher" parameterType="Map" resultType="Long">
-		select count(*) from xl_voucher
-		<where>
+    <select id="getTotalXlVoucher"  resultType="Long">
+		select count(*) from xl_voucher a,xl_good b
+		<where>		  
+		a.goodId = b.id  
+		<if test="createuser!=null and createuser!='' and createuser != 'admin' ">
+		and a.create_user = #{createuser}
+		</if>
+		<!--  
 		    <if test="name!=null and name!='' ">
 				name like #{name}
-			</if>
+			</if>-->
 		</where>
 	</select>
 	
+	
+	<select id="getXlVoucherIsExists" parameterType="XlVoucher" resultType="Long">
+		select count(1) from xl_voucher
+		<where>
+		    <if test="name!=null and name!='' ">
+				 name = #{name}
+			</if>
+			<if test="id!=null">
+				and id!=#{id}
+			</if>
+		</where>
+	</select>
     <insert id="addXlVoucher" parameterType="XlVoucher">
-		insert into xl_voucher (id,name,price,flag,type,validate,vo_num,goodId,stipulate_price,create_user,update_user) values(null,#{name},#{price},#{flag},#{type},#{validate},#{voNum},#{goodId},#{stipulatePrice},#{create_user},#{update_user});
+		insert into xl_voucher (id,name,price,flag,type,validate,vo_num,goodId,stipulate_price,create_user,update_user) values(null,#{name},#{price},#{flag},#{type},#{validate},#{voNum},#{goodId},#{stipulatePrice},#{createuser},#{updateuser});
 	</insert>
 	
     <insert id="addXlVoucherGood" parameterType="XlVoucher">
-		insert into xl_voucher (select a.* from xl_voucher a,xl_good b where a.createuser=#{createuser} and b.id=#{goodId} and a.goodId=b.id);
+		insert into xl_voucher (select a.* from xl_voucher a,xl_good b where a.create_user=#{createuser} and b.id=#{goodId} and a.goodId=b.id);
 	</insert>
 	
     <update id="updateXlVoucher" parameterType="XlVoucher" >
-		update xl_voucher
+		update xl_voucher a,xl_good b
 		<set>
 			<if test="name!=null and name!='' ">
-				name=#{name}
+				a.name=#{name}
 			</if>
 			<if test="price!=null and price!='' ">
-				price=#{price},
+				a.price=#{price},
 			</if>
 			<if test="flag!=null and flag!='' ">
-				flag=#{flag},
+				a.flag=#{flag},
 			</if>
 			<if test="type!=null and type!='' ">
-				type=#{type},
+				a.type=#{type},
 			</if>
 			<if test="validate!=null and validate!='' ">
-				validate=#{validate},
+				a.validate=#{validate},
 			</if>
 			<if test="vo_num!=null and vo_num!='' ">
-				vo_num=#{vo_num},
+				a.vo_num=#{voNum},
 			</if>
 			<if test="goodId!=null and goodId!='' ">
-				goodId=#{goodId},
+				b.id=#{goodId},
 			</if>
 			<if test="stipulate_price!=null and stipulate_price!='' ">
-				stipulate_price=#{stipulate_price},
+				a.stipulate_price=#{stipulatePrice},
 			</if>
-			<if test="update_user!=null and update_user!='' ">
-				update_user=#{update_user},
-			</if>
+				a.update_user=#{updateuser}
 		</set>
-		where id=#{id}
+		where a.id=#{id} and a.goodId = b.id
 	</update>
 	
     <delete id="deleteXlVoucher" parameterType="Integer">

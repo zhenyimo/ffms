@@ -25,10 +25,10 @@
 	   dataType:'json',
 	   success:function(result){
 	     //成功回调
-	    alert(result);
+	    //alert(result);
 	   },
 	   error : function(result) {
-	      alert(result);
+	      //alert(result);
 	   }
 	
 	});
@@ -46,7 +46,7 @@
  	    goodoptions02.push(goodoptions02object);
  	  //goodoptions02.push({text:goodData[i].tittle,id:goodData[i].id});
 	}
-	var goodoptions01 = [{text : "无", value : ""}];
+	var goodoptions01 = [{text : "无", value : "1"}];
  	/*for(int i=0;i<goodData.length;i++){
 	   if(i!=goodData.length-1){
 	   goodoptions02+="{text:"+goodData[i].tittle+",value:"+goodData[i].id+"},";
@@ -96,6 +96,10 @@
 	
     var url;
 	function searchXlVoucher(){
+	    	    if($("#s_flag").combobox("getValue")==""||$("#s_flag").combobox("getValue")==null){
+					$.messager.alert("系统提示","请选择抵用券是否有效！","error");
+					return false;
+				}
 	    	    if($("#s_type").combobox("getValue")==""||$("#s_type").combobox("getValue")==null){
 					$.messager.alert("系统提示","请选择抵用券类型！","error");
 					return false;
@@ -124,17 +128,19 @@
 			"price":$("#s_price").val(),
 			"flag":$("#s_flag").combobox("getValue"),
 			"type":$("#s_type").combobox("getValue"),
-			"validate":$("#s_validate").val(),
+			//"validate":$("#s_validate").val(),
+			"validate":$("#s_validate").datebox("getValue"),
 			//"vo_num":$("#s_vo_num").val(),
-			"voNum":$("s_vo_num").val(),
+			"voNum":$("#s_vo_num").val(),
 			//"goodId":$("s_goodId").val(),
 			//"stipulate_price":$("s_stipulate_price").val(),
 			//"create_user":$("s_create_user").val(),
 			//"update_user":$("s_update_user").val()
-			"goodname":$("s_goodid").combobox("getValue"),
-			"stipulatePrice":$("s_stipulate_price").val(),
-			"createuser":$("s_create_user").val(),
-			"updateuser":$("s_update_user").val()
+			"goodname":$("#s_goodid").combobox("getValue"),
+			//"goodId":$("s_goodid").combobox("getValue"),
+			"stipulatePrice":$("#s_stipulate_price").val(),
+			"createuser":$("#s_create_user").val(),
+			"updateuser":$("#s_update_user").val()
 		});
 	}
 	
@@ -184,6 +190,8 @@
 	
 	function openXlVoucherAddDialog(){
 		$("#dlg").dialog("open").dialog("setTitle","添加抵用券信息");
+		//resetValue();
+		//$("#createuser").val(${usermessage.username});
 	var typeData = [{text:"不指定某题的",value:"1"},{text:"指定某题的",value:"2"}];
 
 	//调用后台xlGoodController的xlGoodlist方法
@@ -193,10 +201,10 @@
 	   dataType:'json',
 	   success:function(result){
 	     //成功回调
-	    alert(result);
+	    //alert(result);
 	   },
 	   error : function(result) {
-	      alert(result);
+	     //alert(result);
 	   }
 	
 	});
@@ -214,7 +222,7 @@
  	    goodoptions02.push(goodoptions02object);
  	  //goodoptions02.push({text:goodData[i].tittle,id:goodData[i].id});
 	}
-	var goodoptions01 = [{text : "无", value : ""}];
+	var goodoptions01 = [{text : "无", value : "1"}];
  	/*for(int i=0;i<goodData.length;i++){
 	   if(i!=goodData.length-1){
 	   goodoptions02+="{text:"+goodData[i].tittle+",value:"+goodData[i].id+"},";
@@ -232,18 +240,23 @@
 	  onSelect: function(){
 	  var myOptValue = $("#type").combobox("getValue");
 	   //1.清空原来的s_type这个combobox中的选项
-	   $("#goodid").combobox("clear");  
+	   //$("#goodid").combobox("clear");
+	   //$("#goodname").combobox("clear");
+	   $("#goodId").combobox("clear");
 	   //2.动态添加"抵用券指定商品"的下拉列表框的option
 	  if(myOptValue != null && (myOptValue == "1")){	  
 	  console.info("myOptValue = "+myOptValue);
-	  $("#goodid").combobox({
-
+	  //$("#goodid").combobox({
+      //$("#goodname").combobox({
+      $("#goodId").combobox({
 	     panelHeight:50,
          data :	goodoptions01  
 	  }); 	  
     }else if (myOptValue != null && myOptValue == "2"){
-    
-      $("#goodid").combobox({
+   
+      //$("#goodid").combobox({
+      //$("#goodname").combobox({
+      $("#goodId").combobox({
          panelHeight:140,
          data : goodoptions02       
       });
@@ -252,7 +265,9 @@
    });
 	
 	//初始化goods的下拉列表
-	$("#goodid").combobox({
+	//$("#goodid").combobox({
+	//$("#goodname").combobox({
+	$("#goodId").combobox({
 	  valueField: 'value',
 	  textField : 'text',
 	  data : goodoptions01,
@@ -260,6 +275,9 @@
 	});
 	//alert(${usernamemessage});
 	//$("#createuser").val(${usernamemessage});
+	//$("#createuser").val(${currentUser.username});
+	//$("#createuser").val(${usermessage.username});
+	//$("#createuser").val(${usersession.username});
 	url="${basePath}manage/xlVouchersave.do";
 	}
 	
@@ -270,7 +288,10 @@
 			return;
 		}
 		var row=selectedRows[0];
+	    resetValue();
 		$("#dlg").dialog("open").dialog("setTitle","编辑抵用券信息");
+		//row.type=formatType(row.type);
+		//row.goodId=row.goodname;
 		$('#fm').form('load',row);
 		url="${basePath}manage/xlVouchersave.do?id="+row.id;
 	}
@@ -279,11 +300,21 @@
 		$("#fm").form("submit",{
 			url:url,
 			onSubmit:function(){
+				if($("#flag").combobox("getValue")==""||$("#flag").combobox("getValue")==null){
+					$.messager.alert("系统提示","请选择抵用券类型是否有效！","error");
+					return false;
+				}
+/* 				if($("#flag").combobox("getValue")=="2"&&$("#dlg").dialog("open").dialog("getTitle")=="添加抵用券信息"){
+				    $.messager.alert("系统提示","添加抵用券信息不能指定抵用券为无效！","error");
+					return false;
+				} */
 			    if($("#type").combobox("getValue")==""||$("#type").combobox("getValue")==null){
 					$.messager.alert("系统提示","请选择抵用券类型！","error");
 					return false;
 				}
-				if($("#goodid").combobox("getValue")==""||$("#goodid").combobox("getValue")==null){
+				//if($("#goodid").combobox("getValue")==""||$("#goodid").combobox("getValue")==null){
+				//if($("#goodname").combobox("getValue")==""||$("#goodname").combobox("getValue")==null){
+			    if($("#goodId").combobox("getValue")==""||$("#goodId").combobox("getValue")==null){
 					$.messager.alert("系统提示","请选择抵用券指定商品！","error");
 					return false;
 				}
@@ -293,12 +324,14 @@
 		            return false;
 		        }
 		        var vo_num = /^[1-2][0-9]$/;
-		        if($("#vo_num").val()!=''&&!vo_num.test($("#vo_num").val())){
+		        //if($("#vo_num").val()!=''&&!vo_num.test($("#vo_num").val())){
+		        if($("#voNum").val()!=''&&!vo_num.test($("#voNum").val())){
 		        	$.messager.alert("系统提示","抵用券数量格式错误，请重新输入！","error");
 		            return false;
 		        }
 		        var stipulate_price = /^[1-3][0-9][0-9]$/;
-		        if($("#stipulate_price").val()!=''&&!stipulate_price.test($("#stipulate_price").val())){
+		        //if($("#stipulate_price").val()!=''&&!stipulate_price.test($("#stipulate_price").val())){
+		        if($("#stipulatePrice").val()!=''&&!stipulate_price.test($("#stipulatePrice").val())){
 		        	$.messager.alert("系统提示","抵用券到达金额格式错误，请重新输入！","error");
 		            return false;
 		        }
@@ -306,6 +339,7 @@
 			},
 			success:function(result){
 				var result=eval('('+result+')');
+				alert(result);
 				if(result.errres){
 					$.messager.alert("系统提示",result.errmsg);
 					resetValue();
@@ -321,6 +355,19 @@
 	
 	function resetValue(){
 		$("#name").val("");
+		$("#price").val("");
+		//$("#flag").val("");
+		$("#flag").combobox("setValue","");
+		$("#type").combobox("setValue","");
+		//$("#validate").val("");
+		$("#validate").datebox("setValue","");
+		$("#voNum").val("");
+		$("#goodId").combobox("setValue","");
+		//$("#goodname").combobox("setValue","");
+		//$("#goodid").combobox("setValue","");
+		$("#stipulatePrice").val("");
+		$("#createuser").val("");
+		$("#updateuser").val("");
 	}
 	
 	function formatFlag(val){
@@ -366,15 +413,30 @@
 	}
 	
 	function closeXlVoucherDialog(){
+		resetValue();
 		$("#dlg").dialog("close");
 		resetValue();
 	}
 </script>
+<style>
+	.findtable{
+		border-width: 1px;
+		border-color: #666666;
+		border-collapse: collapse;
+	}
+	.findtable td{
+		border-width: 1px;
+		padding: 8px;
+		border-style: solid;
+		border-color: #666666;
+		background-color: #ffffff;
+	}
+</style>
 </head>
 <body style="margin:1px;">
 	<table id="dg" title="抵用券管理" class="easyui-datagrid"
 	 fitColumns="true" pagination="true" rownumbers="true"
-	 url="${basePath}manage/xlVoucherlist.do" fit="true" toolbar="#tb" remoteSort="false" multiSort="true">
+	 url="${basePath}manage/xlVoucherlist.do?createuser=${usermessage.username}" fit="true" toolbar="#tb" remoteSort="false" multiSort="true">
 	 <thead>
 	 	<tr>
 	 		<th field="cb" checkbox="true" align="center"></th>
@@ -431,29 +493,28 @@
 		</div>
 	</div>
 	
-	<div id="dlg" class="easyui-dialog" style="width: 670px;height:300px;padding: 10px 20px" closed="true" buttons="#dlg-buttons">
+	<div id="dlg" class="easyui-dialog" style="width: 670px;height:300px;padding: 10px 20px" closed="true" buttons="#dlg-buttons" >
 	 	<form id="fm" method="post">
 	 		<table cellspacing="8px">
 	 			<tr>
 	 				<td>抵用券名称：</td>
 	 				<td><input type="text" id="name" name="name" class="easyui-validatebox easyui-textbox" required="true"/>&nbsp;<font color="red">*</font></td>
-				</tr>
-				<tr>
+				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 	 				<td>抵用券价格：</td>
 	 				<td><input type="text" id="price" name="price" class="easyui-validatebox easyui-textbox" required="true"/>&nbsp;<font color="red">*</font></td>
 				</tr>
-				<!--  
+  
 				<tr>
 	 				<td>抵用券是否有效：</td>
 	 				<td>
                     <select class="easyui-combobox" id="flag" name="flag" editable="false" style="width:175px;">
+	 						 
 	 						<option value="" selected>请选择...</option>
 	 						<option value="1">有效</option>
 	 						<option value="2">无效</option>
+	 						
 	 					</select>&nbsp;<font color="red">*</font></td>
-				</tr>
-				-->
-			    <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 	 				<td>抵用券类型：</td>
 	 				<td><!--<select class="easyui-combobox" id="type" name="type" editable="false" style="width:175px;">
 	 						<option value="" selected>请选择...</option>
@@ -464,10 +525,9 @@
 				<tr>
 	 				<td>抵用券有效期：</td>
 	 				<td><input type="text" id="validate" name="validate" class="easyui-validatebox easyui-datebox" required="true"/>&nbsp;<font color="red">*</font></td>
-				</tr>
-				<tr>
+				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 	 				<td>抵用券数量：</td>
-	 				<td><input type="text" id="vo_num" name="vo_num" class="easyui-validatebox easyui-textbox" required="true"/>&nbsp;<font color="red">*</font></td>
+	 				<td><input type="text" id="voNum" name="voNum" class="easyui-validatebox easyui-textbox" required="true"/>&nbsp;<font color="red">*</font></td>
 	 			</tr>
 				<tr>
 	 			    <td>抵用券指定商品：</td>
@@ -477,18 +537,26 @@
 	 				<c:forEach items="${goods }" var="good">
 						<option value="${good.id }">${good.tittle }</option>
 					</c:forEach>
-				</select>--><input class="easyui-combobox" id="goodid" name="goodid" editable="false" style="width:140px;" >&nbsp;<font color="red">*</font>
+				</select>-->
+				<!--  
+				<input class="easyui-combobox" id="goodname" name="goodname" editable="false" style="width:140px;" >&nbsp;<font color="red">*</font>
+				-->
+				<!--  
+				<input class="easyui-combobox" id="goodid" name="goodid" editable="false" style="width:140px;" >&nbsp;<font color="red">*</font>				
+				-->
+				<input class="easyui-combobox" id="goodId" name="goodId" editable="false" style="width:140px;" >&nbsp;<font color="red">*</font>				
 				</td>
-				</tr>
-				<tr>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 	 				<td>抵用券到达金额：</td>
-	 				<td><input type="text" id="stipulate_price" name="stipulate_price" class="easyui-validatebox easyui-textbox" required="true" />&nbsp;<font color="red">*</font></td>
+	 				<td><input type="text" id="stipulatePrice" name="stipulatePrice" class="easyui-validatebox easyui-textbox" required="true" />&nbsp;<font color="red">*</font></td>
 	 			</tr>
 			    <tr>
 	 				<td>抵用券创建者：</td>
+	 				<!--  
 	 				<td><input type="text" id="createuser" name="createuser" class="easyui-validatebox easyui-textbox" required="true" value="${usernamemessage}"/>&nbsp;<font color="red">*</font></td>
-	 			</tr>
-	 			<tr>
+	 				-->
+	 				<td><input type="text" id="createuser" name="createuser" class="easyui-validatebox easyui-textbox" required="true" value="${usermessage.username}"/>&nbsp;<font color="red">*</font></td>
+	             <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 	 				<td>抵用券修改者：</td>
 	 				<td><input type="text" id="updateuser" name="updateuser" class="easyui-validatebox easyui-textbox" required="true" />&nbsp;<font color="red">*</font></td>
 	 			</tr>

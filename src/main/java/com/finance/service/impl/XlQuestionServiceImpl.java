@@ -8,9 +8,11 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.finance.dao.XlEvaluationDao;
+import com.finance.dao.XlEvaluationRecordDao;
 import com.finance.dao.XlQuestionDao;
 import com.finance.dao.XlVipAnswerDao;
 import com.finance.entity.XlEvaluation;
+import com.finance.entity.XlEvaluationRecord;
 import com.finance.entity.XlQuestion;
 import com.finance.entity.XlVipAnswer;
 import com.finance.service.XlQuestionService;
@@ -29,6 +31,8 @@ public class XlQuestionServiceImpl implements XlQuestionService{
 	private XlVipAnswerDao xlVipAnswerDao;
 	@Resource
 	private XlEvaluationDao xlEvaluationDao;
+	@Resource
+	private XlEvaluationRecordDao xlEvaluationRecordDao;
 
 	public List<XlQuestion> findXlQuestion(Map<String, Object> map) {
 		return xlQuestionDao.findXlQuestion(map);
@@ -75,5 +79,10 @@ public class XlQuestionServiceImpl implements XlQuestionService{
 	@Override
 	public List<XlEvaluation> findEvaluationDetails(Map<String, Object> map) {
 		return xlEvaluationDao.findEvaluationDetails(map);
+	}
+
+	@Override
+	public void saveXlEvaluationRecord(List<XlEvaluationRecord> list) {
+		 xlEvaluationRecordDao.saveXlEvaluationRecord(list);
 	}
 }

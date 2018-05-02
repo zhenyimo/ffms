@@ -208,7 +208,7 @@
   </div>
   
   
-      <div class="morelinks"><a style="color:green" href="${basePath}/front/entry/gongzhonghaoIndex.do?tabName=classify">查看更多 >></a></div>
+      <div class="morelinks"><a style="color:green" href="${basePath}/front/index.do?tabName=classify">查看更多 >></a></div>
     </div>
   </div>
 </div>
