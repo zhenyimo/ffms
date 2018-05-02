@@ -15,37 +15,47 @@ public interface XlVoucherDao {
 	 * @param map
 	 * @return
 	 */
-	public Long getTotalXlVoucher();
+	public Long getTotalXlVoucher(Map<String,Object> map);
 	/**
 	 * 查询抵用券
 	 * @param map
 	 * @return
 	 */
-	public List<XlVoucher> findXlVoucher(Map<String, Object> map);
+	public List<XlVoucher> findXlVoucher(Map<String,Object> map);
 	/**
 	 * 获得所有抵用券
 	 * @return
 	 */
-	List<XlVoucher> getXlVouchers();
+	public List<XlVoucher> getAllXlVouchers(Map<String,Object> map);
 	/**
 	 * 添加抵用券
 	 * @param role
 	 * @return
 	 */
-	int addXlVoucher(XlVoucher xlVoucher);
+	public int addXlVoucher(XlVoucher xlVoucher);
 	/**
 	 * 更新抵用券
 	 * @param xlVoucher
 	 * @return
 	 */
-	int updateVoucher(XlVoucher xlVoucher);
+	public int updateVoucher(XlVoucher xlVoucher);
 	/**
 	 * 删除抵用券
 	 * @param id
 	 * @return
 	 */
-	int deleteXlVoucher(Integer id);
-	
+	public int deleteXlVoucher(Integer id);
+	/**
+	 * 添加抵用券题目匹配
+	 * @param xlVoucher
+	 * @return
+	 */
 	public int addXlVoucherGood(XlVoucher xlVoucher);
+	/**
+	 * 判断抵用券是否已经存在
+	 * @param xlVoucher
+	 * @return  0：不存在  >已经存在
+	 */
+	public long getXlVoucherIsExists(XlVoucher xlVoucher);
 
 }
