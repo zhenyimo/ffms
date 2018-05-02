@@ -16,14 +16,18 @@ private URL url;
 private CacheManager cacheManager; 
 
 private static EhcacheUtil ehCache; 
-
+private static Object INIT_LOCK=new Object();
 public EhcacheUtil(String path) { 
 url = getClass().getResource(path); 
 cacheManager = CacheManager.create(url);
 }
 public static EhcacheUtil getInstance() { 
 if (ehCache== null) { 
-ehCache= new EhcacheUtil(path); 
+  synchronized (INIT_LOCK) {
+	if(ehCache==null){
+		ehCache= new EhcacheUtil(path); 
+	}
+  }
 }
 return ehCache; 
 }

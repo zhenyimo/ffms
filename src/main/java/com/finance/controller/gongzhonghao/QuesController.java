@@ -44,14 +44,14 @@ import com.jfinal.plugin.ehcache.CacheKit;
 
 @Controller
 @RequestMapping("front/question")
-public class QuesController {
+public class QuesController extends SerialSupport{
 	
 	@Resource
 	XlGoodService xlGoodService;
 	@Resource
 	XlQuestionService xlQuestionService;
 
-
+	
 
 	/**
 	 * 将答案缓存到eacache
@@ -65,18 +65,18 @@ public class QuesController {
 		AjaxJsonResult result = new AjaxJsonResult();
 		Map<String,Object> params=new HashMap<String,Object>();
 		params.put(GoodDao.PARAM_GOOD_ID,goodId);
-		XlGood good=xlGoodService.findByGoodId(params);
+		//XlGood good=xlGoodService.findByGoodId(params);
 		XlVip curUser=(XlVip) request.getSession().getAttribute(Constants.currentFrontUserSessionKey);
         String openId=curUser.getOpenId();
         XlVipAnswer vipAnswer=JSON.parseObject(answer, XlVipAnswer.class);
         vipAnswer.setOpenId(openId);
-		  Map<String, List<XlVipAnswer>> goodMap= (Map<String, List<XlVipAnswer>>) EhcacheUtil.getInstance().get("thirtyMinute", openId);
+		Map<String, List<XlVipAnswer>> goodMap= (Map<String, List<XlVipAnswer>>) EhcacheUtil.getInstance().get("thirtyMinute", openId);
 //          EhcacheUtil.getInstance().remove(XlVipAnswer.VIP_ANSWER_CACHE_NAME, openId);
           if (goodMap== null) {  
               System.err.println("缓存不存在");  
               goodMap=new HashMap<String, List<XlVipAnswer>>();
               List<XlVipAnswer> indextList=new LinkedList<XlVipAnswer>();
-              indextList.add(vipAnswer );
+              indextList.add(vipAnswer);
         	  goodMap.put(goodId, indextList);
         	  EhcacheUtil.getInstance().put(XlVipAnswer.VIP_ANSWER_CACHE_NAME, openId, goodMap);
           }else{  
@@ -89,6 +89,80 @@ public class QuesController {
     	  result.setMessage("缓存成功");
 		  return result;	
 	}
+	
+	/**
+	 * 将答案缓存到eacache
+	 * @param model
+	 * @param goodId
+	 * @return
+	 */
+	@RequestMapping("/preQuestion.do")
+	@ResponseBody
+	public AjaxJsonResult preQuestion(Model model,HttpServletRequest request,@RequestParam("goodId")String goodId,String curQuestionId){
+		AjaxJsonResult result = new AjaxJsonResult();
+		//Map<String,Object> params=new HashMap<String,Object>();
+		//params.put(GoodDao.PARAM_GOOD_ID,goodId);
+		//XlGood good=xlGoodService.findByGoodId(params);
+		XlVip curUser=(XlVip) request.getSession().getAttribute(Constants.currentFrontUserSessionKey);
+        String openId=curUser.getOpenId();
+       // XlVipAnswer vipAnswer=JSON.parseObject(answer, XlVipAnswer.class);
+       // vipAnswer.setOpenId(openId);
+		Map<String, List<XlVipAnswer>> goodMap= (Map<String, List<XlVipAnswer>>) EhcacheUtil.getInstance().get("thirtyMinute", openId);
+//          EhcacheUtil.getInstance().remove(XlVipAnswer.VIP_ANSWER_CACHE_NAME, openId);
+          if (goodMap== null) {  
+              System.err.println("缓存不存在");  
+              goodMap=new HashMap<String, List<XlVipAnswer>>();
+              List<XlVipAnswer> indextList=new LinkedList<XlVipAnswer>();
+            //  indextList.add(vipAnswer);
+        	  goodMap.put(goodId, indextList);
+        	  EhcacheUtil.getInstance().put(XlVipAnswer.VIP_ANSWER_CACHE_NAME, openId, goodMap);
+        	  result.setSuccess(false);
+			  result.setMessage("没有上一题");
+          }else{  
+        	  List<XlVipAnswer> indexList= goodMap.get(goodId);
+        	  //indextList.add(vipAnswer);
+        	  if(indexList!=null){
+        		  synchronized (indexList) {
+            		  int index=indexOfAnswer(indexList,curQuestionId);
+            		  if(index>0){
+            			  result.setSuccess(true);
+                		  XlVipAnswer answer=new XlVipAnswer();
+                		  answer.setQuesId(indexList.get(index).getQuesId());
+                		  result.setMessage(jsonSerial.serial(answer));
+                    	  clearAnswerCache(indexList,index);
+            		  }else{
+            			  result.setSuccess(false);
+            			  result.setMessage("没有上一题");
+            		  }
+            		 
+                	//  goodMap.put(goodId, indextList);
+                	//  EhcacheUtil.getInstance().put(XlVipAnswer.VIP_ANSWER_CACHE_NAME, openId, goodMap);
+    			  } 
+        	  }else{
+        		  result.setSuccess(false);
+    			  result.setMessage("没有上一题");
+        	  }
+        	  
+          }  
+		  return result;	
+	}
+	
+	private void clearAnswerCache(List<XlVipAnswer> list,int beginIndex){
+			int removeNum=list.size()-beginIndex;
+			while(removeNum>0){
+				list.remove(beginIndex+1);
+			}
+	}
+	
+	private int indexOfAnswer(List<XlVipAnswer> list,String questionId){
+		int length=list.size();
+		for (int i = 0; i <length ; i++) {
+			if(questionId.equals(list.get(i).getQuesId()))
+				return i;
+		}
+		return -1;
+	}
+	
 	
 	/**
 	 * 跳转到测评结果页面

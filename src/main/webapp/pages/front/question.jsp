@@ -28,7 +28,7 @@
 	<div class="carousel-inner" >
 	<c:forEach var="question" items="${questions}" begin="0" end ="${questions.size()}" varStatus="status">
 	
-	<div class="item " itemIndex="${status.count}">
+	<div class="item "  itemIndex="${status.count}">
 			               <p style="padding-left:3%;font-size:1.3em;"><em><c:out value="${status.count}"/>.</em>${question.quesContent}</p>
 	                    <c:forEach var="answer" items="${question.getAnswerList()}" begin="0" end ="${question.getAnswerList().size()}" varStatus="anstatus">
 		                     <div class="panel-body">

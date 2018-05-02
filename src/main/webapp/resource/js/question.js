@@ -94,6 +94,33 @@ require(['jquery'],function($){
 			$("#myCarousel").carousel('prev');
 			QuestionApi.speedOfProgress("prev",goodId);
 		};
+		
+		
+		QuestionApi.preQuestion2=function(){
+			 var answer=new Object();
+			 var curQuestion=$(".carousel-inner div.item.active");
+			 if(curQuestion!=null&&curQuestion!=undefined){
+				 var curQuestion.attr("questionId");
+				 $.ajax({
+					  url:pathContext+"/front/question/saveAnswerCache.do?goodId="+goodId,
+					  data:{answer:JSON.stringify(answer)},
+					  dataType:"json",
+					  async:false,
+					  success:function(result){
+//						alert("缓存成功！");	
+					  },
+				  	  error:function(ex){
+				  		alert(ex+"缓存失败！");
+				  	  }
+				  });
+			 }
+			
+			
+			
+			//QuestionApi.speedOfProgress("prev",goodId);
+		}
+		
+		
 
 		/**
 		 * 下一题
