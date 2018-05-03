@@ -24,7 +24,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <if test="list != null and list.size() > 0">  
          insert into xl_evaluation_record(goodId,vipId,eid,vipname,start_time,score) values
       <foreach collection="list" item="item1" index= "index" separator =",">
-      (#{item1.goodId, jdbcType=NUMERIC}, #{item1.vipId, jdbcType=NUMERIC},#{item1.eid, jdbcType=NUMERIC}, #{item1.vipname, jdbcType=VARCHAR},#{item1.startTime, jdbcType=DATE}, #{item1.score, jdbcType=NUMERIC})
+      (#{item1.goodId, jdbcType=NUMERIC}, #{item1.vipId, jdbcType=NUMERIC},#{item1.eid, jdbcType=NUMERIC}, #{item1.vipname, jdbcType=VARCHAR},#{item1.startTime, jdbcType=VARCHAR}, #{item1.score, jdbcType=NUMERIC})
       </foreach>
       </if>
       

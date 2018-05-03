@@ -1,6 +1,8 @@
 
 package com.finance.controller.gongzhonghao;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -75,22 +77,28 @@ public class QuesController extends SerialSupport{
         vipAnswer.setOpenId(openId);
 		  Map<String, List<XlVipAnswer>> goodMap= (Map<String, List<XlVipAnswer>>) EhcacheUtil.getInstance().get(XlVipAnswer.VIP_ANSWER_CACHE_NAME, openId);
 //          EhcacheUtil.getInstance().remove(XlVipAnswer.VIP_ANSWER_CACHE_NAME, openId);
+		  List<XlVipAnswer> indextList=null;
           if (goodMap== null) {  
               System.err.println("缓存不存在");  
               goodMap=new HashMap<String, List<XlVipAnswer>>();
-              List<XlVipAnswer> indextList=new LinkedList<XlVipAnswer>();
+             indextList=new ArrayList<XlVipAnswer>();
               synchronized(indextList){
             	  addAnswer(indextList,vipAnswer);
               }
         	  goodMap.put(goodId, indextList);
         	  EhcacheUtil.getInstance().put(XlVipAnswer.VIP_ANSWER_CACHE_NAME, openId, goodMap);
           }else{  
-        	  List<XlVipAnswer> indextList= goodMap.get(goodId);
+        	  if(null==goodMap.get(goodId)){
+        		  indextList=new ArrayList<XlVipAnswer>();
+        	  }else{
+        	   indextList= goodMap.get(goodId);
+        	  }
         	  synchronized(indextList){
         		  addAnswer(indextList,vipAnswer);
         	  }
-//        	  goodMap.put(goodId, indextList);
-//        	  EhcacheUtil.getInstance().put(XlVipAnswer.VIP_ANSWER_CACHE_NAME, openId, goodMap);
+        	  
+        	  goodMap.put(goodId, indextList);
+        	  EhcacheUtil.getInstance().put(XlVipAnswer.VIP_ANSWER_CACHE_NAME, openId, goodMap);
           }  
           result.setSuccess(true);
     	  result.setMessage("缓存成功");
@@ -241,6 +249,11 @@ public class QuesController extends SerialSupport{
 			XlEvaluation evalEntity=evalList.get(0);
 			 evals.add(evalEntity);
 			 
+			//得到long类型当前时间
+			 long timestamp = System.currentTimeMillis();
+			 Date date = new Date(timestamp);
+			 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			 
 			 //将缓存的结果入库
 			 XlEvaluationRecord record=new XlEvaluationRecord();
         	 record.setEid(evalEntity.getId());
@@ -248,7 +261,7 @@ public class QuesController extends SerialSupport{
         	 record.setScore(score);
         	 record.setVipId(curUser.getId());
 			 record.setVipname(curUser.getNickName());
-			 record.setStartTime(new Date());
+			 record.setStartTime(dateFormat.format(date));
 			 evalRecordList.add(record);
 	         xlQuestionService.saveXlEvaluationRecord(evalRecordList);
 

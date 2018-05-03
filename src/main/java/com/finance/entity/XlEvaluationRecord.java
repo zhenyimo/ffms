@@ -14,11 +14,11 @@ public class XlEvaluationRecord implements Serializable{
 	private Integer vipId; // 
 	private Integer eid; // 
 	private String vipname; // 来源
-	private Date startTime; // 金额
-	public Date getStartTime() {
+	private String startTime; // 金额
+	public String getStartTime() {
 		return startTime;
 	}
-	public void setStartTime(Date startTime) {
+	public void setStartTime(String startTime) {
 		this.startTime = startTime;
 	}
 	private Integer score; // 类型

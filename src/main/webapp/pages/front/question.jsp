@@ -17,6 +17,8 @@
 
 <div class="weui-panel weui-panel_access" style="padding-left:5%;padding-right:5%;width:100%">
 <div class="weui-panel__bd">
+<c:choose> 
+  <c:when test="${questions!=null&&questions.size()>0}">
 <div id="myCarousel" class="carousel slide" style="height:90%;width:100%">
 	<!-- 轮播（Carousel）指标 -->
 	 <ol class="carousel-indicators">
@@ -33,7 +35,10 @@
 	                    <c:forEach var="answer" items="${question.getAnswerList()}" begin="0" end ="${question.getAnswerList().size()}" varStatus="anstatus">
 		                     <div class="panel-body">
 		                    <span style="font-size:1.2em;color:#333"> <em><c:out value="${anstatus.count}"/>.</em>${answer.ansContent}</span>
-		                        <input type="radio" id="singleRadio_${status.count}_${anstatus.count}" style="float:right;" onclick="QuestionApi.nextQuestion(${good.id},this,'${answer.nextQuestionId}','${answer.nextQuesNum}')"  value="option_${status.count}" name="radioSingle_${status.count}" aria-label="Single radio One">
+		                        <input type="radio" id="singleRadio_${anstatus.count}" style="float:right;"
+		                        <c:choose><c:when test="${answer.nextQuestionId!=null&&answer.nextQuestionId!=''}"> onclick="QuestionApi.nextQuestion(${good.id},this,'${answer.nextQuestionId}')"</c:when>
+		                         <c:otherwise>onclick="QuestionApi.payConfirm(${good.id})" </c:otherwise>   </c:choose>
+		                         value="option_${status.count}" name="radioSingle_${status.count}" aria-label="Single radio One"/>
 		                        <div>
 		                        <input type="hidden" name="id" value="${answer.id}">
 		                        <input type="hidden" name="ansNum" value="${answer.ansNum}">
@@ -54,8 +59,13 @@
 	   data-slide="next">&rsaquo;</a>  -->
 </div> 
 </div>
+</c:when>
+<c:otherwise>  <!--否则 -->    
+<h4>非常抱歉，该心理测评有异常，请选择其他测评!</h4><br><br>
+<a href="${basePath}/front/index.do"  class="weui-btn weui-btn_primary" style="width:50%">返回首页</a>
+  </c:otherwise> 
+</c:choose>
 </div>
-
 <div>
 <!-- <a  href="#myCarousel" id="nextBtn"  onclick="QuestionApi.nextQuestion()" class="weui-btn weui-btn_primary">下一题</a> -->
 <a  href="#myCarousel" id="prevBtn"  onclick="QuestionApi.prevQuestion2(${good.id})" class="weui-btn weui-btn_primary" >上一题</a>
