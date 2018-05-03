@@ -91,13 +91,13 @@ require(['jquery'],function($){
 		/**
 		 * 上一题
 		 */
-		QuestionApi.prevQuestion=function(goodId){
+		/*QuestionApi.prevQuestion=function(goodId){
 			$("#myCarousel").carousel('prev');
 			QuestionApi.speedOfProgress("prev",goodId);
 		};
+		*/
 		
-		
-		QuestionApi.prevQuestion2=function(goodId){
+		QuestionApi.prevQuestion=function(goodId){
 			 var curQuestion=$(".carousel-inner div.item.active");
 			 if(curQuestion!=null&&curQuestion!=undefined){
 				 var curQuestionId=curQuestion.attr("questionId");
@@ -117,7 +117,7 @@ require(['jquery'],function($){
 							  //跳到上一题后需要清除之后的题目已选的选项
 							  clearNextQuestionRadioChecked(quesId);
 							  //轮播到上一题
-							  $("#myCarousel").carousel(Number(itemIndex));
+							  $("#myCarousel").carousel(Number(itemIndex-1));
 							  $("#myCarousel").carousel('pause');
 							  //进度条改变
 							  QuestionApi.speedOfProgress("prev",goodId);
@@ -155,6 +155,7 @@ require(['jquery'],function($){
 				if($(this).attr("questionId")==nextQuesId){
 					var quesIndex=$(this).attr("itemindex");
 					$("#myCarousel").carousel(Number(quesIndex-1));
+					$("#myCarousel").carousel('pause');
 				}
 			});
 			

@@ -68,7 +68,7 @@
 </div>
 <div>
 <!-- <a  href="#myCarousel" id="nextBtn"  onclick="QuestionApi.nextQuestion()" class="weui-btn weui-btn_primary">下一题</a> -->
-<a  href="#myCarousel" id="prevBtn"  onclick="QuestionApi.prevQuestion2(${good.id})" class="weui-btn weui-btn_primary" >上一题</a>
+<a  href="#myCarousel" id="prevBtn"  onclick="QuestionApi.prevQuestion(${good.id})" class="weui-btn weui-btn_primary" >上一题</a>
 </div>
 
  </div>

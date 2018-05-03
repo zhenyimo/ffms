@@ -45,6 +45,7 @@ import com.finance.service.XlQuestionService;
 import com.finance.util.Constants;
 import com.finance.util.EhcacheUtil;
 import com.jfinal.plugin.ehcache.CacheKit;
+import com.sun.tools.apt.Main;
 
 
 @Controller
@@ -140,8 +141,13 @@ public class QuesController extends SerialSupport{
         		  synchronized (indexList) {
             		  if(indexList.size()>0){
             			  XlVipAnswer lastAnswer=lastAnswer(indexList,curQuestionId);
-            			  result.setSuccess(true);
-                		  result.setMessage(jsonSerial.serial(lastAnswer));
+            			  if(lastAnswer!=null){
+            				  result.setSuccess(true);
+                    		  result.setMessage(jsonSerial.serial(lastAnswer));
+            			  }else{
+            				  result.setSuccess(false);
+                			  result.setMessage("没有上一题");
+            			  }
             		  }else{
             			  result.setSuccess(false);
             			  result.setMessage("没有上一题");
@@ -159,12 +165,6 @@ public class QuesController extends SerialSupport{
 		  return result;	
 	}
 	
-/*	private void clearAnswerCache(List<XlVipAnswer> list,int beginIndex){
-			int removeNum=list.size()-beginIndex;
-			while(removeNum>0){
-				list.remove(beginIndex+1);
-			}
-	}*/
 	
 	private void addAnswer(List<XlVipAnswer> list, XlVipAnswer vipAnswer){
 		Iterator<XlVipAnswer> it=list.iterator();
@@ -172,9 +172,10 @@ public class QuesController extends SerialSupport{
 		while(it.hasNext()){
 			answer=it.next();
 			//移除答案有相同问题id的，以及后面的答案
-			if(answer.getQuesId().equals(vipAnswer.getQuesId())){
+			if(answer.getQuesId().toString().equals(vipAnswer.getQuesId().toString())){
 				it.remove();
 				while(it.hasNext()){
+					it.next();
 					it.remove();
 				}
 				break;
@@ -183,15 +184,43 @@ public class QuesController extends SerialSupport{
 		list.add(vipAnswer);
 	}
 	
+	public static void main(String[] args) {
+		List<String> a=new ArrayList<String>();
+		a.add("a");
+		a.add("b");
+		a.add("c");
+		a.add("d");
+		a.add("e");
+		Iterator<String> it=a.iterator();
+		while(it.hasNext()){
+			String b=it.next();
+			//移除答案有相同问题id的，以及后面的答案
+			if(b.equals("d")){
+				it.remove();
+				while(it.hasNext()){
+					it.next();
+					it.remove();
+				}
+				break;
+			}
+		}
+		System.out.println(a);
+	}
+	
+	
 	private XlVipAnswer lastAnswer(List<XlVipAnswer> list,String questionId){
 		int length=list.size();
 		for (int i = 0; i <length ; i++) {
-			if(questionId.equals(list.get(i).getQuesId()))
-				return list.get(i);
+			if(questionId.equals(list.get(i).getQuesId().toString())){
+				if(i>0)
+					return list.get(i-1);
+				else return null;
+			}	
 		}
 		//若不存在则返回最后一个
-		return list.get(length-1);
-		
+		if(length>0){
+			return list.get(length-1);
+		}else return null;	
 	}
 	
 	
