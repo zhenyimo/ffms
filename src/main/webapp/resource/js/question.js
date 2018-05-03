@@ -101,12 +101,12 @@ require(['jquery'],function($){
 		};
 		
 		
-		QuestionApi.preQuestion2=function(goodId){
+		QuestionApi.prevQuestion2=function(goodId){
 			 var curQuestion=$(".carousel-inner div.item.active");
 			 if(curQuestion!=null&&curQuestion!=undefined){
 				 var curQuestionId=curQuestion.attr("questionId");
 				 $.ajax({
-					  url:pathContext+"/front/question/saveAnswerCache.do?goodId="+goodId,
+					  url:pathContext+"/front/question/prevQuestion.do",
 					  data:{
 						  "goodId":goodId,
 						  "curQuestionId":curQuestionId
@@ -118,12 +118,19 @@ require(['jquery'],function($){
 						  if(result.success){
 							  var quesId=JSON.parse(result.message).quesId;
 							  var itemIndex=$("div.item[questionId="+"'"+quesId+"'"+"]").attr("itemIndex");
-							  $("#myCarousel").carousel(itemIndex);
+							  //跳到上一题后需要清除之后的题目已选的选项
+							  clearNextQuestionRadioChecked(quesId);
+							  //轮播到上一题
+							  $("#myCarousel").carousel(Number(itemIndex));
+							  $("#myCarousel").carousel('pause');
+							  //进度条改变
 							  QuestionApi.speedOfProgress("prev",goodId);
+						  }else{
+							  alert(result.message);
 						  }
 					  },
 				  	  error:function(ex){
-				  		alert(ex+"缓存失败！");
+				  		alert(ex+"操作失败！");
 				  	  }
 				  });
 			 }
@@ -133,7 +140,15 @@ require(['jquery'],function($){
 			//QuestionApi.speedOfProgress("prev",goodId);
 		}
 		
-		
+		function clearNextQuestionRadioChecked(nextQuestionId){
+			var nextQuestion=$("div.item[questionId="+"'"+nextQuestionId+"'"+"]");
+			nextQuestion=nextQuestion.next();
+			while(nextQuestion.length>0){
+				nextQuestion.find("input[type='radio']").removeAttr('checked');
+				//alert($(nextQuestion).attr("questionId"))
+				nextQuestion=nextQuestion.next();
+			}
+		}
 
 		/**
 		 * 下一题
@@ -191,7 +206,7 @@ require(['jquery'],function($){
 		//将答题结果缓存到eacache
 		QuestionApi.saveAnswerCache=function(goodId,obj){
 			var answer=new Object();
-			 answer.answerId=$(obj).next().find("input[name='answerId']").val();
+			 answer.id=$(obj).next().find("input[name='id']").val();
 			 answer.ansNum=$(obj).next().find("input[name='ansNum']").val();
 			 answer.ansContent=$(obj).next().find("input[name='ansContent']").val();
 			 answer.quesId=$(obj).next().find("input[name='quesId']").val();

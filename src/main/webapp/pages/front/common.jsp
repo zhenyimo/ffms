@@ -35,12 +35,12 @@
 <link rel="stylesheet" href="${basePath}/bootstrap/css/font-awesome.css">
 <link rel="stylesheet" href="${basePath}/resource/css/jquery.mloading.css">
 
- <script src="${basePath}/pages/front/lib/jquery-2.1.4.js"></script> 
+<%--  <script src="${basePath}/pages/front/lib/jquery-2.1.4.js"></script> 
 <script src="${basePath}/pages/front/lib/fastclick.js"></script> 
 <script src="${basePath}/pages/front/js/jquery-weui.js"></script>
 <script src="${basePath}/pages/front/js/swiper.js"></script>
 <script src="${basePath}/bootstrap/js/bootstrap.min.js"></script>
-<script src="${basePath}/pages/front/js/txt.wav.min.js"></script>
+<script src="${basePath}/pages/front/js/txt.wav.min.js"></script> --%>
 
 
 

@@ -33,7 +33,7 @@
 	                    <c:forEach var="answer" items="${question.getAnswerList()}" begin="0" end ="${question.getAnswerList().size()}" varStatus="anstatus">
 		                     <div class="panel-body">
 		                    <span style="font-size:1.2em;color:#333"> <em><c:out value="${anstatus.count}"/>.</em>${answer.ansContent}</span>
-		                        <input type="radio" id="singleRadio_${anstatus.count}" style="float:right;" onclick="QuestionApi.nextQuestion(${good.id},this,'${answer.nextQuestionId}','${answer.nextQuesNum}')"  value="option_${status.count}" name="radioSingle_${status.count}" aria-label="Single radio One">
+		                        <input type="radio" id="singleRadio_${status.count}_${anstatus.count}" style="float:right;" onclick="QuestionApi.nextQuestion(${good.id},this,'${answer.nextQuestionId}','${answer.nextQuesNum}')"  value="option_${status.count}" name="radioSingle_${status.count}" aria-label="Single radio One">
 		                        <div>
 		                        <input type="hidden" name="id" value="${answer.id}">
 		                        <input type="hidden" name="ansNum" value="${answer.ansNum}">
@@ -58,7 +58,7 @@
 
 <div>
 <!-- <a  href="#myCarousel" id="nextBtn"  onclick="QuestionApi.nextQuestion()" class="weui-btn weui-btn_primary">下一题</a> -->
-<a  href="#myCarousel" id="prevBtn"  onclick="QuestionApi.prevQuestion(${good.id})" class="weui-btn weui-btn_primary" >上一题</a>
+<a  href="#myCarousel" id="prevBtn"  onclick="QuestionApi.prevQuestion2(${good.id})" class="weui-btn weui-btn_primary" >上一题</a>
 </div>
 
  </div>

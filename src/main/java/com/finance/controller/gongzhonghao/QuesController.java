@@ -4,6 +4,7 @@ package com.finance.controller.gongzhonghao;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -79,14 +80,14 @@ public class QuesController extends SerialSupport{
               goodMap=new HashMap<String, List<XlVipAnswer>>();
               List<XlVipAnswer> indextList=new LinkedList<XlVipAnswer>();
               synchronized(indextList){
-            	  indextList.add(vipAnswer ); 
+            	  addAnswer(indextList,vipAnswer);
               }
         	  goodMap.put(goodId, indextList);
         	  EhcacheUtil.getInstance().put(XlVipAnswer.VIP_ANSWER_CACHE_NAME, openId, goodMap);
           }else{  
         	  List<XlVipAnswer> indextList= goodMap.get(goodId);
         	  synchronized(indextList){
-        		  indextList.add(vipAnswer );  
+        		  addAnswer(indextList,vipAnswer);
         	  }
 //        	  goodMap.put(goodId, indextList);
 //        	  EhcacheUtil.getInstance().put(XlVipAnswer.VIP_ANSWER_CACHE_NAME, openId, goodMap);
@@ -102,9 +103,9 @@ public class QuesController extends SerialSupport{
 	 * @param goodId
 	 * @return
 	 */
-	@RequestMapping("/preQuestion.do")
+	@RequestMapping("/prevQuestion.do")
 	@ResponseBody
-	public AjaxJsonResult preQuestion(Model model,HttpServletRequest request,@RequestParam("goodId")String goodId,String curQuestionId){
+	public AjaxJsonResult prevQuestion(Model model,HttpServletRequest request,@RequestParam("goodId")String goodId,String curQuestionId){
 		AjaxJsonResult result = new AjaxJsonResult();
 		//Map<String,Object> params=new HashMap<String,Object>();
 		//params.put(GoodDao.PARAM_GOOD_ID,goodId);
@@ -129,11 +130,10 @@ public class QuesController extends SerialSupport{
         	  //indextList.add(vipAnswer);
         	  if(indexList!=null){
         		  synchronized (indexList) {
-            		  int index=indexOfAnswer(indexList,curQuestionId);
-            		  if(index>0){
+            		  if(indexList.size()>0){
+            			  XlVipAnswer lastAnswer=lastAnswer(indexList,curQuestionId);
             			  result.setSuccess(true);
-                		  result.setMessage(jsonSerial.serial(indexList.get(index)));
-                    	  clearAnswerCache(indexList,index);
+                		  result.setMessage(jsonSerial.serial(lastAnswer));
             		  }else{
             			  result.setSuccess(false);
             			  result.setMessage("没有上一题");
@@ -151,20 +151,39 @@ public class QuesController extends SerialSupport{
 		  return result;	
 	}
 	
-	private void clearAnswerCache(List<XlVipAnswer> list,int beginIndex){
+/*	private void clearAnswerCache(List<XlVipAnswer> list,int beginIndex){
 			int removeNum=list.size()-beginIndex;
 			while(removeNum>0){
 				list.remove(beginIndex+1);
 			}
+	}*/
+	
+	private void addAnswer(List<XlVipAnswer> list, XlVipAnswer vipAnswer){
+		Iterator<XlVipAnswer> it=list.iterator();
+		XlVipAnswer answer=null;
+		while(it.hasNext()){
+			answer=it.next();
+			//移除答案有相同问题id的，以及后面的答案
+			if(answer.getQuesId().equals(vipAnswer.getQuesId())){
+				it.remove();
+				while(it.hasNext()){
+					it.remove();
+				}
+				break;
+			}
+		}
+		list.add(vipAnswer);
 	}
 	
-	private int indexOfAnswer(List<XlVipAnswer> list,String questionId){
+	private XlVipAnswer lastAnswer(List<XlVipAnswer> list,String questionId){
 		int length=list.size();
 		for (int i = 0; i <length ; i++) {
 			if(questionId.equals(list.get(i).getQuesId()))
-				return i;
+				return list.get(i);
 		}
-		return -1;
+		//若不存在则返回最后一个
+		return list.get(length-1);
+		
 	}
 	
 	
