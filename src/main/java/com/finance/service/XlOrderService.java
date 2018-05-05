@@ -15,7 +15,7 @@ public interface XlOrderService {
 	//public String insertXlOrder(Integer vipId,Integer goodNum,String openId,XlGood good);
 	public List<XlOrder> findByOrderNoAndVipId(String orderNo,Object vipId);
 	String insertXlOrder(Integer vipId, Integer goodNum,
-			String openId, XlGood good);
+			String openId, XlGood good,Integer orderType);
 	public void updateOne(XlOrder order);
 	
 }

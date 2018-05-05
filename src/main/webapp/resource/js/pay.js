@@ -26,7 +26,7 @@ require.config({
 });
 
 var wxpayApi={};
-require(['jquery','wxpay','jquery.mloading'],function($,wxpay,mloading){
+require(['jquery','wxpay','jquery.mloading','commonUtils'],function($,wxpay,mloading,commonUtils){
 	
 	//初始化支付页面商品数量触发事件
 	$(function($){
@@ -48,6 +48,25 @@ require(['jquery','wxpay','jquery.mloading'],function($,wxpay,mloading){
 
 	wxpayApi.placeOrder=function(orderId){
 		return wxpay.placeOrder(orderId,successPay,failPay);
+	}
+	
+	wxpayApi.cancelPlaceOrder=function(orderId){
+		 $.ajax({
+			  url:pathContext+"/front/wx/cancelPayGood.do?orderNo="+orderId,
+			  dataType:"json",
+			  success:function(result){
+				  commonUtils.jsonResultHandler(result,function(data){
+					  alert(data.message);
+					  window.location.href=pathContext+"/front/index.do";
+				  },function(data){
+					  alert(data.message);
+					  window.location.href=pathContext+"/front/index.do";
+				  });
+			  },
+		  	  error:function(ex){
+		  		alert("请求失败！");
+		  	  }
+		  });
 	}
 	//支付成功回调
 	function successPay(wxRes){

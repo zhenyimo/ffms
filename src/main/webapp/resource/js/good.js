@@ -61,7 +61,7 @@ require(['jquery'],function($){
 				alert("赠送数量必须在1-99之间");
 				return false;
 			}	
-			window.location.href=pathContext+"/front/wx/payGood.do?goodId="+goodId+"&goodNum="+giftNum+"&isGift=0";
+			window.location.href=pathContext+"/front/wx/payGood.do?goodId="+goodId+"&goodNum="+giftNum+"&orderType=1";
 		};
 		
 		

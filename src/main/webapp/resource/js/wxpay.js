@@ -9,7 +9,7 @@ define(['jquery','commonUtils','wx'],function($,commonUtils,wx){
 					imgUrl: pathContext+"/pages/front/images/test.jpg",
 					type: 'link',
 					success: function () {alert("分享成功");},
-					ancel: function () {alert("分享失败");}
+					cancel: function () {alert("分享失败");}
 				}
 				for(var key in Options){
 					shareConfig[key]=Options[key];

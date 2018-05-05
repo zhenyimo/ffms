@@ -186,11 +186,11 @@ require(['jquery'],function($){
 		QuestionApi.timer = setInterval("QuestionApi.CountDown()", 1000); 
 	
 		
-		QuestionApi.payConfirm=function(goodId){
+		QuestionApi.payConfirm=function(goodId,surveyId){
 			//确定支付的dialog
 	        $.confirm("为了感谢我们的心理老师和程序员为测评的撰写和编辑，请您付上一点小小的爱心吧?",  function() {
 //	          $.toast("文件已经删除!");
-	        	QuestionApi.result(goodId);
+	        	window.location.href=pathContext+"/front/wx/payGood.do?goodId="+goodId+"&goodNum=1"+giftNum+"&orderType=0"+"&surveyId="+surveyId;
 	        }, function() {
 	          //取消操作
 	        });
@@ -201,11 +201,6 @@ require(['jquery'],function($){
 		QuestionApi.payGood=function(goodId){
 			window.location.href=pathContext+"/front/wx/payGood.do?goodId="+goodId;
 			
-		};
-		
-		//跳转到测评结果页面
-		QuestionApi.result=function(goodId){
-			window.location.href=pathContext+"/front/question/evaluationResult.do?goodId="+goodId;
 		};
 		
 		//将答题结果缓存到eacache

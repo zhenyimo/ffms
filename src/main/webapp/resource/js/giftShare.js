@@ -12,7 +12,8 @@ require.config({
         "front":"pages/front/js/front",
         "jquery.mloading":"resource/js/jquery.mloading",
         "tail":"resource/js/tail",
-        "wxpay":"resource/js/wxpay"
+        "wxpay":"resource/js/wxpay",
+        "clipbord":"resource/js/clipboard.min"
     },
     shim: {
     	'jquery.mloading':{
@@ -26,19 +27,30 @@ require.config({
 });
 
 var giftShareApi={};
-require(['jquery','wxpay','jquery.mloading'],function($,wx,mloading){
-	
+require(['jquery','wxpay','jquery.mloading','clipbord'],function($,wx,mloading,Clipboard){
 	$(function($){
-		//初始化分享朋友功能
-		wx.onMenuShareAppMessage({
-			title:$("goodTitle").text(),
-			desc:'心理测试',
-			link:pathContext+$("#shareUrl").val(),
-			imgUrl: $("#goodImage").attr("src"),
-			type: 'link',
-			success: function () {alert("赠送成功");},
-			ancel: function () {alert("赠送失败");}
-		});
+		var copyUrl=pathContext+$("#shareUrl").val();
+		$("#copyUrlInput").val(copyUrl);
+		var clipboard1 = new Clipboard('.copyBtn');
+		
+        clipboard1.on('success', function(e){
+            console.log(e);
+            
+            //覆盖微信发送给朋友按钮
+            wx.onMenuShareAppMessage({
+    			title:"您的好友赠送了一份心理测试给您",
+    			desc:$("#goodTitle").text(),
+    			link:pathContext+$("#shareUrl").val(),
+    			imgUrl: $("#goodImage").attr("src"),
+    			type: 'link',
+    			success: function () {alert("赠送成功");},
+    			cancel: function () {alert("赠送失败");}
+    		});
+            document.getElementById('copyUrl').innerHTML = '复制成功';
+        });
+        clipboard1.on('error', function(e){
+            document.getElementById('copyUrl').innerHTML = '复制失败，请长按复制';
+        });
 	});
 	giftShareApi.returnIndex=function(){
 		window.location.href=pathContext+"/front/index.do";

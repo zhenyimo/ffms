@@ -34,7 +34,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<where>
 			o.from_user=#{fromUser}
 		</where> 
-		  order by o.time desc limit #{limitStart},#{limitLength}
+		  order by o.time desc <if test="limitStart!=null and limitLength!=null">limit #{limitStart},#{limitLength}</if>
 	</select>
 	<select id="findByFromUserAndOrderNo" parameterType="Map" resultMap="orderSendMap">
 		select * from xl_order_send o 
@@ -62,7 +62,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<where>
 			o.to_user=#{toUser} and o.order_no=#{orderNo}
 		</where> 
-		  order by o.time desc limit #{limitStart},#{limitLength}
+		  order by o.time desc <if test="limitStart!=null and limitLength!=null">limit #{limitStart},#{limitLength}</if>
 	</select>
 	
 	<select id="sumOrderMoneyByToUser" parameterType="Map" resultType="java.lang.Double">

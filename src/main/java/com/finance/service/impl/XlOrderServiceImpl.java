@@ -70,7 +70,7 @@ public class XlOrderServiceImpl implements XlOrderService{
 		xlOrderDao.updateStatusByOrderNo(param);
 	}
 	@Override
-	public String insertXlOrder(Integer vipId, Integer goodNum,String openId, XlGood good) {
+	public String insertXlOrder(Integer vipId, Integer goodNum,String openId, XlGood good,Integer orderType) {
 		String mchId=weChatConfigApi.getWeChatPayConfig().getMchId();
 		// TODO Auto-generated method stub
 		XlOrder order=new XlOrder();
@@ -83,6 +83,7 @@ public class XlOrderServiceImpl implements XlOrderService{
 		order.setOrderNum(goodNum);
 		order.setOrderNo(SequenceUtil.getOrderSequence(mchId, openId));
 		order.setMoney(good.getPrice()*goodNum);
+		order.setOrderType(orderType);
 		xlOrderDao.insertXlOrder(order);
 		return order.getOrderNo();
 	}

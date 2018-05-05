@@ -14,9 +14,37 @@
 <!--主体-->
 <header class="wy-header">
   <div class="wy-header-icon-back"><span></span></div>
-  <div class="wy-header-title">微信支付</div>
+  <div class="wy-header-title">订单预览</div>
 </header>
-<div class="weui-content">
+<!-- 微信jssdk的权限初始化 -->
+<input id="jsApiListInit" type="hidden" value="${jsApiListInit}"/> 
+<!-- 支付完成的跳转url -->
+<input id="redirectUrl" type="hidden" value="${redirectUrl}"/>
+<!-- 付款预览 -->
+<div class="weui-form-preview">
+  <div class="weui-cells">
+  <div class="weui-cell">
+    <div class="weui-cell__hd"><img style="width:65px;margin-right:5px;display:block" src="${basePath}/pages/front/images/${good.pictureName}"></div>
+    <div class="weui-cell__bd">
+      <p style="margin: 0 0 5px;">${good.tittle}</p>
+       <p style="margin: 0 0 5px;">¥${good.price}</p>
+    </div>
+    <div class="weui-cell__ft">x${goodNum}</div>
+   
+  </div>
+  <div class="weui-cell">
+    <div class="weui-cell__bd">总价：</div>
+    <div class="weui-cell__ft" style="text-align:right">¥${payTotalMoney}</div>  
+  </div>
+</div>
+  <div class="weui-btn-area">
+  	<a href="javascript:wxpayApi.placeOrder('${orderNo}');" class="weui-btn weui-btn_primary">确认支付</a>
+    <a href="javascript:wxpayApi.cancelPlaceOrder('${orderNo}');" class="weui-btn weui-btn_warn">取消订单</a>
+  </div>
+</div>
+
+
+<%-- <div class="weui-content">
   <input id="afterPayRedirectUrl" type="hidden" value="${redirectUrl}"/>
   <div class="wy-media-box weui-media-box_text">
     <div class="weui-media-box__bd">
@@ -42,7 +70,7 @@
   </div>
 </div>
 </div>
-</div>
+</div> --%>
 
 </body>
 </html>

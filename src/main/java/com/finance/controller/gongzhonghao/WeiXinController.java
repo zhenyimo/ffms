@@ -42,6 +42,7 @@ import com.finance.entity.XlVip;
 import com.finance.exception.BusinessException;
 import com.finance.exception.ErrorCode;
 import com.finance.lock.ObjectLockMap;
+import com.finance.model.AjaxJsonResult;
 import com.finance.model.AjaxResult;
 import com.finance.service.VipService;
 import com.finance.service.XlGoodService;
@@ -322,25 +323,42 @@ public class WeiXinController extends SerialSupport{
 	
 
 	@RequestMapping("/payGood.do")
-	public String payGood(Model model,HttpServletRequest request,@RequestParam("goodId")String goodId,@RequestParam("goodNum")int goodNum,@RequestParam("isGift")int isGift){
+	public String payGood(Model model,HttpServletRequest request,@RequestParam("goodId")String goodId,@RequestParam(name="goodNum",defaultValue="1")int goodNum,@RequestParam("orderType")int orderType,@RequestParam(name="surveyId",required=false)String surveyId){
 		Map<String,Object> params=new HashMap<String,Object>();
 		params.put(GoodDao.PARAM_GOOD_ID,goodId);
 		XlGood good=xlGoodService.findByGoodId(params);
 		XlVip curUser=(XlVip) request.getSession().getAttribute(Constants.currentFrontUserSessionKey);
-		String orderNo=xlOrderService.insertXlOrder(curUser.getId(),goodNum,curUser.getOpenId(),good);
+		String orderNo=xlOrderService.insertXlOrder(curUser.getId(),goodNum,curUser.getOpenId(),good,orderType);
 		model.addAttribute("goodNum", goodNum);
 		model.addAttribute("orderNo",orderNo);
-		model.addAttribute("jsApiListInit","onMenuShareAppMessage,chooseWXPay");
+		model.addAttribute("payTotalMoney",(good.getPrice()*goodNum));
 		model.addAttribute("good",good);
-		//0-赠送，1-测评后的支付，赠送的话，支付完成后需要跳转到分享页面，测评的话则跳转到测评结果
-		if(isGift==0){
+		//1-赠送，0-测评后的支付，赠送的话，支付完成后需要跳转到分享页面，测评的话则跳转到测评结果
+		if(orderType==XlOrder.ORDER_TYPE_GIFT){
+			model.addAttribute("jsApiListInit","onMenuShareAppMessage,chooseWXPay");
 			model.addAttribute("redirectUrl","/front/gift/giftShare.do?orderNo="+orderNo);
 		}else{
 			//跳到测评结果页面
-			model.addAttribute("redirectUrl","");
+			model.addAttribute("jsApiListInit","chooseWXPay");
+			model.addAttribute("redirectUrl","front/question/evaluationResult.do?orderNo="+orderNo);
 		}
-		return "front/pay";
+		return "front/payPreview";
 		
+	}
+	
+	@RequestMapping("/cancelPayGood.do")
+	@ResponseBody
+	public AjaxResult payGood(HttpServletRequest request,@RequestParam("orderNo")String orderNo){
+		XlVip curUser=(XlVip) request.getSession().getAttribute(Constants.currentFrontUserSessionKey);
+		List<XlOrder> orderList=xlOrderService.findByOrderNoAndVipId(orderNo, curUser.getId());
+		if(ArrayUtil.isUnique(orderList)){
+			XlOrder order=orderList.get(0);
+			XlOrder orderNew=new XlOrder();
+			orderNew.setId(order.getId());
+			orderNew.setFlag(XlOrder.FLAG_PAY_CANNEL);
+			xlOrderService.updateOne(orderNew);
+		}
+		return new AjaxResult(AjaxResult.SUCCESS,AjaxResult.DEFAULT_SUCCESS_TIP,null);
 	}
 	
 	

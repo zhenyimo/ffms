@@ -10,6 +10,10 @@ public class XlOrder implements Serializable{
 	public static final String FLAG_NOT_PAY="2";
 	public static final String FLAG_PAY_FAIL="3";
 	public static final String FLAG_PAY_CANNEL="4";
+	
+	public static final Integer ORDER_TYPE_GIFT=1;
+	public static final Integer ORDER_TYPE_COMMON=0;
+	
 	private Integer id; // 编号
 	
 	private String orderNo; // 订单编号
@@ -23,6 +27,8 @@ public class XlOrder implements Serializable{
 	private Integer goodId; // 收入时间
 	private Integer commentId; // 创建时间
 	private XlGood good;
+	
+	private Integer orderType;
 	private List<XlOrderSend> orderSend;
 	private List<XlOrderSend> orderReceive;
 	public Integer getId() {
@@ -113,6 +119,12 @@ public class XlOrder implements Serializable{
 	}
 	
 	
+	public Integer getOrderType() {
+		return orderType;
+	}
+	public void setOrderType(Integer orderType) {
+		this.orderType = orderType;
+	}
 	public void incClaimNum(){
 		this.claimNum++;
 	}

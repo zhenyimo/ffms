@@ -88,6 +88,8 @@ public class GoodController {
 		return "front/questionIndex";	
 	}
 	
+	
+	
 	/**
 	 * 跳转到做题页面
 	 * @param model

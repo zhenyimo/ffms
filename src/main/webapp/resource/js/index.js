@@ -44,6 +44,7 @@ require(['jquery'],function($){
 	        paginationClickable: true,
 	        spaceBetween:2
 	      });
+		 
 	});
 	
 });

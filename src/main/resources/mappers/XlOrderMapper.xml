@@ -14,6 +14,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="orderNum" column="aorderNum"/>
 		<result property="claimNum" column="aclaimNum"/>
 		<result property="commentId" column="acommentId" />
+		<result property="orderType" column="aorderType" />
 		<association property="good" javaType="XlGood" >
 			<result property="tittle" column="gtittle" />
 			<result property="subtittle" column="gsubtittle" />
@@ -34,7 +35,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</collection>  	
 	</resultMap>
 	<select id="findOrderSendByVipId" parameterType="Map" resultMap="orderMap">
-		select a.id aid,a.order_no aorder_no,a.time atime,a.flag aflag,a.money amoney,a.vipId avipId,a.goodId agoodId,a.commentId acommentId,s.id sid, s.order_no sorder_no, s.time stime, s.money smoney, s.goodId sgoodId, s.from_user sfrom_user,v.openId vopenId,v.nickName vnickName, s.to_user sto_user,s.is_claim sis_claim,a.gtittle,a.gsubtittle,a.claim_num aclaimNum,a.order_num aorderNum from (
+		select a.id aid,a.order_type aorderType,a.order_no aorder_no,a.time atime,a.flag aflag,a.money amoney,a.vipId avipId,a.goodId agoodId,a.commentId acommentId,s.id sid, s.order_no sorder_no, s.time stime, s.money smoney, s.goodId sgoodId, s.from_user sfrom_user,v.openId vopenId,v.nickName vnickName, s.to_user sto_user,s.is_claim sis_claim,a.gtittle,a.gsubtittle,a.claim_num aclaimNum,a.order_num aorderNum from (
 			select o.*,g.tittle gtittle,g.subtittle gsubtittle from xl_order o inner join xl_good g on o.goodId=g.id
 			<where>
 		       o.vipId=#{vipId}
@@ -52,14 +53,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		 </where>  
   	</select>  
   	<select id="findByOrderNo"  parameterType="Map" resultMap="orderMap">  
-		 select a.claim_num aclaimNum,a.order_num aorderNum,a.id aid,a.order_no aorder_no,a.time atime,a.flag aflag,a.money amoney,a.vipId avipId,a.goodId agoodId,a.commentId acommentId from xl_order a
+		 select a.claim_num aclaimNum,a.order_num aorderNum,a.id aid,a.order_no aorder_no,a.time atime,a.flag aflag,a.money amoney,a.vipId avipId,a.goodId agoodId,a.commentId acommentId,a.order_type aorderType from xl_order a
 		 <where>
 		 	a.order_no=#{orderNo}
 		 </where>  
   	</select>  
   	
   	<select id="findByOrderNoAndVipId"  parameterType="Map" resultMap="orderMap">  
-		 select a.claim_num aclaimNum,a.order_num aorderNum,a.id aid,a.order_no aorder_no,a.time atime,a.flag aflag,a.money amoney,a.vipId avipId,a.goodId agoodId,a.commentId acommentId from xl_order a
+		 select a.claim_num aclaimNum,a.order_num aorderNum,a.id aid,a.order_no aorder_no,a.time atime,a.flag aflag,a.money amoney,a.vipId avipId,a.goodId agoodId,a.commentId acommentId,a.order_type aorderType from xl_order a
 		 <where>
 		 	a.order_no=#{orderNo} and a.vipId=#{vipId}
 		 </where>  
@@ -75,14 +76,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
           SELECT LAST_INSERT_ID()
       </selectKey>
-        INSERT INTO xl_order (order_no, time, flag, money, vipId, goodId, commentId, order_num, claim_num) VALUES (#{orderNo}, #{time}, #{flag}, #{money}, #{vipId}, #{goodId}, #{commentId}, #{orderNum}, #{claimNum})
+        INSERT INTO xl_order (order_no, time, flag, money, vipId, goodId, commentId, order_num, claim_num,order_type) VALUES (#{orderNo}, #{time}, #{flag}, #{money}, #{vipId}, #{goodId}, #{commentId}, #{orderNum}, #{claimNum},#{orderType})
     </insert>
     
     
      <update id="updateOne"  parameterType="XlOrder">
  		UPDATE xl_order
 		 <trim prefix="set" suffixOverrides=",">
-		  <if test="orderNo!=null">order_no=#{orderNo},</if>
+		   <if test="orderNo!=null">order_no=#{orderNo},</if>
 		  <if test="time!=null">time=#{time},</if>
 		  <if test="flag!=null">flag=#{flag},</if>
 		  <if test="money!=null">money=#{money},</if>
@@ -91,6 +92,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		  <if test="commentId!=null">commentId=#{commentId},</if>
 		  <if test="orderNum!=null">order_num=#{orderNum},</if>
 		  <if test="claimNum!=null">claim_num=#{claimNum},</if>
+		   <if test="orderType!=null">order_type=#{orderType},</if>
 		 </trim>
  		WHERE id=#{id}
 	</update>   

@@ -16,32 +16,20 @@
 	<div class="wy-header-title">赠送页面</div>
 </header>
 <input id="shareUrl" type="hidden" value="${shareUrl}" />
-<div class="weui_msg">
-	<div class="wy-media-box weui-media-box_text">
-		<div class="weui-media-box__bd">
-			<div class="weui-media-box_appmsg ord-pro-list">
-				<div class="weui-media-box__hd">
-					<a href="#"><img id="goodImage" class="weui-media-box__thumb"
-						src="${basePath}/pages/front/images/${good.pictureName}" alt=""></a>
-				</div>
-				<div class="weui-media-box__bd">
-					<h1 class="weui-media-box__desc">
-						<a id="goodTitle" href="javascript:void(0)" class="ord-pro-link">${good.tittle }</a>
-					</h1>
-					<p class="weui-media-box__desc">
-						类型：<span>${good.typeName}</span>
-					</p>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="weui_opr_area">
-		<p class="weui_btn_area">
-			<!--<a href="#" onclick="javascript:giftShareApi.onMenuShareAppMessage();" class="weui_btn weui_btn_primary">发送给朋友</a>  -->
-			<a href="#" onclick="javascript:giftShareApi.returnIndex();" class="weui_btn weui_btn_primary">返回心理测试主页</a>
-		</p>
-	</div>
+<div class="weui-form-preview">
+  <div class="weui-cells">
+  <div class="weui-cell">
+    <div class="weui-cell__hd"><img style="width:65px;margin-right:5px;display:block" src="${basePath}/pages/front/images/${good.pictureName}"></div>
+    <div class="weui-cell__bd">
+      <p style="margin: 0 0 5px;">${good.tittle}</p>
+    </div>
+  </div>
 </div>
-
+<input id="copyUrlInput" type="text" style="display:none" value="" />
+<div class="weui-btn-area">
+	<a href="#" id="copyUrl" class="copyBtn weui-btn weui-btn_primary" data-clipboard-target="#copyUrlInput" data-clipboard-action="copy">复制链接</a>
+	<a href="#" onclick="javascript:giftShareApi.returnIndex();" class="weui-btn weui-btn_primary">返回主页</a>
+</div>
+</div>
 </body>
 </html>

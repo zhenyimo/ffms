@@ -9,7 +9,7 @@ require.config({
         "swiper":"pages/front/js/swiper",
         "bootstrap":"bootstrap/js/bootstrap.min",
         "txtwav":"pages/front/js/txt.wav.min",
-        "tail":"resource/js/tail"
+        "tail":"resource/js/tail",
     }
 });
 

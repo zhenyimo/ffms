@@ -56,7 +56,7 @@ public class XlOrderSendServiceImpl implements XlOrderSendService {
 	 * @see 
 	 */
 	@Override
-	@Transactional(isolation=Isolation.REPEATABLE_READ,propagation=Propagation.REQUIRED,rollbackFor=Exception.class)
+	//@Transactional(isolation=Isolation.REPEATABLE_READ,propagation=Propagation.REQUIRED,rollbackFor=Exception.class)
 	public boolean claimIfOrderHasRest(String orderNo, Object fromUser,Object toUser) {
 		// TODO Auto-generated method stub
 		List<XlOrder> orderList=xlOrderService.findByOrderNoAndVipId(orderNo, fromUser);
@@ -83,6 +83,10 @@ public class XlOrderSendServiceImpl implements XlOrderSendService {
 			orderSend.setMoney(0);
 			orderSend.setGoodId(order.getGoodId());
 			xlOrderSendDao.insertXlOrderSend(orderSend);
+			XlOrder orderNew=new XlOrder();
+			orderNew.setId(order.getId());
+			orderNew.setClaimNum(order.getClaimNum()+1);
+			xlOrderService.updateOne(orderNew);
 		}
 		logger.info(toUser+"认领记录插入成功，订单号为:"+orderNo);
 		return true;
