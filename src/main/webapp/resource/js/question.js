@@ -48,8 +48,20 @@ require(['jquery'],function($){
 			  items = carouselData.$items;//所有图片的包裹div的数组
 			});
 			 $("#speed").attr("style","width:"+Number(1/denominator*100)+"%");
-		    $("#myCarousel").find("ol").find("li:eq(0)").addClass("active");
-		    $("#myCarousel").find(".carousel-inner").find("div:eq(0)").addClass("active");
+			 $("#myCarousel").find("ol").find("li:eq(0)").addClass("active");
+			 $("#myCarousel").find(".carousel-inner").find("div:eq(0)").addClass("active");
+			 var lastAnsquesNum=$("#lastAnsquesNum").val();
+//			 alert(lastAnsquesNum);
+			 if(lastAnsquesNum!=''||lastAnsquesNum!=undefined){
+				 $("#myCarousel").carousel(Number(lastAnsquesNum)); 
+				 var activeNum=$(".active").attr("data-slide-to");
+				 if(activeNum!=0){
+				 $("#prevBtn").attr("style","display:block");
+				 }
+			 }
+		   
+		   
+			
 
 		      
 		});	
@@ -101,11 +113,13 @@ require(['jquery'],function($){
 			 var curQuestion=$(".carousel-inner div.item.active");
 			 if(curQuestion!=null&&curQuestion!=undefined){
 				 var curQuestionId=curQuestion.attr("questionId");
+				 var surveyId=$("#surveyId").val();
 				 $.ajax({
 					  url:pathContext+"/front/question/prevQuestion.do",
 					  data:{
 						  "goodId":goodId,
-						  "curQuestionId":curQuestionId
+						  "curQuestionId":curQuestionId,
+						  "surveyId":surveyId
 					  },
 					  dataType:"json",
 					  async:false,
@@ -134,7 +148,7 @@ require(['jquery'],function($){
 			
 			
 			//QuestionApi.speedOfProgress("prev",goodId);
-		}
+		};
 		
 		function clearNextQuestionRadioChecked(nextQuestionId){
 			var nextQuestion=$("div.item[questionId="+"'"+nextQuestionId+"'"+"]");
@@ -212,9 +226,10 @@ require(['jquery'],function($){
 			 answer.quesId=$(obj).next().find("input[name='quesId']").val();
 			 answer.nextQuestionId=$(obj).next().find("input[name='nextQuestionId']").val();
 			 answer.answerScore=$(obj).next().find("input[name='answerScore']").val();
+			var surveyId=$("#surveyId").val();
 			  $.ajax({
 				  url:pathContext+"/front/question/saveAnswerCache.do?goodId="+goodId,
-				  data:{answer:JSON.stringify(answer)},
+				  data:{answer:JSON.stringify(answer),surveyId:surveyId},
 				  dataType:"json",
 				  success:function(result){
 //					alert("缓存成功！");	

@@ -13,7 +13,10 @@
    </div>
  <div id="warring" style="color:red"></div>
 </div>
-
+<input type="hidden" id="lastAnsNum" value="${lastVipAnswer.ansNum}">
+<input type="hidden" id="lastAnsquesNum" value="${lastAnsQues.quesNum}">
+<input type="hidden" id="lastQuesId" value="${lastVipAnswer.quesId}">
+<input type="hidden" id="surveyId" value="${surveyId}">
 
 <div class="weui-panel weui-panel_access" style="padding-left:5%;padding-right:5%;width:100%">
 <div class="weui-panel__bd">

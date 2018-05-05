@@ -48,7 +48,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
        a.next_ques_num annex_next_ques_num,
        a.answer_score annex_answer_score
        from xl_question q,xl_answer a 
-	   where a.questionId=q.id and q.goodId=#{goodId}
+	   where a.questionId=q.id and q.goodId=#{goodId} order by q.question_num asc
 	</select>
 	
  	<!-- 单表查询，查询所有题目 -->
@@ -58,4 +58,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="findQuestionById" resultMap="XlQuestionResult" parameterType="int">
 	select * from xl_question where id=#{quesId}
 	</select>
+	
+
 </mapper> 	

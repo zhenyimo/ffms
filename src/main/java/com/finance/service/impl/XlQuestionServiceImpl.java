@@ -10,10 +10,12 @@ import org.springframework.stereotype.Service;
 import com.finance.dao.XlEvaluationDao;
 import com.finance.dao.XlEvaluationRecordDao;
 import com.finance.dao.XlQuestionDao;
+import com.finance.dao.XlSurveyRecordDao;
 import com.finance.dao.XlVipAnswerDao;
 import com.finance.entity.XlEvaluation;
 import com.finance.entity.XlEvaluationRecord;
 import com.finance.entity.XlQuestion;
+import com.finance.entity.XlSurveyRecord;
 import com.finance.entity.XlVipAnswer;
 import com.finance.service.XlQuestionService;
 
@@ -33,6 +35,8 @@ public class XlQuestionServiceImpl implements XlQuestionService{
 	private XlEvaluationDao xlEvaluationDao;
 	@Resource
 	private XlEvaluationRecordDao xlEvaluationRecordDao;
+	@Resource 
+	private XlSurveyRecordDao xlSurveyRecordDao;
 
 	public List<XlQuestion> findXlQuestion(Map<String, Object> map) {
 		return xlQuestionDao.findXlQuestion(map);
@@ -84,5 +88,16 @@ public class XlQuestionServiceImpl implements XlQuestionService{
 	@Override
 	public void saveXlEvaluationRecord(List<XlEvaluationRecord> list) {
 		 xlEvaluationRecordDao.saveXlEvaluationRecord(list);
+	}
+
+	@Override
+	public void saveSurveyRecord(XlSurveyRecord record) {
+		xlSurveyRecordDao.saveSurveyRecord(record);
+		
+	}
+
+	@Override
+	public List<XlSurveyRecord> findSurveyRecord(Map<String, Object> map) {
+		return xlSurveyRecordDao.findSurveyRecord(map);
 	}
 }

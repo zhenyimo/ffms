@@ -64,5 +64,7 @@ public interface XlQuestionDao {
 	public List<XlQuestion> findQuestionByGoodId(Map<String,Object> map);
 	
 	
+	
+	
 
 }

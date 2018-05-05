@@ -6,6 +6,7 @@ import java.util.Map;
 import com.finance.entity.XlEvaluation;
 import com.finance.entity.XlEvaluationRecord;
 import com.finance.entity.XlQuestion;
+import com.finance.entity.XlSurveyRecord;
 import com.finance.entity.XlVipAnswer;
 
 //import com.finance.entity.Datadic;
@@ -79,6 +80,18 @@ public interface XlQuestionService {
 	 * @return
 	 */
 	public void saveXlEvaluationRecord(List<XlEvaluationRecord> list);
+	
+	/**
+	 * 开始测试时保存答案记录主表
+	 * @param record
+	 */
+	public void saveSurveyRecord(XlSurveyRecord record);
+	/**
+	 * 开始测试时查找对应SurveyRecord
+	 * @param map
+	 * @return
+	 */
+	public List<XlSurveyRecord> findSurveyRecord(Map<String,Object> map);
 	
 	
 }
